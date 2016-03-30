@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44031CAB5E50000F4E12 /* AppDelegate.swift */; };
+		D97F44061CAB5E50000F4E12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44051CAB5E50000F4E12 /* ViewController.swift */; };
+		D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F440A1CAB5E50000F4E12 /* Assets.xcassets */; };
+		D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */; };
+		D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */; };
+		D97F44241CAB5E51000F4E12 /* MyWeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */; };
+		D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44311CAB5EA2000F4E12 /* AddViewController.swift */; };
+		D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97F44331CAB5EEA000F4E12 /* HealthKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D97F44151CAB5E51000F4E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D97F43F81CAB5E50000F4E12 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D97F43FF1CAB5E50000F4E12;
+			remoteInfo = MyWeight;
+		};
+		D97F44201CAB5E51000F4E12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D97F43F81CAB5E50000F4E12 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D97F43FF1CAB5E50000F4E12;
+			remoteInfo = MyWeight;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D97F44051CAB5E50000F4E12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D97F440A1CAB5E50000F4E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D97F440D1CAB5E50000F4E12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D97F440F1CAB5E50000F4E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97F44141CAB5E51000F4E12 /* MyWeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeightTests.swift; sourceTree = "<group>"; };
+		D97F441A1CAB5E51000F4E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97F441F1CAB5E51000F4E12 /* MyWeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeightUITests.swift; sourceTree = "<group>"; };
+		D97F44251CAB5E51000F4E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D97F44311CAB5EA2000F4E12 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		D97F44331CAB5EEA000F4E12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		D97F44351CAB5EEA000F4E12 /* MyWeight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyWeight.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D97F43FD1CAB5E50000F4E12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97F44111CAB5E51000F4E12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97F441C1CAB5E51000F4E12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D97F43F71CAB5E50000F4E12 = {
+			isa = PBXGroup;
+			children = (
+				D97F44021CAB5E50000F4E12 /* MyWeight */,
+				D97F44171CAB5E51000F4E12 /* MyWeightTests */,
+				D97F44221CAB5E51000F4E12 /* MyWeightUITests */,
+				D97F44011CAB5E50000F4E12 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D97F44011CAB5E50000F4E12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D97F44001CAB5E50000F4E12 /* MyWeight.app */,
+				D97F44141CAB5E51000F4E12 /* MyWeightTests.xctest */,
+				D97F441F1CAB5E51000F4E12 /* MyWeightUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D97F44021CAB5E50000F4E12 /* MyWeight */ = {
+			isa = PBXGroup;
+			children = (
+				D97F44031CAB5E50000F4E12 /* AppDelegate.swift */,
+				D97F44051CAB5E50000F4E12 /* ViewController.swift */,
+				D97F44311CAB5EA2000F4E12 /* AddViewController.swift */,
+				D97F44371CAB5F84000F4E12 /* Resources */,
+				D97F44361CAB5F71000F4E12 /* Frameworks */,
+			);
+			path = MyWeight;
+			sourceTree = "<group>";
+		};
+		D97F44171CAB5E51000F4E12 /* MyWeightTests */ = {
+			isa = PBXGroup;
+			children = (
+				D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */,
+				D97F441A1CAB5E51000F4E12 /* Info.plist */,
+			);
+			path = MyWeightTests;
+			sourceTree = "<group>";
+		};
+		D97F44221CAB5E51000F4E12 /* MyWeightUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */,
+				D97F44251CAB5E51000F4E12 /* Info.plist */,
+			);
+			path = MyWeightUITests;
+			sourceTree = "<group>";
+		};
+		D97F44361CAB5F71000F4E12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D97F44331CAB5EEA000F4E12 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D97F44371CAB5F84000F4E12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D97F44351CAB5EEA000F4E12 /* MyWeight.entitlements */,
+				D97F440F1CAB5E50000F4E12 /* Info.plist */,
+				D97F440A1CAB5E50000F4E12 /* Assets.xcassets */,
+				D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D97F43FF1CAB5E50000F4E12 /* MyWeight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97F44281CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeight" */;
+			buildPhases = (
+				D97F43FC1CAB5E50000F4E12 /* Sources */,
+				D97F43FD1CAB5E50000F4E12 /* Frameworks */,
+				D97F43FE1CAB5E50000F4E12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyWeight;
+			productName = MyWeight;
+			productReference = D97F44001CAB5E50000F4E12 /* MyWeight.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D97F44131CAB5E51000F4E12 /* MyWeightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97F442B1CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeightTests" */;
+			buildPhases = (
+				D97F44101CAB5E51000F4E12 /* Sources */,
+				D97F44111CAB5E51000F4E12 /* Frameworks */,
+				D97F44121CAB5E51000F4E12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D97F44161CAB5E51000F4E12 /* PBXTargetDependency */,
+			);
+			name = MyWeightTests;
+			productName = MyWeightTests;
+			productReference = D97F44141CAB5E51000F4E12 /* MyWeightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D97F441E1CAB5E51000F4E12 /* MyWeightUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97F442E1CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeightUITests" */;
+			buildPhases = (
+				D97F441B1CAB5E51000F4E12 /* Sources */,
+				D97F441C1CAB5E51000F4E12 /* Frameworks */,
+				D97F441D1CAB5E51000F4E12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D97F44211CAB5E51000F4E12 /* PBXTargetDependency */,
+			);
+			name = MyWeightUITests;
+			productName = MyWeightUITests;
+			productReference = D97F441F1CAB5E51000F4E12 /* MyWeightUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D97F43F81CAB5E50000F4E12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Diogo Tridapalli";
+				TargetAttributes = {
+					D97F43FF1CAB5E50000F4E12 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = MQRRG9G4R7;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					D97F44131CAB5E51000F4E12 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = D97F43FF1CAB5E50000F4E12;
+					};
+					D97F441E1CAB5E51000F4E12 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = D97F43FF1CAB5E50000F4E12;
+					};
+				};
+			};
+			buildConfigurationList = D97F43FB1CAB5E50000F4E12 /* Build configuration list for PBXProject "MyWeight" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D97F43F71CAB5E50000F4E12;
+			productRefGroup = D97F44011CAB5E50000F4E12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D97F43FF1CAB5E50000F4E12 /* MyWeight */,
+				D97F44131CAB5E51000F4E12 /* MyWeightTests */,
+				D97F441E1CAB5E51000F4E12 /* MyWeightUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D97F43FE1CAB5E50000F4E12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */,
+				D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97F44121CAB5E51000F4E12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97F441D1CAB5E51000F4E12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D97F43FC1CAB5E50000F4E12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97F44061CAB5E50000F4E12 /* ViewController.swift in Sources */,
+				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
+				D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97F44101CAB5E51000F4E12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97F441B1CAB5E51000F4E12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97F44241CAB5E51000F4E12 /* MyWeightUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D97F44161CAB5E51000F4E12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D97F43FF1CAB5E50000F4E12 /* MyWeight */;
+			targetProxy = D97F44151CAB5E51000F4E12 /* PBXContainerItemProxy */;
+		};
+		D97F44211CAB5E51000F4E12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D97F43FF1CAB5E50000F4E12 /* MyWeight */;
+			targetProxy = D97F44201CAB5E51000F4E12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D97F440D1CAB5E50000F4E12 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D97F44261CAB5E51000F4E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D97F44271CAB5E51000F4E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D97F44291CAB5E51000F4E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyWeight/MyWeight.entitlements;
+				INFOPLIST_FILE = MyWeight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D97F442A1CAB5E51000F4E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyWeight/MyWeight.entitlements;
+				INFOPLIST_FILE = MyWeight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D97F442C1CAB5E51000F4E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyWeightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyWeight.app/MyWeight";
+			};
+			name = Debug;
+		};
+		D97F442D1CAB5E51000F4E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyWeightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyWeight.app/MyWeight";
+			};
+			name = Release;
+		};
+		D97F442F1CAB5E51000F4E12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyWeightUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyWeight;
+			};
+			name = Debug;
+		};
+		D97F44301CAB5E51000F4E12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyWeightUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyWeight;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D97F43FB1CAB5E50000F4E12 /* Build configuration list for PBXProject "MyWeight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97F44261CAB5E51000F4E12 /* Debug */,
+				D97F44271CAB5E51000F4E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D97F44281CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97F44291CAB5E51000F4E12 /* Debug */,
+				D97F442A1CAB5E51000F4E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D97F442B1CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97F442C1CAB5E51000F4E12 /* Debug */,
+				D97F442D1CAB5E51000F4E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D97F442E1CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeightUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97F442F1CAB5E51000F4E12 /* Debug */,
+				D97F44301CAB5E51000F4E12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D97F43F81CAB5E50000F4E12 /* Project object */;
+}

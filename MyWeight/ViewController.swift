@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     private func loadWeights()
     {
-        self.weights.removeAll()
+        weights.removeAll()
 
         let quantityTypeIdentifier = HKQuantityTypeIdentifierBodyMass
 

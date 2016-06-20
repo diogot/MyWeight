@@ -57,7 +57,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         weightPicker.delegate = self
         weightPicker.dataSource = self
 
-        button.setTitle("Save", forState: .Normal)
+        button.setTitle(Localization.defaultSave, forState: .Normal)
         button.addTarget(self,
                          action: #selector(AddViewController.saveMass),
                          forControlEvents: .TouchUpInside)

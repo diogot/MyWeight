@@ -11,13 +11,13 @@ import HealthKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let healthStore: HKHealthStore = HKHealthStore()
+    private let healthStore: HKHealthStore = HKHealthStore()
 
-    let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Grouped)
+    private let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Grouped)
 
-    var weights: [HKQuantitySample] = [HKQuantitySample]()
+    private var weights: [HKQuantitySample] = [HKQuantitySample]()
 
-    let dateFormatter: NSDateFormatter = {
+    private let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .ShortStyle
         formatter.timeStyle = .ShortStyle
@@ -75,14 +75,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-    func tapAddWeight() -> Void
+    @objc private func tapAddWeight()
     {
         let lastWeight = weights.first?.quantity.doubleValueForUnit(.gramUnitWithMetricPrefix(.Kilo))
         let addViewController = AddViewController(healthStore: healthStore, startWeight: lastWeight ?? 60.0)
         navigationController?.pushViewController(addViewController, animated: true)
     }
 
-    func loadWeights() -> Void
+    private func loadWeights()
     {
         self.weights.removeAll()
 
@@ -91,15 +91,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let massType = HKObjectType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
             print("No mass availble")
 
-            return;
+            return
         }
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
         healthStore.requestAuthorizationToShareTypes(massSet, readTypes: massSet, completion: { (success, error) in
             print("Ok = \(success), error = \(error)")
         })
-
-
 
         let startDate = healthStore.earliestPermittedSampleDate()
         let endDate = NSDate()
@@ -115,7 +113,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             query, results, error in
 
             guard let samples = results as? [HKQuantitySample] else {
-                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
+                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)")
             }
 
             if samples.isEmpty {

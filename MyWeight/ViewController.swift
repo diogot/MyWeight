@@ -124,6 +124,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
                 self?.healthStore.executeQuery(query)
+            } else { //Error
+                //This shouldn't be necessary, since success == false
+                if let error = error {
+                    print(error)
+                    //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
+                    //It's most likely that we don't have access to health data.
+                }
             }
         })
     }

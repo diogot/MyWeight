@@ -36,8 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.delegate = self
 
-        tableView.registerClass(UITableViewCell.self,
-                                forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
+        tableView.registerCellClass(UITableViewCell)
 
         let barButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(ViewController.tapAddWeight))
         navigationItem.rightBarButtonItem = barButton
@@ -62,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self),
+        let cell = tableView.dequeueReusableCellWithIdentifier(UITableViewCell.defaultReuseIdentifier,
                                                                forIndexPath: indexPath)
 
         let sample = weights[indexPath.row]

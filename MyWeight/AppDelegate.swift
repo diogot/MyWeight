@@ -13,17 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        guard let window = self.window else {
-
+        guard let window = window else {
             return false
         }
 
         let navigationController = UINavigationController(rootViewController: ViewController())
 
-        window.rootViewController = navigationController;
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         return true
@@ -50,7 +48,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

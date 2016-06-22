@@ -11,13 +11,13 @@ import HealthKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let healthStore: HKHealthStore = HKHealthStore()
+    private let healthStore: HKHealthStore = HKHealthStore()
 
-    let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Grouped)
+    private let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Grouped)
 
-    var weights: [HKQuantitySample] = [HKQuantitySample]()
+    private var weights: [HKQuantitySample] = [HKQuantitySample]()
 
-    let dateFormatter: NSDateFormatter = {
+    private let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .ShortStyle
         formatter.timeStyle = .ShortStyle
@@ -75,59 +75,63 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-    func tapAddWeight() -> Void
+    @objc private func tapAddWeight()
     {
         let lastWeight = weights.first?.quantity.doubleValueForUnit(.gramUnitWithMetricPrefix(.Kilo))
         let addViewController = AddViewController(healthStore: healthStore, startWeight: lastWeight ?? 60.0)
         navigationController?.pushViewController(addViewController, animated: true)
     }
 
-    func loadWeights() -> Void
+    private func loadWeights()
     {
-        self.weights.removeAll()
+        weights.removeAll()
 
         let quantityTypeIdentifier = HKQuantityTypeIdentifierBodyMass
 
         guard let massType = HKObjectType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
             print("No mass availble")
 
-            return;
+            return
         }
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
-        healthStore.requestAuthorizationToShareTypes(massSet, readTypes: massSet, completion: { (success, error) in
-            print("Ok = \(success), error = \(error)")
-        })
-
-
-
-        let startDate = healthStore.earliestPermittedSampleDate()
-        let endDate = NSDate()
-
-        guard let sampleType = HKSampleType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
-            fatalError("*** This method should never fail ***")
-        }
-
-        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-
-        let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {
-            query, results, error in
-
-            guard let samples = results as? [HKQuantitySample] else {
-                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
-            }
-
-            if samples.isEmpty {
-                print("No samples")
-            }
-
-            dispatch_async(dispatch_get_main_queue()) {
-                self.weights.appendContentsOf(samples)
-                self.tableView.reloadData()
-            }
-        }
         
-        self.healthStore.executeQuery(query)
+        healthStore.requestAuthorizationToShareTypes(massSet, readTypes: massSet, completion: { [weak self] (success, error) in
+            if success {
+                let startDate = self?.healthStore.earliestPermittedSampleDate()
+                let endDate = NSDate()
+                guard let sampleType = HKSampleType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+                    fatalError("*** This method should never fail ***")
+                }
+                
+                let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
+                let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+                
+                let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {
+                    query, results, error in
+                    
+                    guard let samples = results as? [HKQuantitySample] else {
+                        fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)")
+                    }
+                    
+                    if samples.isEmpty {
+                        print("No samples")
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self?.weights.appendContentsOf(samples)
+                        self?.tableView.reloadData()
+                    }
+                }
+                self?.healthStore.executeQuery(query)
+            } else { //Error
+                //This shouldn't be necessary, since success == false
+                if let error = error {
+                    print(error)
+                    //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
+                    //It's most likely that we don't have access to health data.
+                }
+            }
+        })
     }
 }

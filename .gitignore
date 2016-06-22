@@ -17,6 +17,9 @@ DerivedData
 !default.perspectivev3
 xcuserdata
 
+# macOS
+.DS_Store
+
 ## Other
 *.xccheckout
 *.moved-aside

@@ -11,13 +11,13 @@ import HealthKit
 
 class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    let weightPicker: UIPickerView = UIPickerView()
-    let datePicker: UIDatePicker = UIDatePicker()
+    private let weightPicker: UIPickerView = UIPickerView()
+    private let datePicker: UIDatePicker = UIDatePicker()
 
-    let button: UIButton = UIButton(type: .System)
+    private let button: UIButton = UIButton(type: .System)
 
-    let healthStore: HKHealthStore
-    let startWeigth: Double
+    private let healthStore: HKHealthStore
+    private let startWeigth: Double
 
     required init(healthStore: HKHealthStore, startWeight: Double = 60.0)
     {
@@ -34,7 +34,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     {
         super.viewDidLoad()
 
-        view.backgroundColor = .whiteColor();
+        view.backgroundColor = .whiteColor()
 
         view.addSubview(weightPicker)
         weightPicker.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         weightPicker.delegate = self
         weightPicker.dataSource = self
 
-        button.setTitle("Save", forState: .Normal)
+        button.setTitle(Localization.defaultSave, forState: .Normal)
         button.addTarget(self,
                          action: #selector(AddViewController.saveMass),
                          forControlEvents: .TouchUpInside)
@@ -71,7 +71,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         setWeightPicker(startWeigth)
     }
 
-    let weightDigits: Int = 3
+    private let weightDigits: Int = 3
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
@@ -80,7 +80,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        return 10;
+        return 10
     }
 
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
@@ -94,11 +94,11 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return text
     }
 
-    func setWeightPicker(weight: Double) -> Void
+    private func setWeightPicker(weight: Double)
     {
         guard weight < 100 else {
             print(":w:")
-            return;
+            return
         }
 
         var decimalWeight: Int = Int(weight * 10)
@@ -113,7 +113,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         }
     }
 
-    func selectedWeight() -> Double
+    private func selectedWeight() -> Double
     {
         var weight: Double = 0
 
@@ -125,13 +125,13 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return weight
     }
 
-    func saveMass() -> Void
+    @objc private func saveMass()
     {
         guard let massType = HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
             else {
                 print("No mass availble")
 
-                return;
+                return
         }
 
         let mass: Double = selectedWeight()
@@ -140,7 +140,6 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
                                   doubleValue: mass)
 
         let date = datePicker.date
-
 
         let metadata = [HKMetadataKeyWasUserEntered:true]
         let sample = HKQuantitySample(type: massType,
@@ -155,5 +154,4 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
         navigationController?.popViewControllerAnimated(true)
     }
-
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */; };
+		B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
 		D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44031CAB5E50000F4E12 /* AppDelegate.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+ReuseIdentifier.swift"; path = "Extensions/UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionsTests.swift; sourceTree = "<group>"; };
 		B2EF68C41D1879E60010C2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2EF68C51D187A110010C2E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B2EF68C61D187A1C0010C2E7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */,
 				D97F441A1CAB5E51000F4E12 /* Info.plist */,
+				B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */,
 			);
 			path = MyWeightTests;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */,
 				D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

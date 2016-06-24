@@ -40,8 +40,8 @@ extension UITableView {
      
      - parameter cellClass: the class to register.
      */
-    func registerCellNib<CellType where CellType: UITableViewCell>(cellClass: CellType.Type, forCellReuseIdentifier reuseIdentifier: String = CellType.defaultReuseIdentifier) {
-        self.registerNib(cellClass.nib(), forCellReuseIdentifier: reuseIdentifier)
+    func registerCellNib(cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String? = nil) {
+        self.registerNib(cellClass.nib(), forCellReuseIdentifier: reuseIdentifier ?? cellClass.defaultReuseIdentifier)
     }
     
     /**
@@ -51,7 +51,7 @@ extension UITableView {
      - parameter cellClass: the class to register.
      */
     
-    func registerCellClass<CellType where CellType: UITableViewCell>(cellClass: CellType.Type, forCellReuseIdentifier reuseIdentifier: String = CellType.defaultReuseIdentifier) {
+    func registerCellClass(cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String? = nil) {
         self.registerClass(cellClass.self, forCellReuseIdentifier: reuseIdentifier ?? cellClass.defaultReuseIdentifier)
     }
 }

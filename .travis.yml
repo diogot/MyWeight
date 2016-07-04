@@ -8,4 +8,5 @@ xcode_scheme: MyWeight
 #   - brew update
 #   - brew upgrade xctool
 script:
-  - xctool -workspace MyWeight.xcodeproj -scheme MyWeight build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  - xctool -project MyWeight.xcodeproj -scheme MyWeight build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  

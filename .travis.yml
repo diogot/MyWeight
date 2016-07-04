@@ -7,5 +7,5 @@ xcode_scheme: MyWeight
 #   - export LANG=en_US.UTF-8
 #   - brew update
 #   - brew upgrade xctool
-# script:
-#   - xctool -workspace MyWeight.xcodeproj -scheme MyWeight -test-sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5s" build test
+script:
+  - xctool -workspace MyWeight.xcodeproj -scheme MyWeight build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO

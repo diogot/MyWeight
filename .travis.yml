@@ -3,9 +3,9 @@ osx_image: xcode7.3
 # xcode_sdk: iphonesimulator9.3
 # xcode_project: MyWeight.xcodeproj
 # xcode_scheme: MyWeight
-before_install:
-  - export LANG=en_US.UTF-8
-  - brew update
-  - brew upgrade xctool
+# before_install:
+#   - export LANG=en_US.UTF-8
+#   - brew update
+#   - brew upgrade xctool
 script:
   - xctool -workspace MyWeight.xcodeproj -scheme MyWeight -test-sdk iphonesimulator9.3 -destination "platform=iOS Simulator,name=iPhone 5s" build test

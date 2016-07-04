@@ -10,4 +10,4 @@ before_install:
   
 script:
   # - xctool -project MyWeight.xcodeproj -scheme MyWeight build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-  - xcodebuild clean build test -project MyWeight.xcodeproj -scheme MyWeight -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 5S,OS=9.3" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  - xcodebuild clean build test -project MyWeight.xcodeproj -scheme MyWeight -destination "platform=iOS Simulator,name=iPhone 5s,OS=9.3" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO

@@ -1,3 +1,8 @@
+
+def warning_important_file_changed(file)
+  warn "Do you really want to modify #{file}?" if modified_files.include?(file)
+end
+
 # Sometimes it's a README fix, or something like that - which isn't relevant for
 # including in a project's CHANGELOG for example
 declared_trivial = pr_title.include? '#trivial'
@@ -7,6 +12,15 @@ warn 'PR is classed as Work in Progress' if (github.pr_title + github.pr_body).i
 
 # Warn when there is a big PR
 warn 'Big PR' if lines_of_code > 1000
+
+warning_important_file_changed '.gitignore'
+warning_important_file_changed '.travis.yml'
+warning_important_file_changed 'circle.yml'
+warning_important_file_changed 'Rakefile'
+warning_important_file_changed 'Gemfile'
+warning_important_file_changed 'Gemfile.lock'
+warning_important_file_changed 'Podfile'
+warning_important_file_changed 'Podfile.lock'
 
 fail 'Please add labels to this PR' if github.pr_labels.empty?
 

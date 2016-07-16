@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/marcelofabri/xcpretty-json-formatter.git
+  revision: 2b3b9bf712d0df51741c117d002ec0438fb12928
+  specs:
+    xcpretty-json-formatter (0.0.2)
+      xcpretty (~> 0.2, >= 0.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,8 +43,6 @@ GEM
     terminal-table (1.6.0)
     xcpretty (0.2.2)
       rouge (~> 1.8)
-    xcpretty-json-formatter (0.0.2)
-      xcpretty (~> 0.2, >= 0.0.7)
     xcpretty-travis-formatter (0.0.4)
       xcpretty (~> 0.2, >= 0.0.7)
 
@@ -46,7 +51,7 @@ PLATFORMS
 
 DEPENDENCIES
   danger
-  xcpretty-json-formatter
+  xcpretty-json-formatter!
   xcpretty-travis-formatter
 
 BUNDLED WITH

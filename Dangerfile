@@ -103,6 +103,11 @@ buildlog_path = build_file
 if File.file?(build_file)
   json = JSON.parse(File.read(buildlog_path), {:symbolize_names => true})
 
+  messages = [
+    json[:tests_summary_messages]
+  ].flatten.uniq.compact
+  messages.each { |s| message(s, sticky: true) }
+
   warnings = [
     json[:warnings],
     json[:ld_warnings],
@@ -119,6 +124,7 @@ if File.file?(build_file)
     json[:tests_failures].map { |k, v| format_test_failure(k, v) }.flatten
   ].flatten.uniq.compact
   errors.each { |s| fail(s, sticky: false) }
+  
 else
   fail("xcodebuild log not found")
 end

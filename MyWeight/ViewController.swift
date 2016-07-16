@@ -32,6 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.frame = view.frame
         view.addSubview(tableView)
 
+        let bla = "unused variable"
+
         tableView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         tableView.dataSource = self
         tableView.delegate = self

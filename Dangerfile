@@ -93,13 +93,14 @@ if github.pr_body.length < 5
 end
 
 
+# Change it later
 raw_build_file = 'xcode_raw.log'
 build_file = 'result.json'
-sh "cat #{build_file} | XCPRETTY_JSON_FILE_OUTPUT='#{build_file}' xcpretty -f `xcpretty-json-formatter`"
+system "cat #{raw_build_file} | XCPRETTY_JSON_FILE_OUTPUT=#{build_file} xcpretty -f `xcpretty-json-formatter`"
 
 # Compilation errors and warnings
-buildlog_path = File.read build_file
-if File.file?(buildlog_path)
+buildlog_path = build_file
+if File.file?(build_file)
   json = JSON.parse(File.read(buildlog_path), {:symbolize_names => true})
 
   warnings = [

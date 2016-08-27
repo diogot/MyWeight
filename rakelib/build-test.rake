@@ -13,7 +13,7 @@ WORKSPACE_PATH = "#{BASE_PATH}/MyWeight.xcodeproj"
 
 desc 'Run danger'
 task :danger do
-  bundle exec danger
+  sh 'bundle exec danger'
 end
 
 # -- Tests

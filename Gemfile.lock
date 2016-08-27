@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/diogot/danger-xcode_summary.git
-  revision: 7920ce6f412b17831741c68ee3f46deca2d75acd
+  revision: c4ccba2b65a449c01b7fbaf7b0afcc8799b305ec
   specs:
     danger-xcode_summary (0.0.1)
       danger (~> 2.1)

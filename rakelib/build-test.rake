@@ -31,6 +31,11 @@ task :clean_artifacts do
   sh "rm -rf '#{artifacts_path()}' '#{reports_path()}'"
 end
 
+task :generate_xcode_summary, [ :output_path ] do |t, args|
+  build_file = args[ :output_path ]
+  sh "cat #{xcode_log_file(report_name: 'unit-tests')} | XCPRETTY_JSON_FILE_OUTPUT=#{build_file} xcpretty -f `xcpretty-json-formatter`"
+end
+
 def artifacts_path
   artifacts_path = ENV["ARTIFACTS_PATH"] || ARTIFACTS_DEFAULT_PATH
   File.expand_path artifacts_path
@@ -47,6 +52,10 @@ def reports_path
   reports_path
 end
 
+def xcode_log_file( report_name: '', artifacts_path: artifacts_path())
+  "#{artifacts_path}/xcode-#{report_name}.log"
+end
+
 # -- build
 
 def xcode( scheme: '', 
@@ -58,7 +67,7 @@ def xcode( scheme: '',
            reports_path: reports_path(),
            artifacts_path: artifacts_path()
           )
-  xcode_log_file = "#{artifacts_path}/xcode-#{report_name}.log"
+  xcode_log_file = xcode_log_file(report_name: report_name, artifacts_path: artifacts_path)
   report_file = "#{reports_path}/#{report_name}.xml"
   
   xcode_configuration = "-configuration '#{configuration}'" unless configuration.to_s.strip.length == 0

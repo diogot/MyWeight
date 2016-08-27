@@ -1,0 +1,21 @@
+machine:
+  timezone: America/Sao_Paulo
+  xcode:
+    version: 7.3.1
+  environment:
+    ARTIFACTS_DEFAULT_PATH: build
+    TEST_REPORTS_DEFAULT_PATH: reports
+    
+dependencies:
+  pre:
+    - rake setup_dependencies
+  override:
+    - rake configure
+
+test:
+  override:
+    - rake unit_tests
+    - rake danger
+  post:
+    - find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;
+    - find "$TEST_REPORTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_TEST_REPORTS/" \;

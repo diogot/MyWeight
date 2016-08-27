@@ -30,9 +30,7 @@ end
 
 
 # Change it later
-raw_build_file = 'xcode_raw.log'
 build_file = File.expand_path 'result.json'
-system "cat #{raw_build_file} | XCPRETTY_JSON_FILE_OUTPUT=#{build_file} xcpretty -f `xcpretty-json-formatter`"
-
+system "rake generate_xcode_summary[#{build_file}]"
 json = xcode_summary.report build_file
 

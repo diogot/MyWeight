@@ -2,11 +2,11 @@ language: objective-c
 osx_image: xcode7.3
 
 install:
-  - bundle install
+  - rake setup
 
 script:
-  - set -o pipefail && xcodebuild clean analyze test -project MyWeight.xcodeproj -scheme MyWeight -destination "platform=iOS Simulator,name=iPhone 5s,OS=9.3" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | tee xcode_raw.log | xcpretty -f `xcpretty-travis-formatter`
-  - bundle exec danger
+  - rake unit_tests
+  # - rake danger
 
 notifications:
   email: false

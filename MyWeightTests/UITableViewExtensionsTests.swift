@@ -14,7 +14,7 @@ class EmojiTableViewCell😎: UITableViewCell { }
 class a0_$WÅ´Ø: UITableViewCell { }
 
 class UITableViewExtensionsTests: XCTestCase {
-    private var tableView: UITableView!
+    fileprivate var tableView: UITableView!
     
     override func setUp() {
         super.setUp()
@@ -72,91 +72,91 @@ class UITableViewExtensionsTests: XCTestCase {
     
     func testRegisterCellClassWithDefaultReuseIdentifier() {
         var cellClass = UITableViewCell.self
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNotNil(cell)
-        XCTAssertTrue(cell!.isMemberOfClass(UITableViewCell))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        XCTAssertTrue(type(of: cell!) == UITableViewCell.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
         
         cellClass = InvarianteTableViewCell.self
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNotNil(cell)
-        XCTAssertTrue(cell!.isMemberOfClass(InvarianteTableViewCell))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        XCTAssertTrue(type(of: cell!) == InvarianteTableViewCell.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
         
         cellClass = EmojiTableViewCell😎.self
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNotNil(cell)
-        XCTAssertTrue(cell!.isMemberOfClass(EmojiTableViewCell😎))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        XCTAssertTrue(type(of: cell!) == EmojiTableViewCell😎.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
         
         cellClass = a0_$WÅ´Ø.self
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNotNil(cell)
-        XCTAssertTrue(cell!.isMemberOfClass(a0_$WÅ´Ø))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        XCTAssertTrue(type(of: cell!) == a0_$WÅ´Ø.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
     }
     
     func testRegisterCellClassWithCustomReuseIdentifier() {
         var cellClass = UITableViewCell.self
         var customIdentifier = "Abobrinha"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass, forCellReuseIdentifier: customIdentifier)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
-        cell = tableView.dequeueReusableCellWithIdentifier(customIdentifier)
-        XCTAssertTrue(cell!.isMemberOfClass(UITableViewCell))
+        cell = tableView.dequeueReusableCell(withIdentifier: customIdentifier)
+        XCTAssertTrue(type(of: cell!) == UITableViewCell.self)
         
         cellClass = InvarianteTableViewCell.self
         customIdentifier = "www.invariante.com"
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass, forCellReuseIdentifier: customIdentifier)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
-        cell = tableView.dequeueReusableCellWithIdentifier(customIdentifier)
-        XCTAssertTrue(cell!.isMemberOfClass(InvarianteTableViewCell))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        cell = tableView.dequeueReusableCell(withIdentifier: customIdentifier)
+        XCTAssertTrue(type(of: cell!) == InvarianteTableViewCell.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
         
         cellClass = EmojiTableViewCell😎.self
         customIdentifier = "🍁🍄😎👻"
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass, forCellReuseIdentifier: customIdentifier)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
-        cell = tableView.dequeueReusableCellWithIdentifier(customIdentifier)
-        XCTAssertTrue(cell!.isMemberOfClass(EmojiTableViewCell😎))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        cell = tableView.dequeueReusableCell(withIdentifier: customIdentifier)
+        XCTAssertTrue(type(of: cell!) == EmojiTableViewCell😎.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
         
         cellClass = a0_$WÅ´Ø.self
         customIdentifier = "⁄€‹·Î·ÍÅ¨ÔˆÏÍ˜◊SMCMV<ÎÍ‚‹"
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
         tableView.registerCellClass(cellClass, forCellReuseIdentifier: customIdentifier)
-        cell = tableView.dequeueReusableCellWithIdentifier(cellClass.defaultReuseIdentifier)
+        cell = tableView.dequeueReusableCell(withIdentifier: cellClass.defaultReuseIdentifier)
         XCTAssertNil(cell)
-        cell = tableView.dequeueReusableCellWithIdentifier(customIdentifier)
-        XCTAssertTrue(cell!.isMemberOfClass(a0_$WÅ´Ø))
-        cell = tableView.dequeueReusableCellWithIdentifier("UnknownIdentifier")
+        cell = tableView.dequeueReusableCell(withIdentifier: customIdentifier)
+        XCTAssertTrue(type(of: cell!) == a0_$WÅ´Ø.self)
+        cell = tableView.dequeueReusableCell(withIdentifier: "UnknownIdentifier")
         XCTAssertNil(cell)
     }
 }

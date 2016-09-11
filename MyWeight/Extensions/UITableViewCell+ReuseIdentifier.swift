@@ -21,14 +21,14 @@ extension UITableViewCell {
      Default nib name for this class (matches the class name).
      */
     static var defaultNibName: String {
-        return String(self)
+        return String(describing: self)
     }
     
     /**
      Default reuse identifier for this class (matches the class name).
      */
     static var defaultReuseIdentifier: String {
-        return String(self)
+        return String(describing: self)
     }
 }
 
@@ -40,8 +40,8 @@ extension UITableView {
      
      - parameter cellClass: the class to register.
      */
-    func registerCellNib(cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String? = nil) {
-        self.registerNib(cellClass.nib(), forCellReuseIdentifier: reuseIdentifier ?? cellClass.defaultReuseIdentifier)
+    func registerCellNib(_ cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String? = nil) {
+        self.register(cellClass.nib(), forCellReuseIdentifier: reuseIdentifier ?? cellClass.defaultReuseIdentifier)
     }
     
     /**
@@ -51,7 +51,7 @@ extension UITableView {
      - parameter cellClass: the class to register.
      */
     
-    func registerCellClass(cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String? = nil) {
-        self.registerClass(cellClass.self, forCellReuseIdentifier: reuseIdentifier ?? cellClass.defaultReuseIdentifier)
+    func registerCellClass(_ cellClass: UITableViewCell.Type, forCellReuseIdentifier reuseIdentifier: String? = nil) {
+        self.register(cellClass.self, forCellReuseIdentifier: reuseIdentifier ?? cellClass.defaultReuseIdentifier)
     }
 }

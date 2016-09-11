@@ -11,13 +11,13 @@ import HealthKit
 
 class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    private let weightPicker: UIPickerView = UIPickerView()
-    private let datePicker: UIDatePicker = UIDatePicker()
+    fileprivate let weightPicker: UIPickerView = UIPickerView()
+    fileprivate let datePicker: UIDatePicker = UIDatePicker()
 
-    private let button: UIButton = UIButton(type: .System)
+    fileprivate let button: UIButton = UIButton(type: .system)
 
-    private let healthStore: HKHealthStore
-    private let startWeigth: Double
+    fileprivate let healthStore: HKHealthStore
+    fileprivate let startWeigth: Double
 
     required init(healthStore: HKHealthStore, startWeight: Double = 60.0)
     {
@@ -34,56 +34,56 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     {
         super.viewDidLoad()
 
-        view.backgroundColor = .whiteColor()
+        view.backgroundColor = .white
 
         view.addSubview(weightPicker)
         weightPicker.translatesAutoresizingMaskIntoConstraints = false
-        weightPicker.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 20).active = true
-        weightPicker.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -20).active = true
-        weightPicker.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor).active = true
+        weightPicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        weightPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        weightPicker.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
 
         view.addSubview(datePicker)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
-        datePicker.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
-        datePicker.topAnchor.constraintEqualToAnchor(weightPicker.bottomAnchor, constant: 10).active = true
+        datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        datePicker.topAnchor.constraint(equalTo: weightPicker.bottomAnchor, constant: 10).isActive = true
 
         view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 20).active = true
-        button.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -20).active = true
-        button.topAnchor.constraintEqualToAnchor(datePicker.bottomAnchor, constant: 10).active = true
+        button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        button.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 10).isActive = true
 
         weightPicker.delegate = self
         weightPicker.dataSource = self
 
-        button.setTitle(Localization.defaultSave, forState: .Normal)
+        button.setTitle(Localization.defaultSave, for: UIControlState())
         button.addTarget(self,
                          action: #selector(AddViewController.saveMass),
-                         forControlEvents: .TouchUpInside)
+                         for: .touchUpInside)
     }
 
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
 
-        datePicker.date = NSDate()
+        datePicker.date = Date()
         setWeightPicker(startWeigth)
     }
 
-    private let weightDigits: Int = 3
+    fileprivate let weightDigits: Int = 3
 
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return weightDigits;
     }
 
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         return 10
     }
 
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         var text = String(row)
 
@@ -94,7 +94,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         return text
     }
 
-    private func setWeightPicker(weight: Double)
+    fileprivate func setWeightPicker(_ weight: Double)
     {
         guard weight < 100 else {
             print(":w:")
@@ -113,21 +113,21 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         }
     }
 
-    private func selectedWeight() -> Double
+    fileprivate func selectedWeight() -> Double
     {
         var weight: Double = 0
 
         for index: Int in 0 ..< weightDigits {
-            let partialValue = weightPicker.selectedRowInComponent(index)
+            let partialValue = weightPicker.selectedRow(inComponent: index)
             weight += Double(partialValue) * pow(10.0, Double(weightDigits - index - 2))
         }
 
         return weight
     }
 
-    @objc private func saveMass()
+    @objc fileprivate func saveMass()
     {
-        guard let massType = HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        guard let massType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
             else {
                 print("No mass availble")
 
@@ -136,7 +136,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
         let mass: Double = selectedWeight()
 
-        let quantity = HKQuantity(unit: .gramUnitWithMetricPrefix(.Kilo),
+        let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
                                   doubleValue: mass)
 
         let date = datePicker.date
@@ -144,14 +144,14 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         let metadata = [HKMetadataKeyWasUserEntered:true]
         let sample = HKQuantitySample(type: massType,
                                       quantity: quantity,
-                                      startDate: date,
-                                      endDate: date,
+                                      start: date,
+                                      end: date,
                                       metadata: metadata)
 
-        healthStore.saveObject(sample) { (success, error) in
+        healthStore.save(sample, withCompletion: { (success, error) in
             print("Ok = \(success), error = \(error)")
-        }
+        }) 
 
-        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewController(animated: true)
     }
 }

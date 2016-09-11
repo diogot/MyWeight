@@ -20,9 +20,9 @@ class AddInterfaceController: WKInterfaceController {
 
     var weightOptions: [WeightPickerItem] = []
 
-    override func awakeWithContext(context: AnyObject?)
+    override func awake(withContext context: Any?)
     {
-        super.awakeWithContext(context)
+        super.awake(withContext: context)
 
         if let weight = context as? Double {
             currentWeight = weight
@@ -43,7 +43,7 @@ class AddInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
-    @IBAction func newSelection(value: Int)
+    @IBAction func newSelection(_ value: Int)
     {
         let item = weightOptions[value]
         currentWeight = item.weight
@@ -55,7 +55,7 @@ class AddInterfaceController: WKInterfaceController {
         saveMass(currentWeight)
     }
 
-    func populatePicker(weight: Double) -> Void
+    func populatePicker(_ weight: Double) -> Void
     {
         var weightOptions: [WeightPickerItem] = []
 
@@ -75,29 +75,29 @@ class AddInterfaceController: WKInterfaceController {
     }
 
     func loadCurrentWeight() -> Void {
-        let quantityTypeIdentifier = HKQuantityTypeIdentifierBodyMass
+        let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
 
-        guard let massType = HKObjectType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+        guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
             print("No mass availble")
 
             return;
         }
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
-        healthStore.requestAuthorizationToShareTypes(massSet, readTypes: massSet, completion: { (success, error) in
+        healthStore.requestAuthorization(toShare: massSet, read: massSet, completion: { (success, error) in
             print("Ok = \(success), error = \(error)")
         })
 
 
 
         let startDate = healthStore.earliestPermittedSampleDate()
-        let endDate = NSDate()
+        let endDate = Date()
 
-        guard let sampleType = HKSampleType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+        guard let sampleType = HKSampleType.quantityType(forIdentifier: quantityTypeIdentifier) else {
             fatalError("*** This method should never fail ***")
         }
 
-        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions())
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
 
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) {
@@ -113,20 +113,20 @@ class AddInterfaceController: WKInterfaceController {
                 return;
             }
 
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if let sample = samples.first {
-                    self.currentWeight = sample.quantity.doubleValueForUnit(.gramUnitWithMetricPrefix(.Kilo))
+                    self.currentWeight = sample.quantity.doubleValue(for: .gramUnit(with: .kilo))
                     self.populatePicker(self.currentWeight)
                 }
             }
         }
         
-        self.healthStore.executeQuery(query)
+        self.healthStore.execute(query)
     }
 
-    func saveMass(selectedWeight: Double) -> Void
+    func saveMass(_ selectedWeight: Double) -> Void
     {
-        guard let massType = HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        guard let massType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
             else {
                 print("No mass availble")
 
@@ -135,22 +135,22 @@ class AddInterfaceController: WKInterfaceController {
 
         let mass: Double = selectedWeight
 
-        let quantity = HKQuantity(unit: .gramUnitWithMetricPrefix(.Kilo),
+        let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
                                   doubleValue: mass)
 
-        let date = NSDate()
+        let date = Date()
 
         let metadata = [HKMetadataKeyWasUserEntered:true]
         let sample = HKQuantitySample(type: massType,
                                       quantity: quantity,
-                                      startDate: date,
-                                      endDate: date,
+                                      start: date,
+                                      end: date,
                                       metadata: metadata)
 
-        healthStore.saveObject(sample) { (success, error) in
+        healthStore.save(sample, withCompletion: { (success, error) in
             print("Ok = \(success), error = \(error)")
-            self.popController()
-        }
+            self.pop()
+        }) 
     }
 }
 

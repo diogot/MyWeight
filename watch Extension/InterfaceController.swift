@@ -18,8 +18,8 @@ class InterfaceController: WKInterfaceController {
 
     var currentWeigth: Double = 0.0
 
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         weightInterfaceLabel.setText("Loading...")
     }
@@ -32,29 +32,29 @@ class InterfaceController: WKInterfaceController {
 
 
     func loadCurrentWeight() -> Void {
-        let quantityTypeIdentifier = HKQuantityTypeIdentifierBodyMass
+        let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
 
-        guard let massType = HKObjectType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+        guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
             print("No mass availble")
 
             return;
         }
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
-        healthStore.requestAuthorizationToShareTypes(massSet, readTypes: massSet, completion: { (success, error) in
+        healthStore.requestAuthorization(toShare: massSet, read: massSet, completion: { (success, error) in
             print("Ok = \(success), error = \(error)")
         })
 
 
 
         let startDate = healthStore.earliestPermittedSampleDate()
-        let endDate = NSDate()
+        let endDate = Date()
 
-        guard let sampleType = HKSampleType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+        guard let sampleType = HKSampleType.quantityType(forIdentifier: quantityTypeIdentifier) else {
             fatalError("*** This method should never fail ***")
         }
 
-        let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions())
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
 
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) {
@@ -70,21 +70,21 @@ class InterfaceController: WKInterfaceController {
                 return;
             }
 
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if let sample = samples.first {
-                    let weight = sample.quantity.doubleValueForUnit(.gramUnitWithMetricPrefix(.Kilo))
+                    let weight = sample.quantity.doubleValue(for: .gramUnit(with: .kilo))
                     self.currentWeigth = weight
                     self.weightInterfaceLabel.setText("\(weight)")
                 }
             }
         }
         
-        self.healthStore.executeQuery(query)
+        self.healthStore.execute(query)
     }
 
     @IBAction func updateMass()
     {
-        pushControllerWithName("updateMass", context: currentWeigth)
+        pushController(withName: "updateMass", context: currentWeigth)
     }
 
 

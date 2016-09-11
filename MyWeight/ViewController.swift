@@ -11,16 +11,16 @@ import HealthKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    private let healthStore: HKHealthStore = HKHealthStore()
+    fileprivate let healthStore: HKHealthStore = HKHealthStore()
 
-    private let tableView: UITableView = UITableView(frame: CGRect.zero, style: .Grouped)
+    fileprivate let tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
-    private var weights: [HKQuantitySample] = [HKQuantitySample]()
+    fileprivate var weights: [HKQuantitySample] = [HKQuantitySample]()
 
-    private let dateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .ShortStyle
+    fileprivate let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
 
         return formatter
     }()
@@ -32,62 +32,62 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.frame = view.frame
         view.addSubview(tableView)
 
-        tableView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         tableView.dataSource = self
         tableView.delegate = self
 
-        tableView.registerCellClass(UITableViewCell)
+        tableView.registerCellClass(UITableViewCell.self)
 
-        let barButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(ViewController.tapAddWeight))
+        let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ViewController.tapAddWeight))
         navigationItem.rightBarButtonItem = barButton
     }
 
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
 
         loadWeights()
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return weights.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(UITableViewCell.defaultReuseIdentifier,
-                                                               forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.defaultReuseIdentifier,
+                                                               for: indexPath)
 
-        let sample = weights[indexPath.row]
+        let sample = weights[(indexPath as NSIndexPath).row]
 
-        let date = dateFormatter.stringFromDate(sample.startDate)
-        let weight = sample.quantity.doubleValueForUnit(.gramUnitWithMetricPrefix(.Kilo))
+        let date = dateFormatter.string(from: sample.startDate)
+        let weight = sample.quantity.doubleValue(for: .gramUnit(with: .kilo))
 
         cell.textLabel?.text = "\(weight) kg - \(date)"
 
         return cell
     }
 
-    @objc private func tapAddWeight()
+    @objc fileprivate func tapAddWeight()
     {
-        let lastWeight = weights.first?.quantity.doubleValueForUnit(.gramUnitWithMetricPrefix(.Kilo))
+        let lastWeight = weights.first?.quantity.doubleValue(for: .gramUnit(with: .kilo))
         let addViewController = AddViewController(healthStore: healthStore, startWeight: lastWeight ?? 60.0)
         navigationController?.pushViewController(addViewController, animated: true)
     }
 
-    private func loadWeights()
+    fileprivate func loadWeights()
     {
         weights.removeAll()
 
-        let quantityTypeIdentifier = HKQuantityTypeIdentifierBodyMass
+        let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
 
-        guard let massType = HKObjectType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+        guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
             print("No mass availble")
 
             return
@@ -95,15 +95,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
         
-        healthStore.requestAuthorizationToShareTypes(massSet, readTypes: massSet, completion: { [weak self] (success, error) in
+        healthStore.requestAuthorization(toShare: massSet, read: massSet, completion: { [weak self] (success, error) in
             if success {
                 let startDate = self?.healthStore.earliestPermittedSampleDate()
-                let endDate = NSDate()
-                guard let sampleType = HKSampleType.quantityTypeForIdentifier(quantityTypeIdentifier) else {
+                let endDate = Date()
+                guard let sampleType = HKSampleType.quantityType(forIdentifier: quantityTypeIdentifier) else {
                     fatalError("*** This method should never fail ***")
                 }
                 
-                let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .None)
+                let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions())
                 let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
                 
                 let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {
@@ -117,12 +117,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         print("No samples")
                     }
                     
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self?.weights.appendContentsOf(samples)
+                    DispatchQueue.main.async {
+                        self?.weights.append(contentsOf: samples)
                         self?.tableView.reloadData()
                     }
                 }
-                self?.healthStore.executeQuery(query)
+                self?.healthStore.execute(query)
             } else { //Error
                 //This shouldn't be necessary, since success == false
                 if let error = error {

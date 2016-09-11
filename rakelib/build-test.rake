@@ -23,7 +23,7 @@ task :unit_tests do
 
   xcode( scheme: 'MyWeight', 
          actions: 'clean analyze test',
-         destination: 'platform=iOS Simulator,OS=9.3,name=iPhone 6s',
+         destination: 'platform=iOS Simulator,OS=10.0,name=iPhone SE',
          report_name: 'unit-tests' )
 end
 

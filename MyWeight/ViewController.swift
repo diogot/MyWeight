@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
 
         guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
-            print("No mass availble")
+            Log.debug("No mass availble")
 
             return
         }
@@ -114,7 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                     
                     if samples.isEmpty {
-                        print("No samples")
+                        Log.debug("No samples")
                     }
                     
                     DispatchQueue.main.async {
@@ -126,7 +126,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else { //Error
                 //This shouldn't be necessary, since success == false
                 if let error = error {
-                    print(error)
+                    Log.debug(error)
                     //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
                     //It's most likely that we don't have access to health data.
                 }

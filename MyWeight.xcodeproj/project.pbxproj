@@ -28,6 +28,8 @@
 		D97F44541CAB637B000F4E12 /* watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D97F443A1CAB637B000F4E12 /* watch.app */; };
 		D97F445F1CAB63BE000F4E12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97F445E1CAB63BE000F4E12 /* HealthKit.framework */; };
 		D97F44611CAB6BD5000F4E12 /* AddInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44601CAB6BD5000F4E12 /* AddInterfaceController.swift */; };
+		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
+		D9D0D0AD1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,7 @@
 		D97F445D1CAB63BE000F4E12 /* watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "watch Extension.entitlements"; sourceTree = "<group>"; };
 		D97F445E1CAB63BE000F4E12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D97F44601CAB6BD5000F4E12 /* AddInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInterfaceController.swift; sourceTree = "<group>"; };
+		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,7 @@
 				D97F44051CAB5E50000F4E12 /* ViewController.swift */,
 				D97F44311CAB5EA2000F4E12 /* AddViewController.swift */,
 				B2EF68C71D187A5B0010C2E7 /* Localization.swift */,
+				D9D0D0AB1D88EB5D00191596 /* Log.swift */,
 				B25889A41D1AF5DE00A88EAF /* Extensions */,
 				D97F44371CAB5F84000F4E12 /* Resources */,
 				D97F44361CAB5F71000F4E12 /* Frameworks */,
@@ -487,6 +491,7 @@
 			files = (
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				D97F44061CAB5E50000F4E12 /* ViewController.swift in Sources */,
+				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */,
 				D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */,
@@ -516,6 +521,7 @@
 			files = (
 				D97F444E1CAB637B000F4E12 /* ExtensionDelegate.swift in Sources */,
 				D97F444C1CAB637B000F4E12 /* InterfaceController.swift in Sources */,
+				D9D0D0AD1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44611CAB6BD5000F4E12 /* AddInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +638,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -694,6 +701,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

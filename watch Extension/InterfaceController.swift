@@ -35,14 +35,14 @@ class InterfaceController: WKInterfaceController {
         let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
 
         guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
-            print("No mass availble")
+            Log.debug("No mass availble")
 
             return;
         }
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
         healthStore.requestAuthorization(toShare: massSet, read: massSet, completion: { (success, error) in
-            print("Ok = \(success), error = \(error)")
+            Log.debug("Ok = \(success), error = \(error)")
         })
 
 
@@ -65,7 +65,7 @@ class InterfaceController: WKInterfaceController {
             }
 
             if samples.isEmpty {
-                print("No samples")
+                Log.debug("No samples")
 
                 return;
             }

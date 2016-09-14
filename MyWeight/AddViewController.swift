@@ -152,6 +152,6 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
             print("Ok = \(success), error = \(error)")
         }) 
 
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 }

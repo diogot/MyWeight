@@ -51,7 +51,7 @@ class AddInterfaceController: WKInterfaceController {
 
     @IBAction func save()
     {
-        print("\(currentWeight)")
+        Log.debug("\(currentWeight)")
         saveMass(currentWeight)
     }
 
@@ -78,14 +78,14 @@ class AddInterfaceController: WKInterfaceController {
         let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
 
         guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
-            print("No mass availble")
+            Log.debug("No mass availble")
 
             return;
         }
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
         healthStore.requestAuthorization(toShare: massSet, read: massSet, completion: { (success, error) in
-            print("Ok = \(success), error = \(error)")
+            Log.debug("Ok = \(success), error = \(error)")
         })
 
 
@@ -108,7 +108,7 @@ class AddInterfaceController: WKInterfaceController {
             }
 
             if samples.isEmpty {
-                print("No samples")
+                Log.debug("No samples")
 
                 return;
             }
@@ -128,7 +128,7 @@ class AddInterfaceController: WKInterfaceController {
     {
         guard let massType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
             else {
-                print("No mass availble")
+                Log.debug("No mass availble")
 
                 return;
         }
@@ -148,7 +148,7 @@ class AddInterfaceController: WKInterfaceController {
                                       metadata: metadata)
 
         healthStore.save(sample, withCompletion: { (success, error) in
-            print("Ok = \(success), error = \(error)")
+            Log.debug("Ok = \(success), error = \(error)")
             self.pop()
         }) 
     }

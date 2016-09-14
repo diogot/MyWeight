@@ -97,7 +97,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     fileprivate func setWeightPicker(_ weight: Double)
     {
         guard weight < 100 else {
-            print(":w:")
+            Log.debug(":w:")
             return
         }
 
@@ -108,7 +108,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
             let value = mod / Int(pow(10.0, Double(index-1)))
             decimalWeight -= mod
 
-            print("\(value) - \(index)")
+            Log.debug("\(value) - \(index)")
             weightPicker.selectRow(value, inComponent: weightDigits - index, animated: true)
         }
     }
@@ -129,7 +129,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     {
         guard let massType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
             else {
-                print("No mass availble")
+                Log.debug("No mass availble")
 
                 return
         }
@@ -149,7 +149,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
                                       metadata: metadata)
 
         healthStore.save(sample, withCompletion: { (success, error) in
-            print("Ok = \(success), error = \(error)")
+            Log.debug("Ok = \(success), error = \(error)")
         }) 
 
         _ = navigationController?.popViewController(animated: true)

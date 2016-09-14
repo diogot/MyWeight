@@ -11,13 +11,13 @@ import HealthKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    fileprivate let healthStore: HKHealthStore = HKHealthStore()
+    private let healthStore: HKHealthStore = HKHealthStore()
 
-    fileprivate let tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
+    private let tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
-    fileprivate var weights: [HKQuantitySample] = [HKQuantitySample]()
+    private var weights: [HKQuantitySample] = [HKQuantitySample]()
 
-    fileprivate let dateFormatter: DateFormatter = {
+    private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
@@ -74,14 +74,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-    @objc fileprivate func tapAddWeight()
+    @objc private func tapAddWeight()
     {
         let lastWeight = weights.first?.quantity.doubleValue(for: .gramUnit(with: .kilo))
         let addViewController = AddViewController(healthStore: healthStore, startWeight: lastWeight ?? 60.0)
         navigationController?.pushViewController(addViewController, animated: true)
     }
 
-    fileprivate func loadWeights()
+    private func loadWeights()
     {
         weights.removeAll()
 

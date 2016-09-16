@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Log {
+public struct Log {
 
-    static func info(
+    public static func info(
         _ items: Any...,
         functionName: String = #function,
         fileName: String = #file,
@@ -22,7 +22,7 @@ struct Log {
             lineNumber: lineNumber)
     }
 
-    static func debug(
+    public static func debug(
         _ items: Any...,
         functionName: String = #function,
         fileName: String = #file,
@@ -38,9 +38,9 @@ struct Log {
 
     private static func log(
         _ items: [Any],
-        functionName: String = #function,
-        fileName: String = #file,
-        lineNumber: Int = #line)
+        functionName: String,
+        fileName: String,
+        lineNumber: Int)
     {
         let url = NSURL(fileURLWithPath: fileName)
         let lastPathComponent = url.lastPathComponent ?? fileName

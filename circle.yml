@@ -19,3 +19,4 @@ test:
   post:
     - find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;
     - find "$TEST_REPORTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_TEST_REPORTS/" \;
+    - bash <(curl -s https://codecov.io/bash)

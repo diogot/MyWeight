@@ -75,7 +75,7 @@ def xcode( scheme: '',
   archiveOptions = "-archivePath '#{archive_path}'" unless archive_path.to_s.strip.length == 0
 
   sh "rm -f '#{xcode_log_file}' '#{report_file}'"
-  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' -project '#{WORKSPACE_PATH}' -scheme '#{scheme}' #{archiveOptions} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
+  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' -enableCodeCoverage YES -project '#{WORKSPACE_PATH}' -scheme '#{scheme}' #{archiveOptions} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
 end
 
 def export_ipa( archive_path: '',

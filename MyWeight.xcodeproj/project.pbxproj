@@ -11,6 +11,7 @@
 		B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
+		D96307AD1DA74E3B00A3D46C /* WeightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96307AC1DA74E3B00A3D46C /* WeightController.swift */; };
 		D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44031CAB5E50000F4E12 /* AppDelegate.swift */; };
 		D97F44061CAB5E50000F4E12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44051CAB5E50000F4E12 /* ViewController.swift */; };
 		D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F440A1CAB5E50000F4E12 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		B2EF68C51D187A110010C2E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B2EF68C61D187A1C0010C2E7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
+		D96307AC1DA74E3B00A3D46C /* WeightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightController.swift; sourceTree = "<group>"; };
 		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F44051CAB5E50000F4E12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				D97F44031CAB5E50000F4E12 /* AppDelegate.swift */,
 				D97F44051CAB5E50000F4E12 /* ViewController.swift */,
 				D97F44311CAB5EA2000F4E12 /* AddViewController.swift */,
+				D96307AC1DA74E3B00A3D46C /* WeightController.swift */,
 				B2EF68C71D187A5B0010C2E7 /* Localization.swift */,
 				D9D0D0AB1D88EB5D00191596 /* Log.swift */,
 				B25889A41D1AF5DE00A88EAF /* Extensions */,
@@ -490,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				D96307AD1DA74E3B00A3D46C /* WeightController.swift in Sources */,
 				D97F44061CAB5E50000F4E12 /* ViewController.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,

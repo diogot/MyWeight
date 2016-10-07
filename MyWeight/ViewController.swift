@@ -11,7 +11,7 @@ import HealthKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    private let healthStore: HKHealthStore = HKHealthStore()
+    private let weightController: WeightController = WeightController()
 
     private let tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
@@ -77,7 +77,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc private func tapAddWeight()
     {
         let lastWeight = weights.first?.quantity.doubleValue(for: .gramUnit(with: .kilo))
-        let addViewController = AddViewController(healthStore: healthStore, startWeight: lastWeight ?? 60.0)
+        let addViewController = AddViewController(weightController: weightController,
+                                                  startWeight: lastWeight ?? 60.0)
         navigationController?.pushViewController(addViewController, animated: true)
     }
 
@@ -85,52 +86,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         weights.removeAll()
 
-        let quantityTypeIdentifier = HKQuantityTypeIdentifier.bodyMass
-
-        guard let massType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else {
-            Log.debug("No mass availble")
-
-            return
-        }
-
-        let massSet = Set<HKSampleType>(arrayLiteral: massType)
-        
-        healthStore.requestAuthorization(toShare: massSet, read: massSet, completion: { [weak self] (success, error) in
-            if success {
-                let startDate = self?.healthStore.earliestPermittedSampleDate()
-                let endDate = Date()
-                guard let sampleType = HKSampleType.quantityType(forIdentifier: quantityTypeIdentifier) else {
-                    fatalError("*** This method should never fail ***")
-                }
-                
-                let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions())
-                let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-                
-                let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {
-                    query, results, error in
-                    
-                    guard let samples = results as? [HKQuantitySample] else {
-                        fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)")
-                    }
-                    
-                    if samples.isEmpty {
-                        Log.debug("No samples")
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self?.weights.append(contentsOf: samples)
-                        self?.tableView.reloadData()
-                    }
-                }
-                self?.healthStore.execute(query)
-            } else { //Error
-                //This shouldn't be necessary, since success == false
-                if let error = error {
-                    Log.debug(error)
-                    //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
-                    //It's most likely that we don't have access to health data.
-                }
+        weightController.requestAuthorizatin { [weak self] (error) in
+            guard error == nil else {
+                Log.debug(error)
+                //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
+                //It's most likely that we don't have access to health data.
+                return
             }
-        })
+
+            self?.weightController.fetchWeights({ [weak self] (samples) in
+
+                if samples.isEmpty {
+                    Log.debug("No samples")
+                }
+
+                self?.weights.append(contentsOf: samples)
+                self?.tableView.reloadData()
+            })
+        }
     }
 }

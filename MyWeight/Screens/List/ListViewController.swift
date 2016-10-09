@@ -9,18 +9,35 @@
 import UIKit
 import HealthKit
 
+public protocol ListViewControllerDelegate {
+    func didTapAddWeight(last weight: Double?)
+}
+
 public class ListViewController: UIViewController {
 
-    let weightController: WeightController = WeightController()
+    let weightController: WeightController
     var weights: [HKQuantitySample] = [HKQuantitySample]() {
         didSet {
             updateView()
         }
     }
 
+    public var delegate: ListViewControllerDelegate?
+
     var theView: ListView {
         // I don't like this `!` but it's a framework limitation
         return self.view as! ListView
+    }
+
+    public required init(with weightController: WeightController)
+    {
+        self.weightController = weightController
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     public override func loadView()
@@ -42,6 +59,7 @@ public class ListViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+
         loadWeights()
     }
 
@@ -71,10 +89,7 @@ public class ListViewController: UIViewController {
     func tapAddWeight()
     {
         let lastWeight = weights.first?.quantity.doubleValue(for: .gramUnit(with: .kilo))
-        let addViewController = AddViewController(weightController: weightController,
-                                                  startWeight: lastWeight ?? 60.0)
-        self.navigationController?.pushViewController(addViewController,
-                                                      animated: true)
+        delegate?.didTapAddWeight(last: lastWeight)
     }
 }
 

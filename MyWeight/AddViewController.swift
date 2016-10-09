@@ -16,16 +16,17 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
     fileprivate let button: UIButton = UIButton(type: .system)
 
-    fileprivate let healthStore: HKHealthStore
+    fileprivate let weightController: WeightController
     fileprivate let startWeigth: Double
 
-    required init(healthStore: HKHealthStore, startWeight: Double = 60.0)
+    required init(weightController: WeightController, startWeight: Double = 60.0)
     {
-        self.healthStore = healthStore
+        self.weightController = weightController
         self.startWeigth = startWeight
         super.init(nibName: nil, bundle: nil)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -127,30 +128,15 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
     @objc fileprivate func saveMass()
     {
-        guard let massType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
-            else {
-                Log.debug("No mass availble")
-
-                return
-        }
-
         let mass: Double = selectedWeight()
-
         let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
                                   doubleValue: mass)
 
         let date = datePicker.date
 
-        let metadata = [HKMetadataKeyWasUserEntered:true]
-        let sample = HKQuantitySample(type: massType,
-                                      quantity: quantity,
-                                      start: date,
-                                      end: date,
-                                      metadata: metadata)
-
-        healthStore.save(sample, withCompletion: { (success, error) in
-            Log.debug("Ok = \(success), error = \(error)")
-        }) 
+        weightController.saveWeight(quantity: quantity, date: date) { (error) in
+            Log.debug("Error = \(error)")
+        }
 
         _ = navigationController?.popViewController(animated: true)
     }

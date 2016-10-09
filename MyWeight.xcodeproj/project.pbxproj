@@ -22,6 +22,7 @@
 		D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD001DAAC31E002263E2 /* ListViewController.swift */; };
 		D9BEBD031DAAC36A002263E2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD021DAAC36A002263E2 /* ListView.swift */; };
 		D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD041DAB0610002263E2 /* ListViewModel.swift */; };
+		D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD061DAB097A002263E2 /* AppCoordinator.swift */; };
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		D9BEBD001DAAC31E002263E2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9BEBD021DAAC36A002263E2 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D9BEBD041DAB0610002263E2 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		D9BEBD061DAB097A002263E2 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				D97F44031CAB5E50000F4E12 /* AppDelegate.swift */,
+				D9BEBD061DAB097A002263E2 /* AppCoordinator.swift */,
 				D9BEBCFE1DAAC312002263E2 /* Screens */,
 				D97F44311CAB5EA2000F4E12 /* AddViewController.swift */,
 				D96307AC1DA74E3B00A3D46C /* WeightController.swift */,
@@ -355,6 +358,7 @@
 			files = (
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* WeightController.swift in Sources */,
+				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */,

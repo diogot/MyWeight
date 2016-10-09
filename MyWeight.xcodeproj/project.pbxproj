@@ -21,6 +21,7 @@
 		D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97F44331CAB5EEA000F4E12 /* HealthKit.framework */; };
 		D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD001DAAC31E002263E2 /* ListViewController.swift */; };
 		D9BEBD031DAAC36A002263E2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD021DAAC36A002263E2 /* ListView.swift */; };
+		D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD041DAB0610002263E2 /* ListViewModel.swift */; };
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		D97F44351CAB5EEA000F4E12 /* MyWeight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyWeight.entitlements; sourceTree = "<group>"; };
 		D9BEBD001DAAC31E002263E2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9BEBD021DAAC36A002263E2 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		D9BEBD041DAB0610002263E2 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 			children = (
 				D9BEBD001DAAC31E002263E2 /* ListViewController.swift */,
 				D9BEBD021DAAC36A002263E2 /* ListView.swift */,
+				D9BEBD041DAB0610002263E2 /* ListViewModel.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */,
+				D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */,
 				D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */,
 				D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */,
 				D9BEBD031DAAC36A002263E2 /* ListView.swift in Sources */,

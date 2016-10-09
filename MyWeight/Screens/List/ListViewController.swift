@@ -30,6 +30,15 @@ public class ListViewController: UIViewController {
         updateView()
     }
 
+    func updateView()
+    {
+        let viewModel = ListViewModel(with: weights) { [weak self] in
+            self?.tapAddWeight()
+        }
+
+        theView.viewModel = viewModel
+    }
+
     public override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
@@ -67,57 +76,5 @@ public class ListViewController: UIViewController {
         self.navigationController?.pushViewController(addViewController,
                                                       animated: true)
     }
-
-    func updateView()
-    {
-        let viewModel = ListViewModel(with: weights) { [weak self] in
-            self?.tapAddWeight()
-        }
-
-        theView.viewModel = viewModel
-    }
 }
-
-public struct ListViewModel: ListViewModelProtocol {
-
-    public let items: UInt
-    public let data: (UInt) -> (weight: Double, date: String)
-
-    public let buttonTitle: String
-    public let didTapAction: () -> Void
-
-}
-
-extension ListViewModel {
-
-    public init(with weights: [HKQuantitySample],
-                didTap: @escaping () -> Void)
-    {
-        let me = type(of: self)
-
-        items = UInt(weights.count)
-        data = { item in
-            let sample = weights[Int(item)]
-
-            let date = me.dateFormatter.string(from: sample.startDate)
-            let weight = sample.quantity.doubleValue(for: .gramUnit(with: .kilo))
-
-            return (weight, date)
-        }
-
-        buttonTitle = Localization.addButton
-
-        didTapAction = didTap
-    }
-
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-
-        return formatter
-    }()
-
-}
-
 

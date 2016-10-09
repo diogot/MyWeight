@@ -9,7 +9,12 @@
 import Foundation
 
 struct Localization {
+
     static var defaultSave: String {
         return NSLocalizedString("default.save", comment: "Default save action.")
+    }
+
+    static var addButton: String {
+        return NSLocalizedString("List.AddButton.text", comment: "")
     }
 }

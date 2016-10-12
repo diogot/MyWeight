@@ -30,10 +30,10 @@ public class AppCoordinator {
 
 extension AppCoordinator: ListViewControllerDelegate {
 
-    public func didTapAddWeight(last weight: Double?)
+    public func didTapAddWeight(last weight: Weight?)
     {
         let addViewController = AddViewController(weightController: weightController,
-                                                  startWeight: weight ?? 60.0)
+                                                  startWeight: weight ?? Weight())
         self.navigationController.pushViewController(addViewController,
                                                       animated: true)
     }

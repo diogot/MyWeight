@@ -51,7 +51,7 @@ public class WeightController {
         }
     }
 
-    func fetchWeights(_ completion: @escaping (_ results: [HKQuantitySample]) -> Void) {
+    func fetchWeights(_ completion: @escaping (_ results: [Weight]) -> Void) {
         let startDate = healthStore.earliestPermittedSampleDate()
         let endDate = Date()
 
@@ -69,11 +69,19 @@ public class WeightController {
                                     }
 
                                     if samples.isEmpty {
-                                        //                Log.debug("No samples")
+                                        Log.debug("No samples")
+                                    }
+
+                                    let weights = samples.map { sample -> Weight in
+                                        let value = Measurement(value: sample.quantity.doubleValue(for: .gramUnit(with: .kilo)),
+                                                                unit: UnitMass.kilograms)
+                                        let date = sample.startDate
+
+                                        return Weight(value: value, date: date)
                                     }
 
                                     DispatchQueue.main.async {
-                                        completion(samples)
+                                        completion(weights)
                                     }
         }
 

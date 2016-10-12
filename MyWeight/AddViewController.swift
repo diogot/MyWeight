@@ -17,9 +17,9 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     fileprivate let button: UIButton = UIButton(type: .system)
 
     fileprivate let weightController: WeightController
-    fileprivate let startWeigth: Double
+    fileprivate let startWeigth: Weight
 
-    required init(weightController: WeightController, startWeight: Double = 60.0)
+    required init(weightController: WeightController, startWeight: Weight)
     {
         self.weightController = weightController
         self.startWeigth = startWeight
@@ -68,8 +68,10 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     {
         super.viewDidAppear(animated)
 
-        datePicker.date = Date()
-        setWeightPicker(startWeigth)
+        let date = Date()
+        datePicker.date = date
+        datePicker.maximumDate = date
+        setWeightPicker(startWeigth.value.value)
     }
 
     fileprivate let weightDigits: Int = 3

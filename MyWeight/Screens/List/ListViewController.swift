@@ -10,13 +10,13 @@ import UIKit
 import HealthKit
 
 public protocol ListViewControllerDelegate {
-    func didTapAddWeight(last weight: Double?)
+    func didTapAddWeight(last weight: Weight?)
 }
 
 public class ListViewController: UIViewController {
 
     let weightController: WeightController
-    var weights: [HKQuantitySample] = [HKQuantitySample]() {
+    var weights: [Weight] = [Weight]() {
         didSet {
             updateView()
         }
@@ -88,7 +88,7 @@ public class ListViewController: UIViewController {
 
     func tapAddWeight()
     {
-        let lastWeight = weights.first?.quantity.doubleValue(for: .gramUnit(with: .kilo))
+        let lastWeight = weights.first
         delegate?.didTapAddWeight(last: lastWeight)
     }
 }

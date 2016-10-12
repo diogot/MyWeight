@@ -91,9 +91,9 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.defaultReuseIdentifier,
                                                  for: indexPath)
 
-        let data = viewModel.data(UInt(indexPath.row))
+        let weight = viewModel.data(UInt(indexPath.row))
 
-        cell.textLabel?.text = "\(data.weight) kg - \(data.date)"
+        cell.textLabel?.text = "\(weight.value.value) kg - \(weight.date)"
 
         return cell
     }

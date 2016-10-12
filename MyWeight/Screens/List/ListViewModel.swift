@@ -12,7 +12,7 @@ import HealthKit
 public protocol ListViewModelProtocol {
 
     var items: UInt { get }
-    var data: (_ item: UInt) -> (weight: Double, date: String) { get }
+    var data: (_ item: UInt) -> Weight { get }
 
     var buttonTitle: String { get }
     //    var noDataTitle: String { get }
@@ -25,7 +25,7 @@ public protocol ListViewModelProtocol {
 public struct ListViewModel: ListViewModelProtocol {
 
     public let items: UInt
-    public let data: (UInt) -> (weight: Double, date: String)
+    public let data: (UInt) -> Weight
 
     public let buttonTitle: String
     public let didTapAction: () -> Void
@@ -38,7 +38,7 @@ extension ListViewModel {
     {
         items = 0
 
-        data = { _ in return (0, "bla") }
+        data = { _ in Weight() }
 
         buttonTitle = Localization.addButton
 
@@ -50,32 +50,15 @@ extension ListViewModel {
 
 extension ListViewModel {
 
-    public init(with weights: [HKQuantitySample],
+    public init(with weights: [Weight],
                 didTap: @escaping () -> Void)
     {
-        let me = type(of: self)
-
         items = UInt(weights.count)
-        data = { item in
-            let sample = weights[Int(item)]
-
-            let date = me.dateFormatter.string(from: sample.startDate)
-            let weight = sample.quantity.doubleValue(for: .gramUnit(with: .kilo))
-
-            return (weight, date)
-        }
+        data = { weights[Int($0)] }
 
         buttonTitle = Localization.addButton
 
         didTapAction = didTap
     }
 
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        
-        return formatter
-    }()
-    
 }

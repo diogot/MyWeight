@@ -8,39 +8,13 @@
 
 import UIKit
 
-public protocol ListViewModelProtocol {
-
-    var items: UInt { get }
-    var data: (_ item: UInt) -> (weight: Double, date: String) { get }
-
-    var buttonTitle: String { get }
-//    var noDataTitle: String { get }
-//    var noDataDescription: String { get }
-
-    var didTapAction: () -> Void { get }
-
-}
-
-struct EmptyListViewModel: ListViewModelProtocol {
-
-    let items: UInt = 0
-
-    let data: (UInt) -> (weight: Double, date: String) = { _ in
-        return (0, "bla")
-    }
-
-    let buttonTitle: String = "Add"
-
-    let didTapAction: () -> Void = {Log.debug("Add button tap")}
-
-}
-
 public class ListView: UIView {
 
     let tableView: UITableView
-    let addButton: UIButton
+    let addButton: TintButton
+    let style = Style()
 
-    var viewModel: ListViewModelProtocol = EmptyListViewModel() {
+    public var viewModel: ListViewModelProtocol = ListViewModel() {
         didSet {
             updateView()
         }
@@ -49,7 +23,7 @@ public class ListView: UIView {
     public override init(frame: CGRect)
     {
         tableView = UITableView(frame: frame, style: .grouped)
-        addButton = UIButton(type: .system)
+        addButton = TintButton()
         super.init(frame: frame)
         setUp()
         updateView()
@@ -69,25 +43,27 @@ public class ListView: UIView {
         tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         tableView.registerCellClass(UITableViewCell.self)
 
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        tableView.backgroundColor = style.backgroundColor
+
         contentView.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        let padding: CGFloat = 16
+        let padding: CGFloat = style.grid * 2
         addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding) .isActive = true
         addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding).isActive = true
         addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 58).isActive = true
-
-        tableView.dataSource = self
-        tableView.delegate = self
 
         addButton.addTarget(self,
                             action: #selector(ListView.buttonTap),
                             for: .touchUpInside)
     }
 
+
     func updateView()
     {
-        addButton.setTitle(viewModel.buttonTitle, for: .normal)
+        addButton.title = viewModel.buttonTitle
         tableView.reloadData()
     }
 

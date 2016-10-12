@@ -9,6 +9,19 @@
 import Foundation
 import HealthKit
 
+public protocol ListViewModelProtocol {
+
+    var items: UInt { get }
+    var data: (_ item: UInt) -> (weight: Double, date: String) { get }
+
+    var buttonTitle: String { get }
+    //    var noDataTitle: String { get }
+    //    var noDataDescription: String { get }
+
+    var didTapAction: () -> Void { get }
+    
+}
+
 public struct ListViewModel: ListViewModelProtocol {
 
     public let items: UInt
@@ -16,6 +29,22 @@ public struct ListViewModel: ListViewModelProtocol {
 
     public let buttonTitle: String
     public let didTapAction: () -> Void
+
+}
+
+extension ListViewModel {
+
+    public init()
+    {
+        items = 0
+
+        data = { _ in return (0, "bla") }
+
+        buttonTitle = Localization.addButton
+
+        didTapAction = { Log.debug("Add button tap") }
+
+    }
 
 }
 

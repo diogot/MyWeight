@@ -26,7 +26,7 @@ public protocol StyleProvider {
     var subhead: UIFont { get }
     var footnote: UIFont { get }
 
-    var grid: Double { get }
+    var grid: CGFloat { get }
 
 }
 
@@ -48,7 +48,7 @@ public struct Style: StyleProvider {
     public let subhead = UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
     public let footnote = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
 
-    public let grid: Double = 8
+    public let grid: CGFloat = 8
 
     static let teal = UIColor(red: 81/255, green: 203/255, blue: 212/255, alpha: 1)
     static let black = UIColor(red: 67/255, green: 70/255, blue: 75/255, alpha: 1)

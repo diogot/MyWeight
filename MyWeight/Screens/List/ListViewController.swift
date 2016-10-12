@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import HealthKit
 
 public protocol ListViewControllerDelegate {
     func didTapAddWeight(last weight: Weight?)

@@ -82,12 +82,16 @@ public class WeightController {
         healthStore.execute(query)
     }
 
-    func saveWeight(quantity: HKQuantity, date: Date, completion: @escaping (_ error: Error?) -> Void) {
-        let metadata = [HKMetadataKeyWasUserEntered:true]
+    func save(weight: Weight, completion: @escaping (_ error: Error?) -> Void)
+    {
+        let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
+                                  doubleValue: weight.value.converted(to: .kilograms).value)
+
+        let metadata = [HKMetadataKeyWasUserEntered: true]
         let sample = HKQuantitySample(type: massType,
                                       quantity: quantity,
-                                      start: date,
-                                      end: date,
+                                      start: weight.date,
+                                      end: weight.date,
                                       metadata: metadata)
         
         healthStore.save(sample) { (success, error) in

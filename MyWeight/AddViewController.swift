@@ -71,7 +71,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         let date = Date()
         datePicker.date = date
         datePicker.maximumDate = date
-        setWeightPicker(startWeigth.value.value)
+        setWeightPicker(startWeigth.value.converted(to: .kilograms).value)
     }
 
     fileprivate let weightDigits: Int = 3
@@ -130,16 +130,14 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
     @objc fileprivate func saveMass()
     {
-        let mass: Double = selectedWeight()
-        let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
-                                  doubleValue: mass)
+        let weight = Weight(value: Measurement(value: selectedWeight(),
+                                               unit: .kilograms),
+                            date: datePicker.date)
 
-        let date = datePicker.date
-
-        weightController.saveWeight(quantity: quantity, date: date) { (error) in
+        weightController.save(weight: weight) { (error) in
             Log.debug("Error = \(error)")
         }
 
-        _ = navigationController?.popViewController(animated: true)
+        delegate?.didEnd()
     }
 }

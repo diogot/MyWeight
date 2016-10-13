@@ -34,19 +34,18 @@ extension WeightViewModel {
                                          color: style.textColor)
 
 
-        let dateString: String
+
+        let date = me.dateFormatterDay.string(from: weight.date)
+        let time = me.dateFormatterTime.string(from: weight.date)
+        let dateString = "\(date)\n\(time)"
+
         let dateFont: UIFont
         let dateColor: UIColor
 
         if large {
-            dateString = me.dateFormatterFull.string(from: weight.date)
             dateFont = style.subhead
             dateColor = style.textColor
         } else {
-            let date = me.dateFormatterDay.string(from: weight.date)
-            let time = me.dateFormatterTime.string(from: weight.date)
-
-            dateString = "\(date)\n\(time)"
             dateFont = style.footnote
             dateColor = style.textLightColor
         }

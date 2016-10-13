@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import HealthKit
 
-class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+public protocol AddViewControllerDelegate {
+    func didEnd()
+}
+
+public class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     fileprivate let weightPicker: UIPickerView = UIPickerView()
     fileprivate let datePicker: UIDatePicker = UIDatePicker()
@@ -19,7 +22,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     fileprivate let weightController: WeightController
     fileprivate let startWeigth: Weight
 
-    required init(weightController: WeightController, startWeight: Weight)
+    public required init(weightController: WeightController, startWeight: Weight)
     {
         self.weightController = weightController
         self.startWeigth = startWeight
@@ -27,11 +30,13 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     }
 
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad()
+    public var delegate: AddViewControllerDelegate?
+
+    override public func viewDidLoad()
     {
         super.viewDidLoad()
 
@@ -64,7 +69,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
                          for: .touchUpInside)
     }
 
-    override func viewWillAppear(_ animated: Bool)
+    override public func viewWillAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
 
@@ -76,17 +81,17 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
     fileprivate let weightDigits: Int = 3
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return weightDigits;
     }
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         return 10
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         var text = String(row)
 

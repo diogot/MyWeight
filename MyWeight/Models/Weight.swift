@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthKit
 
 public struct Weight {
 
@@ -21,6 +22,13 @@ extension Weight {
     {
         value = Measurement(value: 60, unit: .kilograms)
         date = Date()
+    }
+
+    init(with sample: HKQuantitySample)
+    {
+        value = Measurement(value: sample.quantity.doubleValue(for: .gramUnit(with: .kilo)),
+                            unit: UnitMass.kilograms)
+        date = sample.startDate
     }
 
 }

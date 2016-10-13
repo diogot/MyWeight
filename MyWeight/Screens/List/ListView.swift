@@ -10,6 +10,8 @@ import UIKit
 
 public class ListView: UIView {
 
+    typealias Cell = TableViewCell<WeightView, WeightViewModel>
+
     let tableView: UITableView
     let addButton: TintButton
     let style = Style()
@@ -41,7 +43,12 @@ public class ListView: UIView {
         contentView.addSubview(tableView)
         tableView.frame = contentView.frame
         tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        tableView.registerCellClass(UITableViewCell.self)
+
+        tableView.allowsSelection = false
+
+        tableView.registerCellClass(Cell.self)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 85
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -88,12 +95,10 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.defaultReuseIdentifier,
-                                                 for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.defaultReuseIdentifier,
+                                                 for: indexPath) as! Cell
 
-        let weight = viewModel.data(UInt(indexPath.row))
-
-        cell.textLabel?.text = "\(weight.value.value) kg - \(weight.date)"
+        cell.viewModel = viewModel.data(UInt(indexPath.row))
 
         return cell
     }

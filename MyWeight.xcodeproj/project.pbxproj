@@ -324,6 +324,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -332,11 +333,13 @@
 					};
 					D97F44131CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 0800;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 					D97F441E1CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 0800;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
@@ -501,6 +504,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -571,6 +575,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -614,6 +619,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ab8e2c43-e2a1-48b7-b7c6-dc70f97fc006";
+				PROVISIONING_PROFILE_SPECIFIER = "My Weight Development";
 			};
 			name = Debug;
 		};
@@ -626,6 +633,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "68471f20-c7ac-4f6a-afdc-2741f0cad759";
+				PROVISIONING_PROFILE_SPECIFIER = "My Weight";
 			};
 			name = Release;
 		};

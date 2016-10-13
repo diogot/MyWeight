@@ -34,8 +34,18 @@ extension AppCoordinator: ListViewControllerDelegate {
     {
         let addViewController = AddViewController(weightController: weightController,
                                                   startWeight: weight ?? Weight())
+        addViewController.delegate = self
         self.navigationController.pushViewController(addViewController,
                                                       animated: true)
+    }
+
+}
+
+extension AppCoordinator: AddViewControllerDelegate {
+
+    public func didEnd()
+    {
+        self.navigationController.popViewController(animated: true)
     }
 
 }

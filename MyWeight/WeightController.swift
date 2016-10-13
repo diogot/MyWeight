@@ -72,13 +72,7 @@ public class WeightController {
                                         Log.debug("No samples")
                                     }
 
-                                    let weights = samples.map { sample -> Weight in
-                                        let value = Measurement(value: sample.quantity.doubleValue(for: .gramUnit(with: .kilo)),
-                                                                unit: UnitMass.kilograms)
-                                        let date = sample.startDate
-
-                                        return Weight(value: value, date: date)
-                                    }
+                                    let weights = samples.map { Weight(with: $0) }
 
                                     DispatchQueue.main.async {
                                         completion(weights)

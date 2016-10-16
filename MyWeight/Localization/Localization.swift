@@ -10,11 +10,20 @@ import Foundation
 
 struct Localization {
 
-    static var defaultSave: String {
-        return NSLocalizedString("default.save", comment: "Default save action.")
-    }
-
     static var addButton: String {
         return NSLocalizedString("List.AddButton.text", comment: "")
     }
+
+    static var addTitle: String {
+        return NSLocalizedString("Add.Title.text", comment: "")
+    }
+
+    static var saveButton: String {
+        return NSLocalizedString("Add.SaveButton.text", comment: "")
+    }
+
+    static var cancelButton: String {
+        return NSLocalizedString("Add.CancelButton.text", comment: "")
+    }
+
 }

@@ -15,6 +15,7 @@ public class AppCoordinator {
 
     public init(with navigationController: UINavigationController)
     {
+        navigationController.isNavigationBarHidden = true
         self.navigationController = navigationController
     }
 
@@ -35,8 +36,9 @@ extension AppCoordinator: ListViewControllerDelegate {
         let addViewController = AddViewController(weightController: weightController,
                                                   startWeight: weight ?? Weight())
         addViewController.delegate = self
-        self.navigationController.pushViewController(addViewController,
-                                                      animated: true)
+        self.navigationController.present(addViewController,
+                                          animated: true,
+                                          completion: nil)
     }
 
 }
@@ -45,7 +47,7 @@ extension AppCoordinator: AddViewControllerDelegate {
 
     public func didEnd()
     {
-        self.navigationController.popViewController(animated: true)
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
 
 }

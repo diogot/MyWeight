@@ -1,4 +1,8 @@
-"default.save" = "Salvar";
+"Add.SaveButton.text" = "Salvar";
 
 "List.AddButton.text" = "Adicionar";
+
+"Add.CancelButton.text" = "Cancelar";
+
+"Add.Title.text" = "Nova entrada";
 

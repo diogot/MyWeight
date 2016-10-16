@@ -13,8 +13,8 @@ public class ListView: UIView {
     typealias Cell = TableViewCell<WeightView, WeightViewModel>
 
     let tableView: UITableView
-    let addButton: TintButton
-    let style = Style()
+    let addButton: TintButton = TintButton()
+    let style: StyleProvider = Style()
 
     public var viewModel: ListViewModelProtocol = ListViewModel() {
         didSet {
@@ -22,10 +22,9 @@ public class ListView: UIView {
         }
     }
 
-    public override init(frame: CGRect)
+    override public init(frame: CGRect)
     {
         tableView = UITableView(frame: frame, style: .grouped)
-        addButton = TintButton()
         super.init(frame: frame)
         setUp()
         updateView()

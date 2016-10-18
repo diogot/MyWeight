@@ -26,12 +26,7 @@ public class AppCoordinator {
         navigationController.pushViewController(controller, animated: true)
     }
 
-}
-
-
-extension AppCoordinator: ListViewControllerDelegate {
-
-    public func didTapAddMeasure(last mass: Mass?)
+    func startAdd(last mass: Mass?)
     {
         let addViewController = AddViewController(with: massController,
                                                   startMass: mass ?? Mass())
@@ -40,6 +35,41 @@ extension AppCoordinator: ListViewControllerDelegate {
                                           animated: true,
                                           completion: nil)
     }
+
+    func startAuthorizationRequest()
+    {
+        // TODO: create request flow
+        massController.requestAuthorization { error in
+            if let error = error {
+                Log.debug(error)
+            }
+        }
+    }
+
+    func startAuthorizationDenied()
+    {
+        // TODO: create denied flow
+    }
+
+}
+
+
+extension AppCoordinator: ListViewControllerDelegate {
+
+    public func didTapAddMeasure(last mass: Mass?)
+    {
+        switch massController.authorizationStatus {
+        case .authorized:
+            startAdd(last: mass)
+        case .notDetermined:
+            startAuthorizationRequest()
+        case .denied:
+            startAuthorizationDenied()
+        }
+    }
+
+
+
 
 }
 

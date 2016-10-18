@@ -11,6 +11,8 @@
 		B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
+		D904D9DB1DB68BD700D0F6A6 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DA1DB68BD700D0F6A6 /* NoDataView.swift */; };
+		D904D9DD1DB68EDD00D0F6A6 /* NoDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DC1DB68EDD00D0F6A6 /* NoDateViewModel.swift */; };
 		D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */; };
 		D90D1E491DADCC1000FB513A /* NSAttributedString+FontColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */; };
 		D90D1E4B1DAEA4F600FB513A /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E4A1DAEA4F600FB513A /* TintButton.swift */; };
@@ -74,6 +76,8 @@
 		B2EF68C51D187A110010C2E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B2EF68C61D187A1C0010C2E7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
+		D904D9DA1DB68BD700D0F6A6 /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		D904D9DC1DB68EDD00D0F6A6 /* NoDateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDateViewModel.swift; sourceTree = "<group>"; };
 		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+WithColor.swift"; path = "Extensions/UIImage+WithColor.swift"; sourceTree = "<group>"; };
 		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+FontColor.swift"; path = "Extensions/NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
 		D90D1E4A1DAEA4F600FB513A /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				D9BEBD001DAAC31E002263E2 /* ListViewController.swift */,
 				D9BEBD021DAAC36A002263E2 /* ListView.swift */,
 				D9BEBD041DAB0610002263E2 /* ListViewModel.swift */,
+				D904D9DA1DB68BD700D0F6A6 /* NoDataView.swift */,
+				D904D9DC1DB68EDD00D0F6A6 /* NoDateViewModel.swift */,
 				D9F73FE31DAED7C600AD578F /* WeightView.swift */,
 				D9F73FE81DAEF23600AD578F /* WeightViewModel.swift */,
 			);
@@ -418,9 +424,11 @@
 			files = (
 				D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */,
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				D904D9DD1DB68EDD00D0F6A6 /* NoDateViewModel.swift in Sources */,
 				D9F73FE91DAEF23600AD578F /* WeightViewModel.swift in Sources */,
 				D9F73FE71DAEDE7700AD578F /* Weight.swift in Sources */,
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
+				D904D9DB1DB68BD700D0F6A6 /* NoDataView.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* WeightController.swift in Sources */,
 				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,

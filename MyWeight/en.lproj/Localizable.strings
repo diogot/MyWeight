@@ -6,3 +6,7 @@
 
 "Add.Title.text" = "New entry";
 
+"List.NoDataDescription.text" = "Add your first entry by tapping “Add” below";
+
+"List.NoDataTitle.text" = "Welcome";
+

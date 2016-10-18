@@ -26,6 +26,18 @@ public class AddView: UIView {
         }
     }
 
+    public var topOffset: CGFloat {
+        set(topOffset) {
+            topConstraint?.constant = topOffset
+        }
+
+        get {
+            return topConstraint?.constant ?? 0
+        }
+    }
+
+    var topConstraint: NSLayoutConstraint?
+
     override public init(frame: CGRect)
     {
         super.init(frame: frame)
@@ -44,12 +56,23 @@ public class AddView: UIView {
         let topBar = UIView()
         let grid = style.grid
 
+        let bottomLine = UIView()
+        bottomLine.backgroundColor = style.separatorColor
+
+        bottomLine.translatesAutoresizingMaskIntoConstraints = false
+        topBar.addSubview(bottomLine)
+
+        bottomLine.leftAnchor.constraint(equalTo: topBar.leftAnchor).isActive = true
+        bottomLine.rightAnchor.constraint(equalTo: topBar.rightAnchor).isActive = true
+        bottomLine.bottomAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+        bottomLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(titleLabel)
 
         titleLabel.topAnchor.constraint(equalTo: topBar.topAnchor,
                                         constant: grid * 3).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: topBar.bottomAnchor,
+        titleLabel.bottomAnchor.constraint(equalTo: bottomLine.topAnchor,
                                            constant: -grid * 3).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: topBar.centerXAnchor).isActive = true
 
@@ -64,10 +87,12 @@ public class AddView: UIView {
                                action: #selector(AddView.cancelTap),
                                for: .touchUpInside)
 
+
         topBar.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(topBar)
 
-        topBar.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        topConstraint = topBar.topAnchor.constraint(equalTo: contentView.topAnchor)
+        topConstraint?.isActive = true
         topBar.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         topBar.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 

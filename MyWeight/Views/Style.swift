@@ -11,6 +11,7 @@ import UIKit
 public protocol StyleProvider {
 
     var backgroundColor: UIColor { get }
+    var separatorColor: UIColor { get }
 
     var textColor: UIColor { get }
     var textLightColor: UIColor { get }
@@ -33,6 +34,7 @@ public protocol StyleProvider {
 public struct Style: StyleProvider {
 
     public let backgroundColor: UIColor = Style.white
+    public let separatorColor: UIColor = Style.lightGray
 
     public let textColor: UIColor = Style.black
     public let textLightColor: UIColor = Style.gray

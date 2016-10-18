@@ -1,5 +1,5 @@
 //
-//  WeightView
+//  MassView
 //  MyWeight
 //
 //  Created by Diogo on 12/10/16.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class WeightView: UIView, ViewModelOwner {
+public class MassView: UIView, ViewModelOwner {
 
-    let weightLabel: UILabel
+    let massLabel: UILabel
     let dateLabel: UILabel
 
     let style: StyleProvider
 
     override public init(frame: CGRect)
     {
-        weightLabel = UILabel()
+        massLabel = UILabel()
         dateLabel = UILabel()
         style = Style()
-        viewModel = WeightViewModel()
+        viewModel = MassViewModel()
 
         super.init(frame: frame)
 
@@ -43,17 +43,17 @@ public class WeightView: UIView, ViewModelOwner {
 
         let grid = style.grid
 
-        contentView.addSubview(weightLabel)
-        weightLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(massLabel)
+        massLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        weightLabel.setContentHuggingPriority(UILayoutPriorityRequired,
+        massLabel.setContentHuggingPriority(UILayoutPriorityRequired,
                                               for: .horizontal)
-        weightLabel.setContentHuggingPriority(UILayoutPriorityRequired,
+        massLabel.setContentHuggingPriority(UILayoutPriorityRequired,
                                               for: .vertical)
 
-        weightLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: grid*3).isActive = true
-        weightLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -grid*3).isActive = true
-        weightLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: grid*4).isActive = true
+        massLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: grid*3).isActive = true
+        massLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -grid*3).isActive = true
+        massLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: grid*4).isActive = true
 
         contentView.addSubview(dateLabel)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +63,7 @@ public class WeightView: UIView, ViewModelOwner {
         dateLabel.setContentHuggingPriority(UILayoutPriorityRequired,
                                             for: .vertical)
 
-        dateLabel.centerYAnchor.constraint(equalTo: weightLabel.centerYAnchor).isActive = true
+        dateLabel.centerYAnchor.constraint(equalTo: massLabel.centerYAnchor).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -grid*4).isActive = true
 
         dateLabel.numberOfLines = 0
@@ -72,7 +72,7 @@ public class WeightView: UIView, ViewModelOwner {
         self.backgroundColor = style.backgroundColor
     }
 
-    public var viewModel: WeightViewModel {
+    public var viewModel: MassViewModel {
         didSet {
             updateView()
         }
@@ -80,7 +80,7 @@ public class WeightView: UIView, ViewModelOwner {
 
     func updateView()
     {
-        weightLabel.attributedText = viewModel.weight
+        massLabel.attributedText = viewModel.mass
         dateLabel.attributedText = viewModel.date
     }
 

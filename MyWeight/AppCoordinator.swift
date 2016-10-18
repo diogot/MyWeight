@@ -11,7 +11,7 @@ import UIKit
 public class AppCoordinator {
 
     let navigationController: UINavigationController
-    let weightController: WeightController = WeightController()
+    let massController: MassController = MassController()
 
     public init(with navigationController: UINavigationController)
     {
@@ -21,7 +21,7 @@ public class AppCoordinator {
 
     public func start()
     {
-        let controller = ListViewController(with: weightController)
+        let controller = ListViewController(with: massController)
         controller.delegate = self
         navigationController.pushViewController(controller, animated: true)
     }
@@ -31,10 +31,10 @@ public class AppCoordinator {
 
 extension AppCoordinator: ListViewControllerDelegate {
 
-    public func didTapAddWeight(last weight: Weight?)
+    public func didTapAddMeasure(last mass: Mass?)
     {
-        let addViewController = AddViewController(weightController: weightController,
-                                                  startWeight: weight ?? Weight())
+        let addViewController = AddViewController(with: massController,
+                                                  startMass: mass ?? Mass())
         addViewController.delegate = self
         self.navigationController.present(addViewController,
                                           animated: true,

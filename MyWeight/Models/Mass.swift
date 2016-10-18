@@ -1,5 +1,5 @@
 //
-//  Weight.swift
+//  Mass.swift
 //  MyWeight
 //
 //  Created by Diogo on 12/10/16.
@@ -9,14 +9,14 @@
 import Foundation
 import HealthKit
 
-public struct Weight {
+public struct Mass {
 
     public let value: Measurement<UnitMass>
     public let date: Date
 
 }
 
-extension Weight {
+extension Mass {
 
     init()
     {

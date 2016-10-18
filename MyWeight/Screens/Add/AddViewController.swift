@@ -14,13 +14,13 @@ public protocol AddViewControllerDelegate {
 
 public class AddViewController: UIViewController {
 
-    let massController: WeightController
-    let startMass: Weight
+    let massController: MassController
+    let startMass: Mass
 
-    public required init(weightController: WeightController, startWeight: Weight)
+    public required init(with massController: MassController, startMass: Mass)
     {
-        self.massController = weightController
-        self.startMass = startWeight
+        self.massController = massController
+        self.startMass = startMass
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -59,9 +59,9 @@ public class AddViewController: UIViewController {
         theView.topOffset = topLayoutGuide.length
     }
 
-    func saveMass(_ mass: Weight)
+    func saveMass(_ mass: Mass)
     {
-        massController.save(weight: mass) { (error) in
+        massController.save(mass) { (error) in
             Log.debug("Error = \(error)")
         }
 

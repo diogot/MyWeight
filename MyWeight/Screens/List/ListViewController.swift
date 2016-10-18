@@ -9,13 +9,13 @@
 import UIKit
 
 public protocol ListViewControllerDelegate {
-    func didTapAddWeight(last weight: Weight?)
+    func didTapAddMeasure(last mass: Mass?)
 }
 
 public class ListViewController: UIViewController {
 
-    let weightController: WeightController
-    var weights: [Weight] = [Weight]() {
+    let massController: MassController
+    var masses: [Mass] = [Mass]() {
         didSet {
             updateView()
         }
@@ -28,9 +28,9 @@ public class ListViewController: UIViewController {
         return self.view as! ListView
     }
 
-    public required init(with weightController: WeightController)
+    public required init(with massController: MassController)
     {
-        self.weightController = weightController
+        self.massController = massController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -53,8 +53,8 @@ public class ListViewController: UIViewController {
 
     func updateView()
     {
-        let viewModel = ListViewModel(with: weights) { [weak self] in
-            self?.tapAddWeight()
+        let viewModel = ListViewModel(with: masses) { [weak self] in
+            self?.tapAddMass()
         }
 
         theView.viewModel = viewModel
@@ -64,7 +64,7 @@ public class ListViewController: UIViewController {
     {
         super.viewDidAppear(animated)
 
-        loadWeights()
+        loadMasses()
     }
 
     public override func viewDidLayoutSubviews()
@@ -72,11 +72,11 @@ public class ListViewController: UIViewController {
         theView.topOffset = topLayoutGuide.length
     }
 
-    func loadWeights()
+    func loadMasses()
     {
-        weights.removeAll()
+        masses.removeAll()
 
-        weightController.requestAuthorizatin { [weak self] (error) in
+        massController.requestAuthorization { [weak self] (error) in
             guard error == nil else {
                 Log.debug(error)
                 //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
@@ -84,21 +84,21 @@ public class ListViewController: UIViewController {
                 return
             }
 
-            self?.weightController.fetchWeights { [weak self] (samples) in
+            self?.massController.fetch { [weak self] (samples) in
 
                 if samples.isEmpty {
                     Log.debug("No samples")
                 }
 
-                self?.weights.append(contentsOf: samples)
+                self?.masses.append(contentsOf: samples)
             }
         }
     }
 
-    func tapAddWeight()
+    func tapAddMass()
     {
-        let lastWeight = weights.first
-        delegate?.didTapAddWeight(last: lastWeight)
+        let mass = masses.first
+        delegate?.didTapAddMeasure(last: mass)
     }
 }
 

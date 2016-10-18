@@ -1,5 +1,5 @@
 //
-//  WeightViewModel.swift
+//  MassViewModel.swift
 //  MyWeight
 //
 //  Created by Diogo on 12/10/16.
@@ -8,35 +8,35 @@
 
 import UIKit
 
-public struct WeightViewModel {
+public struct MassViewModel {
 
-    public let weight: NSAttributedString
+    public let mass: NSAttributedString
     public let date: NSAttributedString
 
 }
 
-extension WeightViewModel {
+extension MassViewModel {
 
     public init() {
-        weight = NSAttributedString()
+        mass = NSAttributedString()
         date = NSAttributedString()
     }
 
 
-    public init(with weight: Weight, large: Bool) {
+    public init(with mass: Mass, large: Bool) {
 
         let style: StyleProvider = Style()
         let me = type(of: self)
 
-        let weightString = me.weightFormatter.string(from: weight.value)
-        self.weight = NSAttributedString(string: weightString,
+        let massString = me.massFormatter.string(from: mass.value)
+        self.mass = NSAttributedString(string: massString,
                                          font: large ? style.title1 : style.title2,
                                          color: style.textColor)
 
 
 
-        let date = me.dateFormatterDay.string(from: weight.date)
-        let time = me.dateFormatterTime.string(from: weight.date)
+        let date = me.dateFormatterDay.string(from: mass.date)
+        let time = me.dateFormatterTime.string(from: mass.date)
         let dateString = "\(date)\n\(time)"
 
         let dateFont: UIFont
@@ -55,12 +55,12 @@ extension WeightViewModel {
                                        color: dateColor)
     }
 
-    static let weightFormatter: MeasurementFormatter = {
-        let weightFormatter = MeasurementFormatter()
-        weightFormatter.numberFormatter.minimumFractionDigits = 1
-        weightFormatter.numberFormatter.maximumFractionDigits = 1
+    static let massFormatter: MeasurementFormatter = {
+        let massFormatter = MeasurementFormatter()
+        massFormatter.numberFormatter.minimumFractionDigits = 1
+        massFormatter.numberFormatter.maximumFractionDigits = 1
 
-        return weightFormatter
+        return massFormatter
     }()
 
     static let dateFormatterFull: DateFormatter = {

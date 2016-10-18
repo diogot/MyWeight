@@ -10,7 +10,7 @@ import UIKit
 
 public class ListView: UIView {
 
-    typealias Cell = TableViewCell<WeightView, WeightViewModel>
+    typealias Cell = TableViewCell<MassView, MassViewModel>
 
     let tableView: UITableView
     let addButton: TintButton = TintButton()

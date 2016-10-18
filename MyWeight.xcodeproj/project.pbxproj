@@ -33,9 +33,9 @@
 		D9BEBD0A1DAB24B7002263E2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD091DAB24B7002263E2 /* Style.swift */; };
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 		D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE11DAED5F700AD578F /* TableViewCell.swift */; };
-		D9F73FE41DAED7C600AD578F /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE31DAED7C600AD578F /* WeightView.swift */; };
+		D9F73FE41DAED7C600AD578F /* MassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE31DAED7C600AD578F /* MassView.swift */; };
 		D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE61DAEDE7700AD578F /* Mass.swift */; };
-		D9F73FE91DAEF23600AD578F /* WeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE81DAEF23600AD578F /* WeightViewModel.swift */; };
+		D9F73FE91DAEF23600AD578F /* MassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE81DAEF23600AD578F /* MassViewModel.swift */; };
 		D9F73FEC1DB3214900AD578F /* MassPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FEB1DB3214900AD578F /* MassPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,9 +105,9 @@
 		D9BEBD091DAB24B7002263E2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D9F73FE11DAED5F700AD578F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		D9F73FE31DAED7C600AD578F /* WeightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		D9F73FE31DAED7C600AD578F /* MassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassView.swift; sourceTree = "<group>"; };
 		D9F73FE61DAEDE7700AD578F /* Mass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mass.swift; sourceTree = "<group>"; };
-		D9F73FE81DAEF23600AD578F /* WeightViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewModel.swift; sourceTree = "<group>"; };
+		D9F73FE81DAEF23600AD578F /* MassViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassViewModel.swift; sourceTree = "<group>"; };
 		D9F73FEB1DB3214900AD578F /* MassPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,8 +241,8 @@
 				D9BEBD041DAB0610002263E2 /* ListViewModel.swift */,
 				D904D9DA1DB68BD700D0F6A6 /* NoDataView.swift */,
 				D904D9DC1DB68EDD00D0F6A6 /* NoDateViewModel.swift */,
-				D9F73FE31DAED7C600AD578F /* WeightView.swift */,
-				D9F73FE81DAEF23600AD578F /* WeightViewModel.swift */,
+				D9F73FE31DAED7C600AD578F /* MassView.swift */,
+				D9F73FE81DAEF23600AD578F /* MassViewModel.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 				D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */,
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				D904D9DD1DB68EDD00D0F6A6 /* NoDateViewModel.swift in Sources */,
-				D9F73FE91DAEF23600AD578F /* WeightViewModel.swift in Sources */,
+				D9F73FE91DAEF23600AD578F /* MassViewModel.swift in Sources */,
 				D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */,
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
 				D904D9DB1DB68BD700D0F6A6 /* NoDataView.swift in Sources */,
@@ -443,7 +443,7 @@
 				D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */,
 				D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */,
 				D9BEBD031DAAC36A002263E2 /* ListView.swift in Sources */,
-				D9F73FE41DAED7C600AD578F /* WeightView.swift in Sources */,
+				D9F73FE41DAED7C600AD578F /* MassView.swift in Sources */,
 				D9BEBD0A1DAB24B7002263E2 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

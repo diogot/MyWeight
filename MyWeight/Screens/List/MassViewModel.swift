@@ -1,5 +1,5 @@
 //
-//  WeightViewModel.swift
+//  MassViewModel.swift
 //  MyWeight
 //
 //  Created by Diogo on 12/10/16.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-public struct WeightViewModel {
+public struct MassViewModel {
 
-    public let weight: NSAttributedString
+    public let mass: NSAttributedString
     public let date: NSAttributedString
 
 }
 
-extension WeightViewModel {
+extension MassViewModel {
 
     public init() {
-        weight = NSAttributedString()
+        mass = NSAttributedString()
         date = NSAttributedString()
     }
 
@@ -28,8 +28,8 @@ extension WeightViewModel {
         let style: StyleProvider = Style()
         let me = type(of: self)
 
-        let weightString = me.weightFormatter.string(from: mass.value)
-        self.weight = NSAttributedString(string: weightString,
+        let massString = me.massFormatter.string(from: mass.value)
+        self.mass = NSAttributedString(string: massString,
                                          font: large ? style.title1 : style.title2,
                                          color: style.textColor)
 
@@ -55,12 +55,12 @@ extension WeightViewModel {
                                        color: dateColor)
     }
 
-    static let weightFormatter: MeasurementFormatter = {
-        let weightFormatter = MeasurementFormatter()
-        weightFormatter.numberFormatter.minimumFractionDigits = 1
-        weightFormatter.numberFormatter.maximumFractionDigits = 1
+    static let massFormatter: MeasurementFormatter = {
+        let massFormatter = MeasurementFormatter()
+        massFormatter.numberFormatter.minimumFractionDigits = 1
+        massFormatter.numberFormatter.maximumFractionDigits = 1
 
-        return weightFormatter
+        return massFormatter
     }()
 
     static let dateFormatterFull: DateFormatter = {

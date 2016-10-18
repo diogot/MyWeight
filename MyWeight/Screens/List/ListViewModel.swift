@@ -11,7 +11,7 @@ import Foundation
 public protocol ListViewModelProtocol {
 
     var items: UInt { get }
-    var data: (_ item: UInt) -> WeightViewModel { get }
+    var data: (_ item: UInt) -> MassViewModel { get }
 
     var buttonTitle: String { get }
 
@@ -24,7 +24,7 @@ public protocol ListViewModelProtocol {
 public struct ListViewModel: ListViewModelProtocol {
 
     public let items: UInt
-    public let data: (UInt) -> WeightViewModel
+    public let data: (UInt) -> MassViewModel
 
     public let buttonTitle: String
 
@@ -40,7 +40,7 @@ extension ListViewModel {
     {
         items = 0
 
-        data = { _ in WeightViewModel() }
+        data = { _ in MassViewModel() }
 
         buttonTitle = Localization.addButton
 
@@ -57,7 +57,7 @@ extension ListViewModel {
                 didTap: @escaping () -> Void)
     {
         items = UInt(masses.count)
-        data = { WeightViewModel(with: masses[Int($0)], large: $0 == 0) }
+        data = { MassViewModel(with: masses[Int($0)], large: $0 == 0) }
 
         buttonTitle = Localization.addButton
 

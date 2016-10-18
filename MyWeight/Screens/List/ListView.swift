@@ -18,7 +18,7 @@ public class ListView: UIView {
 
     public var viewModel: ListViewModelProtocol = ListViewModel() {
         didSet {
-            updateView()
+            update()
         }
     }
 
@@ -27,8 +27,21 @@ public class ListView: UIView {
         tableView = UITableView(frame: frame, style: .grouped)
         super.init(frame: frame)
         setUp()
-        updateView()
+        update()
     }
+
+    public var topOffset: CGFloat {
+        set(topOffset) {
+            topConstraint?.constant = topOffset
+        }
+
+        get {
+            return topConstraint?.constant ?? 0
+        }
+    }
+
+    var topConstraint: NSLayoutConstraint?
+
 
     @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
@@ -39,9 +52,16 @@ public class ListView: UIView {
     {
         let contentView = self
 
+        contentView.backgroundColor = style.backgroundColor
+
         contentView.addSubview(tableView)
-        tableView.frame = contentView.frame
-        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+
+        topConstraint = tableView.topAnchor.constraint(equalTo: contentView.topAnchor)
+        topConstraint?.isActive = true
+        tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 
         tableView.allowsSelection = false
 
@@ -67,7 +87,7 @@ public class ListView: UIView {
     }
 
 
-    func updateView()
+    func update()
     {
         addButton.title = viewModel.buttonTitle
         tableView.reloadData()
@@ -94,12 +114,14 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    public func tableView(_ tableView: UITableView,
+                          numberOfRowsInSection section: Int) -> Int
     {
         return Int(viewModel.items)
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    public func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.defaultReuseIdentifier,
                                                  for: indexPath) as! Cell
@@ -107,6 +129,12 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
         cell.viewModel = viewModel.data(UInt(indexPath.row))
 
         return cell
+    }
+
+    public func tableView(_ tableView: UITableView,
+                          heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return CGFloat.leastNormalMagnitude
     }
 
 }

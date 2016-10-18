@@ -43,6 +43,11 @@ public class ListViewController: UIViewController {
     {
         let view = ListView()
         self.view = view
+    }
+
+    public override func viewDidLoad()
+    {
+        automaticallyAdjustsScrollViewInsets = false
         updateView()
     }
 
@@ -60,6 +65,11 @@ public class ListViewController: UIViewController {
         super.viewDidAppear(animated)
 
         loadWeights()
+    }
+
+    public override func viewDidLayoutSubviews()
+    {
+        theView.topOffset = topLayoutGuide.length
     }
 
     func loadWeights()

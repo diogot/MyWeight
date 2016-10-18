@@ -53,11 +53,11 @@ extension ListViewModel {
 
 extension ListViewModel {
 
-    public init(with weights: [Weight],
+    public init(with masses: [Mass],
                 didTap: @escaping () -> Void)
     {
-        items = UInt(weights.count)
-        data = { WeightViewModel(with: weights[Int($0)], large: $0 == 0) }
+        items = UInt(masses.count)
+        data = { WeightViewModel(with: masses[Int($0)], large: $0 == 0) }
 
         buttonTitle = Localization.addButton
 

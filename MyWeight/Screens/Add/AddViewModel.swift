@@ -14,10 +14,10 @@ public protocol AddViewModelProtocol {
     var saveButtonText: String { get }
     var cancelButtonText: NSAttributedString { get }
 
-    var initialMass: Weight { get }
+    var initialMass: Mass { get }
 
     var didTapCancel: () -> Void { get }
-    var didTapSave: (Weight) -> Void { get }
+    var didTapSave: (Mass) -> Void { get }
 
 }
 
@@ -27,10 +27,10 @@ public struct AddViewModel: AddViewModelProtocol {
     public let saveButtonText: String
     public let cancelButtonText: NSAttributedString
 
-    public let initialMass: Weight
+    public let initialMass: Mass
 
     public let didTapCancel: () -> Void
-    public let didTapSave: (Weight) -> Void
+    public let didTapSave: (Mass) -> Void
 
 }
 
@@ -38,15 +38,15 @@ extension AddViewModel {
 
     public init()
     {
-        let mass = Weight()
+        let mass = Mass()
         self.init(initialMass: mass,
                   didTapCancel: { _ in Log.debug("Cancel") },
                   didTapSave: { _ in Log.debug("Save") })
     }
 
-    public init(initialMass: Weight,
+    public init(initialMass: Mass,
                 didTapCancel: @escaping () -> Void,
-                didTapSave: @escaping (Weight) -> Void)
+                didTapSave: @escaping (Mass) -> Void)
     {
         let style = Style()
 
@@ -58,7 +58,7 @@ extension AddViewModel {
                                               font: style.subhead,
                                               color: style.textColor)
 
-        self.initialMass = Weight(value: initialMass.value, date: Date())
+        self.initialMass = Mass(value: initialMass.value, date: Date())
         self.didTapCancel = didTapCancel
         self.didTapSave = didTapSave
     }

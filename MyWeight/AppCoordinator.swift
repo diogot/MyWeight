@@ -31,10 +31,10 @@ public class AppCoordinator {
 
 extension AppCoordinator: ListViewControllerDelegate {
 
-    public func didTapAddWeight(last weight: Weight?)
+    public func didTapAddMeasure(last mass: Mass?)
     {
         let addViewController = AddViewController(with: massController,
-                                                  startWeight: weight ?? Weight())
+                                                  startMass: mass ?? Mass())
         addViewController.delegate = self
         self.navigationController.present(addViewController,
                                           animated: true,

@@ -34,7 +34,7 @@
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 		D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE11DAED5F700AD578F /* TableViewCell.swift */; };
 		D9F73FE41DAED7C600AD578F /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE31DAED7C600AD578F /* WeightView.swift */; };
-		D9F73FE71DAEDE7700AD578F /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE61DAEDE7700AD578F /* Weight.swift */; };
+		D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE61DAEDE7700AD578F /* Mass.swift */; };
 		D9F73FE91DAEF23600AD578F /* WeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE81DAEF23600AD578F /* WeightViewModel.swift */; };
 		D9F73FEC1DB3214900AD578F /* MassPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FEB1DB3214900AD578F /* MassPicker.swift */; };
 /* End PBXBuildFile section */
@@ -106,7 +106,7 @@
 		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D9F73FE11DAED5F700AD578F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D9F73FE31DAED7C600AD578F /* WeightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
-		D9F73FE61DAEDE7700AD578F /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		D9F73FE61DAEDE7700AD578F /* Mass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mass.swift; sourceTree = "<group>"; };
 		D9F73FE81DAEF23600AD578F /* WeightViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewModel.swift; sourceTree = "<group>"; };
 		D9F73FEB1DB3214900AD578F /* MassPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,7 +261,7 @@
 		D9F73FE51DAEDE6700AD578F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D9F73FE61DAEDE7700AD578F /* Weight.swift */,
+				D9F73FE61DAEDE7700AD578F /* Mass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				D904D9DD1DB68EDD00D0F6A6 /* NoDateViewModel.swift in Sources */,
 				D9F73FE91DAEF23600AD578F /* WeightViewModel.swift in Sources */,
-				D9F73FE71DAEDE7700AD578F /* Weight.swift in Sources */,
+				D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */,
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
 				D904D9DB1DB68BD700D0F6A6 /* NoDataView.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* MassController.swift in Sources */,

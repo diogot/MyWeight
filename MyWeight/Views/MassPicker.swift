@@ -60,19 +60,19 @@ public class MassPicker: UIView {
 
     let digits: Int = 4
 
-    func setPicker(_ weight: Double)
+    func setPicker(_ mass: Double)
     {
-        guard weight < pow(10.0, Double(digits - 1)) else {
+        guard mass < pow(10.0, Double(digits - 1)) else {
             Log.debug(":w:")
             return
         }
 
-        var decimalWeight: Int = Int(weight * 10)
+        var decimalMass: Int = Int(mass * 10)
 
         for index: Int in 1 ... digits {
-            let mod: Int = decimalWeight % Int(pow(10.0, Double(index)))
+            let mod: Int = decimalMass % Int(pow(10.0, Double(index)))
             let value = mod / Int(pow(10.0, Double(index-1)))
-            decimalWeight -= mod
+            decimalMass -= mod
 
             Log.debug("\(value) - \(index)")
             picker.selectRow(value,

@@ -142,8 +142,8 @@ public class AddView: UIView {
 
     func saveTap()
     {
-        let mass = Weight(value: massPicker.mass,
-                          date: datePicker.date)
+        let mass = Mass(value: massPicker.mass,
+                        date: datePicker.date)
         viewModel.didTapSave(mass)
     }
 

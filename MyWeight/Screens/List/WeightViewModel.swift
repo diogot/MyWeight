@@ -23,20 +23,20 @@ extension WeightViewModel {
     }
 
 
-    public init(with weight: Weight, large: Bool) {
+    public init(with mass: Mass, large: Bool) {
 
         let style: StyleProvider = Style()
         let me = type(of: self)
 
-        let weightString = me.weightFormatter.string(from: weight.value)
+        let weightString = me.weightFormatter.string(from: mass.value)
         self.weight = NSAttributedString(string: weightString,
                                          font: large ? style.title1 : style.title2,
                                          color: style.textColor)
 
 
 
-        let date = me.dateFormatterDay.string(from: weight.date)
-        let time = me.dateFormatterTime.string(from: weight.date)
+        let date = me.dateFormatterDay.string(from: mass.date)
+        let time = me.dateFormatterTime.string(from: mass.date)
         let dateString = "\(date)\n\(time)"
 
         let dateFont: UIFont

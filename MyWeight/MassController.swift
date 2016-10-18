@@ -42,7 +42,7 @@ public class MassController {
         self.massType = HKObjectType.quantityType(forIdentifier: self.bodyMass)!
     }
 
-    public func requestAuthorizatin(_ completion: @escaping (_ error: Error?) -> Void ) {
+    public func requestAuthorization(_ completion: @escaping (_ error: Error?) -> Void ) {
 
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
 
@@ -51,7 +51,7 @@ public class MassController {
         }
     }
 
-    func fetchWeights(_ completion: @escaping (_ results: [Weight]) -> Void) {
+    public func fetch(_ completion: @escaping (_ results: [Mass]) -> Void) {
         let startDate = healthStore.earliestPermittedSampleDate()
         let endDate = Date()
 
@@ -72,26 +72,27 @@ public class MassController {
                                         Log.debug("No samples")
                                     }
 
-                                    let weights = samples.map { Weight(with: $0) }
+                                    let masses = samples.map { Mass(with: $0) }
 
                                     DispatchQueue.main.async {
-                                        completion(weights)
+                                        completion(masses)
                                     }
         }
 
         healthStore.execute(query)
     }
 
-    func save(weight: Weight, completion: @escaping (_ error: Error?) -> Void)
+    public func save(_ mass: Mass,
+                     completion: @escaping (_ error: Error?) -> Void)
     {
         let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
-                                  doubleValue: weight.value.converted(to: .kilograms).value)
+                                  doubleValue: mass.value.converted(to: .kilograms).value)
 
         let metadata = [HKMetadataKeyWasUserEntered: true]
         let sample = HKQuantitySample(type: massType,
                                       quantity: quantity,
-                                      start: weight.date,
-                                      end: weight.date,
+                                      start: mass.date,
+                                      end: mass.date,
                                       metadata: metadata)
         
         healthStore.save(sample) { (success, error) in

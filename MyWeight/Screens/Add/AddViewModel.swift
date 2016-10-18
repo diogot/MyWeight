@@ -38,8 +38,7 @@ extension AddViewModel {
 
     public init()
     {
-        let mass = Weight(value: Measurement(value: 60.0, unit: .kilograms),
-                          date: Date())
+        let mass = Weight()
         self.init(initialMass: mass,
                   didTapCancel: { _ in Log.debug("Cancel") },
                   didTapSave: { _ in Log.debug("Save") })
@@ -59,7 +58,7 @@ extension AddViewModel {
                                               font: style.subhead,
                                               color: style.textColor)
 
-        self.initialMass = initialMass
+        self.initialMass = Weight(value: initialMass.value, date: Date())
         self.didTapCancel = didTapCancel
         self.didTapSave = didTapSave
     }

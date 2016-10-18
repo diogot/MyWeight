@@ -15,7 +15,7 @@ public protocol ListViewModelProtocol {
 
     var buttonTitle: String { get }
 
-    var noDataViewModel: NoDataViewModelProtocol? { get }
+    var emptyListViewModel: TitleDescriptionViewModelProtocol? { get }
 
     var didTapAction: () -> Void { get }
     
@@ -28,7 +28,7 @@ public struct ListViewModel: ListViewModelProtocol {
 
     public let buttonTitle: String
 
-    public let noDataViewModel: NoDataViewModelProtocol?
+    public let emptyListViewModel: TitleDescriptionViewModelProtocol?
 
     public let didTapAction: () -> Void
 
@@ -46,7 +46,7 @@ extension ListViewModel {
 
         didTapAction = { Log.debug("Add button tap") }
 
-        noDataViewModel = NoDataViewModel()
+        emptyListViewModel = EmptyListViewModel()
     }
 
 }
@@ -63,7 +63,7 @@ extension ListViewModel {
 
         didTapAction = didTap
 
-        noDataViewModel = items == 0 ? NoDataViewModel() : nil
+        emptyListViewModel = items == 0 ? EmptyListViewModel() : nil
     }
 
 }

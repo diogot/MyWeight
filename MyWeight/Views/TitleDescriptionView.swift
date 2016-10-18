@@ -1,5 +1,5 @@
 //
-//  NoDataView.swift
+//  TitleDescriptionView.swift
 //  MyWeight
 //
 //  Created by Diogo on 18/10/16.
@@ -8,7 +8,19 @@
 
 import UIKit
 
-public class NoDataView: UIView {
+public protocol TitleDescriptionViewModelProtocol {
+
+    var title: NSAttributedString { get }
+    var description: NSAttributedString { get }
+    
+}
+
+public class TitleDescriptionView: UIView {
+
+    struct EmptyViewModel: TitleDescriptionViewModelProtocol {
+        let title: NSAttributedString = NSAttributedString()
+        let description: NSAttributedString = NSAttributedString()
+    }
 
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -26,7 +38,7 @@ public class NoDataView: UIView {
 
     let style: StyleProvider = Style()
 
-    public var viewModel: NoDataViewModelProtocol = NoDataViewModel() {
+    public var viewModel: TitleDescriptionViewModelProtocol {
         didSet {
             update()
         }
@@ -34,6 +46,7 @@ public class NoDataView: UIView {
 
     override public init(frame: CGRect)
     {
+        viewModel = EmptyViewModel()
         super.init(frame: frame)
         setUp()
         update()

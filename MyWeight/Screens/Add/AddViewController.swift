@@ -14,12 +14,12 @@ public protocol AddViewControllerDelegate {
 
 public class AddViewController: UIViewController {
 
-    let massController: WeightController
+    let massController: MassController
     let startMass: Weight
 
-    public required init(weightController: WeightController, startWeight: Weight)
+    public required init(with massController: MassController, startWeight: Weight)
     {
-        self.massController = weightController
+        self.massController = massController
         self.startMass = startWeight
         super.init(nibName: nil, bundle: nil)
     }

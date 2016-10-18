@@ -1,5 +1,5 @@
 //
-//  WeightController.swift
+//  MassController.swift
 //  MyWeight
 //
 //  Created by Diogo Tridapalli on 10/7/16.
@@ -29,7 +29,7 @@ public protocol HealthStoreProtocol {
 extension HKHealthStore: HealthStoreProtocol {}
 
 
-public class WeightController {
+public class MassController {
 
     let healthStore: HealthStoreProtocol
     let bodyMass: HKQuantityTypeIdentifier
@@ -98,9 +98,31 @@ public class WeightController {
             completion(error)
         }
     }
-    
-    public var authorizationStatus: HKAuthorizationStatus {
-        return healthStore.authorizationStatusForType(massType)
+
+    public enum AuthorizationStatus {
+
+        case notDetermined
+
+        case denied
+
+        case authorized
+
+    }
+
+    public var authorizationStatus: AuthorizationStatus {
+
+        let status: AuthorizationStatus
+
+        switch healthStore.authorizationStatusForType(massType) {
+        case .notDetermined:
+            status = .notDetermined
+        case .sharingDenied:
+            status = .denied
+        case .sharingAuthorized:
+            status = .authorized
+        }
+
+        return status
     }
     
 }

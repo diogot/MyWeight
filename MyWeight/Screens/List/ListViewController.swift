@@ -14,7 +14,7 @@ public protocol ListViewControllerDelegate {
 
 public class ListViewController: UIViewController {
 
-    let weightController: WeightController
+    let massController: MassController
     var weights: [Weight] = [Weight]() {
         didSet {
             updateView()
@@ -28,9 +28,9 @@ public class ListViewController: UIViewController {
         return self.view as! ListView
     }
 
-    public required init(with weightController: WeightController)
+    public required init(with massController: MassController)
     {
-        self.weightController = weightController
+        self.massController = massController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -76,7 +76,7 @@ public class ListViewController: UIViewController {
     {
         weights.removeAll()
 
-        weightController.requestAuthorizatin { [weak self] (error) in
+        massController.requestAuthorizatin { [weak self] (error) in
             guard error == nil else {
                 Log.debug(error)
                 //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
@@ -84,7 +84,7 @@ public class ListViewController: UIViewController {
                 return
             }
 
-            self?.weightController.fetchWeights { [weak self] (samples) in
+            self?.massController.fetchWeights { [weak self] (samples) in
 
                 if samples.isEmpty {
                     Log.debug("No samples")

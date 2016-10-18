@@ -76,22 +76,13 @@ public class ListViewController: UIViewController {
     {
         masses.removeAll()
 
-        massController.requestAuthorization { [weak self] (error) in
-            guard error == nil else {
-                Log.debug(error)
-                //TODO: Implement a warning/alert/screen saying that we cannot query for Sample data.
-                //It's most likely that we don't have access to health data.
-                return
+        self.massController.fetch { [weak self] (samples) in
+
+            if samples.isEmpty {
+                Log.debug("No samples")
             }
 
-            self?.massController.fetch { [weak self] (samples) in
-
-                if samples.isEmpty {
-                    Log.debug("No samples")
-                }
-
-                self?.masses.append(contentsOf: samples)
-            }
+            self?.masses.append(contentsOf: samples)
         }
     }
 

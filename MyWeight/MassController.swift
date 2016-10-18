@@ -61,22 +61,28 @@ public class MassController {
         let query = HKSampleQuery(sampleType: massType,
                                   predicate: predicate,
                                   limit: HKObjectQueryNoLimit,
-                                  sortDescriptors: [sortDescriptor]) {
-                                    query, results, error in
+                                  sortDescriptors: [sortDescriptor])
+        { query, results, error in
+            // WARNING: improve
+            guard error == nil else {
+                Log.debug(error)
 
-                                    guard let samples = results as? [HKQuantitySample] else {
-                                        fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)")
-                                    }
+                return
+            }
 
-                                    if samples.isEmpty {
-                                        Log.debug("No samples")
-                                    }
+            guard let samples = results as? [HKQuantitySample] else {
+                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)")
+            }
 
-                                    let masses = samples.map { Mass(with: $0) }
+            if samples.isEmpty {
+                Log.debug("No samples")
+            }
 
-                                    DispatchQueue.main.async {
-                                        completion(masses)
-                                    }
+            let masses = samples.map { Mass(with: $0) }
+
+            DispatchQueue.main.async {
+                completion(masses)
+            }
         }
 
         healthStore.execute(query)

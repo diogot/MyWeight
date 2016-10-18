@@ -1,5 +1,5 @@
 //
-//  NoDateViewModel.swift
+//  EmptyListViewModel.swift
 //  MyWeight
 //
 //  Created by Diogo on 18/10/16.
@@ -8,21 +8,14 @@
 
 import Foundation
 
-public protocol NoDataViewModelProtocol {
-
-    var title: NSAttributedString { get }
-    var description: NSAttributedString { get }
-
-}
-
-public struct NoDataViewModel: NoDataViewModelProtocol {
+public struct EmptyListViewModel: TitleDescriptionViewModelProtocol {
 
     public let title: NSAttributedString
     public let description: NSAttributedString
 
 }
 
-extension NoDataViewModel {
+extension EmptyListViewModel {
 
     public init() {
         let style: StyleProvider = Style()

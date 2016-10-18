@@ -91,9 +91,9 @@ public class ListView: UIView {
     {
         addButton.title = viewModel.buttonTitle
         tableView.reloadData()
-        if let noDataViewModel = viewModel.noDataViewModel {
-            let backgroundView = NoDataView()
-            backgroundView.viewModel = noDataViewModel
+        if let emptyListViewModel = viewModel.emptyListViewModel {
+            let backgroundView = TitleDescriptionView()
+            backgroundView.viewModel = emptyListViewModel
             tableView.backgroundView = backgroundView
         } else {
             tableView.backgroundView = nil

@@ -26,4 +26,12 @@ struct Localization {
         return NSLocalizedString("Add.CancelButton.text", comment: "")
     }
 
+    static var noDataTitle: String {
+        return NSLocalizedString("List.NoDataTitle.text", comment: "")
+    }
+
+    static var noDataDescription: String {
+        return NSLocalizedString("List.NoDataDescription.text", comment: "")
+    }
+
 }

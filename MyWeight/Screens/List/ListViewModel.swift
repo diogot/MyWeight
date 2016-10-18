@@ -14,8 +14,8 @@ public protocol ListViewModelProtocol {
     var data: (_ item: UInt) -> WeightViewModel { get }
 
     var buttonTitle: String { get }
-    //    var noDataTitle: String { get }
-    //    var noDataDescription: String { get }
+
+    var noDataViewModel: NoDataViewModelProtocol? { get }
 
     var didTapAction: () -> Void { get }
     
@@ -27,6 +27,9 @@ public struct ListViewModel: ListViewModelProtocol {
     public let data: (UInt) -> WeightViewModel
 
     public let buttonTitle: String
+
+    public let noDataViewModel: NoDataViewModelProtocol?
+
     public let didTapAction: () -> Void
 
 }
@@ -43,6 +46,7 @@ extension ListViewModel {
 
         didTapAction = { Log.debug("Add button tap") }
 
+        noDataViewModel = NoDataViewModel()
     }
 
 }
@@ -58,6 +62,8 @@ extension ListViewModel {
         buttonTitle = Localization.addButton
 
         didTapAction = didTap
+
+        noDataViewModel = items == 0 ? NoDataViewModel() : nil
     }
 
 }

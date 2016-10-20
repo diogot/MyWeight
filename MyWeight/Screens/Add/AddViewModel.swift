@@ -51,7 +51,7 @@ extension AddViewModel {
         let style = Style()
 
         title = NSAttributedString(string: Localization.addTitle,
-                                   font: style.body,
+                                   font: style.title3,
                                    color: style.textColor)
         saveButtonText = Localization.saveButton
         cancelButtonText = NSAttributedString(string: Localization.cancelButton,

@@ -81,7 +81,7 @@ public class AddView: UIView {
 
         cancelButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
         cancelButton.leadingAnchor.constraint(equalTo: topBar.leadingAnchor,
-                                              constant: grid * 3).isActive = true
+                                              constant: grid * 2).isActive = true
 
         cancelButton.addTarget(self,
                                action: #selector(AddView.cancelTap),

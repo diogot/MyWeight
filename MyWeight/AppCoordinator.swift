@@ -47,7 +47,11 @@ public class AppCoordinator {
 
     func startAuthorizationDenied()
     {
-        // TODO: create denied flow
+        let viewController = AccessDeniedViewController()
+        viewController.delegate = self
+        self.navigationController.present(viewController,
+                                          animated: true,
+                                          completion: nil)
     }
 
 }
@@ -90,6 +94,15 @@ extension AppCoordinator: AuthorizationRequestViewControllerDelegate {
         } else {
             controller.dismiss(animated: true, completion: nil)
         }
+    }
+
+}
+
+extension AppCoordinator: AccessDeniedViewControllerDelegate {
+
+    public func didFinish(on controller: AccessDeniedViewController)
+    {
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }

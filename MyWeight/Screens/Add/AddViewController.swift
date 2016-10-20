@@ -54,7 +54,7 @@ public class AddViewController: UIViewController {
         theView.viewModel = viewModel
     }
 
-    public override func viewDidLayoutSubviews()
+    override public func viewDidLayoutSubviews()
     {
         theView.topOffset = topLayoutGuide.length
     }

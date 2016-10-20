@@ -34,4 +34,30 @@ struct Localization {
         return NSLocalizedString("List.NoDataDescription.text", comment: "")
     }
 
+    static var authorizationTitle: String {
+        return NSLocalizedString("Authorization.Title.text", comment: "")
+    }
+
+    static var authorizationDescription: String {
+        return NSLocalizedString("Authorization.Description.text", comment: "")
+    }
+
+    static var authorizationDescriptionHighlight1: String {
+        return NSLocalizedString("Authorization.Description.text.highlight1",
+                                 comment: "")
+    }
+
+    static var authorizationDescriptionHighlight2: String {
+        return NSLocalizedString("Authorization.Description.text.highlight2",
+                                 comment: "")
+    }
+
+    static var authorizationOkButton: String {
+        return NSLocalizedString("Authorization.OkButton.text", comment: "")
+    }
+
+    static var authorizationCancelButton: String {
+        return NSLocalizedString("Authorization.CancelButton.text", comment: "")
+    }
+
 }

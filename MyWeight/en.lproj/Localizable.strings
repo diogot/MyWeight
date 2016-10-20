@@ -10,3 +10,15 @@
 
 "List.NoDataTitle.text" = "Welcome";
 
+"Authorization.Description.text.highlight1" = "Health";
+
+"Authorization.Description.text.highlight2" = "data is securely encrypted and won't be shared with anyone";
+
+"Authorization.Description.text" = "My Weight needs access to Health in order to store your entries.\n\nThis means your weight data is securely encrypted and won't be shared with anyone.\n\nYou’ll be able to revoke this permission at any time.";
+
+"Authorization.OkButton.text" = "Got it";
+
+"Authorization.CancelButton.text" = "No, thanks";
+
+"Authorization.Title.text" = "Hello!";
+

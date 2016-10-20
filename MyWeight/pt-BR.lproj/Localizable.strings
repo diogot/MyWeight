@@ -10,3 +10,15 @@
 
 "List.NoDataTitle.text" = "Bem Vindo";
 
+"Authorization.Description.text.highlight1" = "Saúde";
+
+"Authorization.Description.text.highlight2" = "dados de seu peso serão criptografados de maneira segura";
+
+"Authorization.Description.text" = "Meu Peso precisa de acesso ao app Saúde para salvar suas medidas.\n\nIsso significa que os dados de seu peso serão criptografados de maneira segura.\n\nVocê pode cancelar essa permissão a qualquer momento.";
+
+"Authorization.OkButton.text" = "Ok";
+
+"Authorization.CancelButton.text" = "Não, obrigado";
+
+"Authorization.Title.text" = "Olá!";
+

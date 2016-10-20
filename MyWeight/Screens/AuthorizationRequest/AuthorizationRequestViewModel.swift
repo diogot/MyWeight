@@ -22,6 +22,7 @@ public struct AuthorizationRequestViewModel: AuthorizationRequestViewModelProtoc
 
     public let title: NSAttributedString
     public let description: NSAttributedString
+    public let flexibleHeight: Bool
 
     public let okTitle: String
     public let cancelTitle: String
@@ -60,6 +61,8 @@ extension AuthorizationRequestViewModel {
                                             color: style.textColor)
 
         self.description = description
+
+        flexibleHeight = true
 
         okTitle = Localization.authorizationOkButton
         cancelTitle = Localization.authorizationCancelButton

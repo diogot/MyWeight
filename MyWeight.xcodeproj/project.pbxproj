@@ -13,6 +13,9 @@
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
 		D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DA1DB68BD700D0F6A6 /* TitleDescriptionView.swift */; };
 		D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DC1DB68EDD00D0F6A6 /* EmptyListViewModel.swift */; };
+		D904D9E01DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DF1DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift */; };
+		D904D9E21DB6ED5300D0F6A6 /* AuthorizationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9E11DB6ED5300D0F6A6 /* AuthorizationRequestView.swift */; };
+		D904D9E41DB8032F00D0F6A6 /* AuthorizationRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9E31DB8032F00D0F6A6 /* AuthorizationRequestViewModel.swift */; };
 		D904D9E61DB83AAE00D0F6A6 /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9E51DB83AAE00D0F6A6 /* ClearButton.swift */; };
 		D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */; };
 		D90D1E491DADCC1000FB513A /* NSAttributedString+FontColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */; };
@@ -79,6 +82,9 @@
 		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
 		D904D9DA1DB68BD700D0F6A6 /* TitleDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDescriptionView.swift; sourceTree = "<group>"; };
 		D904D9DC1DB68EDD00D0F6A6 /* EmptyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListViewModel.swift; sourceTree = "<group>"; };
+		D904D9DF1DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
+		D904D9E11DB6ED5300D0F6A6 /* AuthorizationRequestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestView.swift; sourceTree = "<group>"; };
+		D904D9E31DB8032F00D0F6A6 /* AuthorizationRequestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewModel.swift; sourceTree = "<group>"; };
 		D904D9E51DB83AAE00D0F6A6 /* ClearButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClearButton.swift; path = Views/ClearButton.swift; sourceTree = "<group>"; };
 		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+WithColor.swift"; path = "Extensions/UIImage+WithColor.swift"; sourceTree = "<group>"; };
 		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+FontColor.swift"; path = "Extensions/NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
@@ -147,6 +153,16 @@
 				D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D904D9DE1DB6ED0200D0F6A6 /* AuthorizationRequest */ = {
+			isa = PBXGroup;
+			children = (
+				D904D9DF1DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift */,
+				D904D9E11DB6ED5300D0F6A6 /* AuthorizationRequestView.swift */,
+				D904D9E31DB8032F00D0F6A6 /* AuthorizationRequestViewModel.swift */,
+			);
+			path = AuthorizationRequest;
 			sourceTree = "<group>";
 		};
 		D97F43F71CAB5E50000F4E12 = {
@@ -231,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				D9F73FEA1DB3211E00AD578F /* Add */,
+				D904D9DE1DB6ED0200D0F6A6 /* AuthorizationRequest */,
 				D9BEBCFF1DAAC312002263E2 /* List */,
 			);
 			path = Screens;
@@ -429,6 +446,7 @@
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */,
 				D9F73FE91DAEF23600AD578F /* MassViewModel.swift in Sources */,
+				D904D9E01DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift in Sources */,
 				D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */,
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
 				D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */,
@@ -438,8 +456,10 @@
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */,
 				B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */,
+				D904D9E21DB6ED5300D0F6A6 /* AuthorizationRequestView.swift in Sources */,
 				D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */,
 				D904D9E61DB83AAE00D0F6A6 /* ClearButton.swift in Sources */,
+				D904D9E41DB8032F00D0F6A6 /* AuthorizationRequestViewModel.swift in Sources */,
 				D90D1E4B1DAEA4F600FB513A /* TintButton.swift in Sources */,
 				D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */,
 				D9F73FEC1DB3214900AD578F /* MassPicker.swift in Sources */,

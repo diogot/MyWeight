@@ -38,12 +38,11 @@ public class AppCoordinator {
 
     func startAuthorizationRequest()
     {
-        // TODO: create request flow
-        massController.requestAuthorization { error in
-            if let error = error {
-                Log.debug(error)
-            }
-        }
+        let viewController = AuthorizationRequestViewController(with: massController)
+        viewController.delegate = self
+        self.navigationController.present(viewController,
+                                          animated: true,
+                                          completion: nil)
     }
 
     func startAuthorizationDenied()
@@ -68,9 +67,6 @@ extension AppCoordinator: ListViewControllerDelegate {
         }
     }
 
-
-
-
 }
 
 extension AppCoordinator: AddViewControllerDelegate {
@@ -78,6 +74,22 @@ extension AppCoordinator: AddViewControllerDelegate {
     public func didEnd()
     {
         self.navigationController.dismiss(animated: true, completion: nil)
+    }
+
+}
+
+extension AppCoordinator: AuthorizationRequestViewControllerDelegate {
+
+    public func didFinish(on controller: AuthorizationRequestViewController,
+                          with authorized: Bool)
+    {
+        if authorized {
+            controller.dismiss(animated: true, completion: { 
+                self.startAdd(last: nil)
+            })
+        } else {
+            controller.dismiss(animated: true, completion: nil)
+        }
     }
 
 }

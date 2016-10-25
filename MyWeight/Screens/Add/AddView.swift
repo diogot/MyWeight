@@ -129,8 +129,10 @@ public class AddView: UIView {
     func updateView()
     {
         massPicker.mass = viewModel.initialMass.value
+
         datePicker.date = viewModel.initialMass.date
         datePicker.maximumDate = viewModel.initialMass.date
+        datePicker.setValue(style.textColor, forKey: "textColor")
 
         titleLabel.attributedText = viewModel.title
 

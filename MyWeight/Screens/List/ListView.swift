@@ -74,7 +74,7 @@ public class ListView: UIView {
 
         tableView.backgroundColor = style.backgroundColor
 
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = .none
         
         contentView.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false

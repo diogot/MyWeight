@@ -81,12 +81,10 @@ public class MassView: UIView, ViewModelOwner {
         line.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -grid*4).isActive = true
         line.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
        
-        line.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        line.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
 
         self.backgroundColor = style.backgroundColor
     }
-    
     public var viewModel: MassViewModel {
         didSet {
             updateView()

@@ -74,6 +74,8 @@ public class ListView: UIView {
 
         tableView.backgroundColor = style.backgroundColor
 
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
         contentView.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         let padding: CGFloat = style.grid * 2

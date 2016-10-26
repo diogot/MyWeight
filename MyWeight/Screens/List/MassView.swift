@@ -42,8 +42,12 @@ public class MassView: UIView, ViewModelOwner {
                                                             for: .vertical)
 
         let grid = style.grid
+       
+        let line = UIView()
+        line.backgroundColor = style.separatorColor
 
         contentView.addSubview(massLabel)
+        
         massLabel.translatesAutoresizingMaskIntoConstraints = false
 
         massLabel.setContentHuggingPriority(UILayoutPriorityRequired,
@@ -68,10 +72,21 @@ public class MassView: UIView, ViewModelOwner {
 
         dateLabel.numberOfLines = 0
         dateLabel.textAlignment = .right
+        
+        contentView.addSubview(line)
+        
+        line.translatesAutoresizingMaskIntoConstraints = false
+        
+        line.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: grid*4).isActive = true
+        line.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -grid*4).isActive = true
+        line.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+       
+        line.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         self.backgroundColor = style.backgroundColor
     }
-
+    
     public var viewModel: MassViewModel {
         didSet {
             updateView()
@@ -83,5 +98,6 @@ public class MassView: UIView, ViewModelOwner {
         massLabel.attributedText = viewModel.mass
         dateLabel.attributedText = viewModel.date
     }
+    
 
 }

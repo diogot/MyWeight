@@ -47,7 +47,9 @@ public class MassController {
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
 
         healthStore.requestAuthorization(toShare: massSet, read: massSet) { (success, error) in
-            completion(error)
+            DispatchQueue.main.async {
+                completion(error)
+            }
         }
     }
 

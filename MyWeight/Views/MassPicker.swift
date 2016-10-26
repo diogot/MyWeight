@@ -10,30 +10,59 @@ import UIKit
 
 public class MassPicker: UIView {
 
+    enum DisplayUnit: Int {
+        case kilogram
+        case pounds
+
+        static let count: Int = 2
+
+        var type: UnitMass {
+            switch self {
+            case .kilogram:
+                return .kilograms
+            case .pounds:
+                return .pounds
+            }
+        }
+
+        var string: String {
+            let formatter = MeasurementFormatter()
+            return formatter.string(from: self.type)
+        }
+    }
+
+    var currentMass: Measurement<UnitMass> {
+        didSet {
+            update()
+        }
+    }
+
+    var unit: DisplayUnit = .kilogram {
+        didSet {
+            update()
+        }
+    }
+
     public var mass: Measurement<UnitMass> {
 
         set(mass) {
-            setPicker(mass.converted(to: .kilograms).value)
+            currentMass = mass
         }
 
         get {
-            var mass: Double = 0
-
-            for index: Int in 0 ..< digits {
-                let partialValue = picker.selectedRow(inComponent: index)
-                mass += Double(partialValue) * pow(10.0, Double(digits - index - 2))
-            }
-            
-            return Measurement(value: mass, unit: .kilograms)
+            return currentMass
         }
-
     }
+
     let picker: UIPickerView = UIPickerView()
+    let style: StyleProvider = Style()
 
     override public required init(frame: CGRect)
     {
+        currentMass = Measurement(value: 0, unit: .kilograms)
         super.init(frame: frame)
         setUp()
+        update()
     }
 
     @available(*, unavailable)
@@ -55,58 +84,144 @@ public class MassPicker: UIView {
         picker.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         picker.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         picker.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-
     }
 
-    let digits: Int = 4
-
-    func setPicker(_ mass: Double)
+    func update()
     {
-        guard mass < pow(10.0, Double(digits - 1)) else {
-            Log.debug(":w:")
-            return
-        }
+        let mass = currentMass.converted(to: unit.type).value
 
-        var decimalMass: Int = Int(mass * 10)
-
-        for index: Int in 1 ... digits {
-            let mod: Int = decimalMass % Int(pow(10.0, Double(index)))
-            let value = mod / Int(pow(10.0, Double(index-1)))
-            decimalMass -= mod
-
-            Log.debug("\(value) - \(index)")
-            picker.selectRow(value,
-                             inComponent: digits - index,
-                             animated: true)
-        }
+        picker.selectRow(Value.row(for: mass),
+                         inComponent: Components.value.rawValue,
+                         animated: true)
+        picker.selectRow(unit.rawValue,
+                         inComponent: Components.unit.rawValue,
+                         animated: true)
     }
-
 }
 
 extension MassPicker: UIPickerViewDataSource, UIPickerViewDelegate {
 
+    enum Components: Int {
+        case value = 0
+        case unit = 1
+
+        static let count: Int = 2
+    }
+
+    struct Value {
+        static let max: Double = 1000.0
+
+        static func row(for value: Double) -> Int {
+            return Int(round(value * 10))
+        }
+
+        static func value(for row: Int) -> Double {
+            return Double(row)/10.0
+        }
+
+    }
+
     public func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
-        return digits;
+        return Components.count;
     }
 
     public func pickerView(_ pickerView: UIPickerView,
                            numberOfRowsInComponent component: Int) -> Int
     {
-        return 10
+        guard let aComponent = Components(rawValue: component) else {
+            Log.debug("This should not happen")
+            return 0;
+        }
+
+        let number: Int
+
+        switch aComponent {
+        case .value:
+            number = Value.row(for: Value.max) + 1
+        case .unit:
+            number = DisplayUnit.count
+        }
+
+        return number
     }
 
     public func pickerView(_ pickerView: UIPickerView,
-                           titleForRow row: Int,
-                           forComponent component: Int) -> String?
+                           attributedTitleForRow row: Int,
+                           forComponent component: Int) -> NSAttributedString?
     {
-        var text = String(row)
-
-        if component == digits - 1 {
-            text = ", " + text + " kg"
+        guard let aComponent = Components(rawValue: component) else {
+            Log.debug("This should not happen")
+            return nil;
         }
 
-        return text
+        let text: String
+
+        switch aComponent {
+        case .value:
+            text = String(Value.value(for: row))
+        case .unit:
+            guard let unit = DisplayUnit(rawValue: row) else {
+                Log.debug("This should not happen")
+                return nil;
+            }
+            text = unit.string
+        }
+
+        return NSAttributedString(string: text,
+                                  font: style.title3,
+                                  color: style.textColor)
+    }
+
+    public func pickerView(_ pickerView: UIPickerView,
+                           didSelectRow row: Int,
+                           inComponent component: Int)
+    {
+        guard let aComponent = Components(rawValue: component) else {
+            Log.debug("This should not happen")
+            return;
+        }
+
+        switch aComponent {
+        case .value:
+            currentMass = Measurement(value: Value.value(for: row), unit: unit.type)
+        case .unit:
+            guard let unit = DisplayUnit(rawValue: row) else {
+                Log.debug("This should not happen")
+                return;
+            }
+            self.unit = unit
+        }
+
+    }
+
+}
+
+extension MassPicker {
+
+    public func pickerView(_ pickerView: UIPickerView,
+                           rowHeightForComponent component: Int) -> CGFloat
+    {
+        return style.grid * 4
+    }
+
+    public func pickerView(_ pickerView: UIPickerView,
+                           widthForComponent component: Int) -> CGFloat
+    {
+        guard let aComponent = Components(rawValue: component) else {
+            Log.debug("This should not happen")
+            return 0;
+        }
+
+        let width: CGFloat
+        switch aComponent {
+        case .value:
+            width = style.grid * 20
+        case .unit:
+            width = style.grid * 8
+        }
+
+        return width
     }
 
 }

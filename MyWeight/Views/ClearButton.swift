@@ -21,6 +21,8 @@ class ClearButton: UIButton {
         layer.borderWidth = 1
         layer.cornerRadius = style.grid / 2
         layer.masksToBounds = true
+        setBackgroundImage(UIImage.image(with: style.backgroundColor),
+                           for: .normal)
         let padding = style.grid * 2
         contentEdgeInsets = UIEdgeInsetsMake(padding, padding, padding, padding)
     }

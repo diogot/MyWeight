@@ -10,3 +10,31 @@
 
 "List.NoDataTitle.text" = "Welcome";
 
+"Authorization.Description.text.highlight1" = "Health";
+
+"Authorization.Description.text.highlight2" = "data is securely encrypted and won't be shared with anyone";
+
+"Authorization.Description.text" = "My Weight needs access to Health in order to store your entries.\n\nThis means your weight data is securely encrypted and won't be shared with anyone.\n\nYou’ll be able to revoke this permission at any time.";
+
+"Authorization.OkButton.text" = "Got it";
+
+"Authorization.CancelButton.text" = "No, thanks";
+
+"Authorization.Title.text" = "Hello!";
+
+"Denied.Description.text.highlight1" = "Health";
+
+"Denied.Description.text" = "My Weight needs access to Health in order to store your entries.";
+
+"Denied.Health.text" = "Tap Health";
+
+"Denied.MyWeight.text" = "Tap MyWeight and allow it to write and read data";
+
+"Denied.OkButton.text" = "Got it";
+
+"Denied.Privacy.text" = "Tap Privacy";
+
+"Denied.Settings.text" = "Head over to Settings";
+
+"Denied.Title.text" = "Permissions";
+

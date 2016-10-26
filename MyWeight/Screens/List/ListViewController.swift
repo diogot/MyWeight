@@ -41,7 +41,10 @@ public class ListViewController: UIViewController {
 
     override public func loadView()
     {
-        let view = ListView()
+        // To avoid warnings of autolayout while the view
+        // is not resized by the system
+        let frame = UIScreen.main.bounds
+        let view = ListView(frame: frame)
         self.view = view
     }
 

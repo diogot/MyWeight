@@ -12,7 +12,7 @@ public struct EmptyListViewModel: TitleDescriptionViewModelProtocol {
 
     public let title: NSAttributedString
     public let description: NSAttributedString
-
+    public let flexibleHeight: Bool
 }
 
 extension EmptyListViewModel {
@@ -27,6 +27,8 @@ extension EmptyListViewModel {
         description = NSAttributedString(string: Localization.noDataDescription,
                                          font: style.body,
                                          color: style.textLightColor)
+
+        flexibleHeight = true
     }
 
 }

@@ -10,3 +10,31 @@
 
 "List.NoDataTitle.text" = "Bem Vindo";
 
+"Authorization.Description.text.highlight1" = "Saúde";
+
+"Authorization.Description.text.highlight2" = "dados de seu peso serão criptografados de maneira segura";
+
+"Authorization.Description.text" = "Meu Peso precisa de acesso ao app Saúde para salvar suas medidas.\n\nIsso significa que os dados de seu peso serão criptografados de maneira segura.\n\nVocê pode cancelar essa permissão a qualquer momento.";
+
+"Authorization.OkButton.text" = "Ok";
+
+"Authorization.CancelButton.text" = "Não, obrigado";
+
+"Authorization.Title.text" = "Olá!";
+
+"Denied.Description.text.highlight1" = "Saúde";
+
+"Denied.Description.text" = "Meu Peso precisa de acesso ao app Saúde para salvar suas medidas.";
+
+"Denied.Health.text" = "Entre em Saúde";
+
+"Denied.MyWeight.text" = "Entre em MeuPeso e permita que escreva e leia dados";
+
+"Denied.OkButton.text" = "Ok";
+
+"Denied.Privacy.text" = "Entre em Privacidade";
+
+"Denied.Settings.text" = "Vá em Ajustes";
+
+"Denied.Title.text" = "Permissões";
+

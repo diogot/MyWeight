@@ -67,7 +67,7 @@ public class MassController {
         { query, results, error in
             // WARNING: improve
             guard error == nil else {
-                Log.debug(error)
+                Log.debug(error as Any)
 
                 return
             }

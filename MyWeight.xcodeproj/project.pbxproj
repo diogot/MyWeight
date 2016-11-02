@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
 		1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */; };
+		1DA167781DC9842400E0049C /* Snapshot+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167771DC9842400E0049C /* Snapshot+Extensions.swift */; };
+		1DA2987A1DC988E500A7BA7B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA298791DC988E500A7BA7B /* Utils.swift */; };
 		6C5AF84A6CE22A5C37EFF724 /* Pods_MyWeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E77B9C5AEA5FFBEDD0EA8C /* Pods_MyWeightUITests.framework */; };
 		B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */; };
 		B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */; };
@@ -83,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
+		1DA167771DC9842400E0049C /* Snapshot+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Snapshot+Extensions.swift"; sourceTree = "<group>"; };
+		1DA298791DC988E500A7BA7B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		318C2AC71DC6AF105AF2E687 /* Pods-MyWeightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		42D4557095A7F78B374B9127 /* Pods_MyWeightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		497741B52B407C5A7CC9C7AB /* Pods-MyWeightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */,
 				D97F441A1CAB5E51000F4E12 /* Info.plist */,
 				B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */,
+				1DA167771DC9842400E0049C /* Snapshot+Extensions.swift */,
+				1DA298791DC988E500A7BA7B /* Utils.swift */,
 			);
 			path = MyWeightTests;
 			sourceTree = "<group>";
@@ -706,9 +712,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA167781DC9842400E0049C /* Snapshot+Extensions.swift in Sources */,
 				1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */,
 				B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */,
 				D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */,
+				1DA2987A1DC988E500A7BA7B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

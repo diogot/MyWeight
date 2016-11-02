@@ -37,5 +37,7 @@ class AccessDeniedViewControllerTests: QuickSpec {
                 expect(self.viewController.view) == snapshot("AccessDeniedViewControllerTests - iPhone 7 plus")
             }
         }
+        
+        
     }
 }

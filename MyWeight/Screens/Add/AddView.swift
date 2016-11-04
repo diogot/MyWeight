@@ -136,8 +136,7 @@ public class AddView: UIView {
 
         titleLabel.attributedText = viewModel.title
 
-        saveButton.setTitle(viewModel.saveButtonText,
-                            for: .normal)
+        saveButton.title = viewModel.saveButtonText
         cancelButton.setAttributedTitle(viewModel.cancelButtonText,
                                         for: .normal)
     }

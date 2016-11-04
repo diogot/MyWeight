@@ -28,7 +28,7 @@ extension MassViewModel {
         let style: StyleProvider = Style()
         let me = type(of: self)
 
-        let massString = me.massFormatter.string(from: mass.value)
+        let massString = me.string(from: mass.value)
         self.mass = NSAttributedString(string: massString,
                                          font: large ? style.title1 : style.title2,
                                          color: style.textColor)
@@ -54,6 +54,25 @@ extension MassViewModel {
                                        font: dateFont,
                                        color: dateColor)
     }
+
+    static func string(from mass: Measurement<UnitMass>) -> String {
+        var massString = massFormatter.string(from: mass)
+
+        if massString.isEmpty {
+            massString = massKgMassFormatter.string(from: mass)
+        }
+
+        return massString
+    }
+
+    static let massKgMassFormatter: MeasurementFormatter = {
+        let massFormatter = MeasurementFormatter()
+        massFormatter.numberFormatter.minimumFractionDigits = 1
+        massFormatter.numberFormatter.maximumFractionDigits = 1
+        massFormatter.unitOptions = .providedUnit
+
+        return massFormatter
+    }()
 
     static let massFormatter: MeasurementFormatter = {
         let massFormatter = MeasurementFormatter()

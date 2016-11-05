@@ -66,7 +66,6 @@ def xcode( scheme: '',
            reports_path: reports_path(),
            artifacts_path: artifacts_path()
           )
-  sh 'bundle exec pod install'
   xcode_log_file = xcode_log_file(report_name: report_name, artifacts_path: artifacts_path)
   report_file = "#{reports_path}/#{report_name}.xml"
 

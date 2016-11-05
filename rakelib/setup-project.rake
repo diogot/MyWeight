@@ -25,12 +25,12 @@ end
 
 # desc 'Pod repo update'
 task :pod_repo_update do
-  # sh 'bundle exec pod repo update --silent'
+  sh 'bundle exec pod repo update --silent'
 end
 
 # desc 'Pod install'
 task :pod_install do
-  # sh 'bundle exec pod install'
+  sh 'bundle exec pod install'
 end
 
 # -- carthage
@@ -47,7 +47,7 @@ end
 #   dependency = args[:dependency]
 #   sh "carthage update #{CARTHAGE_OPTIONS} #{dependency}"
 # end
-# 
+#
 # task :carthage_clean, [ :dependency ] do |t, args|
   # hasDependency = args[:dependency].to_s.strip.length != 0
   # sh 'rm -rf "~/Library/Caches/org.carthage.CarthageKit/"' unless hasDependency

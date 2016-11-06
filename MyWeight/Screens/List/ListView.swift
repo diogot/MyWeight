@@ -14,6 +14,7 @@ public class ListView: UIView {
 
     let tableView: UITableView
     let addButton: TintButton = TintButton()
+    let buttonTopShadow = GradientView()
     let style: StyleProvider = Style()
 
     public var viewModel: ListViewModelProtocol = ListViewModel() {
@@ -86,6 +87,18 @@ public class ListView: UIView {
         addButton.addTarget(self,
                             action: #selector(ListView.buttonTap),
                             for: .touchUpInside)
+        
+        contentView.addSubview(buttonTopShadow)
+        buttonTopShadow.translatesAutoresizingMaskIntoConstraints = false
+        buttonTopShadow.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        buttonTopShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor) .isActive = true
+        buttonTopShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        buttonTopShadow.bottomAnchor.constraint(equalTo: addButton.topAnchor).isActive = true
+        buttonTopShadow.colors = [UIColor.white, UIColor.white.withAlphaComponent(0)]
+        buttonTopShadow.locations = [0, 1]
+        buttonTopShadow.startPoint = CGPoint(x: 0.5, y: 1)
+        buttonTopShadow.endPoint = CGPoint(x: 0.5, y: 0)
+
     }
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
 		1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F31DCFCC0900A7B967 /* MassRepository.swift */; };
+		1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F81DCFD30400A7B967 /* GradientView.swift */; };
 		1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */; };
 		1DA167761DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */; };
 		1DB0707E1DCE9DCC00367276 /* SnapshotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
+		1DA073F81DCFD30400A7B967 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewControllerTests.swift; sourceTree = "<group>"; };
 		1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotService.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				D9F73FE11DAED5F700AD578F /* TableViewCell.swift */,
 				D90D1E4A1DAEA4F600FB513A /* TintButton.swift */,
 				D9F73FEB1DB3214900AD578F /* MassPicker.swift */,
+				1DA073F81DCFD30400A7B967 /* GradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 			files = (
 				D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */,
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */,
 				D904D9E91DB930E700D0F6A6 /* AccessDeniedViewController.swift in Sources */,
 				1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */,
 				D904D9EF1DB939D500D0F6A6 /* ImageTextView.swift in Sources */,

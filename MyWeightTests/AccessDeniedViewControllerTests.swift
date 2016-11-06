@@ -24,7 +24,7 @@ class AccessDeniedViewControllerTests: QuickSpec {
             }
             
             it("should have the correct portrait layout on all iPhones") {
-                expect(self.viewController.view) == self.snapshoService.snapshotScreen("AccessDeniedViewControllerTests", sizes: self.snapshoService.iPhonePortraitSizes)
+                expect(self.viewController.view) == self.snapshoService.snapshot("AccessDeniedViewControllerTests", sizes: self.snapshoService.iPhonePortraitSizes)
             }
         }
         

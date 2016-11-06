@@ -24,7 +24,7 @@ class AuthorizationRequestViewControllerTests: QuickSpec {
             }
             
             it("should have the correct portrait layout on all Sizes") {
-                expect(self.viewController.view) == self.snapshoService.snapshotScreen("AuthorizationRequestViewController", sizes: self.snapshoService.iPhonePortraitSizes)
+                expect(self.viewController.view) == self.snapshoService.snapshot("AuthorizationRequestViewController", sizes: self.snapshoService.iPhonePortraitSizes)
             }
         }
     }

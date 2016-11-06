@@ -27,11 +27,11 @@ public struct SnapshotService {
         }
     }
     
-    public func snapshotScreen(_ name: String, sizes: [String: CGSize]) -> [ScreenSnapshot] {
+    public func snapshot(_ name: String, sizes: [String: CGSize]) -> [ScreenSnapshot] {
         return sizes.map { ScreenSnapshot(name: "\(name) - \($0.key)", record: false, size: $0.value) }
     }
     
-    public func recordSnapshotScreen(_ name: String, sizes: [String: CGSize]) -> [ScreenSnapshot] {
+    public func recordSnapshot(_ name: String, sizes: [String: CGSize]) -> [ScreenSnapshot] {
         return sizes.map { ScreenSnapshot(name: "\(name) - \($0.key)", record: true, size: $0.value) }
     }
 }

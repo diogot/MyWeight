@@ -1,4 +1,4 @@
-begin 
+begin
   require 'plist'
 rescue LoadError
   puts 'plist not installed yet!'
@@ -6,7 +6,7 @@ end
 
 ARTIFACTS_DEFAULT_PATH = "#{BASE_PATH}/build"
 TEST_REPORTS_DEFAULT_PATH = "#{BASE_PATH}/reports"
-WORKSPACE_PATH = "#{BASE_PATH}/MyWeight.xcodeproj"
+WORKSPACE_PATH = "#{BASE_PATH}/MyWeight.xcworkspace"
 
 
 # -- danger
@@ -20,8 +20,7 @@ end
 
 desc 'Run unit tests'
 task :unit_tests do
-
-  xcode( scheme: 'MyWeight', 
+  xcode( scheme: 'MyWeight',
          actions: 'clean analyze test',
          destination: 'platform=iOS Simulator,OS=10.0,name=iPhone SE',
          report_name: 'unit-tests' )
@@ -58,7 +57,7 @@ end
 
 # -- build
 
-def xcode( scheme: '', 
+def xcode( scheme: '',
            actions: '',
            destination: '',
            configuration: '',
@@ -69,18 +68,18 @@ def xcode( scheme: '',
           )
   xcode_log_file = xcode_log_file(report_name: report_name, artifacts_path: artifacts_path)
   report_file = "#{reports_path}/#{report_name}.xml"
-  
+
   xcode_configuration = "-configuration '#{configuration}'" unless configuration.to_s.strip.length == 0
   other_options = 'CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE=' unless actions.include? 'archive'
   archiveOptions = "-archivePath '#{archive_path}'" unless archive_path.to_s.strip.length == 0
 
   sh "rm -f '#{xcode_log_file}' '#{report_file}'"
-  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' -enableCodeCoverage YES -project '#{WORKSPACE_PATH}' -scheme '#{scheme}' #{archiveOptions} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
+  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' -enableCodeCoverage YES -workspace '#{WORKSPACE_PATH}' -scheme '#{scheme}' #{archiveOptions} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
 end
 
 def export_ipa( archive_path: '',
                 export_path: '',
-                build_plist: '', 
+                build_plist: '',
                 report_name: '',
                 reports_path: reports_path(),
                 artifacts_path: artifacts_path()

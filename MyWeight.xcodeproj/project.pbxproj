@@ -99,7 +99,7 @@
 		D90D1E4A1DAEA4F600FB513A /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
-		D96307AC1DA74E3B00A3D46C /* MassController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassController.swift; sourceTree = "<group>"; };
+		D96307AC1DA74E3B00A3D46C /* MassController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassController.swift; path = Services/MassController.swift; sourceTree = "<group>"; };
 		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F440A1CAB5E50000F4E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +183,22 @@
 			path = AccessDenied;
 			sourceTree = "<group>";
 		};
+		D967ACD01DCF97D5004E6014 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF68C71D187A5B0010C2E7 /* Localization.swift */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
+		D967ACD11DCF9836004E6014 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D96307AC1DA74E3B00A3D46C /* MassController.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		D97F43F71CAB5E50000F4E12 = {
 			isa = PBXGroup;
 			children = (
@@ -211,8 +227,8 @@
 				D9BEBCFE1DAAC312002263E2 /* Screens */,
 				D9BEBD081DAB24A4002263E2 /* Views */,
 				D9F73FE51DAEDE6700AD578F /* Models */,
-				D96307AC1DA74E3B00A3D46C /* MassController.swift */,
-				B2EF68C71D187A5B0010C2E7 /* Localization.swift */,
+				D967ACD11DCF9836004E6014 /* Services */,
+				D967ACD01DCF97D5004E6014 /* Localization */,
 				D9D0D0AB1D88EB5D00191596 /* Log.swift */,
 				B25889A41D1AF5DE00A88EAF /* Extensions */,
 				D97F44371CAB5F84000F4E12 /* Resources */,

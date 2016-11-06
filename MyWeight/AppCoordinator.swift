@@ -11,7 +11,7 @@ import UIKit
 public class AppCoordinator {
 
     let navigationController: UINavigationController
-    let massController: MassController = MassController()
+    let massService: MassService = MassService()
 
     public init(with navigationController: UINavigationController)
     {
@@ -21,14 +21,14 @@ public class AppCoordinator {
 
     public func start()
     {
-        let controller = ListViewController(with: massController)
+        let controller = ListViewController(with: massService)
         controller.delegate = self
         navigationController.pushViewController(controller, animated: true)
     }
 
     func startAdd(last mass: Mass?)
     {
-        let addViewController = AddViewController(with: massController,
+        let addViewController = AddViewController(with: massService,
                                                   startMass: mass ?? Mass())
         addViewController.delegate = self
         self.navigationController.present(addViewController,
@@ -38,7 +38,7 @@ public class AppCoordinator {
 
     func startAuthorizationRequest()
     {
-        let viewController = AuthorizationRequestViewController(with: massController)
+        let viewController = AuthorizationRequestViewController(with: massService)
         viewController.delegate = self
         self.navigationController.present(viewController,
                                           animated: true,
@@ -61,7 +61,7 @@ extension AppCoordinator: ListViewControllerDelegate {
 
     public func didTapAddMeasure(last mass: Mass?)
     {
-        switch massController.authorizationStatus {
+        switch massService.authorizationStatus {
         case .authorized:
             startAdd(last: mass)
         case .notDetermined:

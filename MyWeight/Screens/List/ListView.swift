@@ -59,7 +59,6 @@ public class ListView: UIView {
 
         topConstraint = tableView.topAnchor.constraint(equalTo: contentView.topAnchor)
         topConstraint?.isActive = true
-        tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 
@@ -79,6 +78,7 @@ public class ListView: UIView {
         contentView.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         let padding: CGFloat = style.grid * 2
+        addButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
         addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding) .isActive = true
         addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding).isActive = true
         addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding).isActive = true

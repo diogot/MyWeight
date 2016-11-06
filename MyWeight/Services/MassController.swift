@@ -1,5 +1,5 @@
 //
-//  MassController.swift
+//  MassService.swift
 //  MyWeight
 //
 //  Created by Diogo Tridapalli on 10/7/16.
@@ -29,7 +29,7 @@ public protocol HealthStoreProtocol {
 extension HKHealthStore: HealthStoreProtocol {}
 
 
-public class MassController {
+public class MassService {
 
     let healthStore: HealthStoreProtocol
     let bodyMass: HKQuantityTypeIdentifier

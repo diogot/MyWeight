@@ -29,7 +29,7 @@ public protocol HealthStoreProtocol {
 extension HKHealthStore: HealthStoreProtocol {}
 
 
-public class MassService {
+public class MassService: MassRepository {
 
     let healthStore: HealthStoreProtocol
     let bodyMass: HKQuantityTypeIdentifier

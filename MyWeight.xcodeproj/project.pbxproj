@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
+		1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F31DCFCC0900A7B967 /* MassRepository.swift */; };
 		1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */; };
 		1DA167761DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */; };
 		1DB0707E1DCE9DCC00367276 /* SnapshotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */; };
@@ -31,7 +32,7 @@
 		D90D1E4B1DAEA4F600FB513A /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E4A1DAEA4F600FB513A /* TintButton.swift */; };
 		D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9711DB40BB4004AA88A /* AddView.swift */; };
 		D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9731DB416B1004AA88A /* AddViewModel.swift */; };
-		D96307AD1DA74E3B00A3D46C /* MassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96307AC1DA74E3B00A3D46C /* MassController.swift */; };
+		D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96307AC1DA74E3B00A3D46C /* MassService.swift */; };
 		D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44031CAB5E50000F4E12 /* AppDelegate.swift */; };
 		D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F440A1CAB5E50000F4E12 /* Assets.xcassets */; };
 		D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewControllerTests.swift; sourceTree = "<group>"; };
 		1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotService.swift; sourceTree = "<group>"; };
@@ -117,7 +119,7 @@
 		D90D1E4A1DAEA4F600FB513A /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
-		D96307AC1DA74E3B00A3D46C /* MassController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassController.swift; path = Services/MassController.swift; sourceTree = "<group>"; };
+		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassService.swift; path = Services/MassService.swift; sourceTree = "<group>"; };
 		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F440A1CAB5E50000F4E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -271,7 +273,8 @@
 		D967ACD11DCF9836004E6014 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D96307AC1DA74E3B00A3D46C /* MassController.swift */,
+				D96307AC1DA74E3B00A3D46C /* MassService.swift */,
+				1DA073F31DCFCC0900A7B967 /* MassRepository.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */,
 				B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				D904D9E91DB930E700D0F6A6 /* AccessDeniedViewController.swift in Sources */,
+				1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */,
 				D904D9EF1DB939D500D0F6A6 /* ImageTextView.swift in Sources */,
 				D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */,
 				D9F73FE91DAEF23600AD578F /* MassViewModel.swift in Sources */,
@@ -716,7 +720,7 @@
 				D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */,
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
 				D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */,
-				D96307AD1DA74E3B00A3D46C /* MassController.swift in Sources */,
+				D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */,
 				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,

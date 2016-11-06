@@ -14,12 +14,12 @@ public protocol AddViewControllerDelegate {
 
 public class AddViewController: UIViewController {
 
-    let massController: MassController
+    let massService: MassService
     let startMass: Mass
 
-    public required init(with massController: MassController, startMass: Mass)
+    public required init(with massService: MassService, startMass: Mass)
     {
-        self.massController = massController
+        self.massService = massService
         self.startMass = startMass
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,7 +61,7 @@ public class AddViewController: UIViewController {
 
     func saveMass(_ mass: Mass)
     {
-        massController.save(mass) { (error) in
+        massService.save(mass) { (error) in
             Log.debug("Error = \(error)")
         }
 

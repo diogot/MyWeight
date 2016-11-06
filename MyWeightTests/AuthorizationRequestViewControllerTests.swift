@@ -20,7 +20,7 @@ class AuthorizationRequestViewControllerTests: QuickSpec {
     override func spec() {
         describe("AuthorizationRequestViewController Layout") {
             beforeEach {
-                self.viewController = AuthorizationRequestViewController(with: MassController())
+                self.viewController = AuthorizationRequestViewController(with: MassService())
             }
             
             it("should have the correct portrait layout on all Sizes") {

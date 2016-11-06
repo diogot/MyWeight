@@ -14,7 +14,7 @@ public protocol ListViewControllerDelegate {
 
 public class ListViewController: UIViewController {
 
-    let massController: MassController
+    let massService: MassService
     var masses: [Mass] = [Mass]() {
         didSet {
             updateView()
@@ -28,9 +28,9 @@ public class ListViewController: UIViewController {
         return self.view as! ListView
     }
 
-    public required init(with massController: MassController)
+    public required init(with massService: MassService)
     {
-        self.massController = massController
+        self.massService = massService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -79,7 +79,7 @@ public class ListViewController: UIViewController {
     {
         masses.removeAll()
 
-        self.massController.fetch { [weak self] (samples) in
+        self.massService.fetch { [weak self] (samples) in
 
             if samples.isEmpty {
                 Log.debug("No samples")

@@ -15,7 +15,7 @@ public protocol AuthorizationRequestViewControllerDelegate {
 
 public class AuthorizationRequestViewController: UIViewController {
 
-    let massController: MassController
+    let massService: MassService
 
     public var delegate: AuthorizationRequestViewControllerDelegate?
 
@@ -24,9 +24,9 @@ public class AuthorizationRequestViewController: UIViewController {
         return self.view as! AuthorizationRequestView
     }
 
-    public required init(with massController: MassController)
+    public required init(with massService: MassService)
     {
-        self.massController = massController
+        self.massService = massService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -60,12 +60,12 @@ public class AuthorizationRequestViewController: UIViewController {
 
     func tapOk()
     {
-        massController.requestAuthorization { [weak self] error in
+        massService.requestAuthorization { [weak self] error in
             if let error = error {
                 Log.debug(error)
             }
             print("start")
-            let authorized = self?.massController.authorizationStatus == .authorized
+            let authorized = self?.massService.authorizationStatus == .authorized
             print("finish")
             self?.didFinish(with: authorized)
         }

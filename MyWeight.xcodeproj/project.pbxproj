@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
 		1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F31DCFCC0900A7B967 /* MassRepository.swift */; };
+		1DA073F71DCFCD1E00A7B967 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */; };
 		1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F81DCFD30400A7B967 /* GradientView.swift */; };
 		1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */; };
 		1DA167761DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
+		1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA073F81DCFD30400A7B967 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewControllerTests.swift; sourceTree = "<group>"; };
@@ -191,9 +193,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1DA073F51DCFCD0700A7B967 /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */,
+			);
+			name = ListViewController;
+			sourceTree = "<group>";
+		};
 		1DA167701DC5678700E0049C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1DA073F51DCFCD0700A7B967 /* ListViewController */,
 				1DA167741DC982C000E0049C /* AuthorizationRequest */,
 				1DA167711DC5679400E0049C /* AccessDenied */,
 			);
@@ -752,6 +763,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA073F71DCFCD1E00A7B967 /* ListViewControllerTests.swift in Sources */,
 				1DA167761DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift in Sources */,
 				1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */,
 				B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */,

@@ -90,11 +90,11 @@ public class ListView: UIView {
         
         contentView.addSubview(buttonTopShadow)
         buttonTopShadow.translatesAutoresizingMaskIntoConstraints = false
-        buttonTopShadow.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        buttonTopShadow.heightAnchor.constraint(equalToConstant: style.grid * 4).isActive = true
         buttonTopShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor) .isActive = true
         buttonTopShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         buttonTopShadow.bottomAnchor.constraint(equalTo: addButton.topAnchor).isActive = true
-        buttonTopShadow.colors = [UIColor.white, UIColor.white.withAlphaComponent(0)]
+        buttonTopShadow.colors = [style.backgroundColor, style.backgroundColor.withAlphaComponent(0)]
         buttonTopShadow.locations = [0, 1]
         buttonTopShadow.startPoint = CGPoint(x: 0.5, y: 1)
         buttonTopShadow.endPoint = CGPoint(x: 0.5, y: 0)

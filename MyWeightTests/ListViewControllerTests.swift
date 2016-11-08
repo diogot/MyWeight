@@ -40,15 +40,15 @@ class ListViewControllerTests: QuickSpec {
                     
                     
                     self.massRepositoryMock.fetchResponse = [
-                        Mass(value: Measurement(value: 60, unit: UnitMass.kilograms), date: dateFormatter.date(from: "10/10/2016 10:10")!),
-                        Mass(value: Measurement(value: 62, unit: UnitMass.kilograms), date: dateFormatter.date(from: "08/10/2016 9:10")!),
-                        Mass(value: Measurement(value: 64, unit: UnitMass.kilograms), date: dateFormatter.date(from: "06/10/2016 11:30")!),
-                        Mass(value: Measurement(value: 66, unit: UnitMass.kilograms), date: dateFormatter.date(from: "02/10/2016 12:00")!),
-                        Mass(value: Measurement(value: 68, unit: UnitMass.kilograms), date: dateFormatter.date(from: "30/09/2016 14:44")!),
-                        Mass(value: Measurement(value: 70, unit: UnitMass.kilograms), date: dateFormatter.date(from: "28/09/2016 16:31")!),
-                        Mass(value: Measurement(value: 72, unit: UnitMass.kilograms), date: dateFormatter.date(from: "26/09/2016 18:20")!),
-                        Mass(value: Measurement(value: 74, unit: UnitMass.kilograms), date: dateFormatter.date(from: "24/09/2016 20:10")!),
-                        Mass(value: Measurement(value: 76, unit: UnitMass.kilograms), date: dateFormatter.date(from: "22/09/2016 22:44")!),
+                        Mass(value: Measurement(value: 60, unit: .kilograms), date: dateFormatter.date(from: "10/10/2016 10:10")!),
+                        Mass(value: Measurement(value: 62, unit: .kilograms), date: dateFormatter.date(from: "08/10/2016 9:10")!),
+                        Mass(value: Measurement(value: 64, unit: .kilograms), date: dateFormatter.date(from: "06/10/2016 11:30")!),
+                        Mass(value: Measurement(value: 66, unit: .kilograms), date: dateFormatter.date(from: "02/10/2016 12:00")!),
+                        Mass(value: Measurement(value: 68, unit: .kilograms), date: dateFormatter.date(from: "30/09/2016 14:44")!),
+                        Mass(value: Measurement(value: 70, unit: .kilograms), date: dateFormatter.date(from: "28/09/2016 16:31")!),
+                        Mass(value: Measurement(value: 72, unit: .kilograms), date: dateFormatter.date(from: "26/09/2016 18:20")!),
+                        Mass(value: Measurement(value: 74, unit: .kilograms), date: dateFormatter.date(from: "24/09/2016 20:10")!),
+                        Mass(value: Measurement(value: 76, unit: .kilograms), date: dateFormatter.date(from: "22/09/2016 22:44")!),
                     ]
                     _ = self.viewController.view
                     self.viewController.viewWillAppear(true)

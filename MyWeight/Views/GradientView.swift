@@ -15,15 +15,15 @@ class GradientView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configure()
+        self.setUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.configure()
+        self.setUp()
     }
     
-    func configure() {
+    func setUp() {
         self.layer.addSublayer(self.gradientLayer)
         self.gradientLayer.backgroundColor = UIColor.clear.cgColor
     }
@@ -41,12 +41,12 @@ class GradientView: UIView {
         }
     }
     
-    open var locations: [NSNumber]? {
+    open var locations: [Double]? {
         get {
-            return self.gradientLayer.locations
+            return self.gradientLayer.locations?.map { $0.doubleValue }
         }
         set {
-            self.gradientLayer.locations = newValue
+            self.gradientLayer.locations = newValue?.map{ NSNumber(value: $0) }
         }
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol AddViewControllerDelegate {
-    func didEnd()
+    func didEnd(on viewController: AddViewController)
 }
 
 public class AddViewController: UIViewController {
@@ -48,7 +48,7 @@ public class AddViewController: UIViewController {
 
         let viewModel =
             AddViewModel(initialMass: startMass,
-                         didTapCancel: { [weak self] in self?.delegate?.didEnd() },
+                         didTapCancel: { [weak self] in self?.didEnd() },
                          didTapSave: { [weak self] mass in self?.saveMass(mass) })
 
         theView.viewModel = viewModel
@@ -65,6 +65,10 @@ public class AddViewController: UIViewController {
             Log.debug("Error = \(error)")
         }
 
-        delegate?.didEnd()
+        didEnd()
+    }
+
+    func didEnd() {
+        delegate?.didEnd(on: self)
     }
 }

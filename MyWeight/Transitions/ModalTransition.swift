@@ -38,7 +38,7 @@ UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
     {
-        return 0.6
+        return style.animationTime
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
@@ -74,7 +74,7 @@ UIViewControllerAnimatedTransitioning {
         blackView.frame = from.view.bounds.divided(atDistance: grid,
                                                    from: .maxYEdge).remainder
         blackView.alpha = 0.0
-        blackView.backgroundColor = UIColor(white: 0.2, alpha: 0.9)
+        blackView.backgroundColor = style.shadowColor
 
         view.addSubview(blackView)
         view.addSubview(to.view)

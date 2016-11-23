@@ -22,7 +22,7 @@ desc 'Run unit tests'
 task :unit_tests do
   xcode( scheme: 'MyWeight',
          actions: 'clean analyze test',
-         destination: 'platform=iOS Simulator,OS=10.1,name=iPhone SE',
+         destination: 'platform=iOS Simulator,OS=10.0,name=iPhone SE',
          report_name: 'unit-tests' )
 end
 

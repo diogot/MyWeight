@@ -1,7 +1,7 @@
 machine:
   timezone: America/Sao_Paulo
   xcode:
-    version: 8.0
+    version: 8.1
   environment:
     ARTIFACTS_DEFAULT_PATH: build
     TEST_REPORTS_DEFAULT_PATH: reports

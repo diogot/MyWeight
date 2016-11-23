@@ -26,11 +26,17 @@ public class AppCoordinator {
         navigationController.pushViewController(controller, animated: true)
     }
 
+    let modalTransitionController = ModalTransition()
+
     func startAdd(last mass: Mass?)
     {
         let addViewController = AddViewController(with: massService,
                                                   startMass: mass ?? Mass())
         addViewController.delegate = self
+
+        addViewController.modalPresentationStyle = .custom
+        addViewController.transitioningDelegate = modalTransitionController
+
         self.navigationController.present(addViewController,
                                           animated: true,
                                           completion: nil)

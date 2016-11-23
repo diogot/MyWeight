@@ -35,6 +35,7 @@
 		D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9711DB40BB4004AA88A /* AddView.swift */; };
 		D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9731DB416B1004AA88A /* AddViewModel.swift */; };
 		D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96307AC1DA74E3B00A3D46C /* MassService.swift */; };
+		D967ACD41DCFA2FF004E6014 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967ACD31DCFA2FF004E6014 /* ModalTransition.swift */; };
 		D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44031CAB5E50000F4E12 /* AppDelegate.swift */; };
 		D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F440A1CAB5E50000F4E12 /* Assets.xcassets */; };
 		D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */; };
@@ -124,6 +125,7 @@
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassService.swift; path = Services/MassService.swift; sourceTree = "<group>"; };
+		D967ACD31DCFA2FF004E6014 /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D97F440A1CAB5E50000F4E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -292,6 +294,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		D967ACD21DCFA2E3004E6014 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				D967ACD31DCFA2FF004E6014 /* ModalTransition.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		D97F43F71CAB5E50000F4E12 = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +336,7 @@
 				D967ACD01DCF97D5004E6014 /* Localization */,
 				D9D0D0AB1D88EB5D00191596 /* Log.swift */,
 				B25889A41D1AF5DE00A88EAF /* Extensions */,
+				D967ACD21DCFA2E3004E6014 /* Transitions */,
 				D97F44371CAB5F84000F4E12 /* Resources */,
 				D97F44361CAB5F71000F4E12 /* Frameworks */,
 			);
@@ -733,6 +744,7 @@
 				D9F73FE91DAEF23600AD578F /* MassViewModel.swift in Sources */,
 				D904D9E01DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift in Sources */,
 				D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */,
+				D967ACD41DCFA2FF004E6014 /* ModalTransition.swift in Sources */,
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
 				D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */,

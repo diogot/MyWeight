@@ -75,9 +75,8 @@ extension AppCoordinator: ListViewControllerDelegate {
 
 extension AppCoordinator: AddViewControllerDelegate {
 
-    public func didEnd()
-    {
-        self.navigationController.dismiss(animated: true, completion: nil)
+    public func didEnd(on viewController: AddViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 
 }

@@ -381,7 +381,7 @@
 				D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */,
 				B2EF68C31D1879E40010C2E7 /* Localizable.strings */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D9BEBCFE1DAAC312002263E2 /* Screens */ = {
@@ -970,8 +970,8 @@
 			baseConfigurationReference = BAC866FD981F045F865DF5C6 /* Pods-MyWeight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MyWeight/MyWeight.entitlements;
-				INFOPLIST_FILE = MyWeight/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = MyWeight/Resources/MyWeight.entitlements;
+				INFOPLIST_FILE = MyWeight/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -985,8 +985,8 @@
 			baseConfigurationReference = 5BB2437EF088770D6625706F /* Pods-MyWeight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MyWeight/MyWeight.entitlements;
-				INFOPLIST_FILE = MyWeight/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = MyWeight/Resources/MyWeight.entitlements;
+				INFOPLIST_FILE = MyWeight/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";

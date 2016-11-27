@@ -6,7 +6,7 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import HealthKit
 
 public protocol HealthStoreProtocol {
@@ -35,25 +35,32 @@ public class MassService: MassRepository {
     let bodyMass: HKQuantityTypeIdentifier
     let massType: HKQuantityType
 
-    public init(healthStore: HealthStoreProtocol = HKHealthStore()) {
+    public init(healthStore: HealthStoreProtocol = HKHealthStore())
+    {
         self.healthStore = healthStore
         self.bodyMass = HKQuantityTypeIdentifier.bodyMass
         // I don't like this `!`
         self.massType = HKObjectType.quantityType(forIdentifier: self.bodyMass)!
+
+        startObservingMass()
     }
 
-    public func requestAuthorization(_ completion: @escaping (_ error: Error?) -> Void ) {
-
+    public func requestAuthorization(_ completion: @escaping (_ error: Error?) -> Void )
+    {
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
 
-        healthStore.requestAuthorization(toShare: massSet, read: massSet) { (success, error) in
+        healthStore.requestAuthorization(toShare: massSet,
+                                         read: massSet)
+        { [weak self] (success, error) in
+            self?.startObservingMass()
             DispatchQueue.main.async {
                 completion(error)
             }
         }
     }
 
-    public func fetch(_ completion: @escaping (_ results: [Mass]) -> Void) {
+    public func fetch(_ completion: @escaping (_ results: [Mass]) -> Void)
+    {
         let startDate = healthStore.earliestPermittedSampleDate()
         let endDate = Date()
 
@@ -88,6 +95,54 @@ public class MassService: MassRepository {
         }
 
         healthStore.execute(query)
+    }
+
+    var massObserverStarted = false
+    func startObservingMass()
+    {
+        guard massObserverStarted == false else {
+            return
+        }
+
+        massObserverStarted = true
+
+        let query = HKObserverQuery(sampleType: massType,
+                                    predicate: nil)
+        { [weak self] (query, completion, error) in
+            guard error == nil else {
+                self?.massObserverStarted = false
+                self?.startObservingAppOpen()
+                return
+            }
+
+            NotificationCenter.default.post(name: .MassServiceDidUpdate,
+                                            object: self)
+            completion()
+        }
+
+        healthStore.execute(query)
+    }
+
+    var appOpenObserver: NSObjectProtocol? = nil
+    func startObservingAppOpen()
+    {
+        guard authorizationStatus != .authorized,
+            appOpenObserver == nil else {
+                return
+        }
+
+        let center = NotificationCenter.default
+        appOpenObserver =
+        center.addObserver(forName: .UIApplicationDidBecomeActive,
+                             object: nil,
+                             queue: .main)
+        { [weak self] notification in
+            self?.startObservingMass()
+            if self?.authorizationStatus == .authorized,
+                let observer = self?.appOpenObserver {
+                NotificationCenter.default.removeObserver(observer)
+            }
+        }
     }
 
     public func save(_ mass: Mass,
@@ -136,4 +191,6 @@ public class MassService: MassRepository {
     
 }
 
-
+extension NSNotification.Name {
+    public static let MassServiceDidUpdate: NSNotification.Name =  NSNotification.Name(rawValue: "MassServiceDidUpdate")
+}

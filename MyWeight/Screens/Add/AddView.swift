@@ -13,10 +13,18 @@ public class AddView: UIView {
     let massPicker: MassPicker = MassPicker()
     let datePicker: UIDatePicker = UIDatePicker()
 
-    let saveButton: TintButton = TintButton()
+    let saveButton: TintButton = {
+        let button = TintButton()
+        button.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        return button
+    }()
     let cancelButton: UIButton = UIButton(type: .system)
 
-    let titleLabel: UILabel = UILabel()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        return label
+    }()
 
     let style: StyleProvider = Style()
 

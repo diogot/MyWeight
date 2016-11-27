@@ -38,7 +38,10 @@ public class AddViewController: UIViewController {
 
     override public func loadView()
     {
-        let view = AddView()
+        // To avoid warnings of autolayout while the view
+        // is not resized by the system
+        let frame = UIScreen.main.bounds
+        let view = AddView(frame: frame)
         self.view = view
     }
 

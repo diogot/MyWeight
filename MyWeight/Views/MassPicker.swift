@@ -97,6 +97,14 @@ public class MassPicker: UIView {
                          inComponent: Components.unit.rawValue,
                          animated: true)
     }
+
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
+
+        return formatter
+    }()
 }
 
 extension MassPicker: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -159,7 +167,8 @@ extension MassPicker: UIPickerViewDataSource, UIPickerViewDelegate {
 
         switch aComponent {
         case .value:
-            text = String(Value.value(for: row))
+            let value = Value.value(for: row)
+            text = numberFormatter.string(from: value as NSNumber) ?? String(value)
         case .unit:
             guard let unit = DisplayUnit(rawValue: row) else {
                 Log.debug("This should not happen")

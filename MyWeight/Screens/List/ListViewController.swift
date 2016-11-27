@@ -39,6 +39,7 @@ public class ListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    
     override public func loadView()
     {
         // To avoid warnings of autolayout while the view

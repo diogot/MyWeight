@@ -85,6 +85,8 @@ UIViewControllerAnimatedTransitioning {
         to.view.layer.masksToBounds = true
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                       delay: 0,
+                       options: [.curveEaseOut],
                        animations: {
                         from.view.tintAdjustmentMode = .dimmed
                         blackView.alpha = 1.0
@@ -112,6 +114,8 @@ UIViewControllerAnimatedTransitioning {
         to.view.frame = view.bounds
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                       delay: 0,
+                       options: [.curveEaseIn],
                        animations: {
                         to.view.tintAdjustmentMode = .automatic
                         blackView.alpha = 0.0

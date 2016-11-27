@@ -218,7 +218,7 @@ extension MassPicker {
         case .value:
             width = style.grid * 20
         case .unit:
-            width = style.grid * 8
+            width = style.grid * 11
         }
 
         return width

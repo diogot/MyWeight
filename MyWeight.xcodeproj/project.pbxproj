@@ -32,6 +32,7 @@
 		D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */; };
 		D90D1E491DADCC1000FB513A /* NSAttributedString+FontColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */; };
 		D90D1E4B1DAEA4F600FB513A /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E4A1DAEA4F600FB513A /* TintButton.swift */; };
+		D91FBE511DEB577A00C724B0 /* HealthStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */; };
 		D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9711DB40BB4004AA88A /* AddView.swift */; };
 		D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9731DB416B1004AA88A /* AddViewModel.swift */; };
 		D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96307AC1DA74E3B00A3D46C /* MassService.swift */; };
@@ -43,6 +44,7 @@
 		D97F44241CAB5E51000F4E12 /* MyWeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */; };
 		D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44311CAB5EA2000F4E12 /* AddViewController.swift */; };
 		D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97F44331CAB5EEA000F4E12 /* HealthKit.framework */; };
+		D9B00B201DEB33CC00492699 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9B00B221DEB33CC00492699 /* InfoPlist.strings */; };
 		D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD001DAAC31E002263E2 /* ListViewController.swift */; };
 		D9BEBD031DAAC36A002263E2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD021DAAC36A002263E2 /* ListView.swift */; };
 		D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD041DAB0610002263E2 /* ListViewModel.swift */; };
@@ -100,12 +102,12 @@
 		5BB2437EF088770D6625706F /* Pods-MyWeight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeight.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeight/Pods-MyWeight.release.xcconfig"; sourceTree = "<group>"; };
 		5CF4596C8B06811C107E06FA /* Pods-MyWeightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		714EE1833F9A86400E4C91B2 /* Pods-MyWeightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+ReuseIdentifier.swift"; path = "Extensions/UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionsTests.swift; sourceTree = "<group>"; };
 		B2EF68C41D1879E60010C2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2EF68C51D187A110010C2E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B2EF68C61D187A1C0010C2E7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
+		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E77B9C5AEA5FFBEDD0EA8C /* Pods_MyWeightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC866FD981F045F865DF5C6 /* Pods-MyWeight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeight/Pods-MyWeight.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,12 +121,13 @@
 		D904D9EA1DB9357A00D0F6A6 /* AccessDeniedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedView.swift; sourceTree = "<group>"; };
 		D904D9EC1DB9395700D0F6A6 /* AccessDeniedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewModel.swift; sourceTree = "<group>"; };
 		D904D9EE1DB939D500D0F6A6 /* ImageTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
-		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+WithColor.swift"; path = "Extensions/UIImage+WithColor.swift"; sourceTree = "<group>"; };
-		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+FontColor.swift"; path = "Extensions/NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
+		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+WithColor.swift"; sourceTree = "<group>"; };
+		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
 		D90D1E4A1DAEA4F600FB513A /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
+		D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreProtocol.swift; sourceTree = "<group>"; };
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
-		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassService.swift; path = Services/MassService.swift; sourceTree = "<group>"; };
+		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassService.swift; sourceTree = "<group>"; };
 		D967ACD31DCFA2FF004E6014 /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +143,9 @@
 		D97F44311CAB5EA2000F4E12 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		D97F44331CAB5EEA000F4E12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D97F44351CAB5EEA000F4E12 /* MyWeight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyWeight.entitlements; sourceTree = "<group>"; };
+		D9B00B231DEB33D100492699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9B00B241DEB33D200492699 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D9B00B251DEB33D400492699 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D9BEBD001DAAC31E002263E2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9BEBD021DAAC36A002263E2 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D9BEBD041DAB0610002263E2 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -254,7 +260,7 @@
 				D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */,
 				D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D904D9DE1DB6ED0200D0F6A6 /* AuthorizationRequest */ = {
@@ -282,7 +288,7 @@
 			children = (
 				B2EF68C71D187A5B0010C2E7 /* Localization.swift */,
 			);
-			name = Localization;
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		D967ACD11DCF9836004E6014 /* Services */ = {
@@ -290,8 +296,9 @@
 			children = (
 				D96307AC1DA74E3B00A3D46C /* MassService.swift */,
 				1DA073F31DCFCC0900A7B967 /* MassRepository.swift */,
+				D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */,
 			);
-			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D967ACD21DCFA2E3004E6014 /* Transitions */ = {
@@ -380,8 +387,9 @@
 				D97F440A1CAB5E50000F4E12 /* Assets.xcassets */,
 				D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */,
 				B2EF68C31D1879E40010C2E7 /* Localizable.strings */,
+				D9B00B221DEB33CC00492699 /* InfoPlist.strings */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D9BEBCFE1DAAC312002263E2 /* Screens */ = {
@@ -514,7 +522,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Diogo Tridapalli";
 				TargetAttributes = {
 					D97F43FF1CAB5E50000F4E12 = {
@@ -570,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */,
+				D9B00B201DEB33CC00492699 /* InfoPlist.strings in Resources */,
 				B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */,
 				D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */,
 			);
@@ -749,6 +758,7 @@
 				D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */,
 				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
+				D91FBE511DEB577A00C724B0 /* HealthStoreProtocol.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */,
@@ -824,6 +834,16 @@
 				D97F440D1CAB5E50000F4E12 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D9B00B221DEB33CC00492699 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9B00B231DEB33D100492699 /* en */,
+				D9B00B241DEB33D200492699 /* pt-BR */,
+				D9B00B251DEB33D400492699 /* nl */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -970,8 +990,8 @@
 			baseConfigurationReference = BAC866FD981F045F865DF5C6 /* Pods-MyWeight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MyWeight/MyWeight.entitlements;
-				INFOPLIST_FILE = MyWeight/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = MyWeight/Resources/MyWeight.entitlements;
+				INFOPLIST_FILE = MyWeight/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -985,8 +1005,8 @@
 			baseConfigurationReference = 5BB2437EF088770D6625706F /* Pods-MyWeight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MyWeight/MyWeight.entitlements;
-				INFOPLIST_FILE = MyWeight/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = MyWeight/Resources/MyWeight.entitlements;
+				INFOPLIST_FILE = MyWeight/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";

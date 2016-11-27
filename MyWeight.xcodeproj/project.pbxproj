@@ -32,6 +32,7 @@
 		D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */; };
 		D90D1E491DADCC1000FB513A /* NSAttributedString+FontColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */; };
 		D90D1E4B1DAEA4F600FB513A /* TintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D1E4A1DAEA4F600FB513A /* TintButton.swift */; };
+		D91FBE511DEB577A00C724B0 /* HealthStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */; };
 		D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9711DB40BB4004AA88A /* AddView.swift */; };
 		D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9731DB416B1004AA88A /* AddViewModel.swift */; };
 		D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96307AC1DA74E3B00A3D46C /* MassService.swift */; };
@@ -123,6 +124,7 @@
 		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+WithColor.swift"; path = "Extensions/UIImage+WithColor.swift"; sourceTree = "<group>"; };
 		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+FontColor.swift"; path = "Extensions/NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
 		D90D1E4A1DAEA4F600FB513A /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
+		D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthStoreProtocol.swift; path = Services/HealthStoreProtocol.swift; sourceTree = "<group>"; };
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassService.swift; path = Services/MassService.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				D96307AC1DA74E3B00A3D46C /* MassService.swift */,
 				1DA073F31DCFCC0900A7B967 /* MassRepository.swift */,
+				D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */,
 				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
+				D91FBE511DEB577A00C724B0 /* HealthStoreProtocol.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */,

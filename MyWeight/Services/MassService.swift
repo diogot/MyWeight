@@ -9,26 +9,6 @@
 import UIKit
 import HealthKit
 
-public protocol HealthStoreProtocol {
-
-    func requestAuthorization(toShare typesToShare: Set<HKSampleType>?,
-                              read typesToRead: Set<HKObjectType>?,
-                              completion: @escaping (Bool, Error?) -> Void)
-
-    func earliestPermittedSampleDate() -> Date
-
-    func execute(_ query: HKQuery)
-
-    func save(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
-
-    func authorizationStatusForType(_ type: HKObjectType) -> HKAuthorizationStatus
-    static func isHealthDataAvailable() -> Bool
-
-}
-
-extension HKHealthStore: HealthStoreProtocol {}
-
-
 public class MassService: MassRepository {
 
     let healthStore: HealthStoreProtocol

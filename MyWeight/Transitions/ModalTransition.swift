@@ -38,7 +38,7 @@ UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
     {
-        return style.animationTime
+        return style.animationDuration
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning)

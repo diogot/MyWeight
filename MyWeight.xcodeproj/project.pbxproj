@@ -90,7 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassRepository.swift; path = Services/MassRepository.swift; sourceTree = "<group>"; };
+		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
 		1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA073F81DCFD30400A7B967 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -102,12 +102,12 @@
 		5BB2437EF088770D6625706F /* Pods-MyWeight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeight.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeight/Pods-MyWeight.release.xcconfig"; sourceTree = "<group>"; };
 		5CF4596C8B06811C107E06FA /* Pods-MyWeightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		714EE1833F9A86400E4C91B2 /* Pods-MyWeightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+ReuseIdentifier.swift"; path = "Extensions/UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionsTests.swift; sourceTree = "<group>"; };
 		B2EF68C41D1879E60010C2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2EF68C51D187A110010C2E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B2EF68C61D187A1C0010C2E7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = Localization/Localization.swift; sourceTree = "<group>"; };
+		B2EF68C71D187A5B0010C2E7 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E77B9C5AEA5FFBEDD0EA8C /* Pods_MyWeightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC866FD981F045F865DF5C6 /* Pods-MyWeight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeight/Pods-MyWeight.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,13 +121,13 @@
 		D904D9EA1DB9357A00D0F6A6 /* AccessDeniedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedView.swift; sourceTree = "<group>"; };
 		D904D9EC1DB9395700D0F6A6 /* AccessDeniedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewModel.swift; sourceTree = "<group>"; };
 		D904D9EE1DB939D500D0F6A6 /* ImageTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
-		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+WithColor.swift"; path = "Extensions/UIImage+WithColor.swift"; sourceTree = "<group>"; };
-		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+FontColor.swift"; path = "Extensions/NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
+		D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+WithColor.swift"; sourceTree = "<group>"; };
+		D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
 		D90D1E4A1DAEA4F600FB513A /* TintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintButton.swift; sourceTree = "<group>"; };
-		D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthStoreProtocol.swift; path = Services/HealthStoreProtocol.swift; sourceTree = "<group>"; };
+		D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStoreProtocol.swift; sourceTree = "<group>"; };
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
-		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MassService.swift; path = Services/MassService.swift; sourceTree = "<group>"; };
+		D96307AC1DA74E3B00A3D46C /* MassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassService.swift; sourceTree = "<group>"; };
 		D967ACD31DCFA2FF004E6014 /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		D97F44001CAB5E50000F4E12 /* MyWeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F44031CAB5E50000F4E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 				D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */,
 				D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D904D9DE1DB6ED0200D0F6A6 /* AuthorizationRequest */ = {
@@ -288,7 +288,7 @@
 			children = (
 				B2EF68C71D187A5B0010C2E7 /* Localization.swift */,
 			);
-			name = Localization;
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		D967ACD11DCF9836004E6014 /* Services */ = {
@@ -298,7 +298,7 @@
 				1DA073F31DCFCC0900A7B967 /* MassRepository.swift */,
 				D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */,
 			);
-			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D967ACD21DCFA2E3004E6014 /* Transitions */ = {

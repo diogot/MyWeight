@@ -43,6 +43,7 @@
 		D97F44241CAB5E51000F4E12 /* MyWeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */; };
 		D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44311CAB5EA2000F4E12 /* AddViewController.swift */; };
 		D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97F44331CAB5EEA000F4E12 /* HealthKit.framework */; };
+		D9B00B201DEB33CC00492699 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9B00B221DEB33CC00492699 /* InfoPlist.strings */; };
 		D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD001DAAC31E002263E2 /* ListViewController.swift */; };
 		D9BEBD031DAAC36A002263E2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD021DAAC36A002263E2 /* ListView.swift */; };
 		D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD041DAB0610002263E2 /* ListViewModel.swift */; };
@@ -140,6 +141,9 @@
 		D97F44311CAB5EA2000F4E12 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		D97F44331CAB5EEA000F4E12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D97F44351CAB5EEA000F4E12 /* MyWeight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyWeight.entitlements; sourceTree = "<group>"; };
+		D9B00B231DEB33D100492699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9B00B241DEB33D200492699 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D9B00B251DEB33D400492699 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D9BEBD001DAAC31E002263E2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D9BEBD021DAAC36A002263E2 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D9BEBD041DAB0610002263E2 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 				D97F440A1CAB5E50000F4E12 /* Assets.xcassets */,
 				D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */,
 				B2EF68C31D1879E40010C2E7 /* Localizable.strings */,
+				D9B00B221DEB33CC00492699 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */,
+				D9B00B201DEB33CC00492699 /* InfoPlist.strings in Resources */,
 				B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */,
 				D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */,
 			);
@@ -824,6 +830,16 @@
 				D97F440D1CAB5E50000F4E12 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D9B00B221DEB33CC00492699 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9B00B231DEB33D100492699 /* en */,
+				D9B00B241DEB33D200492699 /* pt-BR */,
+				D9B00B251DEB33D400492699 /* nl */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

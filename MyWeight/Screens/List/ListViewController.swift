@@ -51,7 +51,8 @@ public class ListViewController: UIViewController {
     public override func viewDidLoad()
     {
         automaticallyAdjustsScrollViewInsets = false
-        updateView()
+        loadMasses()
+        observeMassesUpdate()
     }
 
     func updateView()
@@ -63,16 +64,25 @@ public class ListViewController: UIViewController {
         theView.viewModel = viewModel
     }
 
-    public override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-
-        loadMasses()
-    }
-
     public override func viewDidLayoutSubviews()
     {
         theView.topOffset = topLayoutGuide.length
+    }
+
+    var massObserver: NSObjectProtocol? = nil
+    func observeMassesUpdate()
+    {
+        let center = NotificationCenter.default
+        if let massObserver = massObserver {
+            center.removeObserver(massObserver)
+            self.massObserver = nil
+        }
+
+        center.addObserver(forName: .MassServiceDidUpdate,
+                           object: massRepository,
+                           queue: .main) { [weak self] _ in
+                            self?.loadMasses()
+        }
     }
 
     func loadMasses()

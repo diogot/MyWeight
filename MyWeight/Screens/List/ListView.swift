@@ -12,9 +12,10 @@ public class ListView: UIView {
 
     typealias Cell = TableViewCell<MassView, MassViewModel>
 
+    let topShadow = GradientView()
     let tableView: UITableView
-    let addButton: TintButton = TintButton()
     let buttonTopShadow = GradientView()
+    let addButton: TintButton = TintButton()
     let style: StyleProvider = Style()
 
     public var viewModel: ListViewModelProtocol = ListViewModel() {
@@ -52,8 +53,10 @@ public class ListView: UIView {
     func setUp()
     {
         let contentView = self
+        let backgroundColor = style.backgroundColor
+        let grid = style.grid
 
-        contentView.backgroundColor = style.backgroundColor
+        contentView.backgroundColor = backgroundColor
 
         contentView.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,22 +70,25 @@ public class ListView: UIView {
 
         tableView.registerCellClass(Cell.self)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 85
+        tableView.estimatedRowHeight = grid * 11
 
         tableView.dataSource = self
         tableView.delegate = self
 
-        tableView.backgroundColor = style.backgroundColor
+        tableView.backgroundColor = backgroundColor
 
         tableView.separatorStyle = .none
         
         contentView.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        let padding: CGFloat = style.grid * 2
+        let padding: CGFloat = grid * 2
         addButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
-        addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding) .isActive = true
-        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding).isActive = true
+        addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                           constant: padding) .isActive = true
+        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                            constant: -padding).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+                                          constant: -padding).isActive = true
 
         addButton.addTarget(self,
                             action: #selector(ListView.buttonTap),
@@ -90,15 +96,23 @@ public class ListView: UIView {
         
         contentView.addSubview(buttonTopShadow)
         buttonTopShadow.translatesAutoresizingMaskIntoConstraints = false
-        buttonTopShadow.heightAnchor.constraint(equalToConstant: style.grid * 4).isActive = true
+        buttonTopShadow.heightAnchor.constraint(equalToConstant: grid * 4).isActive = true
         buttonTopShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor) .isActive = true
         buttonTopShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         buttonTopShadow.bottomAnchor.constraint(equalTo: addButton.topAnchor).isActive = true
-        buttonTopShadow.colors = [style.backgroundColor, style.backgroundColor.withAlphaComponent(0)]
-        buttonTopShadow.locations = [0, 1]
+        buttonTopShadow.colors = [backgroundColor, backgroundColor.withAlphaComponent(0)]
         buttonTopShadow.startPoint = CGPoint(x: 0.5, y: 1)
         buttonTopShadow.endPoint = CGPoint(x: 0.5, y: 0)
 
+        contentView.addSubview(topShadow)
+        topShadow.translatesAutoresizingMaskIntoConstraints = false
+        topShadow.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
+        topShadow.heightAnchor.constraint(equalToConstant: grid * 4).isActive = true
+        topShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor) .isActive = true
+        topShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        topShadow.colors = [backgroundColor, backgroundColor.withAlphaComponent(0)]
+        topShadow.startPoint = CGPoint(x: 0.5, y: 0)
+        topShadow.endPoint = CGPoint(x: 0.5, y: 1)
     }
 
 

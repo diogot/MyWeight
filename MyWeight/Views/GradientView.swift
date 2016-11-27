@@ -30,8 +30,8 @@ class GradientView: UIView {
     
     open var colors: [UIColor]? {
         get {
-            if let colors = self.gradientLayer.colors {
-                return colors.map { UIColor(cgColor: $0 as! CGColor) }
+            if let colors = self.gradientLayer.colors as? [CGColor] {
+                return colors.map { UIColor(cgColor: $0) }
             }
             
             return nil

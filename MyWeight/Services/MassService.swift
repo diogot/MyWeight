@@ -25,19 +25,7 @@ public class MassService: MassRepository {
         startObservingMass()
     }
 
-    public func requestAuthorization(_ completion: @escaping (_ error: Error?) -> Void )
-    {
-        let massSet = Set<HKSampleType>(arrayLiteral: massType)
-
-        healthStore.requestAuthorization(toShare: massSet,
-                                         read: massSet)
-        { [weak self] (success, error) in
-            self?.startObservingMass()
-            DispatchQueue.main.async {
-                completion(error)
-            }
-        }
-    }
+    // MARK: - Fetch
 
     public func fetch(_ completion: @escaping (_ results: [Mass]) -> Void)
     {
@@ -73,9 +61,73 @@ public class MassService: MassRepository {
                 completion(masses)
             }
         }
-
+        
         healthStore.execute(query)
     }
+
+    // MARK: - Save
+
+    public func save(_ mass: Mass,
+                     completion: @escaping (_ error: Error?) -> Void)
+    {
+        let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
+                                  doubleValue: mass.value.converted(to: .kilograms).value)
+
+        let metadata = [HKMetadataKeyWasUserEntered: true]
+        let sample = HKQuantitySample(type: massType,
+                                      quantity: quantity,
+                                      start: mass.date,
+                                      end: mass.date,
+                                      metadata: metadata)
+        
+        healthStore.save(sample) { (success, error) in
+            completion(error)
+        }
+    }
+
+    // MARK: - Authorization
+
+    public enum AuthorizationStatus {
+
+        case notDetermined
+
+        case denied
+
+        case authorized
+
+    }
+
+    public var authorizationStatus: AuthorizationStatus {
+
+        let status: AuthorizationStatus
+
+        switch healthStore.authorizationStatusForType(massType) {
+        case .notDetermined:
+            status = .notDetermined
+        case .sharingDenied:
+            status = .denied
+        case .sharingAuthorized:
+            status = .authorized
+        }
+
+        return status
+    }
+
+    public func requestAuthorization(_ completion: @escaping (_ error: Error?) -> Void )
+    {
+        let massSet = Set<HKSampleType>(arrayLiteral: massType)
+
+        healthStore.requestAuthorization(toShare: massSet,
+                                         read: massSet)
+        { [weak self] (success, error) in
+            self?.startObservingMass()
+            DispatchQueue.main.async {
+                completion(error)
+            }
+        }
+    }
+
+    // MARK: - Observing
 
     var massObserverStarted = false
     func startObservingMass()
@@ -113,63 +165,21 @@ public class MassService: MassRepository {
 
         let center = NotificationCenter.default
         appOpenObserver =
-        center.addObserver(forName: .UIApplicationDidBecomeActive,
-                             object: nil,
-                             queue: .main)
-        { [weak self] notification in
-            self?.startObservingMass()
-            if self?.authorizationStatus == .authorized,
-                let observer = self?.appOpenObserver {
-                NotificationCenter.default.removeObserver(observer)
-            }
+            center.addObserver(forName: .UIApplicationDidBecomeActive,
+                               object: nil,
+                               queue: .main)
+            { [weak self] notification in
+                self?.startObservingMass()
+                if self?.authorizationStatus == .authorized,
+                    let observer = self?.appOpenObserver {
+                    NotificationCenter.default.removeObserver(observer)
+                }
         }
     }
 
-    public func save(_ mass: Mass,
-                     completion: @escaping (_ error: Error?) -> Void)
-    {
-        let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
-                                  doubleValue: mass.value.converted(to: .kilograms).value)
-
-        let metadata = [HKMetadataKeyWasUserEntered: true]
-        let sample = HKQuantitySample(type: massType,
-                                      quantity: quantity,
-                                      start: mass.date,
-                                      end: mass.date,
-                                      metadata: metadata)
-        
-        healthStore.save(sample) { (success, error) in
-            completion(error)
-        }
-    }
-
-    public enum AuthorizationStatus {
-
-        case notDetermined
-
-        case denied
-
-        case authorized
-
-    }
-
-    public var authorizationStatus: AuthorizationStatus {
-
-        let status: AuthorizationStatus
-
-        switch healthStore.authorizationStatusForType(massType) {
-        case .notDetermined:
-            status = .notDetermined
-        case .sharingDenied:
-            status = .denied
-        case .sharingAuthorized:
-            status = .authorized
-        }
-
-        return status
-    }
-    
 }
+
+// MARK: - Notifications
 
 extension NSNotification.Name {
     public static let MassServiceDidUpdate: NSNotification.Name =  NSNotification.Name(rawValue: "MassServiceDidUpdate")

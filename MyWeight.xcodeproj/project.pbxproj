@@ -519,7 +519,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Diogo Tridapalli";
 				TargetAttributes = {
 					D97F43FF1CAB5E50000F4E12 = {

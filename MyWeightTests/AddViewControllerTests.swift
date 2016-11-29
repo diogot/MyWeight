@@ -1,4 +1,3 @@
-
 import Quick
 import Nimble
 import Nimble_Snapshots
@@ -9,7 +8,6 @@ class AddViewControllerTests: QuickSpec {
     
     var viewController: AddViewController!
     let snapshoService = SnapshotService()
-    
     var window: UIWindow!
     
     override func spec() {

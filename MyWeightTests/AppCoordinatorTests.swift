@@ -1,4 +1,3 @@
-
 import Quick
 import Nimble
 import Nimble_Snapshots
@@ -64,5 +63,4 @@ class NotAnimationNavigationController: UINavigationController {
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         super.present(viewControllerToPresent, animated: false, completion: completion)
     }
-    
 }

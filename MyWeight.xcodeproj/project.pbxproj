@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
+		1D0104F21DED1BC600C55EA3 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */; };
 		1D0104F01DED1B3B00C55EA3 /* AddViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104EF1DED1B3B00C55EA3 /* AddViewControllerTests.swift */; };
 		1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F31DCFCC0900A7B967 /* MassRepository.swift */; };
 		1DA073F71DCFCD1E00A7B967 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		1D0104EF1DED1B3B00C55EA3 /* AddViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
 		1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		D97F44171CAB5E51000F4E12 /* MyWeightTests */ = {
 			isa = PBXGroup;
 			children = (
+				1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */,
 				1DB0707C1DCE9CAE00367276 /* Util */,
 				1DA167701DC5678700E0049C /* Screens */,
 				D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */,
@@ -802,6 +805,7 @@
 				B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */,
 				1DB0707E1DCE9DCC00367276 /* SnapshotService.swift in Sources */,
 				D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */,
+				1D0104F21DED1BC600C55EA3 /* AppCoordinatorTests.swift in Sources */,
 				1D0104F01DED1B3B00C55EA3 /* AddViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

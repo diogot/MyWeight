@@ -57,7 +57,7 @@ end
 # -- brew
 
 def brew_update
-  sh 'brew update || brew update'
+  sh 'brew update || brew upgrade'
 end
 
 def brew_install( formula )

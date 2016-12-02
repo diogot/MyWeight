@@ -76,6 +76,7 @@ extension MassViewModel {
 
     static let massFormatter: MeasurementFormatter = {
         let massFormatter = MeasurementFormatter()
+        massFormatter.unitOptions = MeasurementFormatter.UnitOptions.providedUnit;
         massFormatter.numberFormatter.minimumFractionDigits = 1
         massFormatter.numberFormatter.maximumFractionDigits = 1
 

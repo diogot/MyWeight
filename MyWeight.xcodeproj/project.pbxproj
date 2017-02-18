@@ -1011,7 +1011,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab8e2c43-e2a1-48b7-b7c6-dc70f97fc006";
+				PROVISIONING_PROFILE = "48b72cf9-9e79-453f-99c5-c9bfbc10b057";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Development";
 			};
 			name = Debug;

@@ -65,6 +65,12 @@ class ListViewControllerTests: QuickSpec {
 }
 
 class MassRepositoryMock: MassRepository {
+    var deleteResponse: Error?
+
+    public func delete(_ mass: Mass, completion: @escaping (Error?) -> Void) {
+        completion(self.deleteResponse)
+    }
+
     var fetchResponse: [Mass]?
     
     func fetch(_ completion: @escaping (_ results: [Mass]) -> Void) {

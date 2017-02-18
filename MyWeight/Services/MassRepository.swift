@@ -10,4 +10,5 @@ import Foundation
 
 public protocol MassRepository {
     func fetch(_ completion: @escaping (_ results: [Mass]) -> Void)
+    func delete(_ mass: Mass, completion: @escaping (_ error: Error?) -> Void)
 }

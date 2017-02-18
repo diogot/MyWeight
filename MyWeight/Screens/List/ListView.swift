@@ -69,6 +69,7 @@ public class ListView: UIView {
         tableView.allowsSelection = false
 
         tableView.registerCellClass(Cell.self)
+        tableView.allowsMultipleSelectionDuringEditing = false
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = grid * 11
 
@@ -164,6 +165,23 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
                           heightForHeaderInSection section: Int) -> CGFloat
     {
         return CGFloat.leastNormalMagnitude
+    }
+
+    public func tableView(_ tableView: UITableView,
+                          canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+    public func tableView(_ tableView: UITableView,
+                          commit editingStyle: UITableViewCellEditingStyle,
+                          forRowAt indexPath: IndexPath)
+    {
+        guard editingStyle == .delete else {
+            return
+        }
+        
+        viewModel.deleteAction(UInt(indexPath.item))
     }
 
 }

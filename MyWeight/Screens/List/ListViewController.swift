@@ -57,9 +57,10 @@ public class ListViewController: UIViewController {
 
     func updateView()
     {
-        let viewModel = ListViewModel(with: masses) { [weak self] in
-            self?.tapAddMass()
-        }
+        let viewModel =
+            ListViewModel(with: masses,
+                          didTap: { [weak self] in self?.tapAddMass() },
+                          deleteMass: { [weak self] in self?.delete($0) })
 
         theView.viewModel = viewModel
     }
@@ -103,6 +104,15 @@ public class ListViewController: UIViewController {
     {
         let mass = masses.first
         delegate?.didTapAddMeasure(last: mass)
+    }
+
+    func delete(_ mass: Mass)
+    {
+        self.massRepository.delete(mass) { (error) in
+            if let error = error {
+                Log.debug(error)
+            }
+        }
     }
 }
 

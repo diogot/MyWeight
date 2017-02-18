@@ -18,6 +18,8 @@ public protocol ListViewModelProtocol {
     var emptyListViewModel: TitleDescriptionViewModelProtocol? { get }
 
     var didTapAction: () -> Void { get }
+
+    var deleteAction: (_ item: UInt) -> Void { get }
     
 }
 
@@ -31,6 +33,8 @@ public struct ListViewModel: ListViewModelProtocol {
     public let emptyListViewModel: TitleDescriptionViewModelProtocol?
 
     public let didTapAction: () -> Void
+
+    public let deleteAction: (UInt) -> Void
 
 }
 
@@ -46,6 +50,8 @@ extension ListViewModel {
 
         didTapAction = { Log.debug("Add button tap") }
 
+        deleteAction = { _ in Log.debug("Delete action") }
+
         emptyListViewModel = EmptyListViewModel()
     }
 
@@ -54,7 +60,8 @@ extension ListViewModel {
 extension ListViewModel {
 
     public init(with masses: [Mass],
-                didTap: @escaping () -> Void)
+                didTap: @escaping () -> Void,
+                deleteMass: @escaping (Mass) -> Void)
     {
         items = UInt(masses.count)
         data = { MassViewModel(with: masses[Int($0)], large: $0 == 0) }
@@ -62,6 +69,8 @@ extension ListViewModel {
         buttonTitle = Localization.addButton
 
         didTapAction = didTap
+
+        deleteAction =  { deleteMass(masses[Int($0)]) }
 
         emptyListViewModel = items == 0 ? EmptyListViewModel() : nil
     }

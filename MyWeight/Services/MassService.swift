@@ -85,6 +85,24 @@ public class MassService: MassRepository {
         }
     }
 
+    // MARK: - Delete
+
+    public func delete(_ mass: Mass, completion: @escaping (_ error: Error?) -> Void)
+    {
+        guard let uuid = mass.uuid else {
+            // WARNING: need an error here
+            completion(nil)
+            return
+        }
+
+        let predicate = HKQuery.predicateForObject(with: uuid)
+
+        healthStore.deleteObjects(of: massType,
+                                  predicate: predicate) { (success, deleted, error) in
+                                    completion(error)
+        }
+    }
+
     // MARK: - Authorization
 
     public enum AuthorizationStatus {

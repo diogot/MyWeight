@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
-		1D0104F21DED1BC600C55EA3 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */; };
 		1D0104F01DED1B3B00C55EA3 /* AddViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104EF1DED1B3B00C55EA3 /* AddViewControllerTests.swift */; };
+		1D0104F21DED1BC600C55EA3 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */; };
 		1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F31DCFCC0900A7B967 /* MassRepository.swift */; };
 		1DA073F71DCFCD1E00A7B967 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */; };
 		1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F81DCFD30400A7B967 /* GradientView.swift */; };
@@ -92,8 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		1D0104EF1DED1B3B00C55EA3 /* AddViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewControllerTests.swift; sourceTree = "<group>"; };
+		1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
 		1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA073F81DCFD30400A7B967 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -536,7 +536,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Diogo Tridapalli";
 				TargetAttributes = {
 					D97F43FF1CAB5E50000F4E12 = {
@@ -1011,7 +1011,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab8e2c43-e2a1-48b7-b7c6-dc70f97fc006";
+				PROVISIONING_PROFILE = "48b72cf9-9e79-453f-99c5-c9bfbc10b057";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Development";
 			};
 			name = Debug;
@@ -1035,6 +1035,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 318C2AC71DC6AF105AF2E687 /* Pods-MyWeightTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyWeightTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1048,6 +1049,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 497741B52B407C5A7CC9C7AB /* Pods-MyWeightTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyWeightTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

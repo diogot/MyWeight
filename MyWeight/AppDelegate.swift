@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias Dict = [UIApplicationLaunchOptionsKey: Any]
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var coordinator: AppCoordinator?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: Dict?) -> Bool
     {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window

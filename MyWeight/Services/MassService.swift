@@ -89,7 +89,7 @@ public class MassService: MassRepository {
 
     public func delete(_ mass: Mass, completion: @escaping (_ error: Error?) -> Void)
     {
-        guard let uuid = mass.uuid else {
+        guard case let .permanent(uuid) = mass.status else {
             // WARNING: need an error here
             completion(nil)
             return

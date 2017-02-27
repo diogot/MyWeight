@@ -52,6 +52,8 @@
 		D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD041DAB0610002263E2 /* ListViewModel.swift */; };
 		D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD061DAB097A002263E2 /* AppCoordinator.swift */; };
 		D9BEBD0A1DAB24B7002263E2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD091DAB24B7002263E2 /* Style.swift */; };
+		D9C3155B1E63A43700579208 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3155A1E63A43700579208 /* AlertViewModel.swift */; };
+		D9C3155D1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3155C1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift */; };
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 		D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE11DAED5F700AD578F /* TableViewCell.swift */; };
 		D9F73FE41DAED7C600AD578F /* MassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE31DAED7C600AD578F /* MassView.swift */; };
@@ -155,6 +157,8 @@
 		D9BEBD041DAB0610002263E2 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D9BEBD061DAB097A002263E2 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D9BEBD091DAB24B7002263E2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D9C3155A1E63A43700579208 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertViewModel.swift; path = AlertViewController/AlertViewModel.swift; sourceTree = "<group>"; };
+		D9C3155C1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIAlertView+AlertViewModel.swift"; path = "AlertViewController/UIAlertView+AlertViewModel.swift"; sourceTree = "<group>"; };
 		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D9F73FE11DAED5F700AD578F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D9F73FE31DAED7C600AD578F /* MassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassView.swift; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 		D9BEBCFE1DAAC312002263E2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D9C315571E63A3E400579208 /* AlertViewController */,
 				D904D9E71DB930CD00D0F6A6 /* AccessDenied */,
 				D9F73FEA1DB3211E00AD578F /* Add */,
 				D904D9DE1DB6ED0200D0F6A6 /* AuthorizationRequest */,
@@ -443,6 +448,15 @@
 				1DA073F81DCFD30400A7B967 /* GradientView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D9C315571E63A3E400579208 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9C3155A1E63A43700579208 /* AlertViewModel.swift */,
+				D9C3155C1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift */,
+			);
+			name = AlertViewController;
 			sourceTree = "<group>";
 		};
 		D9F73FE51DAEDE6700AD578F /* Models */ = {
@@ -775,6 +789,7 @@
 				D91FBE511DEB577A00C724B0 /* HealthStoreProtocol.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
+				D9C3155B1E63A43700579208 /* AlertViewModel.swift in Sources */,
 				D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */,
 				D904D9EB1DB9357A00D0F6A6 /* AccessDeniedView.swift in Sources */,
 				B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */,
@@ -783,6 +798,7 @@
 				D904D9E61DB83AAE00D0F6A6 /* ClearButton.swift in Sources */,
 				D904D9E41DB8032F00D0F6A6 /* AuthorizationRequestViewModel.swift in Sources */,
 				D90D1E4B1DAEA4F600FB513A /* TintButton.swift in Sources */,
+				D9C3155D1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift in Sources */,
 				D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */,
 				D9F73FEC1DB3214900AD578F /* MassPicker.swift in Sources */,
 				D90D1E491DADCC1000FB513A /* NSAttributedString+FontColor.swift in Sources */,

@@ -76,15 +76,13 @@ extension AppCoordinator: ListViewControllerDelegate {
 
     public func failedToDeleteMass() {
         let action = AlertViewModel
-            .Action(title: "Ok")
+            .Action(title: Localization.alertOkButton)
             { $0.presentingViewController?.dismiss(animated: true) }
         let viewMoodel =
-            AlertViewModel(title: "Alert",
-                           message: "Fail to delete mass",
+            AlertViewModel(title: Localization.alertFailToDeleteTitle,
+                           message: Localization.alertFailToDeleteMessage,
                            actions: [action])
         let alert = UIAlertController(with: viewMoodel)
-
-
 
         navigationController.present(alert, animated: true)
     }

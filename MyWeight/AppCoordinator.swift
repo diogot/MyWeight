@@ -38,8 +38,7 @@ public class AppCoordinator {
         addViewController.transitioningDelegate = modalTransitionController
 
         self.navigationController.present(addViewController,
-                                          animated: true,
-                                          completion: nil)
+                                          animated: true)
     }
 
     func startAuthorizationRequest()
@@ -47,8 +46,7 @@ public class AppCoordinator {
         let viewController = AuthorizationRequestViewController(with: massService)
         viewController.delegate = self
         self.navigationController.present(viewController,
-                                          animated: true,
-                                          completion: nil)
+                                          animated: true)
     }
 
     func startAuthorizationDenied()
@@ -56,8 +54,7 @@ public class AppCoordinator {
         let viewController = AccessDeniedViewController()
         viewController.delegate = self
         self.navigationController.present(viewController,
-                                          animated: true,
-                                          completion: nil)
+                                          animated: true)
     }
 
 }
@@ -75,6 +72,21 @@ extension AppCoordinator: ListViewControllerDelegate {
         case .denied:
             startAuthorizationDenied()
         }
+    }
+
+    public func failedToDeleteMass() {
+        let action = AlertViewModel
+            .Action(title: "Ok")
+            { $0.presentingViewController?.dismiss(animated: true) }
+        let viewMoodel =
+            AlertViewModel(title: "Alert",
+                           message: "Fail to delete mass",
+                           actions: [action])
+        let alert = UIAlertController(with: viewMoodel)
+
+
+
+        navigationController.present(alert, animated: true)
     }
 
 }

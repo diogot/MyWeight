@@ -11,6 +11,10 @@ import HealthKit
 
 public class MassService: MassRepository {
 
+    public enum Error: Swift.Error {
+        case unableToDelete
+    }
+
     let healthStore: HealthStoreProtocol
     let bodyMass: HKQuantityTypeIdentifier
     let massType: HKQuantityType
@@ -68,7 +72,7 @@ public class MassService: MassRepository {
     // MARK: - Save
 
     public func save(_ mass: Mass,
-                     completion: @escaping (_ error: Error?) -> Void)
+                     completion: @escaping (_ error: Swift.Error?) -> Void)
     {
         let quantity = HKQuantity(unit: .gramUnit(with: .kilo),
                                   doubleValue: mass.value.converted(to: .kilograms).value)
@@ -87,11 +91,10 @@ public class MassService: MassRepository {
 
     // MARK: - Delete
 
-    public func delete(_ mass: Mass, completion: @escaping (_ error: Error?) -> Void)
+    public func delete(_ mass: Mass, completion: @escaping (_ error: Swift.Error?) -> Void)
     {
         guard case let .permanent(uuid) = mass.status else {
-            // WARNING: need an error here
-            completion(nil)
+            completion(Error.unableToDelete)
             return
         }
 
@@ -99,7 +102,11 @@ public class MassService: MassRepository {
 
         healthStore.deleteObjects(of: massType,
                                   predicate: predicate) { (success, deleted, error) in
-                                    completion(error)
+                                    if deleted == 0 {
+                                        completion(Error.unableToDelete)
+                                    } else {
+                                        completion(error)
+                                    }
         }
     }
 
@@ -131,7 +138,7 @@ public class MassService: MassRepository {
         return status
     }
 
-    public func requestAuthorization(_ completion: @escaping (_ error: Error?) -> Void )
+    public func requestAuthorization(_ completion: @escaping (_ error: Swift.Error?) -> Void )
     {
         let massSet = Set<HKSampleType>(arrayLiteral: massType)
 

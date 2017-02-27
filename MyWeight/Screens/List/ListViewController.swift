@@ -10,6 +10,7 @@ import UIKit
 
 public protocol ListViewControllerDelegate {
     func didTapAddMeasure(last mass: Mass?)
+    func failedToDeleteMass()
 }
 
 public class ListViewController: UIViewController {
@@ -108,11 +109,17 @@ public class ListViewController: UIViewController {
 
     func delete(_ mass: Mass)
     {
-        self.massRepository.delete(mass) { (error) in
+        self.massRepository.delete(mass) { [weak self] (error) in
             if let error = error {
-                Log.debug(error)
+                self?.failToDelete(error)
             }
         }
+    }
+
+    func failToDelete(_ error: Error)
+    {
+        Log.debug(error)
+        delegate?.failedToDeleteMass()
     }
 }
 

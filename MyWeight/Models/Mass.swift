@@ -13,7 +13,12 @@ public struct Mass {
 
     public let value: Measurement<UnitMass>
     public let date: Date
-    let uuid: UUID?
+    let status: Status
+
+    enum Status {
+        case permanent(UUID)
+        case transient
+    }
 
 }
 
@@ -23,13 +28,13 @@ extension Mass {
     {
         value = Measurement(value: 60, unit: .kilograms)
         date = Date()
-        uuid = nil
+        status = .transient
     }
 
     init(value: Measurement<UnitMass>, date: Date) {
         self.value = value
         self.date = date
-        uuid = nil
+        status = .transient
     }
 
     init(with sample: HKQuantitySample)
@@ -37,7 +42,7 @@ extension Mass {
         value = Measurement(value: sample.quantity.doubleValue(for: .gramUnit(with: .kilo)),
                             unit: UnitMass.kilograms)
         date = sample.startDate
-        uuid = sample.uuid
+        status = .permanent(sample.uuid)
     }
 
 }

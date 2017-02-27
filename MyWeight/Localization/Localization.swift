@@ -92,5 +92,15 @@ struct Localization {
         return NSLocalizedString("Denied.OkButton.text", comment: "")
     }
 
+    static var alertOkButton: String {
+        return NSLocalizedString("Alert.OkButton.text", comment: "")
+    }
 
+    static var alertFailToDeleteTitle: String {
+        return NSLocalizedString("Alert.FailToDelete.title", comment: "")
+    }
+
+    static var alertFailToDeleteMessage: String {
+        return NSLocalizedString("Alert.FailToDelete.message", comment: "")
+    }
 }

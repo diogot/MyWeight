@@ -38,3 +38,11 @@
 
 "Denied.Title.text" = "Permissões";
 
+/* No comment provided by engineer. */
+"Alert.FailToDelete.message" = "Por favor use o App Saúde para apagar essa medida";
+
+/* No comment provided by engineer. */
+"Alert.FailToDelete.title" = "MeuPeso não pode apagar";
+
+"Alert.OkButton.text" = "Ok";
+

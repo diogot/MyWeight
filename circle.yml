@@ -5,9 +5,6 @@ machine:
   environment:
     ARTIFACTS_DEFAULT_PATH: build
     TEST_REPORTS_DEFAULT_PATH: reports
-  pre:
-    - brew install ruby 
-    - brew link --overwrite ruby
     
 dependencies:
   pre:

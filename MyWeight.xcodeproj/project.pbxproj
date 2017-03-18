@@ -1050,7 +1050,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 318C2AC71DC6AF105AF2E687 /* Pods-MyWeightTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyWeightTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1064,7 +1063,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 497741B52B407C5A7CC9C7AB /* Pods-MyWeightTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyWeightTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

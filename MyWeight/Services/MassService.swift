@@ -31,7 +31,11 @@ public class MassService: MassRepository {
 
     // MARK: - Fetch
 
-    public func fetch(_ completion: @escaping (_ results: [Mass]) -> Void)
+    public func fetch(_ completion: @escaping (_ results: [Mass]) -> Void) {
+        fetch(entries: nil, completion)
+    }
+
+    public func fetch(entries: Int? = nil, _ completion: @escaping (_ results: [Mass]) -> Void)
     {
         let startDate = healthStore.earliestPermittedSampleDate()
         let endDate = Date()
@@ -41,7 +45,7 @@ public class MassService: MassRepository {
 
         let query = HKSampleQuery(sampleType: massType,
                                   predicate: predicate,
-                                  limit: HKObjectQueryNoLimit,
+                                  limit: entries ?? HKObjectQueryNoLimit,
                                   sortDescriptors: [sortDescriptor])
         { query, results, error in
             // WARNING: improve
@@ -183,6 +187,8 @@ public class MassService: MassRepository {
     var appOpenObserver: NSObjectProtocol? = nil
     func startObservingAppOpen()
     {
+        #if os(iOS)
+
         guard authorizationStatus != .authorized,
             appOpenObserver == nil else {
                 return
@@ -200,6 +206,8 @@ public class MassService: MassRepository {
                     NotificationCenter.default.removeObserver(observer)
                 }
         }
+
+        #endif
     }
 
 }

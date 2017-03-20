@@ -16,12 +16,18 @@
                     <items>
                         <group width="1" height="0.75" alignment="left" layout="vertical" id="hEL-Wh-umG">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Loading ..." textAlignment="left" id="HMZ-XG-taH">
-                                    <fontDescription key="font" type="system" pointSize="24"/>
+                                <label alignment="left" verticalAlignment="center" text="LATEST ENTRY" id="SNh-Oc-Rfe">
+                                    <color key="textColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="medium" pointSize="11"/>
+                                </label>
+                                <label alignment="left" verticalAlignment="center" text="Loading ..." textAlignment="left" id="HMZ-XG-taH">
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="26"/>
                                 </label>
                             </items>
                         </group>
                         <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Add" id="2Lf-iH-dTX">
+                            <color key="backgroundColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
                             <connections>
                                 <action selector="addMassAction" destination="AgC-eL-Hgc" id="bXf-7f-Jye"/>
                             </connections>
@@ -32,7 +38,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="35" y="71"/>
+            <point key="canvasLocation" x="35" y="70.5"/>
         </scene>
         <!--add-->
         <scene sceneID="2XT-4G-WQs">
@@ -45,6 +51,8 @@
                             </connections>
                         </picker>
                         <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Save" id="B6m-CV-qtz">
+                            <color key="backgroundColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
                             <connections>
                                 <action selector="saveAction" destination="xQ9-xK-vBz" id="NHk-SI-yPT"/>
                             </connections>

@@ -18,28 +18,16 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>9</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSHealthShareUsageDescription</key>
-	<string>MyWeight need access to Heath in order to read your weight entries.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>MyWeight need access to Heath in order to store your weight entries.</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-		<string>healthkit</string>
-	</array>
+	<string>1</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>com.diogot.health.My-Weight</string>
+	<key>WKWatchKitApp</key>
+	<true/>
 </dict>
 </plist>

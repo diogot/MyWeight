@@ -9,14 +9,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--List Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="ListInterfaceController" customModule="watch_Extension">
                     <items>
                         <group width="1" height="0.75" alignment="left" layout="vertical" id="hEL-Wh-umG">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Label" textAlignment="left" id="HMZ-XG-taH">
+                                <label alignment="center" verticalAlignment="center" text="Loading ..." textAlignment="left" id="HMZ-XG-taH">
                                     <fontDescription key="font" type="system" pointSize="24"/>
                                 </label>
                             </items>

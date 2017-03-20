@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  ListInterfaceController.swift
 //  watch Extension
 //
 //  Created by Diogo on 18/03/17.
@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class ListInterfaceController: WKInterfaceController {
 
     @IBOutlet var massInterfaceLabel: WKInterfaceLabel!
 

@@ -32,17 +32,19 @@ class AddInterfaceController: WKInterfaceController {
 
         if let mass = context as? Mass {
             currentMass = mass.value
+            populatePicker(with: currentMass)
         } else {
             massRepository.fetch(entries: 1) { [weak self] in
                 if let mass = $0.first {
                     self?.currentMass = mass.value
+                    self?.populatePicker(with: mass.value)
                 }
             }
         }
     }
 
     func populatePicker(with mass: Measurement<UnitMass>) {
-        let range = 10
+        let range = 20
 
         var massOptions = [MassPickerItem]()
 

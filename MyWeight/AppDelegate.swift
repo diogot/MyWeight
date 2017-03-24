@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 typealias Dict = [UIApplicationLaunchOptionsKey: Any]
 
@@ -34,6 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
 
         return true
+    }
+
+    // TODO: extract this to AppCoordinator 
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+        let healthStore = HKHealthStore()
+        healthStore.handleAuthorizationForExtension { (success, error) in
+            print("\(success), \(error)")
+        }
     }
 
 }

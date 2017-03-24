@@ -14,6 +14,10 @@ class ListInterfaceController: WKInterfaceController {
 
     @IBOutlet var massInterfaceLabel: WKInterfaceLabel!
 
+    @IBOutlet var mainGroup: WKInterfaceGroup!
+    @IBOutlet var notRequestedGroup: WKInterfaceGroup!
+    @IBOutlet var deniedGroup: WKInterfaceGroup!
+
     let massRepository: MassService = MassService()
 
     override func awake(withContext context: Any?) {
@@ -23,7 +27,23 @@ class ListInterfaceController: WKInterfaceController {
     }
     
     override func willActivate() {
-        loadCurrentMass()
+
+        switch massRepository.authorizationStatus {
+        case .authorized:
+            loadCurrentMass()
+            mainGroup.setHidden(false)
+            notRequestedGroup.setHidden(true)
+            deniedGroup.setHidden(true)
+        case .notDetermined:
+            mainGroup.setHidden(true)
+            notRequestedGroup.setHidden(false)
+            deniedGroup.setHidden(true)
+            massRepository.requestAuthorization() { print($0) }
+        case .denied:
+            mainGroup.setHidden(true)
+            notRequestedGroup.setHidden(true)
+            deniedGroup.setHidden(false)
+        }
 
         super.willActivate()
     }

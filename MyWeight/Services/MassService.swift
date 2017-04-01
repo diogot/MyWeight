@@ -56,7 +56,7 @@ public class MassService: MassRepository {
             }
 
             guard let samples = results as? [HKQuantitySample] else {
-                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)")
+                fatalError("Wrong type")
             }
 
             if samples.isEmpty {

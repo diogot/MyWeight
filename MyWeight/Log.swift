@@ -22,6 +22,22 @@ public struct Log {
             lineNumber: lineNumber)
     }
 
+    public static func error(
+        _ error: Error?,
+        functionName: String = #function,
+        fileName: String = #file,
+        lineNumber: Int = #line)
+    {
+        guard let error = error else {
+            return
+        }
+
+        debug(error,
+              functionName: functionName,
+              fileName: fileName,
+              lineNumber: lineNumber)
+    }
+
     public static func debug(
         _ items: Any...,
         functionName: String = #function,

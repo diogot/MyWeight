@@ -65,7 +65,7 @@ public class AddViewController: UIViewController {
     func saveMass(_ mass: Mass)
     {
         massService.save(mass) { (error) in
-            Log.debug("Error = \(error)")
+            Log.debug("Error = \(error.debugDescription)")
         }
 
         didEnd()

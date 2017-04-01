@@ -220,6 +220,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		75B2929348880CEF8400103C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D95051011E7DE30B00519138 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -574,6 +581,7 @@
 			buildPhases = (
 				D95050F61E7DE30B00519138 /* Resources */,
 				D95051181E7DE30B00519138 /* Embed App Extensions */,
+				75B2929348880CEF8400103C /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -679,11 +687,13 @@
 					D95050F71E7DE30B00519138 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = MQRRG9G4R7;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
 					D95051031E7DE30B00519138 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = MQRRG9G4R7;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit.watchos = {
@@ -694,7 +704,7 @@
 					D97F43FF1CAB5E50000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -705,13 +715,13 @@
 					D97F44131CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 					D97F441E1CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 				};

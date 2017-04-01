@@ -27,7 +27,16 @@ class ListInterfaceController: WKInterfaceController {
     }
     
     override func willActivate() {
+        verifyAuthorization()
+        super.willActivate()
+    }
+    
+    override func didDeactivate() {
+        // This method is called when watch view controller is no longer visible
+        super.didDeactivate()
+    }
 
+    func verifyAuthorization() {
         switch massRepository.authorizationStatus {
         case .authorized:
             loadCurrentMass()
@@ -38,19 +47,15 @@ class ListInterfaceController: WKInterfaceController {
             mainGroup.setHidden(true)
             notRequestedGroup.setHidden(false)
             deniedGroup.setHidden(true)
-            massRepository.requestAuthorization() { print($0) }
+            massRepository.requestAuthorization() { [weak self] error in
+                Log.error(error)
+                self?.verifyAuthorization()
+            }
         case .denied:
             mainGroup.setHidden(true)
             notRequestedGroup.setHidden(true)
             deniedGroup.setHidden(false)
         }
-
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 
     func loadCurrentMass() {

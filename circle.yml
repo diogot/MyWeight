@@ -8,7 +8,7 @@ machine:
     
 dependencies:
   pre:
-    - chruby 2.4.0
+    - chruby 2.4.1
     - rake setup_dependencies
   override:
     - rake configure

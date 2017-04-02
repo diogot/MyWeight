@@ -81,53 +81,7 @@ class ListInterfaceController: WKInterfaceController {
 
     // MARK: - ViewModel
 
-    enum ViewModel {
-        case main(String, String)
-        case goToIphone(String)
-
-
-        static let massFormatter: MeasurementFormatter = {
-            let massFormatter = MeasurementFormatter()
-            massFormatter.numberFormatter.minimumFractionDigits = 1
-            massFormatter.numberFormatter.maximumFractionDigits = 1
-            massFormatter.unitOptions = .providedUnit
-
-            return massFormatter
-        }()
-
-        static let dateFormatter: DateFormatter = {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .short
-            dateFormatter.doesRelativeDateFormatting = true
-
-            return dateFormatter
-        }()
-
-        static let loading: ViewModel = {
-            return ViewModel.main("Loading ...", "")
-        }()
-
-        static let denied: ViewModel = {
-            return ViewModel.goToIphone("Health data denied, you need to allow in Health.app at your iPhone")
-        }()
-
-        static let notDetermined: ViewModel = {
-            return ViewModel.goToIphone("You need to authorize in your iPhone")
-        }()
-
-        static let noEntry: ViewModel = {
-            return .main("No entry", "")
-        }()
-
-        static func mass(_ mass: Mass) -> ViewModel {
-            let massText = massFormatter.string(from: mass.value)
-            let dateText = dateFormatter.string(from: mass.date)
-            return .main(massText, dateText)
-        }
-    }
-
-    func updateView(with viewModel: ViewModel) {
+    func updateView(with viewModel: ListInterfaceControllerViewModel) {
         switch viewModel {
         case let .main(mass, date):
             massInterfaceLabel.setText(mass)

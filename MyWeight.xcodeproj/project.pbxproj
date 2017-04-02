@@ -95,10 +95,10 @@
 		D92D39311E90521D00D9E9ED /* watch Dev.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D92D39171E904EC500D9E9ED /* watch Dev.app */; };
 		D92D39361E917FC000D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
 		D92D39371E917FC000D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
-		D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
-		D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
 		D92D39381E91826600D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
 		D92D39391E91826800D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
+		D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
+		D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
 		D95050FC1E7DE30B00519138 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95050FA1E7DE30B00519138 /* Interface.storyboard */; };
 		D95050FE1E7DE30B00519138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95050FD1E7DE30B00519138 /* Assets.xcassets */; };
 		D95051051E7DE30B00519138 /* watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D95051041E7DE30B00519138 /* watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -277,8 +277,8 @@
 		D92D39321E9056D900D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
 		D92D39331E9056F900D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
 		D92D39341E90571400D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
-		D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInterfaceControllerViewModel.swift; sourceTree = "<group>"; };
 		D92D39351E917FC000D9E9ED /* UserActivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityService.swift; sourceTree = "<group>"; };
+		D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInterfaceControllerViewModel.swift; sourceTree = "<group>"; };
 		D95050F81E7DE30B00519138 /* watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95050FB1E7DE30B00519138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		D95050FD1E7DE30B00519138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };

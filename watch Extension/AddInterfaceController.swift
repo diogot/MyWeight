@@ -12,6 +12,9 @@ import Foundation
 
 class AddInterfaceController: WKInterfaceController {
 
+    @IBOutlet var interfacePicker: WKInterfacePicker!
+    @IBOutlet var saveInterfaceButton: WKInterfaceButton!
+
     let massRepository: MassService = MassService()
     let massFormatter: MeasurementFormatter = {
         let massFormatter = MeasurementFormatter()
@@ -22,8 +25,6 @@ class AddInterfaceController: WKInterfaceController {
     }()
 
     var massOptions: [MassPickerItem] = []
-
-    @IBOutlet var interfacePicker: WKInterfacePicker!
 
     var currentMass: Measurement<UnitMass> = Mass().value
 

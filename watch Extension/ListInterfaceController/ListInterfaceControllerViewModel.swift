@@ -12,6 +12,18 @@ enum ListInterfaceControllerViewModel {
     case main(String, String)
     case goToIphone(String)
 
+    var buttonText: String {
+        switch self {
+        case .main:
+            return "Add"
+        case .goToIphone:
+            return "Done"
+        }
+    }
+
+    var lastEntryText: String {
+        return "LAST ENTRY"
+    }
 
     static let massFormatter: MeasurementFormatter = {
         let massFormatter = MeasurementFormatter()

@@ -84,14 +84,17 @@ class ListInterfaceController: WKInterfaceController {
     func updateView(with viewModel: ListInterfaceControllerViewModel) {
         switch viewModel {
         case let .main(mass, date):
+            lastEntryInterfaceLabel.setText(viewModel.lastEntryText)
             massInterfaceLabel.setText(mass)
             dateInterfaceLabel.setText(date)
+            addInterfaceButton.setTitle(viewModel.buttonText)
             mainGroup.setHidden(false)
             goToiPhoneGroup.setHidden(true)
         case let .goToIphone(text):
             goToiPhoneInterfaceLabel.setText(text)
             mainGroup.setHidden(true)
             goToiPhoneGroup.setHidden(false)
+            doneInterfaceButton.setTitle(viewModel.buttonText)
         }
     }
 

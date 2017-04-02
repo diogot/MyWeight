@@ -61,6 +61,7 @@ class ListInterfaceController: WKInterfaceController {
     }
 
     func set(state: State) {
+        updateUserActivity(with: state)
         switch state {
         case .start:
             updateView(with: .loading)

@@ -7,8 +7,6 @@
 //
 
 import WatchKit
-import Foundation
-
 
 class AddInterfaceController: WKInterfaceController {
 
@@ -79,12 +77,14 @@ class AddInterfaceController: WKInterfaceController {
     }
 
     override func willActivate() {
-
+        updateUserActivity(UserActivityService.ActivityType.add.rawValue,
+                           userInfo: [:],
+                           webpageURL: nil)
         super.willActivate()
     }
 
     override func didDeactivate() {
-
+        invalidateUserActivity()
         super.didDeactivate()
     }
 

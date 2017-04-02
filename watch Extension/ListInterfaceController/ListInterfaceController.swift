@@ -7,7 +7,6 @@
 //
 
 import WatchKit
-import WatchConnectivity
 
 class ListInterfaceController: WKInterfaceController {
 

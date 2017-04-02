@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,27 +14,64 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="ListInterfaceController" customModule="watch" customModuleProvider="target">
                     <items>
-                        <group width="1" height="0.75" alignment="left" layout="vertical" id="hEL-Wh-umG">
+                        <group width="1" height="1" alignment="left" layout="vertical" id="2nR-er-Qfq" userLabel="Main">
                             <items>
-                                <label alignment="left" verticalAlignment="center" text="LATEST ENTRY" id="SNh-Oc-Rfe">
-                                    <color key="textColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" type="system" weight="medium" pointSize="11"/>
-                                </label>
-                                <label alignment="left" verticalAlignment="center" text="Loading ..." textAlignment="left" id="HMZ-XG-taH">
-                                    <fontDescription key="font" type="system" weight="semibold" pointSize="26"/>
-                                </label>
+                                <group width="1" height="0.75" alignment="left" layout="vertical" id="hEL-Wh-umG">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="LATEST ENTRY" id="SNh-Oc-Rfe">
+                                            <color key="textColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" weight="medium" pointSize="11"/>
+                                        </label>
+                                        <label alignment="left" verticalAlignment="center" text="Loading ..." textAlignment="left" id="HMZ-XG-taH">
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="26"/>
+                                        </label>
+                                        <label alignment="left" verticalAlignment="center" id="30k-pU-chm" userLabel="Date"/>
+                                    </items>
+                                </group>
+                                <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Add" id="2Lf-iH-dTX">
+                                    <color key="backgroundColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
+                                    <connections>
+                                        <action selector="addMassAction" destination="AgC-eL-Hgc" id="bXf-7f-Jye"/>
+                                    </connections>
+                                </button>
                             </items>
                         </group>
-                        <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Add" id="2Lf-iH-dTX">
-                            <color key="backgroundColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
-                            <connections>
-                                <action selector="addMassAction" destination="AgC-eL-Hgc" id="bXf-7f-Jye"/>
-                            </connections>
-                        </button>
+                        <group width="1" height="1" alignment="left" hidden="YES" layout="vertical" id="x6N-oe-53g" userLabel="NotRequested">
+                            <items>
+                                <label alignment="center" text="You need to authorize in your iPhone" textAlignment="left" numberOfLines="0" id="w2p-OW-IPG">
+                                    <fontDescription key="font" type="system" pointSize="24"/>
+                                </label>
+                                <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Done" id="oHm-R2-aFB">
+                                    <color key="backgroundColor" red="0.3183512986" green="0.79587680100000002" blue="0.83114951849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
+                                    <connections>
+                                        <action selector="verifyAuthorization" destination="AgC-eL-Hgc" id="BGn-1L-nYE"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" height="1" alignment="left" hidden="YES" layout="vertical" id="rYD-H8-rwG" userLabel="Denied">
+                            <items>
+                                <label alignment="center" text="Health data denied, you need to allow in Health.app at your iPhone" textAlignment="center" numberOfLines="0" id="KaL-NV-Ohx">
+                                    <fontDescription key="font" type="system" pointSize="18"/>
+                                </label>
+                                <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Done" id="5AA-aw-Crl">
+                                    <color key="backgroundColor" red="0.3183512986" green="0.79587680100000002" blue="0.83114951849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
+                                    <connections>
+                                        <action selector="verifyAuthorization" destination="AgC-eL-Hgc" id="Sx1-sJ-FLC"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                     </items>
                     <connections>
+                        <outlet property="dateInterfaceLabel" destination="30k-pU-chm" id="wTJ-lD-wnh"/>
+                        <outlet property="deniedGroup" destination="rYD-H8-rwG" id="bMw-xN-Joj"/>
+                        <outlet property="mainGroup" destination="2nR-er-Qfq" id="vK1-YR-HMd"/>
                         <outlet property="massInterfaceLabel" destination="HMZ-XG-taH" id="lED-Dq-7Q6"/>
+                        <outlet property="notRequestedGroup" destination="x6N-oe-53g" id="nAH-ue-ogy"/>
                     </connections>
                 </controller>
             </objects>
@@ -51,7 +88,7 @@
                             </connections>
                         </picker>
                         <button width="1" height="0.25" alignment="left" verticalAlignment="bottom" title="Save" id="B6m-CV-qtz">
-                            <color key="backgroundColor" red="0.3166431188583374" green="0.79672813415527344" blue="0.83193355798721313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.31835129857063293" green="0.79587680101394653" blue="0.83114951848983765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
                             <connections>
                                 <action selector="saveAction" destination="xQ9-xK-vBz" id="NHk-SI-yPT"/>

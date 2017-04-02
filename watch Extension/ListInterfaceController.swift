@@ -7,12 +7,12 @@
 //
 
 import WatchKit
-import Foundation
-
+import WatchConnectivity
 
 class ListInterfaceController: WKInterfaceController {
 
     @IBOutlet var massInterfaceLabel: WKInterfaceLabel!
+    @IBOutlet var dateInterfaceLabel: WKInterfaceLabel!
 
     @IBOutlet var mainGroup: WKInterfaceGroup!
     @IBOutlet var notRequestedGroup: WKInterfaceGroup!
@@ -22,8 +22,9 @@ class ListInterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+
         massInterfaceLabel.setText("Loading ...")
+        dateInterfaceLabel.setText("")
     }
     
     override func willActivate() {
@@ -31,12 +32,8 @@ class ListInterfaceController: WKInterfaceController {
         super.willActivate()
     }
     
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-
-    func verifyAuthorization() {
+    @IBAction func verifyAuthorization() {
+        Log.debug(massRepository.authorizationStatus)
         switch massRepository.authorizationStatus {
         case .authorized:
             loadCurrentMass()
@@ -49,7 +46,6 @@ class ListInterfaceController: WKInterfaceController {
             deniedGroup.setHidden(true)
             massRepository.requestAuthorization() { [weak self] error in
                 Log.error(error)
-                self?.verifyAuthorization()
             }
         case .denied:
             mainGroup.setHidden(true)
@@ -67,8 +63,16 @@ class ListInterfaceController: WKInterfaceController {
                 massFormatter.unitOptions = .providedUnit
 
                 self.massInterfaceLabel.setText(massFormatter.string(from: mass.value))
+
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .short
+                dateFormatter.doesRelativeDateFormatting = true
+
+                self.dateInterfaceLabel.setText(dateFormatter.string(from: mass.date))
             } else {
                 self.massInterfaceLabel.setText("No entry")
+                self.dateInterfaceLabel.setText("")
             }
         }
     }

@@ -4,9 +4,10 @@ rescue LoadError
   puts 'plist not installed yet!'
 end
 
+APP_NAME = 'MyWeight'
 ARTIFACTS_DEFAULT_PATH = "#{BASE_PATH}/build"
 TEST_REPORTS_DEFAULT_PATH = "#{BASE_PATH}/reports"
-WORKSPACE_PATH = "#{BASE_PATH}/MyWeight.xcworkspace"
+WORKSPACE_PATH = "#{BASE_PATH}/#{APP_NAME}.xcworkspace"
 
 
 # -- danger
@@ -55,6 +56,48 @@ def xcode_log_file( report_name: '', artifacts_path: artifacts_path())
   "#{artifacts_path}/xcode-#{report_name}.log"
 end
 
+# -- Release
+
+desc 'Release'
+task :release => [ :archive, :generate_ipa ]
+
+task :archive do
+  xcode( scheme: 'MyWeight',
+         actions: 'clean archive',
+         destination: 'generic/platform=iOS',
+         configuration: 'Release',
+         report_name: "archive",
+         archive_path: archive_path )
+end
+
+task :generate_ipa do
+  
+  export_plist_path = create_export_plist()
+  
+  export_ipa( archive_path: archive_path,
+              export_path: export_path,
+              build_plist: export_plist_path, 
+              report_name: "export" )
+end
+
+task :upload do
+  sh "bundle exec pilot upload --verbose --skip_waiting_for_build_processing true --skip_submission true --wait_processing_interval 1 -i '#{ipa_file_path}' -a '#{bundle_id}'"
+end
+
+def archive_path
+  "#{artifacts_path()}/#{APP_NAME}.xcarchive"
+end
+
+def export_path
+  "#{artifacts_path()}/#{APP_NAME}-ipa"  
+end
+
+def ipa_file_path
+  files = Dir[File.join(export_path, '*.ipa')]
+  fail "No IPA found in #{export_path}" if files.to_s.strip.length == 0
+  files.last
+end
+
 # -- build
 
 def xcode( scheme: '',
@@ -71,10 +114,10 @@ def xcode( scheme: '',
 
   xcode_configuration = "-configuration '#{configuration}'" unless configuration.to_s.strip.length == 0
   other_options = 'CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE=' unless actions.include? 'archive'
-  archiveOptions = "-archivePath '#{archive_path}'" unless archive_path.to_s.strip.length == 0
+  archiveOptions = archive_path.to_s.strip.length == 0 ? '-enableCodeCoverage YES' : "-archivePath '#{archive_path}'"
 
   sh "rm -f '#{xcode_log_file}' '#{report_file}'"
-  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' -enableCodeCoverage YES -workspace '#{WORKSPACE_PATH}' -scheme '#{scheme}' #{archiveOptions} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
+  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' -workspace '#{WORKSPACE_PATH}' -scheme '#{scheme}' #{archiveOptions} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
 end
 
 def export_ipa( archive_path: '',
@@ -91,9 +134,7 @@ def export_ipa( archive_path: '',
 end
 
 def create_export_plist( plist_directory: artifacts_path() )
-  plist = {:compileBitcode => false,
-           :method => 'app-store',
-           :uploadBitcode => false}
+  plist = {:method => 'app-store'}
   plist_path = "#{plist_directory}/export.plist"
   plist.save_plist plist_path
   plist_path

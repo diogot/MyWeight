@@ -38,6 +38,10 @@ class AddInterfaceController: WKInterfaceController {
                 if let mass = $0.first {
                     self?.currentMass = mass.value
                     self?.populatePicker(with: mass.value)
+                } else {
+                    let mass = Mass()
+                    self?.currentMass = mass.value
+                    self?.populatePicker(with: mass.value)
                 }
             }
         }

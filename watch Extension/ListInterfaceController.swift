@@ -44,7 +44,7 @@ class ListInterfaceController: WKInterfaceController {
             mainGroup.setHidden(true)
             notRequestedGroup.setHidden(false)
             deniedGroup.setHidden(true)
-            massRepository.requestAuthorization() { [weak self] error in
+            massRepository.requestAuthorization() { error in
                 Log.error(error)
             }
         case .denied:

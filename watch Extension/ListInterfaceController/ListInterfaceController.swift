@@ -7,7 +7,6 @@
 //
 
 import WatchKit
-import WatchConnectivity
 
 class ListInterfaceController: WKInterfaceController {
 
@@ -115,4 +114,28 @@ class ListInterfaceController: WKInterfaceController {
     @IBAction func addMassAction() {
         pushController(withName: "add", context: nil)
     }
+
+    // MARK: - User Activity
+
+    func updateUserActivity(with state: State) {
+        let userInfo: [String: Any]
+
+        switch state {
+        case .start:
+            userInfo = [:]
+        case .accessDenied:
+            userInfo = [:]
+        case .accessNotDetermined:
+            userInfo = [:]
+        case .noEntry:
+            userInfo = [:]
+        case .show(_):
+            userInfo = [:]
+        }
+
+        updateUserActivity(UserActivityService.ActivityType.list.rawValue,
+                           userInfo: userInfo,
+                           webpageURL: nil)
+    }
+
 }

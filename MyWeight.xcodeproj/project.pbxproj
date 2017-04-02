@@ -93,6 +93,10 @@
 		D92D39261E904EE500D9E9ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D950510D1E7DE30B00519138 /* Assets.xcassets */; };
 		D92D392C1E904F7F00D9E9ED /* watch Extension Dev.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D92D392A1E904EE500D9E9ED /* watch Extension Dev.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D92D39311E90521D00D9E9ED /* watch Dev.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D92D39171E904EC500D9E9ED /* watch Dev.app */; };
+		D92D39361E917FC000D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
+		D92D39371E917FC000D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
+		D92D39381E91826600D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
+		D92D39391E91826800D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
 		D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
 		D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
 		D95050FC1E7DE30B00519138 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95050FA1E7DE30B00519138 /* Interface.storyboard */; };
@@ -273,6 +277,7 @@
 		D92D39321E9056D900D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
 		D92D39331E9056F900D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
 		D92D39341E90571400D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
+		D92D39351E917FC000D9E9ED /* UserActivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityService.swift; sourceTree = "<group>"; };
 		D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInterfaceControllerViewModel.swift; sourceTree = "<group>"; };
 		D95050F81E7DE30B00519138 /* watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95050FB1E7DE30B00519138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -541,6 +546,7 @@
 				D96307AC1DA74E3B00A3D46C /* MassService.swift */,
 				1DA073F31DCFCC0900A7B967 /* MassRepository.swift */,
 				D91FBE501DEB577A00C724B0 /* HealthStoreProtocol.swift */,
+				D92D39351E917FC000D9E9ED /* UserActivityService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1236,6 +1242,7 @@
 				D92D38E31E904DF800D9E9ED /* AppCoordinator.swift in Sources */,
 				D92D38E41E904DF800D9E9ED /* HealthStoreProtocol.swift in Sources */,
 				D92D38E51E904DF800D9E9ED /* Log.swift in Sources */,
+				D92D39371E917FC000D9E9ED /* UserActivityService.swift in Sources */,
 				D92D38E61E904DF800D9E9ED /* AppDelegate.swift in Sources */,
 				D92D38E71E904DF800D9E9ED /* AlertViewModel.swift in Sources */,
 				D92D38E81E904DF800D9E9ED /* AddViewModel.swift in Sources */,
@@ -1269,6 +1276,7 @@
 				D92D391E1E904EE500D9E9ED /* ExtensionDelegate.swift in Sources */,
 				D92D391F1E904EE500D9E9ED /* ListInterfaceController.swift in Sources */,
 				D92D39201E904EE500D9E9ED /* AddInterfaceController.swift in Sources */,
+				D92D39391E91826800D9E9ED /* UserActivityService.swift in Sources */,
 				D92D39211E904EE500D9E9ED /* MassRepository.swift in Sources */,
 				D92D39221E904EE500D9E9ED /* Mass.swift in Sources */,
 				D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
@@ -1285,6 +1293,7 @@
 				D950510C1E7DE30B00519138 /* ExtensionDelegate.swift in Sources */,
 				D950510A1E7DE30B00519138 /* ListInterfaceController.swift in Sources */,
 				D9A3B6CB1E7F217C007C21AF /* AddInterfaceController.swift in Sources */,
+				D92D39381E91826600D9E9ED /* UserActivityService.swift in Sources */,
 				D950511B1E7DE44B00519138 /* MassRepository.swift in Sources */,
 				D950511D1E7DE46200519138 /* Mass.swift in Sources */,
 				D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
@@ -1312,6 +1321,7 @@
 				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
 				D91FBE511DEB577A00C724B0 /* HealthStoreProtocol.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
+				D92D39361E917FC000D9E9ED /* UserActivityService.swift in Sources */,
 				D97F44041CAB5E50000F4E12 /* AppDelegate.swift in Sources */,
 				D9C3155B1E63A43700579208 /* AlertViewModel.swift in Sources */,
 				D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */,

@@ -38,11 +38,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // TODO: extract this to AppCoordinator 
-    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication)
+    {
         let healthStore = HKHealthStore()
         healthStore.handleAuthorizationForExtension { (success, error) in
             Log.debug("\(success.description), \(error.debugDescription)")
         }
+    }
+
+    func application(_ application: UIApplication,
+                     willContinueUserActivityWithType userActivityType: String) -> Bool
+    {
+        Log.debug(userActivityType)
+        return true
+    }
+
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool
+    {
+        Log.debug(userActivity.activityType)
+        return true
     }
 
 }

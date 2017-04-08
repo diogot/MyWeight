@@ -133,6 +133,7 @@ DEPENDENCIES
   danger
   danger-slather
   danger-xcode_summary
+  git
   plist
   rake
   xcpretty-json-formatter

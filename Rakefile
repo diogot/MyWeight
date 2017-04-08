@@ -3,10 +3,10 @@
 require 'fileutils'
 
 BASE_PATH = File.expand_path('.', File.dirname(__FILE__))
+ARTIFACTS_PATH = ENV['ARTIFACTS_PATH'] || "#{BASE_PATH}/build"
+TEST_REPORTS_PATH = ENV['TEST_REPORTS_PATH'] || "#{BASE_PATH}/reports"
 BUNDLER_PATH = ENV['BUNDLER_PATH']
 APP_NAME = 'MyWeight'
-ARTIFACTS_DEFAULT_PATH = "#{BASE_PATH}/build"
-TEST_REPORTS_DEFAULT_PATH = "#{BASE_PATH}/reports"
 WORKSPACE_PATH = "#{BASE_PATH}/#{APP_NAME}.xcworkspace"
 PROJECT_PATH = "#{BASE_PATH}/#{APP_NAME}.xcodeproj"
 TEST_SCHEME = 'MyWeight'

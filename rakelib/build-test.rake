@@ -33,7 +33,7 @@ task :generate_xcode_summary, [:output_path] do |_t, args|
 end
 
 def default_artifacts_path
-  artifacts_path = ENV['ARTIFACTS_PATH'] || ARTIFACTS_DEFAULT_PATH
+  artifacts_path = ARTIFACTS_PATH
   File.expand_path artifacts_path
   FileUtils.mkdir_p artifacts_path
 
@@ -41,7 +41,7 @@ def default_artifacts_path
 end
 
 def default_reports_path
-  reports_path = ENV['TEST_REPORTS_PATH'] || TEST_REPORTS_DEFAULT_PATH
+  reports_path = TEST_REPORTS_PATH
   File.expand_path reports_path
   FileUtils.mkdir_p reports_path
 

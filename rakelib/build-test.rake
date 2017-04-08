@@ -4,12 +4,6 @@ rescue LoadError
   puts 'plist not installed yet!'
 end
 
-APP_NAME = 'MyWeight'
-ARTIFACTS_DEFAULT_PATH = "#{BASE_PATH}/build"
-TEST_REPORTS_DEFAULT_PATH = "#{BASE_PATH}/reports"
-WORKSPACE_PATH = "#{BASE_PATH}/#{APP_NAME}.xcworkspace"
-
-
 # -- danger
 
 desc 'Run danger'
@@ -21,7 +15,7 @@ end
 
 desc 'Run unit tests'
 task :unit_tests do
-  xcode( scheme: 'MyWeight',
+  xcode( scheme: TEST_SCHEMA,
          actions: 'clean analyze test',
          destination: 'platform=iOS Simulator,OS=10.3,name=iPhone SE',
          report_name: 'unit-tests' )
@@ -62,7 +56,7 @@ desc 'Release'
 task :release => [ :archive, :generate_ipa ]
 
 task :archive do
-  xcode( scheme: 'MyWeight',
+  xcode( scheme: ARCHIVE_SCHEME,
          actions: 'clean archive',
          destination: 'generic/platform=iOS',
          configuration: 'Release',
@@ -71,7 +65,6 @@ task :archive do
 end
 
 task :generate_ipa do
-  
   export_plist_path = create_export_plist()
   
   export_ipa( archive_path: archive_path,

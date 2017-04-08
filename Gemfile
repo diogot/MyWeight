@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Gemfile
 
 ruby '2.4.1'

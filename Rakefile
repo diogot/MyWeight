@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fileutils'
 
 BASE_PATH = File.expand_path('.', File.dirname(__FILE__))
@@ -9,7 +11,7 @@ PROJECT_PATH = "#{BASE_PATH}/#{APP_NAME}.xcodeproj"
 TEST_SCHEME = 'MyWeight'
 ARCHIVE_SCHEME = 'MyWeight'
 
-task :default => [ :help ]
+task default: [:help]
 task :help do
   sh 'rake -T'
 end

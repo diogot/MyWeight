@@ -15,13 +15,13 @@ task bump_patch: %i[has_current_version bump_build] do
 end
 
 desc 'Bump minor version'
-task bump_patch: %i[has_current_version bump_build] do
+task bump_minor: %i[has_current_version bump_build] do
   new_version = bump(version: current_version, option: :minor)
   update_version new_version
 end
 
 desc 'Bump major version'
-task bump_patch: %i[has_current_version bump_build] do
+task bump_major: %i[has_current_version bump_build] do
   new_version = bump(version: current_version, option: :major)
   update_version new_version
 end

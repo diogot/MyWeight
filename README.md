@@ -8,24 +8,60 @@ MyWeight is a body mass tracker focused on make easy to input new data and check
 
 ## Getting Started
 
-### Prerequisites
+### Environment prerequisites
 
-- Ruby
-- Bundler
+#### Ruby
 
-### Installing
+If yon don't have experience with Ruby we recommend [rbenv](https://github.com/rbenv/rbenv):
 
-Just run on the project root
-
+```sh
+brew install rbenv
+rbenv init
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 ```
-$ rake setup
+
+Install the Ruby version used on the project:
+
+```sh
+rbenv install `cat .ruby-version`
 ```
 
+#### Bundler
+
+```sh
+gem install bundler
+```
+
+#### Optional: Rakefile auto complete
+
+Nobody likes to type 😉
+
+Brew has a [repository](https://github.com/Homebrew/homebrew-completions) only for auto completions:
+
+```sh
+brew tap homebrew/completions
+brew install bash-completion
+brew install rake-completion
+```
+
+Don't forget to add to your `.bash_profile`:
+
+```sh
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+```
+
+### Configuring the environment and dependencies 
+
+```sh
+rake setup
+```
 
 ## Running the tests
 
-```
-$ rake unit_tests
+```sh
+rake unit_tests
 ```
 
 ## Authors

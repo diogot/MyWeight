@@ -35,4 +35,4 @@ xcode_summary.report build_file
 # slather.show_modified_files_coverage
 
 # RuboCop
-rubocop.run
+rubocop.lint

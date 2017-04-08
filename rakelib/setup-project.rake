@@ -1,15 +1,19 @@
+# frozen_string_literal: true
+
 # -- project setup
 
 desc 'Install/update and configure project'
-task :setup => [ :setup_dependencies, :configure ]
+task setup: %i[setup_dependencies configure]
 
-task :setup_dependencies => [ :install_dependencies, :submodule_update ] do
-  sh 'bundle install'
+task setup_dependencies: %i[install_dependencies] do
+  if BUNDLER_PATH.nil?
+    sh 'bundle install'
+  else
+    sh "bundle check --path=#{BUNDLER_PATH} || bundle install --path=#{BUNDLER_PATH} --jobs=4 --retry=3"
+  end
 end
 
-task :configure => [ :pod_if_needed, :clean_artifacts ] do
-  # sh 'bundle exec fastlane run clear_derived_data'
-end
+task configure: %i[pod_if_needed clean_artifacts]
 
 task :install_dependencies do
   # brew_update
@@ -17,14 +21,14 @@ task :install_dependencies do
 end
 
 # desc 'Updated submodules'
-task :submodule_update do
+# task :submodule_update do
 #   sh 'git submodule update --init --recursive'
-end
+# end
 
 # -- cocoapods
 
 desc 'Run CocoaPods if needed'
-task :pod_if_needed do 
+task :pod_if_needed do
   if needs_to_run_pod_install
     pod_repo_update
     pod_install
@@ -44,21 +48,19 @@ task :pod_install do
 end
 
 def needs_to_run_pod_install
-  begin
-    !FileUtils.compare_file('Podfile.lock', 'Pods/Manifest.lock')
-  rescue  Exception => e
-    true
-  end
+  !FileUtils.compare_file('Podfile.lock', 'Pods/Manifest.lock')
+rescue Exception => _
+  true
 end
 
 def pod_repo_update
   sh 'bundle exec pod repo update --silent'
 end
-      
+
 def pod_install
   sh 'bundle exec pod install'
 end
-      
+
 # -- carthage
 
 # CARTHAGE_OPTIONS = '--platform iOS --no-use-binaries'
@@ -75,9 +77,9 @@ end
 # end
 #
 # task :carthage_clean, [ :dependency ] do |t, args|
-  # hasDependency = args[:dependency].to_s.strip.length != 0
-  # sh 'rm -rf "~/Library/Caches/org.carthage.CarthageKit/"' unless hasDependency
-  # sh "rm -rf '#{BASE_PATH}/Carthage/'" unless hasDependency
+# hasDependency = args[:dependency].to_s.strip.length != 0
+# sh 'rm -rf "~/Library/Caches/org.carthage.CarthageKit/"' unless hasDependency
+# sh "rm -rf '#{BASE_PATH}/Carthage/'" unless hasDependency
 # end
 
 # -- brew
@@ -86,7 +88,7 @@ def brew_update
   sh 'brew update || brew update'
 end
 
-def brew_install( formula )
-  fail 'no formula' if formula.to_s.strip.length == 0
+def brew_install(formula)
+  raise 'no formula' if formula.to_s.strip.empty?
   sh " ( brew list #{formula} ) && ( brew outdated #{formula} || brew upgrade #{formula} ) || ( brew install #{formula} ) "
 end

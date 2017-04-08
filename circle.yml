@@ -5,6 +5,7 @@ machine:
   environment:
     ARTIFACTS_DEFAULT_PATH: build
     TEST_REPORTS_DEFAULT_PATH: reports
+    BUNDLER_PATH: vendor/bundle
     
 dependencies:
   pre:

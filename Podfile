@@ -11,7 +11,5 @@ target 'MyWeight' do
 
   target 'MyWeightUITests' do
     inherit! :search_paths
-    
   end
-
 end

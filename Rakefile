@@ -3,6 +3,7 @@
 require 'fileutils'
 
 BASE_PATH = File.expand_path('.', File.dirname(__FILE__))
+BUNDLER_PATH = ENV['BUNDLER_PATH']
 APP_NAME = 'MyWeight'
 ARTIFACTS_DEFAULT_PATH = "#{BASE_PATH}/build"
 TEST_REPORTS_DEFAULT_PATH = "#{BASE_PATH}/reports"

@@ -15,7 +15,7 @@ end
 
 desc 'Run unit tests'
 task :unit_tests do
-  xcode( scheme: TEST_SCHEMA,
+  xcode( scheme: TEST_SCHEME,
          actions: 'clean analyze test',
          destination: 'platform=iOS Simulator,OS=10.3,name=iPhone SE',
          report_name: 'unit-tests' )

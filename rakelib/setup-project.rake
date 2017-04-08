@@ -7,7 +7,7 @@ task :setup_dependencies => [ :install_dependencies, :submodule_update ] do
   sh 'bundle install'
 end
 
-task :configure => [ :pod_if_needed, :clean_artifacts] do
+task :configure => [ :pod_if_needed, :clean_artifacts ] do
   # sh 'bundle exec fastlane run clear_derived_data'
 end
 

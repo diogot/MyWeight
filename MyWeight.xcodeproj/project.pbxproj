@@ -1468,8 +1468,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "bdffd372-3dc5-4493-a688-75bfc103ce11";
+				PROVISIONING_PROFILE_SPECIFIER = "My Weight Dev";
 			};
 			name = Release;
 		};
@@ -1501,8 +1501,8 @@
 				INFOPLIST_FILE = "watch/Info-Dev.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3c442195-4bd1-4920-99b4-20a4eeb1e195";
+				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Dev";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1537,8 +1537,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "682a3523-1820-46c3-93a0-b0dd0331e476";
+				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension Dev";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

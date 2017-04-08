@@ -14,7 +14,6 @@ warn 'PR is classed as Work in Progress' if (github.pr_title + github.pr_body).i
 warn 'Big PR' if git.lines_of_code > 1000
 
 warning_important_file_changed '.gitignore'
-warning_important_file_changed '.travis.yml'
 warning_important_file_changed 'circle.yml'
 warning_important_file_changed 'Rakefile'
 warning_important_file_changed 'Gemfile'

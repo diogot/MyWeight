@@ -11,19 +11,19 @@ end
 desc 'Bump patch version'
 task bump_patch: %i[has_current_version bump_build] do
   new_version = bump(version: current_version, option: :patch)
-  set_new_version new_version
+  update_version new_version
 end
 
 desc 'Bump minor version'
 task bump_patch: %i[has_current_version bump_build] do
   new_version = bump(version: current_version, option: :minor)
-  set_new_version new_version
+  update_version new_version
 end
 
 desc 'Bump major version'
 task bump_patch: %i[has_current_version bump_build] do
   new_version = bump(version: current_version, option: :major)
-  set_new_version new_version
+  update_version new_version
 end
 
 task :has_current_version do
@@ -31,10 +31,10 @@ task :has_current_version do
 end
 
 task :set_version, [:version] do |_t, args|
-  set_new_version args[:version]
+  update_version args[:version]
 end
 
-def set_new_version(version)
+def update_version(version)
   sh "cd #{File.dirname(PROJECT_PATH)} && agvtool new-marketing-version #{version.to_s.strip}"
 end
 
@@ -51,7 +51,7 @@ def bump(version: '',
     version.delete_at(2)
     version[1] = 0
     version[0] = increase_number version[0]
-   end
+  end
   version.join('.')
 end
 

@@ -48,7 +48,7 @@ def reports_path
   reports_path
 end
 
-def xcode_log_file(report_name: '', artifacts_path: artifacts_path())
+def xcode_log_file(report_name: '', artifacts_path: self.artifacts_path)
   "#{artifacts_path}/xcode-#{report_name}.log"
 end
 
@@ -99,8 +99,8 @@ def xcode(scheme: '',
           configuration: '',
           report_name: '',
           archive_path: '',
-          reports_path: reports_path(),
-          artifacts_path: artifacts_path())
+          reports_path: self.reports_path,
+          artifacts_path: self.artifacts_path)
   xcode_log_file = xcode_log_file(report_name: report_name, artifacts_path: artifacts_path)
   report_file = "#{reports_path}/#{report_name}.xml"
 
@@ -116,8 +116,8 @@ def export_ipa(archive_path: '',
                export_path: '',
                build_plist: '',
                report_name: '',
-               reports_path: reports_path(),
-               artifacts_path: artifacts_path())
+               reports_path: self.reports_path,
+               artifacts_path: self.artifacts_path)
   xcode_log_file = "#{artifacts_path}/xcode-#{report_name}.log"
   report_file = "#{reports_path}/#{report_name}.xml"
 

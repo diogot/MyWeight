@@ -45,7 +45,7 @@ end
 
 def needs_to_run_pod_install
   !FileUtils.compare_file('Podfile.lock', 'Pods/Manifest.lock')
-rescue Exception => e
+rescue Exception => _
   true
 end
 

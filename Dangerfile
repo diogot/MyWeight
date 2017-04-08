@@ -37,3 +37,6 @@ xcode_summary.report build_file
 # slather.notify_if_coverage_is_less_than(minimum_coverage: 80, notify_level: :warning)
 # slather.notify_if_modified_file_is_less_than(minimum_coverage: 50, notify_level: :warning)
 # slather.show_modified_files_coverage
+
+# RuboCop
+rubocop.run

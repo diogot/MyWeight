@@ -8,6 +8,7 @@ source 'https://rubygems.org'
 
 gem 'cocoapods', '1.2.0'
 gem 'danger'
+gem 'danger-rubocop'
 gem 'danger-slather'
 gem 'danger-xcode_summary'
 gem 'git'

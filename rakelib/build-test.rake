@@ -24,7 +24,7 @@ task :unit_tests do
 end
 
 task :clean_artifacts do
-  sh "rm -rf '#{artifacts_path}' '#{reports_path}'"
+  sh "rm -rf '#{default_artifacts_path}' '#{default_reports_path}'"
 end
 
 task :generate_xcode_summary, [:output_path] do |_t, args|
@@ -32,7 +32,7 @@ task :generate_xcode_summary, [:output_path] do |_t, args|
   sh "cat #{xcode_log_file(report_name: 'unit-tests')} | XCPRETTY_JSON_FILE_OUTPUT=#{build_file} xcpretty -f `xcpretty-json-formatter`"
 end
 
-def artifacts_path
+def default_artifacts_path
   artifacts_path = ENV['ARTIFACTS_PATH'] || ARTIFACTS_DEFAULT_PATH
   File.expand_path artifacts_path
   FileUtils.mkdir_p artifacts_path
@@ -40,7 +40,7 @@ def artifacts_path
   artifacts_path
 end
 
-def reports_path
+def default_reports_path
   reports_path = ENV['TEST_REPORTS_PATH'] || TEST_REPORTS_DEFAULT_PATH
   File.expand_path reports_path
   FileUtils.mkdir_p reports_path
@@ -48,7 +48,7 @@ def reports_path
   reports_path
 end
 
-def xcode_log_file(report_name: '', artifacts_path: self.artifacts_path)
+def xcode_log_file(report_name: '', artifacts_path: default_artifacts_path)
   "#{artifacts_path}/xcode-#{report_name}.log"
 end
 
@@ -77,16 +77,16 @@ end
 #   sh "bundle exec pilot upload --verbose --skip_waiting_for_build_processing true --skip_submission true --wait_processing_interval 1 -i '#{ipa_file_path}' -a '#{bundle_id}'"
 # end
 
-def archive_path
-  "#{artifacts_path}/#{APP_NAME}.xcarchive"
+def archive_path(path: default_artifacts_path)
+  "#{path}/#{APP_NAME}.xcarchive"
 end
 
-def export_path
-  "#{artifacts_path}/#{APP_NAME}-ipa"
+def export_path(path: default_artifacts_path)
+  "#{path}/#{APP_NAME}-ipa"
 end
 
-def ipa_file_path
-  files = Dir[File.join(export_path, '*.ipa')]
+def ipa_file_path(path: export_path)
+  files = Dir[File.join(path, '*.ipa')]
   raise "No IPA found in #{export_path}" if files.to_s.strip.empty?
   files.last
 end
@@ -99,8 +99,8 @@ def xcode(scheme: '',
           configuration: '',
           report_name: '',
           archive_path: '',
-          reports_path: self.reports_path,
-          artifacts_path: self.artifacts_path)
+          reports_path: default_reports_path,
+          artifacts_path: default_artifacts_path)
   xcode_log_file = xcode_log_file(report_name: report_name, artifacts_path: artifacts_path)
   report_file = "#{reports_path}/#{report_name}.xml"
 
@@ -116,15 +116,15 @@ def export_ipa(archive_path: '',
                export_path: '',
                build_plist: '',
                report_name: '',
-               reports_path: self.reports_path,
-               artifacts_path: self.artifacts_path)
+               reports_path: default_reports_path,
+               artifacts_path: default_artifacts_path)
   xcode_log_file = "#{artifacts_path}/xcode-#{report_name}.log"
   report_file = "#{reports_path}/#{report_name}.xml"
 
   sh "set -o pipefail && xcodebuild -exportArchive -archivePath '#{archive_path}' -exportPath '#{export_path}' -exportOptionsPlist '#{build_plist}' | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
 end
 
-def create_export_plist(plist_directory: artifacts_path)
+def create_export_plist(plist_directory: default_artifacts_path)
   plist = { method: 'app-store' }
   plist_path = "#{plist_directory}/export.plist"
   plist.save_plist plist_path

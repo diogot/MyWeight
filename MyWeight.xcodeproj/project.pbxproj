@@ -17,7 +17,6 @@
 		1DA167761DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */; };
 		1DB0707E1DCE9DCC00367276 /* SnapshotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */; };
 		6C5AF84A6CE22A5C37EFF724 /* Pods_MyWeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E77B9C5AEA5FFBEDD0EA8C /* Pods_MyWeightUITests.framework */; };
-		A6AA1BCB563917BB3624532F /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B376FF0EE1F1A0A6A0BFBE6F /* Pods_MyWeight.framework */; };
 		B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */; };
 		B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
@@ -370,7 +369,6 @@
 			files = (
 				D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */,
 				04DEBA15543EB95DD476B0A2 /* Pods_MyWeight.framework in Frameworks */,
-				A6AA1BCB563917BB3624532F /* Pods_MyWeight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,7 +879,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Diogo Tridapalli";
 				TargetAttributes = {
 					D92D38D01E904DF800D9E9ED = {

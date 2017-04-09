@@ -37,14 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // TODO: extract this to AppCoordinator 
+    // Health access in extensions
+
     func applicationShouldRequestHealthAuthorization(_ application: UIApplication)
     {
-        let healthStore = HKHealthStore()
-        healthStore.handleAuthorizationForExtension { (success, error) in
-            Log.debug("\(success.description), \(error.debugDescription)")
-        }
+        coordinator?.extensionRequestedAuthorization()
     }
+
+    // Handoff
 
     func application(_ application: UIApplication,
                      willContinueUserActivityWithType userActivityType: String) -> Bool

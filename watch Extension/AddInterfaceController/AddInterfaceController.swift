@@ -89,18 +89,3 @@ class AddInterfaceController: WKInterfaceController {
     }
 
 }
-
-class MassPickerItem: WKPickerItem {
-    let mass: Measurement<UnitMass>
-
-    init(with mass: Measurement<UnitMass>, massFormatter: MeasurementFormatter) {
-        self.mass = mass
-        super.init()
-        title = massFormatter.string(from: mass)
-    }
-
-    @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}

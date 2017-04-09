@@ -26,7 +26,9 @@ public class MassService: MassRepository {
         // I don't like this `!`
         self.massType = HKObjectType.quantityType(forIdentifier: self.bodyMass)!
 
-        startObservingMass()
+        #if os(iOS)
+            startObservingMass()
+        #endif
     }
 
     // MARK: - Fetch
@@ -149,64 +151,82 @@ public class MassService: MassRepository {
         healthStore.requestAuthorization(toShare: massSet,
                                          read: massSet)
         { [weak self] (success, error) in
-            self?.startObservingMass()
+            #if os(iOS)
+                self?.startObservingMass()
+            #endif
             DispatchQueue.main.async {
                 completion(error)
             }
         }
     }
 
+    #if os(iOS)
+    func requestAuthorizationForExtension() {
+        healthStore.handleAuthorizationForExtension { [weak self] (success, error) in
+            self?.startObservingMass()
+            Log.debug("Extension request \(success.description)")
+            if let error = error {
+                Log.debug(error)
+            }
+        }
+    }
+    #endif
+
     // MARK: - Observing
 
     var massObserverStarted = false
+
+    @available(watchOS, unavailable)
     func startObservingMass()
     {
-        guard massObserverStarted == false else {
-            return
-        }
-
-        massObserverStarted = true
-
-        let query = HKObserverQuery(sampleType: massType,
-                                    predicate: nil)
-        { [weak self] (query, completion, error) in
-            guard error == nil else {
-                self?.massObserverStarted = false
-                self?.startObservingAppOpen()
+        #if os(iOS)
+            guard massObserverStarted == false else {
                 return
             }
 
-            NotificationCenter.default.post(name: .MassServiceDidUpdate,
-                                            object: self)
-            completion()
-        }
+            massObserverStarted = true
 
-        healthStore.execute(query)
+            let query = HKObserverQuery(sampleType: massType,
+                                        predicate: nil)
+            { [weak self] (query, completion, error) in
+                guard error == nil else {
+                    self?.massObserverStarted = false
+                    self?.startObservingAppOpen()
+                    return
+                }
+
+                NotificationCenter.default.post(name: .MassServiceDidUpdate,
+                                                object: self)
+                completion()
+            }
+            
+            healthStore.execute(query)
+        #endif
     }
 
     var appOpenObserver: NSObjectProtocol? = nil
+
+    @available(watchOS, unavailable)
     func startObservingAppOpen()
     {
         #if os(iOS)
+            guard authorizationStatus != .authorized,
+                appOpenObserver == nil else {
+                    return
+            }
 
-        guard authorizationStatus != .authorized,
-            appOpenObserver == nil else {
-                return
-        }
-
-        let center = NotificationCenter.default
-        appOpenObserver =
-            center.addObserver(forName: .UIApplicationDidBecomeActive,
-                               object: nil,
-                               queue: .main)
-            { [weak self] notification in
-                self?.startObservingMass()
-                if self?.authorizationStatus == .authorized,
-                    let observer = self?.appOpenObserver {
-                    NotificationCenter.default.removeObserver(observer)
-                }
-        }
-
+            let center = NotificationCenter.default
+            appOpenObserver =
+                center.addObserver(forName: .UIApplicationDidBecomeActive,
+                                   object: nil,
+                                   queue: .main)
+                { [weak self] notification in
+                    self?.startObservingMass()
+                    if self?.authorizationStatus == .authorized,
+                        let observer = self?.appOpenObserver {
+                        NotificationCenter.default.removeObserver(observer)
+                    }
+            }
         #endif
     }
 

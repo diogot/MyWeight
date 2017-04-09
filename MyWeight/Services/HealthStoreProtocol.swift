@@ -15,6 +15,8 @@ public protocol HealthStoreProtocol {
                               read typesToRead: Set<HKObjectType>?,
                               completion: @escaping (Bool, Error?) -> Void)
 
+    func handleAuthorizationForExtension(completion: @escaping (Bool, Error?) -> Void)
+
     func earliestPermittedSampleDate() -> Date
 
     func execute(_ query: HKQuery)

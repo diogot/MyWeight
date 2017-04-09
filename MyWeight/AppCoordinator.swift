@@ -26,6 +26,10 @@ public class AppCoordinator {
         navigationController.pushViewController(controller, animated: true)
     }
 
+    public func extensionRequestedAuthorization() {
+        massService.requestAuthorizationForExtension()
+    }
+
     let modalTransitionController = ModalTransition()
 
     func startAdd(last mass: Mass?)

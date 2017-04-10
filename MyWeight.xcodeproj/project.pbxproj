@@ -38,6 +38,9 @@
 		D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9711DB40BB4004AA88A /* AddView.swift */; };
 		D91FC9741DB416B1004AA88A /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FC9731DB416B1004AA88A /* AddViewModel.swift */; };
 		D928C42C1E9AF8D100BA3065 /* MassPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928C42B1E9AF8D100BA3065 /* MassPickerItem.swift */; };
+		D928C42E1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928C42D1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift */; };
+		D928C42F1E9AFBFB00BA3065 /* MassPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928C42B1E9AF8D100BA3065 /* MassPickerItem.swift */; };
+		D928C4301E9AFC0000BA3065 /* AddInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D928C42D1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift */; };
 		D92D38D51E904DF800D9E9ED /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE11DAED5F700AD578F /* TableViewCell.swift */; };
 		D92D38D61E904DF800D9E9ED /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */; };
 		D92D38D71E904DF800D9E9ED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F81DCFD30400A7B967 /* GradientView.swift */; };
@@ -271,6 +274,7 @@
 		D91FC9711DB40BB4004AA88A /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D91FC9731DB416B1004AA88A /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		D928C42B1E9AF8D100BA3065 /* MassPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassPickerItem.swift; sourceTree = "<group>"; };
+		D928C42D1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInterfaceControllerViewModel.swift; sourceTree = "<group>"; };
 		D92D39091E904DF800D9E9ED /* MyWeight Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyWeight Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92D39171E904EC500D9E9ED /* watch Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "watch Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92D392A1E904EE500D9E9ED /* watch Extension Dev.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watch Extension Dev.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -502,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				D9A3B6CA1E7F217C007C21AF /* AddInterfaceController.swift */,
+				D928C42D1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift */,
 				D928C42B1E9AF8D100BA3065 /* MassPickerItem.swift */,
 			);
 			path = AddInterfaceController;
@@ -1237,7 +1242,9 @@
 				D92D391E1E904EE500D9E9ED /* ExtensionDelegate.swift in Sources */,
 				D92D391F1E904EE500D9E9ED /* ListInterfaceController.swift in Sources */,
 				D92D39201E904EE500D9E9ED /* AddInterfaceController.swift in Sources */,
+				D928C4301E9AFC0000BA3065 /* AddInterfaceControllerViewModel.swift in Sources */,
 				D92D39391E91826800D9E9ED /* UserActivityService.swift in Sources */,
+				D928C42F1E9AFBFB00BA3065 /* MassPickerItem.swift in Sources */,
 				D92D39211E904EE500D9E9ED /* MassRepository.swift in Sources */,
 				D92D39221E904EE500D9E9ED /* Mass.swift in Sources */,
 				D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
@@ -1254,6 +1261,7 @@
 				D950510C1E7DE30B00519138 /* ExtensionDelegate.swift in Sources */,
 				D950510A1E7DE30B00519138 /* ListInterfaceController.swift in Sources */,
 				D9A3B6CB1E7F217C007C21AF /* AddInterfaceController.swift in Sources */,
+				D928C42E1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift in Sources */,
 				D92D39381E91826600D9E9ED /* UserActivityService.swift in Sources */,
 				D928C42C1E9AF8D100BA3065 /* MassPickerItem.swift in Sources */,
 				D950511B1E7DE44B00519138 /* MassRepository.swift in Sources */,

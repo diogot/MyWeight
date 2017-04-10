@@ -14,13 +14,7 @@ class AddInterfaceController: WKInterfaceController {
     @IBOutlet var saveInterfaceButton: WKInterfaceButton!
 
     let massRepository: MassService = MassService()
-    let massFormatter: MeasurementFormatter = {
-        let massFormatter = MeasurementFormatter()
-        massFormatter.numberFormatter.minimumFractionDigits = 1
-        massFormatter.numberFormatter.maximumFractionDigits = 1
-        massFormatter.unitOptions = .providedUnit
-        return massFormatter
-    }()
+    let viewModel: AddInterfaceControllerViewModel = AddInterfaceControllerViewModel()
 
     var massOptions: [MassPickerItem] = []
 
@@ -29,27 +23,29 @@ class AddInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 
+        updateView(with: viewModel)
+
         if let mass = context as? Mass {
             currentMass = mass.value
             populatePicker(with: currentMass)
         } else {
             massRepository.fetch(entries: 1) { [weak self] in
-                if let mass = $0.first {
-                    self?.currentMass = mass.value
-                    self?.populatePicker(with: mass.value)
-                } else {
-                    let mass = Mass()
-                    self?.currentMass = mass.value
-                    self?.populatePicker(with: mass.value)
-                }
+                let mass = $0.first ?? Mass()
+                self?.currentMass = mass.value
+                self?.populatePicker(with: mass.value)
             }
         }
+    }
+
+    func updateView(with viewModel: AddInterfaceControllerViewModel) {
+        saveInterfaceButton.setTitle(viewModel.buttonText)
     }
 
     func populatePicker(with mass: Measurement<UnitMass>) {
         let range = 20
 
         var massOptions = [MassPickerItem]()
+        let massFormatter = viewModel.massFormatter
 
         for i in -range...range {
             let delta = Measurement(value: 0.1 * Double(i), unit: UnitMass.kilograms)

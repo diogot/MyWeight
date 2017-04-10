@@ -29,7 +29,6 @@ enum ListInterfaceControllerViewModel {
         let massFormatter = MeasurementFormatter()
         massFormatter.numberFormatter.minimumFractionDigits = 1
         massFormatter.numberFormatter.maximumFractionDigits = 1
-        massFormatter.unitOptions = .providedUnit
 
         return massFormatter
     }()

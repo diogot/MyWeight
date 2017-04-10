@@ -3,10 +3,11 @@ target 'MyWeight' do
 
   target 'MyWeightTests' do
     inherit! :search_paths
-
-    pod 'Nimble', :inhibit_warnings => true
+    inhibit_all_warnings!
+    
+    pod 'Nimble'
     pod 'Quick'
-    pod 'Nimble-Snapshots', :inhibit_warnings => true
+    pod 'Nimble-Snapshots'
   end
 
   target 'MyWeightUITests' do

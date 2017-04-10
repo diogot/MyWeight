@@ -4,9 +4,9 @@ target 'MyWeight' do
   target 'MyWeightTests' do
     inherit! :search_paths
 
-    pod 'Nimble'
+    pod 'Nimble', :inhibit_warnings => true
     pod 'Quick'
-    pod 'Nimble-Snapshots'
+    pod 'Nimble-Snapshots', :inhibit_warnings => true
   end
 
   target 'MyWeightUITests' do

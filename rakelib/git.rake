@@ -8,7 +8,9 @@ end
 
 desc 'Add tag with current version'
 task :add_tag do
-  git_working_directory.add_tag(current_version)
+  version = full_version
+  puts "Add tag #{version}"
+  git_working_directory.add_tag(version)
 end
 
 desc 'Push current branch and tags'

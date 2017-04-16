@@ -6,7 +6,8 @@ target 'MyWeight' do
   target 'MyWeightTests' do
     inherit! :search_paths
     inhibit_all_warnings!
-    
+
+    pod 'SwiftGen', '4.2.0'
     pod 'Nimble'
     pod 'Quick'
     pod 'Nimble-Snapshots'

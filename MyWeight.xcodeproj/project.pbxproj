@@ -136,6 +136,8 @@
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 		D9D69A6C1EA2E11F0032B048 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9D69A6F1EA2E11F0032B048 /* Localizable.strings */; };
 		D9D69A6D1EA2E11F0032B048 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9D69A6F1EA2E11F0032B048 /* Localizable.strings */; };
+		D9D69A741EA3D9B00032B048 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D69A731EA3D9B00032B048 /* L10n.swift */; };
+		D9D69A751EA3D9B00032B048 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D69A731EA3D9B00032B048 /* L10n.swift */; };
 		D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE11DAED5F700AD578F /* TableViewCell.swift */; };
 		D9F73FE41DAED7C600AD578F /* MassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE31DAED7C600AD578F /* MassView.swift */; };
 		D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE61DAEDE7700AD578F /* Mass.swift */; };
@@ -327,6 +329,7 @@
 		D9D69A6E1EA2E11F0032B048 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9D69A701EA2E1210032B048 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D9D69A711EA2E1250032B048 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D9D69A731EA3D9B00032B048 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		D9F73FE11DAED5F700AD578F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D9F73FE31DAED7C600AD578F /* MassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassView.swift; sourceTree = "<group>"; };
 		D9F73FE61DAEDE7700AD578F /* Mass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mass.swift; sourceTree = "<group>"; };
@@ -543,6 +546,7 @@
 			children = (
 				D92D393A1E91A8B000D9E9ED /* ListInterfaceController */,
 				D928C42A1E9AF87400BA3065 /* AddInterfaceController */,
+				D9D69A721EA3D9B00032B048 /* Generated */,
 				D950510B1E7DE30B00519138 /* ExtensionDelegate.swift */,
 				D9D69A681EA2DEA70032B048 /* Resources */,
 			);
@@ -731,6 +735,15 @@
 			path = "Watch Extension/Resources";
 			sourceTree = SOURCE_ROOT;
 		};
+		D9D69A721EA3D9B00032B048 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				D9D69A731EA3D9B00032B048 /* L10n.swift */,
+			);
+			name = Generated;
+			path = "Watch Extension/Generated";
+			sourceTree = SOURCE_ROOT;
+		};
 		D9F73FE51DAEDE6700AD578F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -793,6 +806,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D92D39271E904EE500D9E9ED /* Build configuration list for PBXNativeTarget "Watch Extension Dev" */;
 			buildPhases = (
+				D9D69A761EA3DF490032B048 /* Generate Strings */,
 				D92D391A1E904EE500D9E9ED /* Sources */,
 				D92D39231E904EE500D9E9ED /* Frameworks */,
 				D92D39251E904EE500D9E9ED /* Resources */,
@@ -1158,6 +1172,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D9D69A761EA3DF490032B048 /* Generate Strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rake swiftgen_strings";
+		};
 		E72D653554ABC8A0DA4CF335 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1265,6 +1293,7 @@
 				D92D39391E91826800D9E9ED /* UserActivityService.swift in Sources */,
 				D928C42F1E9AFBFB00BA3065 /* MassPickerItem.swift in Sources */,
 				D92D39211E904EE500D9E9ED /* MassRepository.swift in Sources */,
+				D9D69A751EA3D9B00032B048 /* L10n.swift in Sources */,
 				D92D39221E904EE500D9E9ED /* Mass.swift in Sources */,
 				D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
 			);
@@ -1284,6 +1313,7 @@
 				D92D39381E91826600D9E9ED /* UserActivityService.swift in Sources */,
 				D928C42C1E9AF8D100BA3065 /* MassPickerItem.swift in Sources */,
 				D950511B1E7DE44B00519138 /* MassRepository.swift in Sources */,
+				D9D69A741EA3D9B00032B048 /* L10n.swift in Sources */,
 				D950511D1E7DE46200519138 /* Mass.swift in Sources */,
 				D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
 			);

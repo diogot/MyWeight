@@ -15,14 +15,14 @@ enum ListInterfaceControllerViewModel {
     var buttonText: String {
         switch self {
         case .main:
-            return "Add"
+            return L10n.List.Button.add
         case .goToIphone:
-            return "Done"
+            return L10n.List.Button.done
         }
     }
 
     var lastEntryText: String {
-        return "LAST ENTRY"
+        return L10n.List.LastEntry.text.uppercased()
     }
 
     static let massFormatter: MeasurementFormatter = {
@@ -43,19 +43,19 @@ enum ListInterfaceControllerViewModel {
     }()
 
     static let loading: ListInterfaceControllerViewModel = {
-        return .main("Loading ...", "")
+        return .main(L10n.List.Loading.text, "")
     }()
 
     static let denied: ListInterfaceControllerViewModel = {
-        return .goToIphone("Health data denied, you need to allow in Health.app at your iPhone")
+        return .goToIphone(L10n.List.Denied.text)
     }()
 
     static let notDetermined: ListInterfaceControllerViewModel = {
-        return .goToIphone("You need to authorize in your iPhone")
+        return .goToIphone(L10n.List.NotDetermined.text)
     }()
 
     static let noEntry: ListInterfaceControllerViewModel = {
-        return .main("No entry", "")
+        return .main(L10n.List.NoEntry.text, "")
     }()
 
     static func mass(_ mass: Mass) -> ListInterfaceControllerViewModel {

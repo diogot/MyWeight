@@ -1,0 +1,20 @@
+/* Localizable.strings
+  MyWeight
+
+  Created by Diogo on 15/04/17.
+  Copyright © 2017 Diogo Tridapalli. All rights reserved. */
+
+"list.button.add" = "Adicionar";
+
+"list.button.done" = "Pronto";
+
+"list.last_entry.text" = "Última medida";
+
+"list.loading.text" = "Carregando ...";
+
+"list.no_entry.text" = "Sem medidas";
+
+"list.denied.text" = "Acesso negado à suas medidas, você precisa ir ao App Saúde em seu iPhone para autorizar";
+
+"list.not_determined.text" = "Você precisa autorizar no seu iPhone.";
+

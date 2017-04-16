@@ -13,7 +13,7 @@ struct AddInterfaceControllerViewModel {
     let massFormatter: MeasurementFormatter
 
     init() {
-        buttonText = "Save"
+        buttonText = L10n.Add.Button.save
 
         massFormatter = MeasurementFormatter()
         massFormatter.numberFormatter.minimumFractionDigits = 1

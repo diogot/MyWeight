@@ -13,6 +13,14 @@ import Foundation
 
 enum L10n {
 
+  enum Add {
+
+    enum Button {
+      /// Save
+      static let save = L10n.tr("add.button.save")
+    }
+  }
+
   enum List {
 
     enum Button {

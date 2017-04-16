@@ -842,6 +842,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D95051171E7DE30B00519138 /* Build configuration list for PBXNativeTarget "Watch Extension" */;
 			buildPhases = (
+				D9D69A771EA3F6250032B048 /* Generate Strings */,
 				D95051001E7DE30B00519138 /* Sources */,
 				D95051011E7DE30B00519138 /* Frameworks */,
 				D95051021E7DE30B00519138 /* Resources */,
@@ -1173,6 +1174,20 @@
 			showEnvVarsInLog = 0;
 		};
 		D9D69A761EA3DF490032B048 /* Generate Strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rake swiftgen_strings";
+		};
+		D9D69A771EA3F6250032B048 /* Generate Strings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

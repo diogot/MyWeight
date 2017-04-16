@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 public class AppCoordinator {
 
@@ -61,8 +62,18 @@ public class AppCoordinator {
                                           animated: true)
     }
 
+    func askForReview() {
+        if #available(iOS 10.3, *) {
+            let key = "PlX0PBfZvIXZWmUvMXN3"
+            let defaults = UserDefaults.standard
+            let times = defaults.integer(forKey: key) + 1
+            defaults.set(times, forKey: key)
+            if times % 10 == 0 {
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
 }
-
 
 extension AppCoordinator: ListViewControllerDelegate {
 
@@ -97,6 +108,7 @@ extension AppCoordinator: AddViewControllerDelegate {
 
     public func didEnd(on viewController: AddViewController) {
         viewController.dismiss(animated: true, completion: nil)
+        askForReview()
     }
 
 }

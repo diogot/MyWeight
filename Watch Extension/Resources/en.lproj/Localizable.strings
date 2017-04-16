@@ -1,0 +1,22 @@
+/* Localizable.strings
+  MyWeight
+
+  Created by Diogo on 15/04/17.
+  Copyright © 2017 Diogo Tridapalli. All rights reserved. */
+
+"list.button.add" = "Add";
+
+"list.button.done" = "Done";
+
+"list.last_entry.text" = "Last Entry";
+
+"list.loading.text" = "Loading ...";
+
+"list.no_entry.text" = "No entry";
+
+"list.denied.text" = "Access to Health data denied, you need to allow in Health App on your iPhone";
+
+"list.not_determined.text" = "You need to authorize in your iPhone.";
+
+"add.button.save" = "Save";
+

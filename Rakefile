@@ -12,6 +12,9 @@ PROJECT_PATH = "#{BASE_PATH}/#{APP_NAME}.xcodeproj"
 TEST_SCHEME = 'MyWeight'
 ARCHIVE_SCHEME = 'MyWeight'
 
+SWIFTGEN_PATH = 'Pods/SwiftGen/bin/swiftgen'
+SWIFTGEN_STRINGS = { 'Watch Extension/Resources/en.lproj/Localizable.strings' => 'Watch Extension/Generated/L10n.swift' }.freeze
+
 task default: [:help]
 task :help do
   sh 'rake -T'

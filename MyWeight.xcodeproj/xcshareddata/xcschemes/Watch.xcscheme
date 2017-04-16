@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D92D390B1E904EC500D9E9ED"
-               BuildableName = "watch Dev.app"
-               BlueprintName = "watch Dev"
+               BlueprintIdentifier = "D95050F71E7DE30B00519138"
+               BuildableName = "Watch.app"
+               BlueprintName = "Watch"
                ReferencedContainer = "container:MyWeight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,6 +34,20 @@
                ReferencedContainer = "container:MyWeight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D97F43FF1CAB5E50000F4E12"
+               BuildableName = "MyWeight.app"
+               BlueprintName = "MyWeight"
+               ReferencedContainer = "container:MyWeight.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -46,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D92D390B1E904EC500D9E9ED"
-            BuildableName = "watch Dev.app"
-            BlueprintName = "watch Dev"
+            BlueprintIdentifier = "D95050F71E7DE30B00519138"
+            BuildableName = "Watch.app"
+            BlueprintName = "Watch"
             ReferencedContainer = "container:MyWeight.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -68,21 +82,21 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/MyWeight Dev">
+         RemotePath = "/MyWeight">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D92D390B1E904EC500D9E9ED"
-            BuildableName = "watch Dev.app"
-            BlueprintName = "watch Dev"
+            BlueprintIdentifier = "D95050F71E7DE30B00519138"
+            BuildableName = "Watch.app"
+            BlueprintName = "Watch"
             ReferencedContainer = "container:MyWeight.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D92D390B1E904EC500D9E9ED"
-            BuildableName = "watch Dev.app"
-            BlueprintName = "watch Dev"
+            BlueprintIdentifier = "D95050F71E7DE30B00519138"
+            BuildableName = "Watch.app"
+            BlueprintName = "Watch"
             ReferencedContainer = "container:MyWeight.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,21 +112,21 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/MyWeight Dev">
+         RemotePath = "/MyWeight">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D92D390B1E904EC500D9E9ED"
-            BuildableName = "watch Dev.app"
-            BlueprintName = "watch Dev"
+            BlueprintIdentifier = "D95050F71E7DE30B00519138"
+            BuildableName = "Watch.app"
+            BlueprintName = "Watch"
             ReferencedContainer = "container:MyWeight.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D92D390B1E904EC500D9E9ED"
-            BuildableName = "watch Dev.app"
-            BlueprintName = "watch Dev"
+            BlueprintIdentifier = "D95050F71E7DE30B00519138"
+            BuildableName = "Watch.app"
+            BlueprintName = "Watch"
             ReferencedContainer = "container:MyWeight.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

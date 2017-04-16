@@ -39,7 +39,7 @@
 "Denied.Title.text" = "Permissions";
 
 /* No comment provided by engineer. */
-"Alert.FailToDelete.message" = "Please go to Heath App in ordet to delete this entry";
+"Alert.FailToDelete.message" = "Please go to Heath App in order to delete this entry";
 
 /* No comment provided by engineer. */
 "Alert.FailToDelete.title" = "MyWeight isn't allowed to delete";

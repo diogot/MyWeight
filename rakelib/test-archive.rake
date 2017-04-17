@@ -64,7 +64,7 @@ task :release, [:env] => %i[archive generate_ipa]
 
 task :archive, [:env] do |_t, args|
   env = args[:env].to_s
-  config = test_archive_config['archive'][env]
+  config = test_archive_config['release'][env]
   xcode(scheme: config['scheme'],
         actions: 'clean archive',
         destination: 'generic/platform=iOS',
@@ -75,7 +75,7 @@ end
 
 task :generate_ipa, [:env] do |_t, args|
   env = args[:env].to_s
-  config = test_archive_config['archive'][env]
+  config = test_archive_config['release'][env]
   export_ipa(archive_path: archive_path(config['output']),
              export_path: export_path(config['output']),
              build_plist: create_export_plist,

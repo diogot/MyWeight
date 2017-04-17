@@ -3,7 +3,7 @@ workspace_path: MyWeight.xcworkspace
 project_path: MyWeight.xcodeproj
 
 bundler:
-  path: <%= ENV['BUNDLER_PATH] %>
+  path: <%= ENV['BUNDLER_PATH'] %>
 
 swiftgen:
   path: Pods/SwiftGen/bin/swiftgen

@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
 require 'fileutils'
+require 'yaml'
 
-BASE_PATH = File.expand_path('.', File.dirname(__FILE__))
-ARTIFACTS_PATH = ENV['ARTIFACTS_PATH'] || "#{BASE_PATH}/build"
-TEST_REPORTS_PATH = ENV['TEST_REPORTS_PATH'] || "#{BASE_PATH}/reports"
-BUNDLER_PATH = ENV['BUNDLER_PATH']
-APP_NAME = 'MyWeight'
-WORKSPACE_PATH = "#{BASE_PATH}/#{APP_NAME}.xcworkspace"
-PROJECT_PATH = "#{BASE_PATH}/#{APP_NAME}.xcodeproj"
-TEST_SCHEME = 'MyWeight'
-ARCHIVE_SCHEME = 'MyWeight'
+def path(file)
+  path = File.expand_path(file, File.dirname(__FILE__))
+  raise "File '#{path}' not found" unless File.exist? path
+  path
+end
 
-SWIFTGEN_PATH = 'Pods/SwiftGen/bin/swiftgen'
-SWIFTGEN_STRINGS = { 'Watch Extension/Resources/en.lproj/Localizable.strings' => 'Watch Extension/Generated/L10n.swift' }.freeze
+CONFIG = YAML.load_file path 'rake-config.yml'
+# puts CONFIG
+
+BASE_PATH = path '.'
+
+APP_NAME = CONFIG['app_name']
+WORKSPACE_PATH = path CONFIG['workspace_path']
+PROJECT_PATH = path CONFIG['project_path']
 
 task default: [:help]
 task :help do

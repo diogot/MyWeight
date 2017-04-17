@@ -1,0 +1,27 @@
+app_name: MyWeight
+workspace_path: MyWeight.xcworkspace
+project_path: MyWeight.xcodeproj
+
+bundler:
+  path: <%= ENV['BUNDLER_PATH] %>
+
+swiftgen:
+  path: Pods/SwiftGen/bin/swiftgen
+  strings:
+    'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
+
+test_archive:
+  build_path: build
+  reports_path: reports
+  unit_tests:
+    scheme: MyWeight
+    destination: 'platform=iOS Simulator,OS=10.3,name=iPhone SE'
+  archive:
+    prod:
+      scheme: MyWeight
+      configuration: Release
+      output: MyWeight
+    dev:
+      scheme: 'MyWeight Dev'
+      configuration: Release
+      output: 'MyWeight Dev'

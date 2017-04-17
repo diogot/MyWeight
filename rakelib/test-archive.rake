@@ -6,6 +6,10 @@ rescue LoadError
   puts 'plist not installed yet!'
 end
 
+def test_archive_config
+  CONFIG['test_archive']
+end
+
 # -- danger
 
 desc 'Run danger'
@@ -17,9 +21,10 @@ end
 
 desc 'Run unit tests'
 task :unit_tests do
-  xcode scheme: TEST_SCHEME,
+  config = test_archive_config['unit_tests']
+  xcode scheme: config['scheme'],
         actions: 'clean analyze test',
-        destination: 'platform=iOS Simulator,OS=10.3,name=iPhone SE',
+        destination: config['destination'],
         report_name: 'unit-tests'
 end
 
@@ -33,7 +38,7 @@ task :generate_xcode_summary, [:output_path] do |_t, args|
 end
 
 def default_artifacts_path
-  artifacts_path = ARTIFACTS_PATH
+  artifacts_path = ENV['ARTIFACTS_PATH'] || path(test_archive_config['build_path'])
   File.expand_path artifacts_path
   FileUtils.mkdir_p artifacts_path
 
@@ -41,7 +46,7 @@ def default_artifacts_path
 end
 
 def default_reports_path
-  reports_path = TEST_REPORTS_PATH
+  reports_path = ENV['TEST_REPORTS_PATH'] || path(test_archive_config['reports_path'])
   File.expand_path reports_path
   FileUtils.mkdir_p reports_path
 
@@ -55,41 +60,45 @@ end
 # -- Release
 
 desc 'Release'
-task release: %i[archive generate_ipa]
+task :release, [:env] => %i[archive generate_ipa]
 
-task :archive do
-  xcode(scheme: ARCHIVE_SCHEME,
+task :archive, [:env] do |_t, args|
+  env = args[:env].to_s
+  config = test_archive_config['archive'][env]
+  xcode(scheme: config['scheme'],
         actions: 'clean archive',
         destination: 'generic/platform=iOS',
-        configuration: 'Release',
-        report_name: 'archive',
-        archive_path: archive_path)
+        configuration: config['configuration'],
+        report_name: "archive-#{env}",
+        archive_path: archive_path(config['output']))
 end
 
-task :generate_ipa do
-  export_ipa(archive_path: archive_path,
-             export_path: export_path,
+task :generate_ipa, [:env] do |_t, args|
+  env = args[:env].to_s
+  config = test_archive_config['archive'][env]
+  export_ipa(archive_path: archive_path(config['output']),
+             export_path: export_path(config['output']),
              build_plist: create_export_plist,
-             report_name: 'export')
+             report_name: "export-#{env}")
 end
 
 # task :upload do
 #   sh "bundle exec pilot upload --verbose --skip_waiting_for_build_processing true --skip_submission true --wait_processing_interval 1 -i '#{ipa_file_path}' -a '#{bundle_id}'"
 # end
 
-def archive_path(path: default_artifacts_path)
-  "#{path}/#{APP_NAME}.xcarchive"
+def archive_path(filename, path: default_artifacts_path)
+  "#{path}/#{filename}.xcarchive"
 end
 
-def export_path(path: default_artifacts_path)
-  "#{path}/#{APP_NAME}-ipa"
+def export_path(filename, path: default_artifacts_path)
+  "#{path}/#{filename}-ipa"
 end
 
-def ipa_file_path(path: export_path)
-  files = Dir[File.join(path, '*.ipa')]
-  raise "No IPA found in #{export_path}" if files.to_s.strip.empty?
-  files.last
-end
+# def ipa_file_path(path: export_path)
+#   files = Dir[File.join(path, '*.ipa')]
+#   raise "No IPA found in #{export_path}" if files.to_s.strip.empty?
+#   files.last
+# end
 
 # -- build
 

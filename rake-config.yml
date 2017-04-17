@@ -2,8 +2,8 @@ app_name: MyWeight
 workspace_path: MyWeight.xcworkspace
 project_path: MyWeight.xcodeproj
 
-bundler:
-  path: <%= ENV['BUNDLER_PATH'] %>
+#bundler:
+#  path: ~/bundle # or taken from BUNDLER_PATH
 
 swiftgen:
   path: Pods/SwiftGen/bin/swiftgen

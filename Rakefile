@@ -3,9 +3,9 @@
 require 'fileutils'
 require 'yaml'
 
-def path(file)
+def path(file, fail_when_missing: true)
   path = File.expand_path(file, File.dirname(__FILE__))
-  raise "File '#{path}' not found" unless File.exist? path
+  raise "File '#{path}' not found" if fail_when_missing && !File.exist?(path)
   path
 end
 

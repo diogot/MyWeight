@@ -17,7 +17,6 @@ test_archive:
     scheme: MyWeight
     destinations:
       - 'platform=iOS Simulator,OS=10.3,name=iPhone SE'
-      - 'platform=iOS Simulator,OS=10.3,name=iPhone 7'
   release:
     prod:
       scheme: MyWeight

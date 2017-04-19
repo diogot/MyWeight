@@ -6,10 +6,11 @@ desc 'Install/update and configure project'
 task setup: %i[setup_dependencies configure]
 
 task setup_dependencies: %i[install_dependencies] do
-  if BUNDLER_PATH.nil?
+  bundler_path = ENV['BUNDLER_PATH'] || CONFIG['bundler']['path']
+  if bundler_path.nil?
     sh 'bundle install'
   else
-    sh "bundle check --path=#{BUNDLER_PATH} || bundle install --path=#{BUNDLER_PATH} --jobs=4 --retry=3"
+    sh "bundle check --path=#{bundler_path} || bundle install --path=#{bundler_path} --jobs=4 --retry=3"
   end
 end
 

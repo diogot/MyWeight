@@ -24,7 +24,7 @@ task :unit_tests do
   config = test_archive_config['unit_tests']
   xcode scheme: config['scheme'],
         actions: 'clean analyze test',
-        destination: config['destination'],
+        destinations: config['destinations'],
         report_name: 'unit-tests'
 end
 
@@ -67,7 +67,7 @@ task :archive, [:env] do |_t, args|
   config = test_archive_config['release'][env]
   xcode(scheme: config['scheme'],
         actions: 'clean archive',
-        destination: 'generic/platform=iOS',
+        destinations: ['generic/platform=iOS'],
         configuration: config['configuration'],
         report_name: "archive-#{env}",
         archive_path: archive_path(config['output']))
@@ -102,9 +102,10 @@ end
 
 # -- build
 
+# rubocop:disable Metrics/AbcSize
 def xcode(scheme: '',
           actions: '',
-          destination: '',
+          destinations: [],
           configuration: '',
           report_name: '',
           archive_path: '',
@@ -113,19 +114,24 @@ def xcode(scheme: '',
   xcode_log_file = xcode_log_file(report_name: report_name, artifacts_path: artifacts_path)
   report_file = "#{reports_path}/#{report_name}.xml"
 
-  xcode_configuration = "-configuration '#{configuration}'" unless configuration.to_s.strip.empty?
-  other_options = 'CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE=' unless actions.include? 'archive'
-  archive_options = archive_path.to_s.strip.empty? ? '-enableCodeCoverage YES' : "-archivePath '#{archive_path}'"
-
-  project = if WORKSPACE_PATH.nil?
-              "-project #{PROJECT_PATH}"
-            else
-              "-workspace '#{WORKSPACE_PATH}'"
-            end
+  xcode_args = []
+  xcode_args << "-configuration '#{configuration}'" unless configuration.to_s.strip.empty?
+  xcode_args << 'CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE=' unless actions.include? 'archive'
+  xcode_args << (archive_path.to_s.strip.empty? ? '-enableCodeCoverage YES' : "-archivePath '#{archive_path}'")
+  xcode_args << destinations.map { |dest| "-destination '#{dest}'" }.join(' ')
+  xcode_args << if WORKSPACE_PATH.nil?
+                  "-project #{PROJECT_PATH}"
+                else
+                  "-workspace '#{WORKSPACE_PATH}'"
+                end
+  xcode_args << "-scheme '#{scheme}'"
+  xcode_args << actions
+  xcode_args = xcode_args.join(' ')
 
   sh "rm -f '#{xcode_log_file}' '#{report_file}'"
-  sh "set -o pipefail && xcodebuild #{other_options} #{xcode_configuration} -destination '#{destination}' #{project} -scheme '#{scheme}' #{archive_options} #{actions} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
+  sh "set -o pipefail && xcodebuild #{xcode_args} | tee '#{xcode_log_file}' | xcpretty --color --no-utf -r junit -o '#{report_file}'"
 end
+# rubocop:enable Metrics/AbcSize
 
 def export_ipa(archive_path: '',
                export_path: '',

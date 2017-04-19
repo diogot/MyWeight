@@ -15,7 +15,8 @@ test_archive:
   reports_path: reports # or taken from ENV['TEST_REPORTS_PATH']
   unit_tests:
     scheme: MyWeight
-    destination: 'platform=iOS Simulator,OS=10.3,name=iPhone SE'
+    destinations:
+      - 'platform=iOS Simulator,OS=10.3,name=iPhone SE'
   release:
     prod:
       scheme: MyWeight

@@ -11,7 +11,6 @@ warn 'Big PR' if git.lines_of_code > 1000
 
 warning_important_file_changed '.gitignore'
 warning_important_file_changed 'circle.yml'
-warning_important_file_changed 'Rakefile'
 warning_important_file_changed 'Gemfile'
 warning_important_file_changed 'Gemfile.lock'
 warning_important_file_changed 'Podfile'
@@ -34,4 +33,4 @@ slather.notify_if_modified_file_is_less_than(minimum_coverage: 50, notify_level:
 slather.show_modified_files_coverage
 
 # RuboCop
-# rubocop.lint
+rubocop.lint

@@ -52,6 +52,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 ```
+### Install submodules
+
+```sh
+git submodule update --init --recursive
+```
 
 ### Configuring the environment and dependencies 
 

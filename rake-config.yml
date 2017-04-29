@@ -2,8 +2,20 @@ app_name: MyWeight
 workspace_path: MyWeight.xcworkspace
 project_path: MyWeight.xcodeproj
 
-bundler:
-  path: # or taken from ENV['BUNDLER_PATH']
+setup:
+  bundler:
+    enabled: true
+    path: # optional, primarly taken from ENV['BUNDLER_PATH'] then here
+  brew:
+    enabled: false
+    formulas:
+      - git
+  submodules:
+    enabled: false
+  cocoapods:
+    enabled: true
+  carthage:
+    enabled: false
 
 swiftgen:
   path: Pods/SwiftGen/bin/swiftgen

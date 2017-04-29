@@ -11,9 +11,9 @@ dependencies:
   pre:
     - chruby 2.4.1
     - git submodule update --init --recursive
-    - rake setup_dependencies
+    - rake setup:install
   override:
-    - rake configure
+    - rake setup:dependencies
 
 test:
   override:

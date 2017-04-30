@@ -18,13 +18,16 @@ setup:
     enabled: false
 
 swiftgen:
-  path: Pods/SwiftGen/bin/swiftgen
   strings:
-    'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
+    enabled: true
+    path: Pods/SwiftGen/bin/swiftgen
+    template: dot-syntax-swift3
+    strings:
+      'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
 
 test_archive:
-  build_path: build # or taken from ENV['ARTIFACTS_PATH']
-  reports_path: reports # or taken from ENV['TEST_REPORTS_PATH']
+  build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
+  reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
   unit_tests:
     scheme: MyWeight
     destinations:

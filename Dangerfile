@@ -24,7 +24,7 @@ end
 
 # Xcode
 build_file = File.expand_path 'result.json'
-system "rake generate_xcode_summary[#{build_file}]"
+system "rake xcode:generate_summary[#{build_file}]"
 xcode_summary.report build_file
 
 slather.configure('MyWeight.xcodeproj', 'MyWeight', options: { workspace: 'MyWeight.xcworkspace' })

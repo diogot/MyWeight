@@ -17,7 +17,7 @@ dependencies:
 
 test:
   override:
-    - rake unit_tests
+    - rake xcode:tests
     - rake danger
   post:
     - find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;

@@ -2,6 +2,8 @@ machine:
   timezone: America/Sao_Paulo
   xcode:
     version: 8.3
+  pre:
+    - sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
   environment:
     ARTIFACTS_DEFAULT_PATH: build
     TEST_REPORTS_DEFAULT_PATH: reports

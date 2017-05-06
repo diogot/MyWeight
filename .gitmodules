@@ -1,0 +1,3 @@
+[submodule "rakelib"]
+	path = rakelib
+	url = git@github.com:diogot/xcode-rakelib.git

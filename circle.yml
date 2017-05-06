@@ -2,6 +2,8 @@ machine:
   timezone: America/Sao_Paulo
   xcode:
     version: 8.3
+  pre:
+    - sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
   environment:
     ARTIFACTS_DEFAULT_PATH: build
     TEST_REPORTS_DEFAULT_PATH: reports
@@ -10,13 +12,14 @@ machine:
 dependencies:
   pre:
     - chruby 2.4.1
-    - rake setup_dependencies
+    - git submodule update --init --recursive
+    - rake setup:install
   override:
-    - rake configure
+    - rake setup:dependencies
 
 test:
   override:
-    - rake unit_tests
+    - rake xcode:tests
     - rake danger
   post:
     - find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;

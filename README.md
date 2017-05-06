@@ -52,6 +52,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 ```
+### Install submodules
+
+```sh
+git submodule update --init --recursive
+```
 
 ### Configuring the environment and dependencies 
 
@@ -62,13 +67,13 @@ rake setup
 ## Running the tests
 
 ```sh
-rake unit_tests
+rake xcode:tests
 ```
 
 ## Authors
 
-- [Diogo Tridapalli](https://twitter.com/diogot) - main development
-- [Marcel Müller](https://twitter.com/grigio) - design
+- [Diogo Tridapalli](https://twitter.com/diogot) - main developer
+- [Marcel Müller](https://twitter.com/grigio) - designer
 
 ## License
 

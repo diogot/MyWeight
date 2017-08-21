@@ -84,4 +84,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Bruno Koga](https://github.com/brunokoga)
 - [Bruno Mazzo](https://github.com/BrunoMazzo)
 - [Igor Castañeda Ferreira](https://github.com/igorcferreira)
+- [Juliana Chahoud](https://github.com/jchahoud)
 - All beta testers

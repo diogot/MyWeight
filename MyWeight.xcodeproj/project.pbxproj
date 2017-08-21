@@ -1185,7 +1185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rake swiftgen";
+			shellScript = "rakelib/run.sh \"rake swiftgen\"";
 		};
 		D9D69A771EA3F6250032B048 /* Generate Strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1199,7 +1199,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rake swiftgen";
+			shellScript = "rakelib/run.sh \"rake swiftgen\"";
 		};
 		E72D653554ABC8A0DA4CF335 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

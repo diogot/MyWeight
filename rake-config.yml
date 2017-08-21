@@ -32,7 +32,7 @@ xcode:
   tests:
     scheme: MyWeight
     destinations:
-      - 'platform=iOS Simulator,OS=10.3,name=iPhone SE'
+      - 'platform=iOS Simulator,OS=10.3.1,name=iPhone SE'
   release:
     prod:
       scheme: MyWeight

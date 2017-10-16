@@ -11,21 +11,21 @@ PODS:
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
   - Quick (1.2.0)
-  - SwiftGen (4.2.0)
+  - SwiftGen (5.1.2)
 
 DEPENDENCIES:
   - Nimble
   - Nimble-Snapshots
   - Quick
-  - SwiftGen (= 4.2.0)
+  - SwiftGen (= 5.1.2)
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  SwiftGen: b6bfed151243348e4603b91bf5bc4eb2486c9d5b
+  SwiftGen: dd2892e7fb008151f30e6ce0cf465b8b8d89e80e
 
-PODFILE CHECKSUM: f8baec29b960d8c541f8f64121d88f9118ca81f0
+PODFILE CHECKSUM: aa4d18054871878e1ea3e98bdd0cea813d469540
 
 COCOAPODS: 1.3.1

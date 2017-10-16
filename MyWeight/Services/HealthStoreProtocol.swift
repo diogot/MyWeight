@@ -15,7 +15,9 @@ public protocol HealthStoreProtocol {
                               read typesToRead: Set<HKObjectType>?,
                               completion: @escaping (Bool, Error?) -> Void)
 
+    #if os(iOS)
     func handleAuthorizationForExtension(completion: @escaping (Bool, Error?) -> Void)
+    #endif
 
     func earliestPermittedSampleDate() -> Date
 
@@ -24,8 +26,8 @@ public protocol HealthStoreProtocol {
     func save(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
 
     func deleteObjects(of objectType: HKObjectType, predicate: NSPredicate, withCompletion completion: @escaping (Bool, Int, Error?) -> Void)
-    
-    func authorizationStatusForType(_ type: HKObjectType) -> HKAuthorizationStatus
+
+    func authorizationStatus(for type: HKObjectType) -> HKAuthorizationStatus
     static func isHealthDataAvailable() -> Bool
 
     func preferredUnits(for quantityTypes: Set<HKQuantityType>, completion: @escaping ([HKQuantityType : HKUnit], Error?) -> Void)

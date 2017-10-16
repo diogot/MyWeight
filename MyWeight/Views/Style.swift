@@ -45,13 +45,13 @@ public struct Style: StyleProvider {
     public let tintColor: UIColor = Style.teal
     public let shadowColor: UIColor = Style.transparentBlack
 
-    public let title1 = UIFont.systemFont(ofSize: 42, weight: UIFontWeightHeavy)
-    public let title2 = UIFont.systemFont(ofSize: 28, weight: UIFontWeightSemibold)
-    public let title3 = UIFont.systemFont(ofSize: 22, weight: UIFontWeightBold)
-    public let body = UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium)
-    public let callout = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-    public let subhead = UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
-    public let footnote = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
+    public let title1 = UIFont.systemFont(ofSize: 42, weight: .heavy)
+    public let title2 = UIFont.systemFont(ofSize: 28, weight: .semibold)
+    public let title3 = UIFont.systemFont(ofSize: 22, weight: .bold)
+    public let body = UIFont.systemFont(ofSize: 20, weight: .medium)
+    public let callout = UIFont.systemFont(ofSize: 18, weight: .medium)
+    public let subhead = UIFont.systemFont(ofSize: 15, weight: .medium)
+    public let footnote = UIFont.systemFont(ofSize: 13, weight: .medium)
 
     public let grid: CGFloat = 8
 

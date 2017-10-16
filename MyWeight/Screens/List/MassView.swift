@@ -36,10 +36,8 @@ public class MassView: UIView, ViewModelOwner {
     func setUp()
     {
         let contentView = self
-        contentView.setContentHuggingPriority(UILayoutPriorityRequired,
-                                              for: .vertical)
-        contentView.setContentCompressionResistancePriority(UILayoutPriorityRequired,
-                                                            for: .vertical)
+        contentView.setContentHuggingPriority(.required, for: .vertical)
+        contentView.setContentCompressionResistancePriority(.required, for: .vertical)
 
         let grid = style.grid
        
@@ -50,10 +48,8 @@ public class MassView: UIView, ViewModelOwner {
         
         massLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        massLabel.setContentHuggingPriority(UILayoutPriorityRequired,
-                                              for: .horizontal)
-        massLabel.setContentHuggingPriority(UILayoutPriorityRequired,
-                                              for: .vertical)
+        massLabel.setContentHuggingPriority(.required, for: .horizontal)
+        massLabel.setContentHuggingPriority(.required, for: .vertical)
 
         massLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: grid*3).isActive = true
         massLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -grid*3).isActive = true
@@ -62,10 +58,8 @@ public class MassView: UIView, ViewModelOwner {
         contentView.addSubview(dateLabel)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        dateLabel.setContentHuggingPriority(UILayoutPriorityRequired,
-                                            for: .horizontal)
-        dateLabel.setContentHuggingPriority(UILayoutPriorityRequired,
-                                            for: .vertical)
+        dateLabel.setContentHuggingPriority(.required, for: .horizontal)
+        dateLabel.setContentHuggingPriority(.required, for: .vertical)
 
         dateLabel.centerYAnchor.constraint(equalTo: massLabel.centerYAnchor).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -grid*4).isActive = true

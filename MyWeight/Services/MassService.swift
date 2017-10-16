@@ -132,7 +132,7 @@ public class MassService: MassRepository {
 
         let status: AuthorizationStatus
 
-        switch healthStore.authorizationStatusForType(massType) {
+        switch healthStore.authorizationStatus(for: massType) {
         case .notDetermined:
             status = .notDetermined
         case .sharingDenied:

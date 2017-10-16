@@ -130,7 +130,7 @@ public class ListView: UIView {
         }
     }
 
-    func buttonTap()
+    @objc func buttonTap()
     {
         viewModel.didTapAction()
     }

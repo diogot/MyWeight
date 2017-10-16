@@ -36,8 +36,8 @@ extension AuthorizationRequestViewModel {
 
     public init()
     {
-        self.init(didTapOkAction: { _ in Log.debug("Ok") },
-                  didTapCancelAction: { _ in Log.debug("Cancel" ) })
+        self.init(didTapOkAction: { Log.debug("Ok") },
+                  didTapCancelAction: { Log.debug("Cancel" ) })
     }
 
     public init(didTapOkAction: @escaping () -> Void,

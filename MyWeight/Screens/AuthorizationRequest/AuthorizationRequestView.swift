@@ -100,12 +100,12 @@ public class AuthorizationRequestView: UIView {
         cancelButton.title = viewModel.cancelTitle
     }
 
-    func okTap()
+    @objc func okTap()
     {
         viewModel.didTapOkAction()
     }
 
-    func cancelTap()
+    @objc func cancelTap()
     {
         viewModel.didTapCancelAction()
     }

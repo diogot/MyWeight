@@ -27,8 +27,7 @@ public class TitleDescriptionView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.setContentHuggingPriority(UILayoutPriorityRequired,
-                                        for: .vertical)
+        label.setContentHuggingPriority(.required, for: .vertical)
 
         return label
     }()
@@ -36,8 +35,7 @@ public class TitleDescriptionView: UIView {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.setContentHuggingPriority(UILayoutPriorityRequired,
-                                        for: .vertical)
+        label.setContentHuggingPriority(.required, for: .vertical)
 
         return label
     }()

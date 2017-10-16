@@ -24,10 +24,8 @@ class TableViewCell<View: UIView, ViewModel>: UITableViewCell where View: ViewMo
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(customView)
 
-        customView.setContentHuggingPriority(UILayoutPriorityRequired,
-                                             for: .vertical)
-        customView.setContentCompressionResistancePriority(UILayoutPriorityRequired,
-                                                           for: .vertical)
+        customView.setContentHuggingPriority(.required, for: .vertical)
+        customView.setContentCompressionResistancePriority(.required, for: .vertical)
 
 
         customView.translatesAutoresizingMaskIntoConstraints = false

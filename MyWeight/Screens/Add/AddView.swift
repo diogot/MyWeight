@@ -15,14 +15,14 @@ public class AddView: UIView {
 
     let saveButton: TintButton = {
         let button = TintButton()
-        button.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        button.setContentHuggingPriority(.required, for: .vertical)
         return button
     }()
     let cancelButton: UIButton = UIButton(type: .system)
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
 
@@ -149,14 +149,14 @@ public class AddView: UIView {
                                         for: .normal)
     }
 
-    func saveTap()
+    @objc func saveTap()
     {
         let mass = Mass(value: massPicker.mass,
                         date: datePicker.date)
         viewModel.didTapSave(mass)
     }
 
-    func cancelTap()
+    @objc func cancelTap()
     {
         viewModel.didTapCancel()
     }

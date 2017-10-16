@@ -25,8 +25,7 @@ public class ImageTextView: UIView {
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
-        imageView.setContentHuggingPriority(UILayoutPriorityRequired,
-                                            for: .horizontal)
+        imageView.setContentHuggingPriority(.required, for: .horizontal)
         return imageView
     }()
     let textLabel: UILabel = {

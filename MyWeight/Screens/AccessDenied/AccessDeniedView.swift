@@ -57,8 +57,7 @@ public class AccessDeniedView: UIView {
 
         textView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(textView)
-        textView.setContentHuggingPriority(UILayoutPriorityRequired,
-                                           for: .vertical)
+        textView.setContentHuggingPriority(.required, for: .vertical)
 
         topConstraint = textView.topAnchor.constraint(equalTo: contentView.topAnchor)
         topConstraint?.isActive = true
@@ -67,8 +66,7 @@ public class AccessDeniedView: UIView {
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
-        stackView.setContentHuggingPriority(UILayoutPriorityDefaultLow,
-                                            for: .vertical)
+        stackView.setContentHuggingPriority(.defaultLow, for: .vertical)
 
         stackView.topAnchor.constraint(equalTo: textView.bottomAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor,
@@ -118,7 +116,7 @@ public class AccessDeniedView: UIView {
         okButton.title = viewModel.okTitle
     }
 
-    func okTap()
+    @objc func okTap()
     {
         viewModel.didTapOkAction()
     }

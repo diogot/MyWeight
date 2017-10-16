@@ -40,7 +40,7 @@ extension AddViewModel {
     {
         let mass = Mass()
         self.init(initialMass: mass,
-                  didTapCancel: { _ in Log.debug("Cancel") },
+                  didTapCancel: { Log.debug("Cancel") },
                   didTapSave: { _ in Log.debug("Save") })
     }
 

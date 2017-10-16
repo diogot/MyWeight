@@ -12,14 +12,14 @@ extension NSAttributedString {
 
     convenience init(string: String, font: UIFont?, color: UIColor?)
     {
-        var attributes = [String: Any]()
+        var attributes = [NSAttributedStringKey: Any]()
 
         if let font = font {
-            attributes[NSFontAttributeName] = font
+            attributes[.font] = font
         }
 
         if let color = color {
-            attributes[NSForegroundColorAttributeName] = color
+            attributes[.foregroundColor] = color
         }
 
         self.init(string: string, attributes: attributes)
@@ -43,15 +43,11 @@ extension NSAttributedString {
         let attributedString = NSMutableAttributedString(attributedString: self)
 
         if let font = font {
-            attributedString.addAttribute(NSFontAttributeName,
-                                          value: font,
-                                          range: range)
+            attributedString.addAttribute(.font, value: font, range: range)
         }
 
         if let color = color {
-            attributedString.addAttribute(NSForegroundColorAttributeName,
-                                          value: color,
-                                          range: range)
+            attributedString.addAttribute(.foregroundColor, value: color, range: range)
         }
 
         return NSAttributedString(attributedString: attributedString)

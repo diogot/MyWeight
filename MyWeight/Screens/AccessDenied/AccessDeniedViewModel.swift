@@ -34,7 +34,7 @@ extension AccessDeniedViewModel {
 
     public init()
     {
-        self.init(didTapOkAction: { _ in Log.debug("Ok") })
+        self.init(didTapOkAction: { Log.debug("Ok") })
     }
 
     public init(didTapOkAction: @escaping () -> Void)

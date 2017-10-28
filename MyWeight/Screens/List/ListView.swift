@@ -52,17 +52,35 @@ public class ListView: UIView {
 
     func setUp()
     {
-        let contentView = self
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        if #available(iOS 11.0, *) {
+            contentView.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+            contentView.leftAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
+            contentView.rightAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
+            contentView.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
+            topConstraint?.isActive = true
+            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
+
         let backgroundColor = style.backgroundColor
         let grid = style.grid
-
+        self.backgroundColor = backgroundColor
         contentView.backgroundColor = backgroundColor
 
         contentView.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
-        topConstraint = tableView.topAnchor.constraint(equalTo: contentView.topAnchor)
-        topConstraint?.isActive = true
+        tableView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 
@@ -89,7 +107,7 @@ public class ListView: UIView {
         addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                             constant: -padding).isActive = true
         addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                          constant: -padding).isActive = true
+                                              constant: -padding).isActive = true
 
         addButton.addTarget(self,
                             action: #selector(ListView.buttonTap),

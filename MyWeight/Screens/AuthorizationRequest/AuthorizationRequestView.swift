@@ -48,15 +48,34 @@ public class AuthorizationRequestView: UIView {
 
     func setUp()
     {
-        let contentView = self
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        if #available(iOS 11.0, *) {
+            contentView.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+            contentView.leftAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
+            contentView.rightAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
+            contentView.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
+            topConstraint?.isActive = true
+            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
+        backgroundColor = style.backgroundColor
+
         let space = style.grid
         let padding = style.grid * 2
 
         textView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(textView)
 
-        topConstraint = textView.topAnchor.constraint(equalTo: contentView.topAnchor)
-        topConstraint?.isActive = true
+        textView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         textView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         textView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 
@@ -81,8 +100,6 @@ public class AuthorizationRequestView: UIView {
                                             constant: -padding).isActive = true
         cancelButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                              constant: -padding).isActive = true
-
-        backgroundColor = style.backgroundColor
 
         okButton.addTarget(self,
                            action: #selector(AuthorizationRequestView.okTap),

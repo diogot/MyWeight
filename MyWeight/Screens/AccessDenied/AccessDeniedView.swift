@@ -51,7 +51,27 @@ public class AccessDeniedView: UIView {
 
     func setUp()
     {
-        let contentView = self
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        if #available(iOS 11.0, *) {
+            contentView.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+            contentView.leftAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
+            contentView.rightAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
+            contentView.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
+            topConstraint?.isActive = true
+            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
+        backgroundColor = style.backgroundColor
+
         let padding = style.grid * 3
         let buttonPadding = style.grid * 2
 
@@ -59,8 +79,7 @@ public class AccessDeniedView: UIView {
         contentView.addSubview(textView)
         textView.setContentHuggingPriority(.required, for: .vertical)
 
-        topConstraint = textView.topAnchor.constraint(equalTo: contentView.topAnchor)
-        topConstraint?.isActive = true
+        textView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         textView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         textView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 
@@ -92,12 +111,9 @@ public class AccessDeniedView: UIView {
         okButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                          constant: -buttonPadding).isActive = true
 
-        backgroundColor = style.backgroundColor
-
         okButton.addTarget(self,
                            action: #selector(AccessDeniedView.okTap),
                            for: .touchUpInside)
-
     }
 
     func update()

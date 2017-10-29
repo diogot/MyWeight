@@ -64,7 +64,12 @@ UIViewControllerAnimatedTransitioning {
 
         let view = transitionContext.containerView
         let grid = style.grid
-        let topSpace = 3 * grid
+        let topSpace: CGFloat
+        if #available(iOS 11.0, *) {
+            topSpace = 3 * grid + from.view.safeAreaInsets.top
+        } else {
+            topSpace = 3 * grid
+        }
         let endFrame = from.view.bounds.divided(atDistance: topSpace,
                                                 from: .minYEdge).remainder
         var startFrame = endFrame

@@ -60,7 +60,27 @@ public class AddView: UIView {
 
     func setUp()
     {
-        let contentView = self
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+        if #available(iOS 11.0, *) {
+            contentView.topAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+            contentView.leftAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
+            contentView.rightAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
+            contentView.bottomAnchor
+                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
+            topConstraint?.isActive = true
+            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
+        backgroundColor = style.backgroundColor
+
         let topBar = UIView()
         let grid = style.grid
 
@@ -99,8 +119,7 @@ public class AddView: UIView {
         topBar.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(topBar)
 
-        topConstraint = topBar.topAnchor.constraint(equalTo: contentView.topAnchor)
-        topConstraint?.isActive = true
+        topBar.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         topBar.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         topBar.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
 
@@ -130,8 +149,6 @@ public class AddView: UIView {
         saveButton.addTarget(self,
                              action: #selector(AddView.saveTap),
                              for: .touchUpInside)
-
-        backgroundColor = style.backgroundColor
     }
 
     func updateView()

@@ -932,12 +932,15 @@
 				TargetAttributes = {
 					D92D38D01E904DF800D9E9ED = {
 						DevelopmentTeam = MQRRG9G4R7;
+						ProvisioningStyle = Manual;
 					};
 					D92D390B1E904EC500D9E9ED = {
 						DevelopmentTeam = MQRRG9G4R7;
+						ProvisioningStyle = Manual;
 					};
 					D92D39191E904EE500D9E9ED = {
 						DevelopmentTeam = MQRRG9G4R7;
+						ProvisioningStyle = Manual;
 					};
 					D95050F71E7DE30B00519138 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -971,12 +974,14 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 					D97F441E1CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 				};
@@ -1514,7 +1519,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f45dad29-a575-4bf5-b2e5-60f583a1e3ef";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Dev Development";
 			};
 			name = Debug;
@@ -1528,7 +1532,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bdffd372-3dc5-4493-a688-75bfc103ce11";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Dev";
 			};
 			name = Release;
@@ -1538,12 +1541,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				IBSC_MODULE = Watch_Extension_Dev;
 				INFOPLIST_FILE = "Watch/Info-Dev.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "404fbe1a-3e81-4ec4-84c1-a4ef08408b0a";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Dev Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1556,12 +1557,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				IBSC_MODULE = Watch_Extension_Dev;
 				INFOPLIST_FILE = "Watch/Info-Dev.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3c442195-4bd1-4920-99b4-20a4eeb1e195";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Dev";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1574,12 +1573,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Resources/Watch Extension.entitlements";
-				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				INFOPLIST_FILE = "Watch Extension/Resources/Info-Dev.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "13fcf6de-c8ab-4e0d-a020-e3ad83b150b8";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension Dev Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1592,12 +1589,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Resources/Watch Extension.entitlements";
-				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				INFOPLIST_FILE = "Watch Extension/Resources/Info-Dev.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.dev.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "682a3523-1820-46c3-93a0-b0dd0331e476";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension Dev";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1610,12 +1605,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59400446-9ff7-4a10-8b01-37405c0a623b";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1628,12 +1621,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58cf14ca-dde8-4962-8d22-8a73dd430e5f";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1650,7 +1641,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "9ca21a09-e357-47d6-895c-994cb2594d4f";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1667,7 +1657,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "46b0a7aa-7759-47dc-be7f-30c10ffddcf6";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1708,8 +1697,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1787,8 +1777,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1836,7 +1827,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48b72cf9-9e79-453f-99c5-c9bfbc10b057";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Development";
 			};
 			name = Debug;
@@ -1847,11 +1837,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyWeight/Resources/MyWeight.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = MyWeight/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "68471f20-c7ac-4f6a-afdc-2741f0cad759";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight";
 			};
 			name = Release;

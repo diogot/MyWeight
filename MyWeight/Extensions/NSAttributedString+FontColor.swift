@@ -29,7 +29,7 @@ extension NSAttributedString {
                    font: UIFont?,
                    color: UIColor?) -> NSAttributedString
     {
-        guard highlightString.characters.count != 0 else {
+        guard highlightString.count != 0 else {
             return self
         }
 

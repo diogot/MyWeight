@@ -11,6 +11,12 @@ import Nimble
 import Nimble_Snapshots
 
 public struct SnapshotService {
+    public init(forceRecord: Bool = true) {
+        self.forceRecord = forceRecord
+    }
+
+    let forceRecord: Bool
+
     let iPhonePortraitSizes = ["iPhone 4'" : CGSize(width: 320, height: 568),
                                "iPhone 4.7'" : CGSize(width: 375, height: 667),
                                "iPhone 5.5'" : CGSize(width: 414, height: 736)]
@@ -37,6 +43,38 @@ public struct SnapshotService {
     
     public func recordSnapshot(_ name: String, sizes: [String: CGSize], usesDrawRect: Bool = false, customResize: ((UIView, CGSize)->())? = nil) -> [ScreenSnapshot] {
         return sizes.map { ScreenSnapshot(name: "\(name) - \($0.key)", record: true, size: $0.value, usesDrawRect: usesDrawRect, customResize: customResize) }
+    }
+
+    public func haveSnapshot(named: String? = nil,
+                             sizes: [String: CGSize]? = nil,
+                             usesDrawRect: Bool = false,
+                             tolerance: CGFloat? = nil) -> Nimble.Predicate<Snapshotable> {
+        if forceRecord {
+            return recordSnapshot(named: named, sizes: sizes, usesDrawRect: usesDrawRect)
+        } else if let sizes = sizes {
+            return haveValidDynamicSizeSnapshot(named: named,
+                                                sizes: sizes,
+                                                isDeviceAgnostic: true,
+                                                usesDrawRect: usesDrawRect,
+                                                tolerance: tolerance,
+                                                resizeMode: .frame)
+        } else {
+            return haveValidDeviceAgnosticSnapshot(named: named, usesDrawRect: usesDrawRect, tolerance: tolerance)
+        }
+    }
+
+    public func recordSnapshot(named: String? = nil,
+                               sizes: [String: CGSize]? = nil,
+                               usesDrawRect: Bool = false) -> Nimble.Predicate<Snapshotable> {
+        if let sizes = sizes {
+            return recordDynamicSizeSnapshot(named: named,
+                                             sizes: sizes,
+                                             isDeviceAgnostic: true,
+                                             usesDrawRect: usesDrawRect,
+                                             resizeMode: .frame)
+        } else {
+            return recordDeviceAgnosticSnapshot(named: named, usesDrawRect: usesDrawRect)
+        }
     }
 }
 

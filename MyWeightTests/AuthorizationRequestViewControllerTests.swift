@@ -20,7 +20,7 @@ class AuthorizationRequestViewControllerTests: QuickSpec {
     override func spec() {
         describe("AuthorizationRequestViewController") {
             beforeEach {
-                self.viewController = AuthorizationRequestViewController(with: MassService())
+                self.viewController = AuthorizationRequestViewController(with: MassRepositoryMock())
                 self.viewController.view.frame = UIScreen.main.bounds
             }
             

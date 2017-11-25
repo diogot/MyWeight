@@ -13,7 +13,7 @@ class AddViewControllerTests: QuickSpec {
     override func spec() {
         describe("AddViewController Layout") {
             beforeEach {
-                self.viewController = AddViewController(with: MassService(), startMass: Mass())
+                self.viewController = AddViewController(with: MassRepositoryMock(), startMass: Mass())
 
                 //For some misterios (apple bug) reason, setDate not work if you don't add the view to a window.
                 let frame = UIScreen.main.bounds

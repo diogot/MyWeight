@@ -135,6 +135,7 @@
 		D9BEBD0A1DAB24B7002263E2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD091DAB24B7002263E2 /* Style.swift */; };
 		D9C3155B1E63A43700579208 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3155A1E63A43700579208 /* AlertViewModel.swift */; };
 		D9C3155D1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3155C1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift */; };
+		D9CD00F61FC917C500D3B50E /* MassRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD00F51FC917C500D3B50E /* MassRepositoryMock.swift */; };
 		D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0D0AB1D88EB5D00191596 /* Log.swift */; };
 		D9D69A6C1EA2E11F0032B048 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9D69A6F1EA2E11F0032B048 /* Localizable.strings */; };
 		D9D69A6D1EA2E11F0032B048 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9D69A6F1EA2E11F0032B048 /* Localizable.strings */; };
@@ -328,6 +329,7 @@
 		D9BEBD091DAB24B7002263E2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D9C3155A1E63A43700579208 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertViewModel.swift; path = AlertViewController/AlertViewModel.swift; sourceTree = "<group>"; };
 		D9C3155C1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIAlertView+AlertViewModel.swift"; path = "AlertViewController/UIAlertView+AlertViewModel.swift"; sourceTree = "<group>"; };
+		D9CD00F51FC917C500D3B50E /* MassRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassRepositoryMock.swift; sourceTree = "<group>"; };
 		D9D0D0AB1D88EB5D00191596 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D9D69A6E1EA2E11F0032B048 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9D69A701EA2E1210032B048 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */,
+				D9CD00F51FC917C500D3B50E /* MassRepositoryMock.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1427,6 +1430,7 @@
 				B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */,
 				1DB0707E1DCE9DCC00367276 /* SnapshotService.swift in Sources */,
 				D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */,
+				D9CD00F61FC917C500D3B50E /* MassRepositoryMock.swift in Sources */,
 				1D0104F21DED1BC600C55EA3 /* AppCoordinatorTests.swift in Sources */,
 				1D0104F01DED1B3B00C55EA3 /* AddViewControllerTests.swift in Sources */,
 			);

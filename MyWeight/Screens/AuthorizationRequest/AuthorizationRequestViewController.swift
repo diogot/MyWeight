@@ -15,7 +15,7 @@ public protocol AuthorizationRequestViewControllerDelegate {
 
 public class AuthorizationRequestViewController: UIViewController {
 
-    let massService: MassService
+    let massService: MassRepository
 
     public var delegate: AuthorizationRequestViewControllerDelegate?
 
@@ -24,7 +24,7 @@ public class AuthorizationRequestViewController: UIViewController {
         return self.view as! AuthorizationRequestView
     }
 
-    public required init(with massService: MassService)
+    public required init(with massService: MassRepository)
     {
         self.massService = massService
         super.init(nibName: nil, bundle: nil)

@@ -23,7 +23,6 @@ class ListViewControllerTests: QuickSpec {
             beforeEach {
                 self.massRepositoryMock = MassRepositoryMock()
                 self.viewController = ListViewController(with: self.massRepositoryMock)
-                self.viewController.view.frame = UIScreen.main.bounds
             }
             
             context("with empty response") {

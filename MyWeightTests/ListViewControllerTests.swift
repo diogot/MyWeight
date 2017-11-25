@@ -16,29 +16,25 @@ class ListViewControllerTests: QuickSpec {
     
     var viewController: ListViewController!
     var massRepositoryMock: MassRepositoryMock!
-    let snapshoService = SnapshotService()
+    let snapshotService = SnapshotService()
     
     override func spec() {
-        describe("ListViewController Layout") {
+        describe("ListViewController") {
             beforeEach {
                 self.massRepositoryMock = MassRepositoryMock()
                 self.viewController = ListViewController(with: self.massRepositoryMock)
             }
             
-            context("On empty response") {
-                it("should have the correct portrait layout on all Sizes") {
-                    expect(self.viewController.view) == self.snapshoService.snapshot("ListViewController - Empty", sizes: self.snapshoService.iPhonePortraitSizes)
+            context("with empty response") {
+                it("should have the correct layout") {
+                    expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
                 }
             }
             
-            context("On items") {
-                
+            context("with items") {
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-                
+                dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"                
                 beforeEach {
-                    
-                    
                     self.massRepositoryMock.fetchResponse = [
                         Mass(value: Measurement(value: 60, unit: .kilograms), date: dateFormatter.date(from: "10/10/2016 10:10")!),
                         Mass(value: Measurement(value: 62, unit: .kilograms), date: dateFormatter.date(from: "08/10/2016 9:10")!),
@@ -53,11 +49,10 @@ class ListViewControllerTests: QuickSpec {
                     _ = self.viewController.view
                     self.viewController.viewWillAppear(true)
                     self.viewController.viewDidAppear(true)
-                    
                 }
                 
-                it("should have the correct portrait layout on all Sizes") {
-                    expect(self.viewController.view) == self.snapshoService.snapshot("ListViewController - With Items", sizes: self.snapshoService.iPhonePortraitSizes)
+                it("should have the correct layout") {
+                    expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
                 }
             }
         }

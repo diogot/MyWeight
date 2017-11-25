@@ -15,16 +15,17 @@ import Nimble_Snapshots
 class AuthorizationRequestViewControllerTests: QuickSpec {
     
     var viewController: AuthorizationRequestViewController!
-    let snapshoService = SnapshotService()
+    let snapshotService = SnapshotService()
     
     override func spec() {
-        describe("AuthorizationRequestViewController Layout") {
+        describe("AuthorizationRequestViewController") {
             beforeEach {
                 self.viewController = AuthorizationRequestViewController(with: MassService())
+                self.viewController.view.frame = UIScreen.main.bounds
             }
             
-            it("should have the correct portrait layout on all Sizes") {
-                expect(self.viewController.view) == self.snapshoService.snapshot("AuthorizationRequestViewController", sizes: self.snapshoService.iPhonePortraitSizes)
+            it("should have the correct layout") {
+                expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
             }
         }
     }

@@ -11,7 +11,7 @@ import Nimble
 import Nimble_Snapshots
 
 public struct SnapshotService {
-    public init(forceRecord: Bool = true) {
+    public init(forceRecord: Bool = false) {
         self.forceRecord = forceRecord
     }
 

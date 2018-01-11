@@ -19,6 +19,8 @@
 		6C5AF84A6CE22A5C37EFF724 /* Pods_MyWeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E77B9C5AEA5FFBEDD0EA8C /* Pods_MyWeightUITests.framework */; };
 		B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */; };
 		B25889A61D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */; };
+		B2D4E7B52007C86A00D3E418 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4E7B42007C86A00D3E418 /* ComplicationController.swift */; };
+		B2D4E7B62007C86A00D3E418 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4E7B42007C86A00D3E418 /* ComplicationController.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
 		D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DA1DB68BD700D0F6A6 /* TitleDescriptionView.swift */; };
@@ -255,6 +257,7 @@
 		714EE1833F9A86400E4C91B2 /* Pods-MyWeightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionsTests.swift; sourceTree = "<group>"; };
+		B2D4E7B42007C86A00D3E418 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		B2EF68C41D1879E60010C2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2EF68C51D187A110010C2E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B2EF68C61D187A1C0010C2E7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -490,6 +493,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B2D4E7B32007C84400D3E418 /* Complication */ = {
+			isa = PBXGroup;
+			children = (
+				B2D4E7B42007C86A00D3E418 /* ComplicationController.swift */,
+			);
+			name = Complication;
+			path = "Watch Extension/Complication";
+			sourceTree = SOURCE_ROOT;
+		};
 		D904D9DE1DB6ED0200D0F6A6 /* AuthorizationRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +556,7 @@
 		D95051081E7DE30B00519138 /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B2D4E7B32007C84400D3E418 /* Complication */,
 				D92D393A1E91A8B000D9E9ED /* ListInterfaceController */,
 				D928C42A1E9AF87400BA3065 /* AddInterfaceController */,
 				D9D69A721EA3D9B00032B048 /* Generated */,
@@ -806,7 +819,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D92D39271E904EE500D9E9ED /* Build configuration list for PBXNativeTarget "Watch Extension Dev" */;
 			buildPhases = (
-				D9D69A761EA3DF490032B048 /* Generate Strings */,
 				D92D391A1E904EE500D9E9ED /* Sources */,
 				D92D39231E904EE500D9E9ED /* Frameworks */,
 				D92D39251E904EE500D9E9ED /* Resources */,
@@ -1193,20 +1205,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9D69A761EA3DF490032B048 /* Generate Strings */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Strings";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rakelib/run.sh \"rake swiftgen\"";
-		};
 		D9D69A771EA3F6250032B048 /* Generate Strings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1332,6 +1330,7 @@
 				D928C42F1E9AFBFB00BA3065 /* MassPickerItem.swift in Sources */,
 				D92D39211E904EE500D9E9ED /* MassRepository.swift in Sources */,
 				D9D69A751EA3D9B00032B048 /* L10n.swift in Sources */,
+				B2D4E7B62007C86A00D3E418 /* ComplicationController.swift in Sources */,
 				D92D39221E904EE500D9E9ED /* Mass.swift in Sources */,
 				D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
 			);
@@ -1352,6 +1351,7 @@
 				D928C42C1E9AF8D100BA3065 /* MassPickerItem.swift in Sources */,
 				D950511B1E7DE44B00519138 /* MassRepository.swift in Sources */,
 				D9D69A741EA3D9B00032B048 /* L10n.swift in Sources */,
+				B2D4E7B52007C86A00D3E418 /* ComplicationController.swift in Sources */,
 				D950511D1E7DE46200519138 /* Mass.swift in Sources */,
 				D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
 			);

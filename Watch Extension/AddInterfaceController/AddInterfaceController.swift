@@ -46,7 +46,7 @@ class AddInterfaceController: WKInterfaceController {
     }
 
     func populatePicker(with mass: Measurement<UnitMass>) {
-        let range = 20
+        let range = 200
 
         var massOptions = [MassPickerItem]()
         let massFormatter = viewModel.massFormatter

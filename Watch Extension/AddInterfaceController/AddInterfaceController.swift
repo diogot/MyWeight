@@ -22,8 +22,6 @@ class AddInterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        interfacePicker.focus()
-        
         updateView(with: viewModel)
 
         if let mass = context as? Mass {
@@ -37,13 +35,18 @@ class AddInterfaceController: WKInterfaceController {
             }
         }
     }
+    
+    override func didAppear() {
+        super.didAppear()
+        interfacePicker.focus()
+    }
 
     func updateView(with viewModel: AddInterfaceControllerViewModel) {
         saveInterfaceButton.setTitle(viewModel.buttonText)
     }
 
     func populatePicker(with mass: Measurement<UnitMass>) {
-        let range = 20
+        let range = 200
 
         var massOptions = [MassPickerItem]()
         let massFormatter = viewModel.massFormatter

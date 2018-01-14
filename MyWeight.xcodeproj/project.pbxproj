@@ -819,6 +819,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D92D39271E904EE500D9E9ED /* Build configuration list for PBXNativeTarget "Watch Extension Dev" */;
 			buildPhases = (
+				D9D69A761EA3DF490032B048 /* Generate Strings */,
 				D92D391A1E904EE500D9E9ED /* Sources */,
 				D92D39231E904EE500D9E9ED /* Frameworks */,
 				D92D39251E904EE500D9E9ED /* Resources */,
@@ -1204,6 +1205,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D9D69A761EA3DF490032B048 /* Generate Strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rakelib/run.sh \"rake swiftgen\"";
 		};
 		D9D69A771EA3F6250032B048 /* Generate Strings */ = {
 			isa = PBXShellScriptBuildPhase;

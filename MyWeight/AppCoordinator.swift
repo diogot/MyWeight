@@ -12,7 +12,7 @@ import StoreKit
 public class AppCoordinator {
 
     let navigationController: UINavigationController
-    let massService: MassService = MassService()
+    let massService: MassRepository = MassService()
 
     public init(with navigationController: UINavigationController)
     {

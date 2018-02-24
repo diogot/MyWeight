@@ -118,19 +118,9 @@ public class MassService: MassRepository {
 
     // MARK: - Authorization
 
-    public enum AuthorizationStatus {
+    public var authorizationStatus: MassRepositoryAuthorizationStatus {
 
-        case notDetermined
-
-        case denied
-
-        case authorized
-
-    }
-
-    public var authorizationStatus: AuthorizationStatus {
-
-        let status: AuthorizationStatus
+        let status: MassRepositoryAuthorizationStatus
 
         switch healthStore.authorizationStatus(for: massType) {
         case .notDetermined:
@@ -161,7 +151,7 @@ public class MassService: MassRepository {
     }
 
     #if os(iOS)
-    func requestAuthorizationForExtension() {
+    public func requestAuthorizationForExtension() {
         healthStore.handleAuthorizationForExtension { [weak self] (success, error) in
             self?.startObservingMass()
             Log.debug("Extension request \(success.description)")

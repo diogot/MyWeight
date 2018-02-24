@@ -14,10 +14,10 @@ public protocol AddViewControllerDelegate {
 
 public class AddViewController: UIViewController {
 
-    let massService: MassService
+    let massService: MassRepository
     let startMass: Mass
 
-    public required init(with massService: MassService, startMass: Mass)
+    public required init(with massService: MassRepository, startMass: Mass)
     {
         self.massService = massService
         self.startMass = startMass

@@ -15,16 +15,17 @@ import Nimble_Snapshots
 class AccessDeniedViewControllerTests: QuickSpec {
     
     var viewController: AccessDeniedViewController!
-    let snapshoService = SnapshotService()
+    let snapshotService = SnapshotService()
     
     override func spec() {
-        describe("AccessDeniedViewController Layout") {
+        describe("AccessDeniedViewController") {
             beforeEach {
                 self.viewController = AccessDeniedViewController()
+                self.viewController.view.frame = UIScreen.main.bounds
             }
             
-            it("should have the correct portrait layout on all iPhones") {
-                expect(self.viewController.view) == self.snapshoService.snapshot("AccessDeniedViewControllerTests", sizes: self.snapshoService.iPhonePortraitSizes)
+            it("should have the correct layout") {
+                expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
             }
         }
         

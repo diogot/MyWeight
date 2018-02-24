@@ -32,9 +32,8 @@ xcode:
   tests:
     scheme: MyWeight
     destinations:
-      - 'platform=iOS Simulator,OS=11.1,name=iPhone SE'
-      - 'platform=iOS Simulator,OS=11.1,name=iPhone 8'
-      - 'platform=iOS Simulator,OS=11.1,name=iPhone 8 Plus'
+      - 'platform=iOS Simulator,OS=11.2,name=iPhone SE'
+      - 'platform=iOS Simulator,OS=11.2,name=iPhone X'
   release:
     prod:
       scheme: MyWeight

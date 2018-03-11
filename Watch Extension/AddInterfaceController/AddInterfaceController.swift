@@ -81,6 +81,7 @@ class AddInterfaceController: WKInterfaceController {
                            userInfo: [:],
                            webpageURL: nil)
         super.willActivate()
+        interfacePicker.focus()
     }
 
     override func didDeactivate() {

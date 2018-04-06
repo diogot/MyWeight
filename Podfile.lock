@@ -1,17 +1,17 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
+  - iOSSnapshotTestCase (3.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 3.0.0)
+  - iOSSnapshotTestCase/Core (3.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (3.0.0):
+    - iOSSnapshotTestCase/Core
   - Nimble (7.0.3)
-  - Nimble-Snapshots (6.3.0):
-    - Nimble-Snapshots/Core (= 6.3.0)
-  - Nimble-Snapshots/Core (6.3.0):
-    - FBSnapshotTestCase (~> 2.0)
+  - Nimble-Snapshots (6.5.0):
+    - Nimble-Snapshots/Core (= 6.5.0)
+  - Nimble-Snapshots/Core (6.5.0):
+    - iOSSnapshotTestCase (~> 3.0)
     - Nimble (~> 7.0)
   - Quick (1.2.0)
-  - SwiftGen (5.2.1)
+  - SwiftGen (5.3.0)
 
 DEPENDENCIES:
   - Nimble
@@ -20,11 +20,11 @@ DEPENDENCIES:
   - SwiftGen (~> 5.2)
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  iOSSnapshotTestCase: 23984ffe05289728d646cbb6a7a10b4fb1c93440
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
+  Nimble-Snapshots: 5001a594de5fff3d5a007a7c27bfaa4963e77be2
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  SwiftGen: 444b4c467e512a4812b8a800d731643fd265139e
+  SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
 
 PODFILE CHECKSUM: 23b785dfbe58aa03e895983e61c4fce392cb4c84
 

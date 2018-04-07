@@ -43,3 +43,8 @@ jobs:
         path: /tmp/circleci-artifacts
     - store_artifacts:
         path: /tmp/circleci-test-results
+
+workflows:
+  workflow:
+    jobs:
+      - test

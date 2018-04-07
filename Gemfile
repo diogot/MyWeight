@@ -2,7 +2,7 @@
 
 # Gemfile
 
-ruby '2.4.3'
+ruby '2.4.4'
 
 source 'https://rubygems.org'
 

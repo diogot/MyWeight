@@ -6,48 +6,48 @@ import Foundation
 // swiftlint:disable file_length
 
 // swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
-enum L10n {
+internal enum L10n {
 
-  enum Add {
+  internal enum Add {
 
-    enum Button {
+    internal enum Button {
       /// Save
-      static let save = L10n.tr("Localizable", "add.button.save")
+      internal static let save = L10n.tr("Localizable", "add.button.save")
     }
   }
 
-  enum List {
+  internal enum List {
 
-    enum Button {
+    internal enum Button {
       /// Add
-      static let add = L10n.tr("Localizable", "list.button.add")
+      internal static let add = L10n.tr("Localizable", "list.button.add")
       /// Done
-      static let done = L10n.tr("Localizable", "list.button.done")
+      internal static let done = L10n.tr("Localizable", "list.button.done")
     }
 
-    enum Denied {
+    internal enum Denied {
       /// Access to Health data denied, you need to allow in Health App on your iPhone
-      static let text = L10n.tr("Localizable", "list.denied.text")
+      internal static let text = L10n.tr("Localizable", "list.denied.text")
     }
 
-    enum LastEntry {
+    internal enum LastEntry {
       /// Last Entry
-      static let text = L10n.tr("Localizable", "list.last_entry.text")
+      internal static let text = L10n.tr("Localizable", "list.last_entry.text")
     }
 
-    enum Loading {
+    internal enum Loading {
       /// Loading ...
-      static let text = L10n.tr("Localizable", "list.loading.text")
+      internal static let text = L10n.tr("Localizable", "list.loading.text")
     }
 
-    enum NoEntry {
+    internal enum NoEntry {
       /// No entry
-      static let text = L10n.tr("Localizable", "list.no_entry.text")
+      internal static let text = L10n.tr("Localizable", "list.no_entry.text")
     }
 
-    enum NotDetermined {
+    internal enum NotDetermined {
       /// You need to authorize in your iPhone.
-      static let text = L10n.tr("Localizable", "list.not_determined.text")
+      internal static let text = L10n.tr("Localizable", "list.not_determined.text")
     }
   }
 }

@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 eval_gemfile File.join(File.dirname(__FILE__), 'rakelib/Gemfile')
 
-gem 'cocoapods', '~>1.4'
+gem 'cocoapods', '~>1.4.0'
 gem 'danger', '~>5.5'
 gem 'danger-rubocop', '~>0.6'
 gem 'danger-slather', '~>0.0.6'

@@ -2,7 +2,7 @@
 
 # Gemfile
 
-ruby '2.4.4'
+ruby File.read('.ruby-version', mode: 'rb').chomp
 
 source 'https://rubygems.org'
 

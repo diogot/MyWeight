@@ -70,10 +70,10 @@ class GradientView: UIView {
     
     open var type: String {
         get {
-            return self.gradientLayer.type
+            return self.gradientLayer.type.rawValue
         }
         set {
-            self.gradientLayer.type = newValue
+            self.gradientLayer.type = CAGradientLayerType(rawValue: newValue)
         }
     }
     

@@ -12,7 +12,7 @@ extension NSAttributedString {
 
     convenience init(string: String, font: UIFont?, color: UIColor?)
     {
-        var attributes = [NSAttributedStringKey: Any]()
+        var attributes = [NSAttributedString.Key: Any]()
 
         if let font = font {
             attributes[.font] = font

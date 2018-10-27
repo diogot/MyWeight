@@ -207,7 +207,7 @@ public class MassService: MassRepository {
 
             let center = NotificationCenter.default
             appOpenObserver =
-                center.addObserver(forName: .UIApplicationDidBecomeActive,
+                center.addObserver(forName: UIApplication.didBecomeActiveNotification,
                                    object: nil,
                                    queue: .main)
                 { [weak self] notification in

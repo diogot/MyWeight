@@ -9,7 +9,7 @@
 import UIKit
 import HealthKit
 
-typealias Dict = [UIApplicationLaunchOptionsKey: Any]
+typealias Dict = [UIApplication.LaunchOptionsKey: Any]
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
     {
         Log.debug(userActivity.activityType)
         return true

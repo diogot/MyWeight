@@ -22,7 +22,8 @@ public class TintButton: UIButton {
         layer.cornerRadius = style.grid / 2
         layer.masksToBounds = true
         let padding = style.grid * 2
-        contentEdgeInsets = UIEdgeInsetsMake(padding, padding, padding, padding)
+        contentEdgeInsets = UIEdgeInsets.init(top: padding, left: padding,
+                                              bottom: padding, right: padding)
     }
 
     @available(*, unavailable)

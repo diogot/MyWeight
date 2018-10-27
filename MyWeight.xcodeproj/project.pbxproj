@@ -962,7 +962,7 @@
 					D95051031E7DE30B00519138 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit.watchos = {
@@ -973,7 +973,7 @@
 					D97F43FF1CAB5E50000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -984,14 +984,14 @@
 					D97F44131CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 					D97F441E1CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
@@ -1583,6 +1583,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension Development";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -1599,6 +1600,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Extension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
@@ -1769,6 +1771,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight Development";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1784,6 +1787,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "My Weight";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1796,6 +1800,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyWeight.app/MyWeight";
 			};
 			name = Debug;
@@ -1809,6 +1814,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyWeight.app/MyWeight";
 			};
 			name = Release;
@@ -1821,6 +1827,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = MyWeight;
 			};
 			name = Debug;
@@ -1833,6 +1840,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diogot.health.MyWeightUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = MyWeight;
 			};
 			name = Release;

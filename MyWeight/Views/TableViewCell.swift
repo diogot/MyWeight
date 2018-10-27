@@ -17,7 +17,7 @@ class TableViewCell<View: UIView, ViewModel>: UITableViewCell where View: ViewMo
 
     private(set) var customView: View
 
-    override public init(style: UITableViewCellStyle, reuseIdentifier: String?)
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
     {
         customView = View()
 

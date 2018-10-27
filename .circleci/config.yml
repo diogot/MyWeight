@@ -22,7 +22,7 @@ jobs:
         - v1-dep-development-
         - v1-dep-
     - run: chruby `cat .ruby-version`
-    - run: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+    # - run: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
     - run: git submodule update --init --recursive
     - run: rake setup:install
     - run: rake setup:dependencies

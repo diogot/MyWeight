@@ -36,7 +36,7 @@ jobs:
     - run: rake danger
     - run: find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;
     - run: find "$TEST_REPORTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_TEST_REPORTS/" \;
-    # - run: bash <(curl -s https://codecov.io/bash)
+    - run: bash <(curl -s https://codecov.io/bash) -J 'MyWeight'
     - run: find $HOME/Library/Developer/Xcode/DerivedData -name '*.xcactivitylog' -exec cp {} $CIRCLE_ARTIFACTS/xcactivitylog \; || true
     - store_test_results:
         path: /tmp/circleci-test-results

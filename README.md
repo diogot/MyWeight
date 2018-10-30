@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/diogot/MyWeight.svg?style=svg)](https://circleci.com/gh/diogot/MyWeight)
-[![Dependency Status](https://dependencyci.com/github/diogot/MyWeight/badge)](https://dependencyci.com/github/diogot/MyWeight)
 [![codecov](https://codecov.io/gh/diogot/MyWeight/branch/master/graph/badge.svg)](https://codecov.io/gh/diogot/MyWeight)
 
 # MyWeight

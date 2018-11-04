@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  build:
+    macos:
+      xcode: '10.0.0'
+    shell: /bin/bash --login
+    environment:
+      TZ: "/usr/share/zoneinfo/America/Sao_Paulo"
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+      ARTIFACTS_DEFAULT_PATH: build
+      TEST_REPORTS_DEFAULT_PATH: reports
+      BUNDLER_PATH: vendor/bundle
+    steps:
+    - checkout
+    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+    - run: sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+    - run: mdimport /Applications/Xcode*
+    - restore_cache:
+        keys:
+        - v1-dep-{{ .Branch }}-
+        - v1-dep-development-
+        - v1-dep-
+    - run: chruby `cat .ruby-version`
+#    - run: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+    - run: git submodule update --init --recursive
+    - run: rake setup:install
+    - run: rake setup:dependencies
+    - save_cache:
+        key: v1-dep-{{ .Branch }}-{{ epoch }}
+        paths:
+        - vendor/bundle
+        - ~/.bundle
+        - Pods
+    - run: rake xcode:tests
+    - run: rake danger
+    - run: find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;
+    - run: find "$TEST_REPORTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_TEST_REPORTS/" \;
+    - run: bash <(curl -s https://codecov.io/bash) -J 'MyWeight'
+    - run: find $HOME/Library/Developer/Xcode/DerivedData -name '*.xcactivitylog' -exec cp {} $CIRCLE_ARTIFACTS/xcactivitylog \; || true
+    - store_test_results:
+        path: /tmp/circleci-test-results
+    - store_artifacts:
+        path: /tmp/circleci-artifacts
+    - store_artifacts:
+        path: /tmp/circleci-test-results

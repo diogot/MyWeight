@@ -7,10 +7,10 @@ end
 warn 'PR is classed as Work in Progress' if (github.pr_title + github.pr_body).include? '[WIP]'
 
 # Warn when there is a big PR
-warn 'Big PR' if git.lines_of_code > 1000
+warn 'Big PR' if git.lines_of_code > 300
 
 warning_important_file_changed '.gitignore'
-warning_important_file_changed 'circle.yml'
+warning_important_file_changed '.circleci/config.yml'
 warning_important_file_changed 'Gemfile'
 warning_important_file_changed 'Gemfile.lock'
 warning_important_file_changed 'Podfile'
@@ -21,11 +21,6 @@ fail 'Please add labels to this PR' if github.pr_labels.empty?
 if github.pr_body.length < 5
   fail 'Please provide a summary in the Pull Request description'
 end
-
-# Xcode
-build_file = File.expand_path 'result.json'
-system "rake xcode:generate_summary[#{build_file}]"
-xcode_summary.report build_file
 
 slather.configure('MyWeight.xcodeproj', 'MyWeight', options: { workspace: 'MyWeight.xcworkspace' })
 slather.notify_if_coverage_is_less_than(minimum_coverage: 80, notify_level: :warning)

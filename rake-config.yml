@@ -26,7 +26,7 @@ swiftgen:
       'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
 
 xcode:
-  version: 10*
+  version: 10.0
   build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
   reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
   tests:

@@ -26,14 +26,14 @@ swiftgen:
       'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
 
 xcode:
-  version: 10.0
+  version: 10.1
   build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
   reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
   tests:
     scheme: MyWeight
     destinations:
-      - 'platform=iOS Simulator,OS=12.0,name=iPhone SE'
-      - 'platform=iOS Simulator,OS=12.0,name=iPhone X'
+      - 'platform=iOS Simulator,OS=12.1,name=iPhone SE'
+      - 'platform=iOS Simulator,OS=12.1,name=iPhone X'
   release:
     prod:
       scheme: MyWeight

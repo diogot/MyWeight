@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     macos:
-      xcode: '10.0.0'
+      xcode: '10.1.0'
     shell: /bin/bash --login
     environment:
       TZ: "/usr/share/zoneinfo/America/Sao_Paulo"

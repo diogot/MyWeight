@@ -32,8 +32,8 @@ jobs:
         - vendor/bundle
         - ~/.bundle
         - Pods
-    - run: rake xcode:tests
-    - run: rake danger
+    - run: rake xcode:tests[true]
+#    - run: rake danger
     - run: find "$ARTIFACTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_ARTIFACTS/" \;
     - run: find "$TEST_REPORTS_DEFAULT_PATH" -mindepth 1 -exec mv '{}' "$CIRCLE_TEST_REPORTS/" \;
     - run: bash <(curl -s https://codecov.io/bash) -J 'MyWeight'

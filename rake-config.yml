@@ -25,6 +25,12 @@ swiftgen:
     strings:
       'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
 
+danger:
+  dangerfile_paths:
+    pre_test: 'danger/PreTestDangerfile'
+    test: 'danger/TestDangerfile'
+    post_test: 'danger/PostTestDangerfile'
+
 xcode:
   version: 10.1
   build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here

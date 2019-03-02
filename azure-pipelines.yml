@@ -21,10 +21,8 @@ steps:
   displayName: 'Update bundler'
 - script: rake setup
   displayName: 'Configure project'
-- script: rake xcode:tests
+- script: rake xcode:tests[true]
   displayName: 'Run tests'
-- script: rake danger
-  displayName: 'Run Danger'
   env:
     DANGER_GITHUB_API_TOKEN: $(danger-github-api-token)
 - task: PublishTestResults@2

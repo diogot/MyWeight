@@ -162,11 +162,12 @@ DEPENDENCIES
   plist (~> 3.2)
   rake (~> 12.0)
   rubocop (~> 0.50)
+  xcpretty (~> 0.3.0)
   xcpretty-json-formatter (~> 0.1)
   xcpretty-travis-formatter (~> 1.0)
 
 RUBY VERSION
-   ruby 2.5.1p57
+   ruby 2.6.1p33
 
 BUNDLED WITH
-   1.16.5
+   1.17.2

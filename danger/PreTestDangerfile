@@ -1,4 +1,3 @@
-
 def warning_important_file_changed(file)
   warn "Modified #{file}" if git.modified_files.include?(file)
 end

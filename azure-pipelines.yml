@@ -17,8 +17,6 @@ variables:
   TEST_REPORTS_DEFAULT_PATH: reports
 
 steps:
-- script: git submodule update --init --recursive
-  displayName: 'Update git submodules'
 - script: bundle update --bundler
   displayName: 'Update bundler'
 - script: rake setup

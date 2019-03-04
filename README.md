@@ -1,5 +1,4 @@
-[![CircleCI](https://circleci.com/gh/diogot/MyWeight.svg?style=svg)](https://circleci.com/gh/diogot/MyWeight)
-[![codecov](https://codecov.io/gh/diogot/MyWeight/branch/master/graph/badge.svg)](https://codecov.io/gh/diogot/MyWeight)
+[![Build Status](https://dev.azure.com/diogot/MyWeight/_apis/build/status/Build%20and%20test?branchName=development)](https://dev.azure.com/diogot/MyWeight/_build/latest?definitionId=2&branchName=development)
 
 # MyWeight
 

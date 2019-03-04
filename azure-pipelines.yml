@@ -1,0 +1,44 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+
+trigger:
+- master
+- development
+
+pool:
+  vmImage: 'macOS-10.13'
+
+variables:
+  BUNDLER_PATH: vendor/bundle
+  ARTIFACTS_DEFAULT_PATH: build
+  TEST_REPORTS_DEFAULT_PATH: reports
+
+steps:
+- script: bundle update --bundler
+  displayName: 'Update bundler'
+- script: rake setup
+  displayName: 'Configure project'
+- script: rake xcode:tests
+  displayName: 'Run tests'
+- script: rake danger
+  displayName: 'Run Danger'
+  env:
+    DANGER_GITHUB_API_TOKEN: $(danger-github-api-token)
+- task: PublishTestResults@2
+  inputs:
+    testRunner: JUnit
+    testResultsFiles: $(TEST_REPORTS_DEFAULT_PATH)/**
+  condition: succeededOrFailed()
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'logs'
+    targetPath: $(ARTIFACTS_DEFAULT_PATH)
+  condition: succeededOrFailed()
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'testResults'
+    targetPath: $(TEST_REPORTS_DEFAULT_PATH)
+  condition: succeededOrFailed()

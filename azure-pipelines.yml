@@ -25,6 +25,10 @@ steps:
   displayName: 'Configure project'
 - script: rake xcode:tests
   displayName: 'Run tests'
+- script: rake danger
+  displayName: 'Run Danger'
+  env:
+    DANGER_GITHUB_API_TOKEN: $(danger-github-api-token)
 - task: PublishTestResults@2
   inputs:
     testRunner: JUnit
@@ -34,11 +38,9 @@ steps:
   inputs:
     artifactName: 'logs'
     targetPath: $(ARTIFACTS_DEFAULT_PATH)
+  condition: succeededOrFailed()
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'testResults'
     targetPath: $(TEST_REPORTS_DEFAULT_PATH)
-- script: rake danger
-  displayName: 'Run Danger'
-  env:
-    DANGER_GITHUB_API_TOKEN: $(danger-github-api-token)
+  condition: succeededOrFailed()

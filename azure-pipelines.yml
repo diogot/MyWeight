@@ -26,7 +26,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testRunner: JUnit
-    testResultsFiles: $(TEST_REPORTS_DEFAULT_PATH)/**
+    testResultsFiles: $(TEST_REPORTS_DEFAULT_PATH)/*.xml
   condition: succeededOrFailed()
 - task: PublishPipelineArtifact@0
   inputs:

@@ -25,15 +25,21 @@ swiftgen:
     strings:
       'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
 
+danger:
+  dangerfile_paths:
+    pre_test: 'danger/PreTestDangerfile'
+    test: 'danger/TestDangerfile'
+    post_test: 'danger/PostTestDangerfile'
+
 xcode:
-  version: 10*
+  version: 10.1
   build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
   reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
   tests:
     scheme: MyWeight
     destinations:
-      # - 'platform=iOS Simulator,OS=12.0,name=iPhone SE'
       - 'platform=iOS Simulator,OS=12.1,name=iPhone X'
+      - 'platform=iOS Simulator,OS=12.1,name=iPhone SE'
   release:
     prod:
       scheme: MyWeight

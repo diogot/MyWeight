@@ -1185,7 +1185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rakelib/run.sh \"rake swiftgen\"";
+			shellScript = "rakelib/run.sh \"rake swiftgen\"\n";
 		};
 		EE19E275733827FCFCBFC684 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

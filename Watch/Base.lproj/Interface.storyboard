@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch40" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
         <!--List Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="ListInterfaceController" customModule="watch" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="ListInterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" id="2nR-er-Qfq" userLabel="Main">
                             <items>
@@ -69,7 +69,7 @@
         <!--add-->
         <scene sceneID="2XT-4G-WQs">
             <objects>
-                <controller identifier="add" id="xQ9-xK-vBz" customClass="AddInterfaceController" customModule="watch" customModuleProvider="target">
+                <controller identifier="add" id="xQ9-xK-vBz" customClass="AddInterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
                         <picker height="0.75" alignment="left" indicatorMode="shownWhileFocused" id="UIA-gD-6rt">
                             <connections>

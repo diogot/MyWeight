@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '11.4'
 
 target 'MyWeight' do
   use_frameworks!

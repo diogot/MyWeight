@@ -962,7 +962,7 @@
 					D95051031E7DE30B00519138 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit.watchos = {
@@ -973,7 +973,7 @@
 					D97F43FF1CAB5E50000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -984,14 +984,14 @@
 					D97F44131CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
 					D97F441E1CAB5E51000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = MQRRG9G4R7;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						TestTargetID = D97F43FF1CAB5E50000F4E12;
 					};
@@ -1002,6 +1002,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"pt-BR",
@@ -1673,7 +1674,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_LDFLAGS = (
 					"$(inherited)",
@@ -1746,7 +1747,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_LDFLAGS = (

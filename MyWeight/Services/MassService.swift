@@ -129,6 +129,8 @@ public class MassService: MassRepository {
             status = .denied
         case .sharingAuthorized:
             status = .authorized
+        @unknown default:
+            status = .notDetermined
         }
 
         return status

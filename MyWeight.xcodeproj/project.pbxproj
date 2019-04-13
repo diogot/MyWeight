@@ -1141,7 +1141,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -1156,7 +1156,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9D69A761EA3DF490032B048 /* Generate Strings */ = {

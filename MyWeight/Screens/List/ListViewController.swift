@@ -51,7 +51,6 @@ public class ListViewController: UIViewController {
 
     public override func viewDidLoad()
     {
-        automaticallyAdjustsScrollViewInsets = false
         loadMasses()
         observeMassesUpdate()
     }
@@ -64,11 +63,6 @@ public class ListViewController: UIViewController {
                           deleteMass: { [weak self] in self?.delete($0) })
 
         theView.viewModel = viewModel
-    }
-
-    public override func viewDidLayoutSubviews()
-    {
-        theView.topOffset = topLayoutGuide.length
     }
 
     var massObserver: NSObjectProtocol? = nil

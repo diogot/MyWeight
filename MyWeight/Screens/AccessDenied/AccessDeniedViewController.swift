@@ -36,11 +36,6 @@ public class AccessDeniedViewController: UIViewController {
         theView.viewModel = viewModel
     }
 
-    override public func viewDidLayoutSubviews()
-    {
-        theView.topOffset = topLayoutGuide.length
-    }
-
     func didFinish()
     {
         self.delegate?.didFinish(on: self)

@@ -66,11 +66,6 @@ public class ListViewController: UIViewController {
         theView.viewModel = viewModel
     }
 
-    public override func viewDidLayoutSubviews()
-    {
-        theView.topOffset = topLayoutGuide.length
-    }
-
     var massObserver: NSObjectProtocol? = nil
     func observeMassesUpdate()
     {

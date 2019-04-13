@@ -53,11 +53,6 @@ public class AuthorizationRequestViewController: UIViewController {
         theView.viewModel = viewModel
     }
 
-    override public func viewDidLayoutSubviews()
-    {
-        theView.topOffset = topLayoutGuide.length
-    }
-
     func tapOk()
     {
         massService.requestAuthorization { [weak self] error in

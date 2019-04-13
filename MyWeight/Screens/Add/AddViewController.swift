@@ -57,11 +57,6 @@ public class AddViewController: UIViewController {
         theView.viewModel = viewModel
     }
 
-    override public func viewDidLayoutSubviews()
-    {
-        theView.topOffset = topLayoutGuide.length
-    }
-
     func saveMass(_ mass: Mass)
     {
         massService.save(mass) { (error) in

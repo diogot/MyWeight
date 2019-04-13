@@ -32,19 +32,6 @@ public class ListView: UIView {
         update()
     }
 
-    public var topOffset: CGFloat {
-        set(topOffset) {
-            topConstraint?.constant = topOffset
-        }
-
-        get {
-            return topConstraint?.constant ?? 0
-        }
-    }
-
-    var topConstraint: NSLayoutConstraint?
-
-
     @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -55,22 +42,12 @@ public class ListView: UIView {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
-        if #available(iOS 11.0, *) {
-            contentView.topAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-            contentView.leftAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
-            contentView.rightAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
-            contentView.bottomAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        } else {
-            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
-            topConstraint?.isActive = true
-            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            contentView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
 
         let backgroundColor = style.backgroundColor
         let grid = style.grid
@@ -80,9 +57,11 @@ public class ListView: UIView {
         contentView.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
-        tableView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
 
         tableView.allowsSelection = false
 
@@ -101,13 +80,12 @@ public class ListView: UIView {
         contentView.addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         let padding: CGFloat = grid * 2
-        addButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
-        addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                           constant: padding) .isActive = true
-        addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                            constant: -padding).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                              constant: -padding).isActive = true
+        NSLayoutConstraint.activate([
+            addButton.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
+        ])
 
         addButton.addTarget(self,
                             action: #selector(ListView.buttonTap),
@@ -115,20 +93,24 @@ public class ListView: UIView {
         
         contentView.addSubview(buttonTopShadow)
         buttonTopShadow.translatesAutoresizingMaskIntoConstraints = false
-        buttonTopShadow.heightAnchor.constraint(equalToConstant: grid * 4).isActive = true
-        buttonTopShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor) .isActive = true
-        buttonTopShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        buttonTopShadow.bottomAnchor.constraint(equalTo: addButton.topAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            buttonTopShadow.heightAnchor.constraint(equalToConstant: grid * 4),
+            buttonTopShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            buttonTopShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            buttonTopShadow.bottomAnchor.constraint(equalTo: addButton.topAnchor)
+        ])
         buttonTopShadow.colors = [backgroundColor, backgroundColor.withAlphaComponent(0)]
         buttonTopShadow.startPoint = CGPoint(x: 0.5, y: 1)
         buttonTopShadow.endPoint = CGPoint(x: 0.5, y: 0)
 
         contentView.addSubview(topShadow)
         topShadow.translatesAutoresizingMaskIntoConstraints = false
-        topShadow.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
-        topShadow.heightAnchor.constraint(equalToConstant: grid * 4).isActive = true
-        topShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor) .isActive = true
-        topShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            topShadow.topAnchor.constraint(equalTo: tableView.topAnchor),
+            topShadow.heightAnchor.constraint(equalToConstant: grid * 4),
+            topShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            topShadow.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
         topShadow.colors = [backgroundColor, backgroundColor.withAlphaComponent(0)]
         topShadow.startPoint = CGPoint(x: 0.5, y: 0)
         topShadow.endPoint = CGPoint(x: 0.5, y: 1)

@@ -27,18 +27,6 @@ public class AccessDeniedView: UIView {
         }
     }
 
-    public var topOffset: CGFloat {
-        set(topOffset) {
-            topConstraint?.constant = topOffset
-        }
-
-        get {
-            return topConstraint?.constant ?? 0
-        }
-    }
-
-    var topConstraint: NSLayoutConstraint?
-
     override public init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -54,22 +42,12 @@ public class AccessDeniedView: UIView {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
-        if #available(iOS 11.0, *) {
-            contentView.topAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-            contentView.leftAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
-            contentView.rightAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
-            contentView.bottomAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        } else {
-            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
-            topConstraint?.isActive = true
-            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            contentView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
         backgroundColor = style.backgroundColor
 
         let padding = style.grid * 3
@@ -79,38 +57,39 @@ public class AccessDeniedView: UIView {
         contentView.addSubview(textView)
         textView.setContentHuggingPriority(.required, for: .vertical)
 
-        textView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        textView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        textView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            textView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            textView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
         stackView.setContentHuggingPriority(.defaultLow, for: .vertical)
 
-        stackView.topAnchor.constraint(equalTo: textView.bottomAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor,
-                                        constant: padding).isActive = true
-        stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor,
-                                         constant: -padding).isActive = true
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: textView.bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: padding),
+            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -padding)
+        ])
 
         let guide = UILayoutGuide()
         contentView.addLayoutGuide(guide)
-        guide.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-        guide.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        guide.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            guide.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            guide.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            guide.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
 
         okButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(okButton)
 
-        okButton.topAnchor.constraint(equalTo: guide.bottomAnchor,
-                                      constant: buttonPadding).isActive = true
-        okButton.leftAnchor.constraint(equalTo: contentView.leftAnchor,
-                                       constant: buttonPadding).isActive = true
-        okButton.rightAnchor.constraint(equalTo: contentView.rightAnchor,
-                                        constant: -buttonPadding).isActive = true
-        okButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                         constant: -buttonPadding).isActive = true
-
+        NSLayoutConstraint.activate([
+            okButton.topAnchor.constraint(equalTo: guide.bottomAnchor, constant: buttonPadding),
+            okButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: buttonPadding),
+            okButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -buttonPadding),
+            okButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -buttonPadding)
+        ])
         okButton.addTarget(self,
                            action: #selector(AccessDeniedView.okTap),
                            for: .touchUpInside)

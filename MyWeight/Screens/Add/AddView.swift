@@ -34,18 +34,6 @@ public class AddView: UIView {
         }
     }
 
-    public var topOffset: CGFloat {
-        set(topOffset) {
-            topConstraint?.constant = topOffset
-        }
-
-        get {
-            return topConstraint?.constant ?? 0
-        }
-    }
-
-    var topConstraint: NSLayoutConstraint?
-
     override public init(frame: CGRect)
     {
         super.init(frame: frame)
@@ -63,22 +51,12 @@ public class AddView: UIView {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
-        if #available(iOS 11.0, *) {
-            contentView.topAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-            contentView.leftAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.leftAnchor).isActive = true
-            contentView.rightAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
-            contentView.bottomAnchor
-                .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        } else {
-            topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
-            topConstraint?.isActive = true
-            contentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-            contentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            contentView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
         backgroundColor = style.backgroundColor
 
         let topBar = UIView()
@@ -90,26 +68,29 @@ public class AddView: UIView {
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(bottomLine)
 
-        bottomLine.leftAnchor.constraint(equalTo: topBar.leftAnchor).isActive = true
-        bottomLine.rightAnchor.constraint(equalTo: topBar.rightAnchor).isActive = true
-        bottomLine.bottomAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
-        bottomLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        NSLayoutConstraint.activate([
+            bottomLine.leftAnchor.constraint(equalTo: topBar.leftAnchor),
+            bottomLine.rightAnchor.constraint(equalTo: topBar.rightAnchor),
+            bottomLine.bottomAnchor.constraint(equalTo: topBar.bottomAnchor),
+            bottomLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(titleLabel)
 
-        titleLabel.topAnchor.constraint(equalTo: topBar.topAnchor,
-                                        constant: grid * 3).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: bottomLine.topAnchor,
-                                           constant: -grid * 3).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: topBar.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topBar.topAnchor, constant: grid * 3),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomLine.topAnchor, constant: -grid * 3),
+            titleLabel.centerXAnchor.constraint(equalTo: topBar.centerXAnchor)
+        ])
 
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         topBar.addSubview(cancelButton)
 
-        cancelButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
-        cancelButton.leadingAnchor.constraint(equalTo: topBar.leadingAnchor,
-                                              constant: grid * 2).isActive = true
+        NSLayoutConstraint.activate([
+            cancelButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            cancelButton.leadingAnchor.constraint(equalTo: topBar.leadingAnchor, constant: grid * 2)
+        ])
 
         cancelButton.addTarget(self,
                                action: #selector(AddView.cancelTap),
@@ -119,9 +100,11 @@ public class AddView: UIView {
         topBar.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(topBar)
 
-        topBar.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        topBar.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        topBar.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            topBar.topAnchor.constraint(equalTo: contentView.topAnchor),
+            topBar.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            topBar.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
 
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -134,18 +117,15 @@ public class AddView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
 
-        stackView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: saveButton.topAnchor).isActive = true
-
-        saveButton.leftAnchor.constraint(equalTo: contentView.leftAnchor,
-                                         constant: grid * 2).isActive = true
-        saveButton.rightAnchor.constraint(equalTo: contentView.rightAnchor,
-                                          constant: -grid * 2).isActive = true
-        saveButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                           constant: -grid * 2).isActive = true
-
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topBar.bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: saveButton.topAnchor),
+            saveButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: grid * 2),
+            saveButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -grid * 2),
+            saveButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -grid * 2)
+        ])
         saveButton.addTarget(self,
                              action: #selector(AddView.saveTap),
                              for: .touchUpInside)

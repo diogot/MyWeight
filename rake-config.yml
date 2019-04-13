@@ -32,14 +32,14 @@ danger:
     post_test: 'danger/PostTestDangerfile'
 
 xcode:
-  version: 10.1
+  version: 10.2
   build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
   reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
   tests:
     scheme: MyWeight
     destinations:
-      - 'platform=iOS Simulator,OS=12.1,name=iPhone X'
-      - 'platform=iOS Simulator,OS=12.1,name=iPhone SE'
+      - 'platform=iOS Simulator,OS=12.2,name=iPhone X'
+      - 'platform=iOS Simulator,OS=12.2,name=iPhone SE'
   release:
     prod:
       scheme: MyWeight

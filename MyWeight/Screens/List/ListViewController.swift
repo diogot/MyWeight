@@ -51,7 +51,6 @@ public class ListViewController: UIViewController {
 
     public override func viewDidLoad()
     {
-        automaticallyAdjustsScrollViewInsets = false
         loadMasses()
         observeMassesUpdate()
     }

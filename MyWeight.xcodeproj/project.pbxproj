@@ -999,10 +999,9 @@
 			};
 			buildConfigurationList = D97F43FB1CAB5E50000F4E12 /* Build configuration list for PBXProject "MyWeight" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				"pt-BR",

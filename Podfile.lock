@@ -1,16 +1,16 @@
 PODS:
-  - iOSSnapshotTestCase (6.0.3):
-    - iOSSnapshotTestCase/SwiftSupport (= 6.0.3)
-  - iOSSnapshotTestCase/Core (6.0.3)
-  - iOSSnapshotTestCase/SwiftSupport (6.0.3):
+  - iOSSnapshotTestCase (6.1.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.1.0)
+  - iOSSnapshotTestCase/Core (6.1.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.1.0):
     - iOSSnapshotTestCase/Core
-  - Nimble (8.0.1)
-  - Nimble-Snapshots (7.0.0):
-    - Nimble-Snapshots/Core (= 7.0.0)
-  - Nimble-Snapshots/Core (7.0.0):
+  - Nimble (8.0.4)
+  - Nimble-Snapshots (8.0.0):
+    - Nimble-Snapshots/Core (= 8.0.0)
+  - Nimble-Snapshots/Core (8.0.0):
     - iOSSnapshotTestCase (~> 6.0)
     - Nimble (~> 8.0)
-  - Quick (2.0.0)
+  - Quick (2.2.0)
   - SwiftGen (6.1.0)
 
 DEPENDENCIES:
@@ -28,12 +28,12 @@ SPEC REPOS:
     - SwiftGen
 
 SPEC CHECKSUMS:
-  iOSSnapshotTestCase: 944a73f6d9676302811a86c0cf35f0e6ef5ab2a0
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  Nimble-Snapshots: 2d6d712ceb2d1850d88f850fbd7c732618106022
-  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
+  iOSSnapshotTestCase: 30d540b0c8feb9d7f8ff97acc25a3804b48ee264
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
 PODFILE CHECKSUM: ba9797684db76be85a39ea5f61e99bbf133574eb
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.6.2

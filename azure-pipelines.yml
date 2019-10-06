@@ -17,6 +17,10 @@ variables:
   TEST_REPORTS_DEFAULT_PATH: reports
 
 steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '2.6.3'
+    addToPath: true
 - script: rake setup
   displayName: 'Configure project'
 - script: rake xcode:tests[true]

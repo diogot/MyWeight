@@ -47,6 +47,11 @@
                BlueprintName = "MyWeightTests"
                ReferencedContainer = "container:MyWeight.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AddViewControllerTests/AddViewController_Layout__should_have_the_correct_portrait_layout_on_all_Sizes()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "YES">

@@ -8,29 +8,19 @@ class AddViewControllerTests: QuickSpec {
     
     var viewController: AddViewController!
     let snapshotService = SnapshotService()
-    var window: UIWindow!
-    
+    let timezone = TimeZone(secondsFromGMT: 0)
+    var testDate: Date!
+
     override func spec() {
         describe("AddViewController Layout") {
             beforeEach {
-                self.viewController = AddViewController(with: MassRepositoryMock(), startMass: Mass())
-
-                //For some misterios (apple bug) reason, setDate not work if you don't add the view to a window.
-                let frame = UIScreen.main.bounds
-                let window = UIWindow(frame: frame)
-                window.rootViewController = self.viewController
-                window.makeKeyAndVisible()
-                self.window = window
-                self.viewController.view.frame = frame
+                self.testDate = Date(timeIntervalSinceReferenceDate: 12345)
+                self.viewController = AddViewController(with: MassRepositoryMock(), startMass: Mass(), now: self.testDate)
             }
             
             it("should have the correct portrait layout on all Sizes") {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy"
-                let testDate = dateFormatter.date(from: "10/10/2016")!
-
-                self.viewController.theView.datePicker.setDate(testDate, animated: false)
-                expect(self.viewController.view).to(self.snapshotService.haveSnapshot(usesDrawRect: true))
+                self.viewController.theView.datePicker.timeZone = self.timezone
+                expect(self.viewController.view).to(self.snapshotService.haveSnapshot(usesDrawRect: true, tolerance: 0.0001))
             }
         }
     }

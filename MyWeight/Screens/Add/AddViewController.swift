@@ -16,11 +16,13 @@ public class AddViewController: UIViewController {
 
     let massService: MassRepository
     let startMass: Mass
+    let now: Date
 
-    public required init(with massService: MassRepository, startMass: Mass)
+    public required init(with massService: MassRepository, startMass: Mass, now: Date = Date())
     {
         self.massService = massService
         self.startMass = startMass
+        self.now = now
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -38,23 +40,14 @@ public class AddViewController: UIViewController {
 
     override public func loadView()
     {
+        let viewModel = AddViewModel(initialMass: startMass, now: now,
+                                     didTapCancel: { [weak self] in self?.didEnd() },
+                                     didTapSave: { [weak self] mass in self?.saveMass(mass) })
         // To avoid warnings of autolayout while the view
         // is not resized by the system
         let frame = UIScreen.main.bounds
-        let view = AddView(frame: frame)
+        let view = AddView(frame: frame, viewModel: viewModel)
         self.view = view
-    }
-
-    override public func viewWillAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-
-        let viewModel =
-            AddViewModel(initialMass: startMass,
-                         didTapCancel: { [weak self] in self?.didEnd() },
-                         didTapSave: { [weak self] mass in self?.saveMass(mass) })
-
-        theView.viewModel = viewModel
     }
 
     func saveMass(_ mass: Mass)

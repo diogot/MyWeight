@@ -17,14 +17,6 @@ setup:
   carthage:
     enabled: false
 
-swiftgen:
-  strings:
-    enabled: true
-    path: Pods/SwiftGen/bin/swiftgen
-    template: structured-swift4
-    strings:
-      'Watch Extension/Resources/en.lproj/Localizable.strings': 'Watch Extension/Generated/L10n.swift'
-
 danger:
   dangerfile_paths:
     pre_test: 'danger/PreTestDangerfile'

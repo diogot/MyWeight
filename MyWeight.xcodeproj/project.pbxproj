@@ -1174,7 +1174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rakelib/run.sh \"rake swiftgen\"";
+			shellScript = "$PROJECT_DIR/Pods/SwiftGen/bin/swiftgen config run --config \"Watch Extension/swiftgen.yml\"\n";
 		};
 		D9D69A771EA3F6250032B048 /* Generate Strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1188,7 +1188,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rakelib/run.sh \"rake swiftgen\"\n";
+			shellScript = "$PROJECT_DIR/Pods/SwiftGen/bin/swiftgen config run --config \"Watch Extension/swiftgen.yml\"\n";
 		};
 		EE19E275733827FCFCBFC684 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

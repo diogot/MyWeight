@@ -42,6 +42,10 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>MyWeight need access to Heath in order to read your weight entries.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>MyWeight need access to Heath in order to read your weight entries.</string>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
 </dict>

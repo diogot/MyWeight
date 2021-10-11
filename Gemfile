@@ -2,7 +2,7 @@
 
 # Gemfile
 
-ruby File.read('.ruby-version', mode: 'rb').chomp
+ruby "~> #{File.read('.ruby-version', mode: 'rb').chomp}"
 
 source 'https://rubygems.org'
 

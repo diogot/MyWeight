@@ -9,7 +9,7 @@ trigger:
 - development
 
 pool:
-  vmImage: 'macOS-10.14'
+  vmImage: 'macos-11'
 
 variables:
   BUNDLER_PATH: vendor/bundle
@@ -19,7 +19,7 @@ variables:
 steps:
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '2.6.3'
+    versionSpec: '2.6'
     addToPath: true
 - script: rake setup
   displayName: 'Configure project'

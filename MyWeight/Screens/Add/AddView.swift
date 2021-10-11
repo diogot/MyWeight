@@ -11,8 +11,11 @@ import UIKit
 public class AddView: UIView {
 
     let massPicker: MassPicker = MassPicker()
-    let datePicker: UIDatePicker = UIDatePicker()
-
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .wheels
+        return picker
+    }()
     let saveButton: TintButton = {
         let button = TintButton()
         button.setContentHuggingPriority(.required, for: .vertical)

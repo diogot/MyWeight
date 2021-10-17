@@ -9,7 +9,6 @@ warn 'PR is classed as Work in Progress' if (github.pr_title + github.pr_body).i
 warn 'Big PR' if git.lines_of_code > 300
 
 warning_important_file_changed '.gitignore'
-warning_important_file_changed '.circleci/config.yml'
 warning_important_file_changed 'Gemfile'
 warning_important_file_changed 'Gemfile.lock'
 warning_important_file_changed 'Podfile'

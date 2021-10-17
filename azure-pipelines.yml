@@ -23,7 +23,7 @@ steps:
     addToPath: true
 - script: rake setup
   displayName: 'Configure project'
-- script: rake xcode:tests[true]
+- script: bundle exec rake xcode:tests[true]
   displayName: 'Run tests'
   env:
     DANGER_GITHUB_API_TOKEN: $(danger-github-api-token)

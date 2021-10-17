@@ -37,7 +37,7 @@ xcode:
       configuration: Release
       output: MyWeight
       sign:
-          signingCertificate: 'iPhone Distribution: Diogo Tridapalli'
+          signingCertificate: 'Apple Distribution: Diogo Tridapalli'
           provisioningProfiles:
               com.diogot.health.My-Weight: 'My Weight'
               com.diogot.health.My-Weight.watchkitapp: 'My Weight Watch'
@@ -47,7 +47,7 @@ xcode:
       configuration: Release
       output: 'MyWeight Dev'
       sign:
-          signingCertificate: 'iPhone Distribution: Diogo Tridapalli'
+          signingCertificate: 'Apple Distribution: Diogo Tridapalli'
           provisioningProfiles:
               com.diogot.health.My-Weight.dev: 'My Weight Dev'
               com.diogot.health.My-Weight.dev.watchkitapp: 'My Weight Watch Dev'

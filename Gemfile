@@ -9,5 +9,5 @@ source 'https://rubygems.org'
 eval_gemfile File.join(File.dirname(__FILE__), 'rakelib/Gemfile')
 
 gem 'cocoapods', '~>1.6'
-gem 'danger-rubocop', '~>0.6'
-gem 'rubocop', '~>0.50'
+gem 'danger-rubocop', '~>0.9'
+gem 'rubocop', '~>1.22'

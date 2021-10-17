@@ -1,6 +1,6 @@
 # Xcode
 xcode_summary.ignored_files = ['Pods/**']
-xcode_summary.report ENV['XCODEBUILD_REPORT']
+xcode_summary.report ENV['XCODE_RESULTS']
 
 if ENV['DANGER_TEST_DESCRIPTION'] && status_report.values.flatten.count.positive?
   markdown("<p align=\"right\">#{ENV['DANGER_TEST_DESCRIPTION']}</p>")

@@ -68,8 +68,8 @@ public class AppCoordinator {
             let defaults = UserDefaults.standard
             let times = defaults.integer(forKey: key) + 1
             defaults.set(times, forKey: key)
-            if times % 10 == 0 {
-                SKStoreReviewController.requestReview()
+            if times % 10 == 0, let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
             }
         }
     }

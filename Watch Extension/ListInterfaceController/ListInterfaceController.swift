@@ -134,9 +134,9 @@ class ListInterfaceController: WKInterfaceController {
             userInfo = [:]
         }
 
-        updateUserActivity(UserActivityService.ActivityType.list.rawValue,
-                           userInfo: userInfo,
-                           webpageURL: nil)
+        let userActivity = NSUserActivity(activityType: UserActivityService.ActivityType.list.rawValue)
+        userActivity.userInfo = userInfo
+        update(userActivity)
     }
 
 }

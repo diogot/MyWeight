@@ -77,9 +77,8 @@ class AddInterfaceController: WKInterfaceController {
     }
 
     override func willActivate() {
-        updateUserActivity(UserActivityService.ActivityType.add.rawValue,
-                           userInfo: [:],
-                           webpageURL: nil)
+
+        update(.init(activityType: UserActivityService.ActivityType.add.rawValue))
         super.willActivate()
         interfacePicker.focus()
     }

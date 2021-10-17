@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MyWeight
+
+  Created by Diogo Tridapalli on 11/10/21.
+  Copyright © 2021 Diogo Tridapalli. All rights reserved.
+*/
+
+"NSHealthShareUsageDescription" = "MyWeight need access to Heath in order to read your weight entries.";
+
+"NSHealthUpdateUsageDescription" = "MyWeight need access to Heath in order to store your weight entries.";

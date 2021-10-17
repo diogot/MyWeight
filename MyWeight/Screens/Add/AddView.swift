@@ -11,8 +11,11 @@ import UIKit
 public class AddView: UIView {
 
     let massPicker: MassPicker = MassPicker()
-    let datePicker: UIDatePicker = UIDatePicker()
-
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .wheels
+        return picker
+    }()
     let saveButton: TintButton = {
         let button = TintButton()
         button.setContentHuggingPriority(.required, for: .vertical)
@@ -28,14 +31,14 @@ public class AddView: UIView {
 
     let style: StyleProvider = Style()
 
-    public var viewModel: AddViewModelProtocol = AddViewModel() {
+    public var viewModel: AddViewModelProtocol {
         didSet {
             updateView()
         }
     }
 
-    override public init(frame: CGRect)
-    {
+    public init(frame: CGRect, viewModel: AddViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         setUp()
         updateView()
@@ -135,8 +138,8 @@ public class AddView: UIView {
     {
         massPicker.mass = viewModel.initialMass.value
 
-        datePicker.date = viewModel.initialMass.date
-        datePicker.maximumDate = viewModel.initialMass.date
+        datePicker.date = viewModel.now
+        datePicker.maximumDate = viewModel.now
         datePicker.setValue(style.textColor, forKey: "textColor")
 
         titleLabel.attributedText = viewModel.title

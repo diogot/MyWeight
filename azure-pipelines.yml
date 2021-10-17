@@ -9,7 +9,7 @@ trigger:
 - development
 
 pool:
-  vmImage: 'macOS-10.14'
+  vmImage: 'macos-11'
 
 variables:
   BUNDLER_PATH: vendor/bundle
@@ -17,9 +17,13 @@ variables:
   TEST_REPORTS_DEFAULT_PATH: reports
 
 steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '2.6'
+    addToPath: true
 - script: rake setup
   displayName: 'Configure project'
-- script: rake xcode:tests[true]
+- script: bundle exec rake xcode:tests[true]
   displayName: 'Run tests'
   env:
     DANGER_GITHUB_API_TOKEN: $(danger-github-api-token)

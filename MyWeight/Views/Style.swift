@@ -57,10 +57,10 @@ public struct Style: StyleProvider {
 
     public let animationDuration: TimeInterval = 0.3
 
-    static let teal = UIColor(red: 81/255, green: 203/255, blue: 212/255, alpha: 1)
-    static let black = UIColor(red: 67/255, green: 70/255, blue: 75/255, alpha: 1)
-    static let gray = UIColor(red: 168/255, green: 174/255, blue: 186/255, alpha: 1)
-    static let lightGray = UIColor(red: 241/255, green: 243/255, blue: 246/255, alpha: 1)
-    static let white = UIColor(white: 1, alpha: 1)
-    static let transparentBlack = UIColor(white: 0.2, alpha: 0.9)
+    private static let teal = UIColor(red: 81/255, green: 203/255, blue: 212/255, alpha: 1)
+    private static let black = UIColor(red: 67/255, green: 70/255, blue: 75/255, alpha: 1)
+    private static let gray = UIColor(red: 168/255, green: 174/255, blue: 186/255, alpha: 1)
+    private static let lightGray = UIColor(red: 241/255, green: 243/255, blue: 246/255, alpha: 1)
+    private static let white = UIColor(white: 1, alpha: 1)
+    private static let transparentBlack = UIColor(white: 0.2, alpha: 0.9)
 }

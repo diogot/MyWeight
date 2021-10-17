@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MyWeight
+
+  Created by Diogo Tridapalli on 11/10/21.
+  Copyright © 2021 Diogo Tridapalli. All rights reserved.
+*/
+
+"NSHealthShareUsageDescription" = "MeuPeso precisa de acesso ao app Saúde para ler suas medidas de peso.";
+
+"NSHealthUpdateUsageDescription" = "MeuPeso precisa de acesso ao app Saúde para salvar suas medidas de peso.";

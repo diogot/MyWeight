@@ -93,13 +93,15 @@ extension AppCoordinator: ListViewControllerDelegate {
         let action = AlertViewModel
             .Action(title: Localization.alertOkButton)
             { $0.presentingViewController?.dismiss(animated: true) }
-        let viewMoodel =
+        let viewModel =
             AlertViewModel(title: Localization.alertFailToDeleteTitle,
                            message: Localization.alertFailToDeleteMessage,
                            actions: [action])
-        let alert = UIAlertController(with: viewMoodel)
+        let alert = UIAlertController(with: viewModel)
 
-        navigationController.present(alert, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController.present(alert, animated: true)
+        }
     }
 
 }

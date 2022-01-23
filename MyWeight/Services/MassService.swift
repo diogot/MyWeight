@@ -91,7 +91,9 @@ public class MassService: MassRepository {
                                       metadata: metadata)
         
         healthStore.save(sample) { (success, error) in
-            completion(error)
+            DispatchQueue.main.async {
+                completion(error)
+            }
         }
     }
 
@@ -108,11 +110,13 @@ public class MassService: MassRepository {
 
         healthStore.deleteObjects(of: massType,
                                   predicate: predicate) { (success, deleted, error) in
-                                    if deleted == 0 {
-                                        completion(Error.unableToDelete)
-                                    } else {
-                                        completion(error)
-                                    }
+            DispatchQueue.main.async {
+                if deleted == 0 {
+                    completion(Error.unableToDelete)
+                } else {
+                    completion(error)
+                }
+            }
         }
     }
 
@@ -187,8 +191,10 @@ public class MassService: MassRepository {
                     return
                 }
 
-                NotificationCenter.default.post(name: .MassServiceDidUpdate,
-                                                object: self)
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: .MassServiceDidUpdate,
+                                                    object: self)
+                }
                 completion()
             }
             
@@ -216,7 +222,9 @@ public class MassService: MassRepository {
                     self?.startObservingMass()
                     if self?.authorizationStatus == .authorized,
                         let observer = self?.appOpenObserver {
-                        NotificationCenter.default.removeObserver(observer)
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.removeObserver(observer)
+                        }
                     }
             }
         #endif

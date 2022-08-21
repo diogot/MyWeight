@@ -11,8 +11,8 @@ import HealthKit
 
 public struct Mass {
 
-    public let value: Measurement<UnitMass>
-    public let date: Date
+    public var value: Measurement<UnitMass>
+    public var date: Date
     let status: Status
 
     enum Status {

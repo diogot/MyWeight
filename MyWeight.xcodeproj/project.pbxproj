@@ -14,6 +14,9 @@
 		1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F81DCFD30400A7B967 /* GradientView.swift */; };
 		1DA167731DC567A000E0049C /* AccessDeniedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */; };
 		1DA167761DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */; };
+		1DAC498228B229C400BB887F /* MassPicker.swiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC498128B229C400BB887F /* MassPicker.swiftUI.swift */; };
+		1DAC498428B22A1000BB887F /* AddView.swiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC498328B22A1000BB887F /* AddView.swiftUI.swift */; };
+		1DAC498628B22A7200BB887F /* AddViewController.swiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC498528B22A7200BB887F /* AddViewController.swiftUI.swift */; };
 		1DB0707E1DCE9DCC00367276 /* SnapshotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */; };
 		462401F42EC0C57155976A1D /* Pods_MyWeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1818ACD7A8EBD971B6FD5B0F /* Pods_MyWeightUITests.framework */; };
 		B25889A31D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */; };
@@ -253,6 +256,9 @@
 		1DA073F81DCFD30400A7B967 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewControllerTests.swift; sourceTree = "<group>"; };
+		1DAC498128B229C400BB887F /* MassPicker.swiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassPicker.swiftUI.swift; sourceTree = "<group>"; };
+		1DAC498328B22A1000BB887F /* AddView.swiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swiftUI.swift; sourceTree = "<group>"; };
+		1DAC498528B22A7200BB887F /* AddViewController.swiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swiftUI.swift; sourceTree = "<group>"; };
 		1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotService.swift; sourceTree = "<group>"; };
 		24B5FF7B7AB76DEEFB0E4E00 /* Pods-MyWeightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		28322E86D667C802A3E143E6 /* Pods_MyWeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -728,6 +734,7 @@
 				D9F73FE11DAED5F700AD578F /* TableViewCell.swift */,
 				D90D1E4A1DAEA4F600FB513A /* TintButton.swift */,
 				D9F73FEB1DB3214900AD578F /* MassPicker.swift */,
+				1DAC498128B229C400BB887F /* MassPicker.swiftUI.swift */,
 				1DA073F81DCFD30400A7B967 /* GradientView.swift */,
 			);
 			path = Views;
@@ -777,8 +784,10 @@
 			isa = PBXGroup;
 			children = (
 				D97F44311CAB5EA2000F4E12 /* AddViewController.swift */,
+				1DAC498528B22A7200BB887F /* AddViewController.swiftUI.swift */,
 				D91FC9711DB40BB4004AA88A /* AddView.swift */,
 				D91FC9731DB416B1004AA88A /* AddViewModel.swift */,
+				1DAC498328B22A1000BB887F /* AddView.swiftUI.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -1317,7 +1326,10 @@
 				1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */,
 				D904D9E91DB930E700D0F6A6 /* AccessDeniedViewController.swift in Sources */,
 				1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */,
+				1DAC498628B22A7200BB887F /* AddViewController.swiftUI.swift in Sources */,
+				1DAC498428B22A1000BB887F /* AddView.swiftUI.swift in Sources */,
 				D904D9EF1DB939D500D0F6A6 /* ImageTextView.swift in Sources */,
+				1DAC498228B229C400BB887F /* MassPicker.swiftUI.swift in Sources */,
 				D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */,
 				D9F73FE91DAEF23600AD578F /* MassViewModel.swift in Sources */,
 				D904D9E01DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift in Sources */,

@@ -108,7 +108,7 @@ extension AppCoordinator: ListViewControllerDelegate {
 
 extension AppCoordinator: AddViewControllerDelegate {
 
-    public func didEnd(on viewController: AddViewController) {
+    public func didEnd(on viewController: UIViewController) {
         viewController.dismiss(animated: true, completion: nil)
         askForReview()
     }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SwiftUIDelegate {
+    func massDidChange(_ :Measurement<UnitMass>)
+}
+
 public class MassPicker: UIView {
 
     enum DisplayUnit: Int {
@@ -30,7 +34,9 @@ public class MassPicker: UIView {
             return formatter.string(from: self.type)
         }
     }
-
+    
+    var delegate: SwiftUIDelegate?
+    
     var currentMass: Measurement<UnitMass> {
         didSet {
             update()
@@ -96,6 +102,8 @@ public class MassPicker: UIView {
         picker.selectRow(unit.rawValue,
                          inComponent: Components.unit.rawValue,
                          animated: true)
+        
+        delegate?.massDidChange(self.currentMass)
     }
 
     let numberFormatter: NumberFormatter = {

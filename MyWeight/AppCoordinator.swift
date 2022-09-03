@@ -35,6 +35,12 @@ public class AppCoordinator {
 
     func startAdd(last mass: Mass?)
     {
+//      Change to
+//      ```
+//        let addViewController = AddViewControllerSwiftUI(with: massService,
+//                                                  startMass: mass ?? Mass())
+//      ```
+//      to test the SwiftUI view
         let addViewController = AddViewController(with: massService,
                                                   startMass: mass ?? Mass())
         addViewController.delegate = self
@@ -56,6 +62,11 @@ public class AppCoordinator {
 
     func startAuthorizationDenied()
     {
+//      Change to
+//      ```
+//        let viewController = AccessDeniedViewControllerSwiftUI()
+//      ```
+//      to test the SwiftUI view
         let viewController = AccessDeniedViewController()
         viewController.delegate = self
         self.navigationController.present(viewController,
@@ -108,7 +119,7 @@ extension AppCoordinator: ListViewControllerDelegate {
 
 extension AppCoordinator: AddViewControllerDelegate {
 
-    public func didEnd(on viewController: AddViewController) {
+    public func didEnd(on viewController: UIViewController) {
         viewController.dismiss(animated: true, completion: nil)
         askForReview()
     }
@@ -133,7 +144,7 @@ extension AppCoordinator: AuthorizationRequestViewControllerDelegate {
 
 extension AppCoordinator: AccessDeniedViewControllerDelegate {
 
-    public func didFinish(on controller: AccessDeniedViewController)
+    public func didFinish(on controller: UIViewController)
     {
         controller.dismiss(animated: true, completion: nil)
     }

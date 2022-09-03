@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 public protocol AddViewControllerDelegate {
-    func didEnd(on viewController: AddViewController)
+    func didEnd(on viewController: UIViewController)
 }
 
 public class AddViewController: UIViewController {

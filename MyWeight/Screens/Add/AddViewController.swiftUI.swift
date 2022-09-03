@@ -42,6 +42,12 @@ public class AddViewControllerSwiftUI: UIHostingController<AnyView> {
         
     }
     
+    public override func loadView() {
+        super.loadView()
+        
+        self.view.backgroundColor = Style().backgroundColor
+    }
+    
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

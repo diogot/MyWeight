@@ -19,7 +19,6 @@ public struct AddViewFromSwiftUI: View {
     
     public var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            
             ZStack {
                 HStack {
                     Button("Cancel") {
@@ -41,6 +40,7 @@ public struct AddViewFromSwiftUI: View {
                 .datePickerStyle(.wheel)
                 .pickerStyle(.wheel)
                 .fixedSize()
+                .colorScheme(.light)
             Spacer()
             
             MassPickerFromUIKit(currentMass: $mass.value)
@@ -122,6 +122,7 @@ struct AddView_Preview: PreviewProvider {
         return Group {
             AddViewFromUIKit(viewModel: viewModel).previewDisplayName("UIKit")
             AddViewFromSwiftUI(massService: MassService(), delegate: IsPresentingDelegate()).previewDisplayName("SwiftUI")
+            
         }
     }
 }

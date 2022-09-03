@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D0104F01DED1B3B00C55EA3 /* AddViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104EF1DED1B3B00C55EA3 /* AddViewControllerTests.swift */; };
 		1D0104F21DED1BC600C55EA3 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */; };
+		1D7CEE2228C2FD120006CEDF /* AccessDenied.SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7CEE2128C2FD120006CEDF /* AccessDenied.SwiftUI.swift */; };
 		1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F31DCFCC0900A7B967 /* MassRepository.swift */; };
 		1DA073F71DCFCD1E00A7B967 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */; };
 		1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA073F81DCFD30400A7B967 /* GradientView.swift */; };
@@ -25,6 +26,7 @@
 		B2D4E7B62007C86A00D3E418 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4E7B42007C86A00D3E418 /* ComplicationController.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
+		CD79B07DCF6F966D1A18FC79 /* Pods_MyWeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28322E86D667C802A3E143E6 /* Pods_MyWeight.framework */; };
 		D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DA1DB68BD700D0F6A6 /* TitleDescriptionView.swift */; };
 		D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DC1DB68EDD00D0F6A6 /* EmptyListViewModel.swift */; };
 		D904D9E01DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DF1DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift */; };
@@ -251,6 +253,7 @@
 		1818ACD7A8EBD971B6FD5B0F /* Pods_MyWeightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D0104EF1DED1B3B00C55EA3 /* AddViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewControllerTests.swift; sourceTree = "<group>"; };
 		1D0104F11DED1BC600C55EA3 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		1D7CEE2128C2FD120006CEDF /* AccessDenied.SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessDenied.SwiftUI.swift; sourceTree = "<group>"; };
 		1DA073F31DCFCC0900A7B967 /* MassRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassRepository.swift; sourceTree = "<group>"; };
 		1DA073F61DCFCD1E00A7B967 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA073F81DCFD30400A7B967 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */,
+				CD79B07DCF6F966D1A18FC79 /* Pods_MyWeight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +535,7 @@
 				D904D9E81DB930E700D0F6A6 /* AccessDeniedViewController.swift */,
 				D904D9EA1DB9357A00D0F6A6 /* AccessDeniedView.swift */,
 				D904D9EC1DB9395700D0F6A6 /* AccessDeniedViewModel.swift */,
+				1D7CEE2128C2FD120006CEDF /* AccessDenied.SwiftUI.swift */,
 			);
 			path = AccessDenied;
 			sourceTree = "<group>";
@@ -1326,6 +1331,7 @@
 				1DA073F91DCFD30400A7B967 /* GradientView.swift in Sources */,
 				D904D9E91DB930E700D0F6A6 /* AccessDeniedViewController.swift in Sources */,
 				1DA073F41DCFCC0900A7B967 /* MassRepository.swift in Sources */,
+				1D7CEE2228C2FD120006CEDF /* AccessDenied.SwiftUI.swift in Sources */,
 				1DAC498628B22A7200BB887F /* AddViewController.swiftUI.swift in Sources */,
 				1DAC498428B22A1000BB887F /* AddView.swiftUI.swift in Sources */,
 				D904D9EF1DB939D500D0F6A6 /* ImageTextView.swift in Sources */,

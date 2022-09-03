@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 public protocol AccessDeniedViewControllerDelegate {
-    func didFinish(on controller: AccessDeniedViewController)
+    func didFinish(on controller: UIViewController)
 }
 
 public class AccessDeniedViewController: UIViewController {

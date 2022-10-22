@@ -1,6 +1,6 @@
 //
 //  HealthStoreProtocol.swift
-//  MyWeight
+//  HealthService
 //
 //  Created by Diogo on 27/11/16.
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
@@ -15,13 +15,15 @@ public protocol HealthStoreProtocol {
                               read typesToRead: Set<HKObjectType>?,
                               completion: @escaping (Bool, Error?) -> Void)
 
-    #if os(iOS)
+#if os(iOS)
     func handleAuthorizationForExtension(completion: @escaping (Bool, Error?) -> Void)
-    #endif
+#endif
 
     func earliestPermittedSampleDate() -> Date
 
     func execute(_ query: HKQuery)
+
+    func stop(_ query: HKQuery)
 
     func save(_ object: HKObject, withCompletion completion: @escaping (Bool, Error?) -> Void)
 

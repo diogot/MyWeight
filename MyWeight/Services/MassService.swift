@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import HealthService
 
 public class MassService: MassRepository {
 

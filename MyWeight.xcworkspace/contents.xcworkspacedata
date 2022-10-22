@@ -5,6 +5,9 @@
       location = "group:MyWeight.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:HealthService">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

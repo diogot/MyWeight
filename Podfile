@@ -9,10 +9,6 @@ target 'MyWeight' do
 
     pod 'SwiftGen', '~>6.0'
   end
-
-  target 'MyWeightUITests' do
-    inherit! :search_paths
-  end
 end
 
 post_install do |installer|

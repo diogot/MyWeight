@@ -23,7 +23,6 @@
 		B2D4E7B62007C86A00D3E418 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4E7B42007C86A00D3E418 /* ComplicationController.swift */; };
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
-		C21F833668F8012AA1F61341 /* Pods_MyWeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72180B03CC695EECB0BE7068 /* Pods_MyWeightUITests.framework */; };
 		D900914C28FB63BD00A76857 /* HealthService in Frameworks */ = {isa = PBXBuildFile; productRef = D900914B28FB63BD00A76857 /* HealthService */; };
 		D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DA1DB68BD700D0F6A6 /* TitleDescriptionView.swift */; };
 		D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DC1DB68EDD00D0F6A6 /* EmptyListViewModel.swift */; };
@@ -133,7 +132,6 @@
 		D97F440B1CAB5E50000F4E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97F440A1CAB5E50000F4E12 /* Assets.xcassets */; };
 		D97F440E1CAB5E50000F4E12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97F440C1CAB5E50000F4E12 /* LaunchScreen.storyboard */; };
 		D97F44191CAB5E51000F4E12 /* MyWeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */; };
-		D97F44241CAB5E51000F4E12 /* MyWeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */; };
 		D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97F44311CAB5EA2000F4E12 /* AddViewController.swift */; };
 		D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97F44331CAB5EEA000F4E12 /* HealthKit.framework */; };
 		D9A3B6CB1E7F217C007C21AF /* AddInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3B6CA1E7F217C007C21AF /* AddInterfaceController.swift */; };
@@ -260,9 +258,7 @@
 		1DA167721DC567A000E0049C /* AccessDeniedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessDeniedViewControllerTests.swift; sourceTree = "<group>"; };
 		1DA167751DC982EB00E0049C /* AuthorizationRequestViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewControllerTests.swift; sourceTree = "<group>"; };
 		1DB0707D1DCE9DCC00367276 /* SnapshotService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotService.swift; sourceTree = "<group>"; };
-		3A247467357B11B2B43BB010 /* Pods-MyWeightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.release.xcconfig"; path = "Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5DB2C42504C0F44170755859 /* Pods-MyWeight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeight.release.xcconfig"; path = "Target Support Files/Pods-MyWeight/Pods-MyWeight.release.xcconfig"; sourceTree = "<group>"; };
-		72180B03CC695EECB0BE7068 /* Pods_MyWeightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844193EFA917D10874881AF5 /* Pods-MyWeightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightTests.debug.xcconfig"; path = "Target Support Files/Pods-MyWeightTests/Pods-MyWeightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionsTests.swift; sourceTree = "<group>"; };
@@ -324,8 +320,6 @@
 		D97F44181CAB5E51000F4E12 /* MyWeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeightTests.swift; sourceTree = "<group>"; };
 		D97F441A1CAB5E51000F4E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F441F1CAB5E51000F4E12 /* MyWeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeightUITests.swift; sourceTree = "<group>"; };
-		D97F44251CAB5E51000F4E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97F44311CAB5EA2000F4E12 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		D97F44331CAB5EEA000F4E12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D97F44351CAB5EEA000F4E12 /* MyWeight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyWeight.entitlements; sourceTree = "<group>"; };
@@ -354,7 +348,6 @@
 		D9F73FE81DAEF23600AD578F /* MassViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassViewModel.swift; sourceTree = "<group>"; };
 		D9F73FEB1DB3214900AD578F /* MassPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassPicker.swift; sourceTree = "<group>"; };
 		E60177D8D394BAB590784B06 /* Pods_MyWeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9FC87367428BCC95AAA12E6 /* Pods-MyWeightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWeightUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyWeightUITests/Pods-MyWeightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,7 +413,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C21F833668F8012AA1F61341 /* Pods_MyWeightUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,8 +478,6 @@
 				5DB2C42504C0F44170755859 /* Pods-MyWeight.release.xcconfig */,
 				844193EFA917D10874881AF5 /* Pods-MyWeightTests.debug.xcconfig */,
 				BBAE80DFA783F06780FA9A1A /* Pods-MyWeightTests.release.xcconfig */,
-				F9FC87367428BCC95AAA12E6 /* Pods-MyWeightUITests.debug.xcconfig */,
-				3A247467357B11B2B43BB010 /* Pods-MyWeightUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -498,7 +488,6 @@
 				D9A3B6C61E7DE7CB007C21AF /* HealthKit.framework */,
 				E60177D8D394BAB590784B06 /* Pods_MyWeight.framework */,
 				C9B3E281E9E5FDA1374E7804 /* Pods_MyWeightTests.framework */,
-				72180B03CC695EECB0BE7068 /* Pods_MyWeightUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -620,7 +609,6 @@
 			children = (
 				D97F44021CAB5E50000F4E12 /* MyWeight */,
 				D97F44171CAB5E51000F4E12 /* MyWeightTests */,
-				D97F44221CAB5E51000F4E12 /* MyWeightUITests */,
 				D95050F91E7DE30B00519138 /* Watch */,
 				D95051081E7DE30B00519138 /* Watch Extension */,
 				D97F44011CAB5E50000F4E12 /* Products */,
@@ -674,15 +662,6 @@
 				B25889A51D1AFA1C00A88EAF /* UITableViewExtensionsTests.swift */,
 			);
 			path = MyWeightTests;
-			sourceTree = "<group>";
-		};
-		D97F44221CAB5E51000F4E12 /* MyWeightUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D97F44231CAB5E51000F4E12 /* MyWeightUITests.swift */,
-				D97F44251CAB5E51000F4E12 /* Info.plist */,
-			);
-			path = MyWeightUITests;
 			sourceTree = "<group>";
 		};
 		D97F44361CAB5F71000F4E12 /* Frameworks */ = {
@@ -910,8 +889,6 @@
 				D95051111E7DE30B00519138 /* PBXTargetDependency */,
 			);
 			name = MyWeight;
-			packageProductDependencies = (
-			);
 			productName = MyWeight;
 			productReference = D97F44001CAB5E50000F4E12 /* MyWeight.app */;
 			productType = "com.apple.product-type.application";
@@ -943,7 +920,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D97F442E1CAB5E51000F4E12 /* Build configuration list for PBXNativeTarget "MyWeightUITests" */;
 			buildPhases = (
-				56847948DF942A2DFF5DC897 /* [CP] Check Pods Manifest.lock */,
 				D97F441B1CAB5E51000F4E12 /* Sources */,
 				D97F441C1CAB5E51000F4E12 /* Frameworks */,
 				D97F441D1CAB5E51000F4E12 /* Resources */,
@@ -1133,28 +1109,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		56847948DF942A2DFF5DC897 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyWeightUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D04FCD35867C553E60AFF821 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1386,7 +1340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97F44241CAB5E51000F4E12 /* MyWeightUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1890,7 +1843,6 @@
 		};
 		D97F442F1CAB5E51000F4E12 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9FC87367428BCC95AAA12E6 /* Pods-MyWeightUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MyWeightUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1906,7 +1858,6 @@
 		};
 		D97F44301CAB5E51000F4E12 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A247467357B11B2B43BB010 /* Pods-MyWeightUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MyWeightUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

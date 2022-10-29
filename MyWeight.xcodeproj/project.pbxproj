@@ -102,6 +102,14 @@
 		D92D39391E91826800D9E9ED /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D39351E917FC000D9E9ED /* UserActivityService.swift */; };
 		D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
 		D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */; };
+		D92E2A5728FB407F00C15DBB /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5628FB407F00C15DBB /* Publisher+Extensions.swift */; };
+		D92E2A5828FB407F00C15DBB /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5628FB407F00C15DBB /* Publisher+Extensions.swift */; };
+		D92E2A5928FB407F00C15DBB /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5628FB407F00C15DBB /* Publisher+Extensions.swift */; };
+		D92E2A5A28FB407F00C15DBB /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5628FB407F00C15DBB /* Publisher+Extensions.swift */; };
+		D92E2A5D28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5C28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift */; };
+		D92E2A5E28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5C28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift */; };
+		D92E2A5F28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5C28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift */; };
+		D92E2A6028FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E2A5C28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift */; };
 		D92E2A6B28FB5D5700C15DBB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = D92E2A6A28FB5D5700C15DBB /* Quick */; };
 		D92E2A6E28FB5D7600C15DBB /* Nimble-Snapshots in Frameworks */ = {isa = PBXBuildFile; productRef = D92E2A6D28FB5D7600C15DBB /* Nimble-Snapshots */; };
 		D95050FC1E7DE30B00519138 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95050FA1E7DE30B00519138 /* Interface.storyboard */; };
@@ -291,6 +299,8 @@
 		D92D39341E90571400D9E9ED /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Dev.plist"; sourceTree = "<group>"; };
 		D92D39351E917FC000D9E9ED /* UserActivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityService.swift; sourceTree = "<group>"; };
 		D92D393B1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInterfaceControllerViewModel.swift; sourceTree = "<group>"; };
+		D92E2A5628FB407F00C15DBB /* Publisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
+		D92E2A5C28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubscribersCompletion+Extensions.swift"; sourceTree = "<group>"; };
 		D95050F81E7DE30B00519138 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95050FB1E7DE30B00519138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		D95050FD1E7DE30B00519138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -499,6 +509,8 @@
 				B25889A21D1AF40E00A88EAF /* UITableViewCell+ReuseIdentifier.swift */,
 				D90D1E461DADCBD300FB513A /* UIImage+WithColor.swift */,
 				D90D1E481DADCC1000FB513A /* NSAttributedString+FontColor.swift */,
+				D92E2A5628FB407F00C15DBB /* Publisher+Extensions.swift */,
+				D92E2A5C28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1253,6 +1265,8 @@
 				D92D38F01E904DF800D9E9ED /* UIAlertView+AlertViewModel.swift in Sources */,
 				D92D38F11E904DF800D9E9ED /* AddView.swift in Sources */,
 				D92D38F21E904DF800D9E9ED /* MassPicker.swift in Sources */,
+				D92E2A5928FB407F00C15DBB /* Publisher+Extensions.swift in Sources */,
+				D92E2A5F28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */,
 				D92D38F31E904DF800D9E9ED /* NSAttributedString+FontColor.swift in Sources */,
 				D92D38F41E904DF800D9E9ED /* ListViewController.swift in Sources */,
 				D92D38F51E904DF800D9E9ED /* AddViewController.swift in Sources */,
@@ -1270,6 +1284,7 @@
 				D92D391C1E904EE500D9E9ED /* Log.swift in Sources */,
 				D92D391D1E904EE500D9E9ED /* MassService.swift in Sources */,
 				D92D391E1E904EE500D9E9ED /* ExtensionDelegate.swift in Sources */,
+				D92E2A5A28FB407F00C15DBB /* Publisher+Extensions.swift in Sources */,
 				D92D391F1E904EE500D9E9ED /* ListInterfaceController.swift in Sources */,
 				D92D39201E904EE500D9E9ED /* AddInterfaceController.swift in Sources */,
 				D928C4301E9AFC0000BA3065 /* AddInterfaceControllerViewModel.swift in Sources */,
@@ -1279,6 +1294,7 @@
 				D9D69A751EA3D9B00032B048 /* L10n.swift in Sources */,
 				B2D4E7B62007C86A00D3E418 /* ComplicationController.swift in Sources */,
 				D92D39221E904EE500D9E9ED /* Mass.swift in Sources */,
+				D92E2A6028FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */,
 				D92D393D1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1290,6 +1306,7 @@
 				D950511E1E7DE47700519138 /* Log.swift in Sources */,
 				D950511A1E7DE44700519138 /* MassService.swift in Sources */,
 				D950510C1E7DE30B00519138 /* ExtensionDelegate.swift in Sources */,
+				D92E2A5828FB407F00C15DBB /* Publisher+Extensions.swift in Sources */,
 				D950510A1E7DE30B00519138 /* ListInterfaceController.swift in Sources */,
 				D9A3B6CB1E7F217C007C21AF /* AddInterfaceController.swift in Sources */,
 				D928C42E1E9AF93600BA3065 /* AddInterfaceControllerViewModel.swift in Sources */,
@@ -1299,6 +1316,7 @@
 				D9D69A741EA3D9B00032B048 /* L10n.swift in Sources */,
 				B2D4E7B52007C86A00D3E418 /* ComplicationController.swift in Sources */,
 				D950511D1E7DE46200519138 /* Mass.swift in Sources */,
+				D92E2A5E28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */,
 				D92D393C1E91A90300D9E9ED /* ListInterfaceControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1321,6 +1339,7 @@
 				D90D1E471DADCBD300FB513A /* UIImage+WithColor.swift in Sources */,
 				D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */,
 				D96307AD1DA74E3B00A3D46C /* MassService.swift in Sources */,
+				D92E2A5728FB407F00C15DBB /* Publisher+Extensions.swift in Sources */,
 				D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */,
 				D9D0D0AC1D88EB5D00191596 /* Log.swift in Sources */,
 				D92D39361E917FC000D9E9ED /* UserActivityService.swift in Sources */,
@@ -1337,6 +1356,7 @@
 				D9C3155D1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift in Sources */,
 				D91FC9721DB40BB4004AA88A /* AddView.swift in Sources */,
 				D9F73FEC1DB3214900AD578F /* MassPicker.swift in Sources */,
+				D92E2A5D28FB45D200C15DBB /* SubscribersCompletion+Extensions.swift in Sources */,
 				D90D1E491DADCC1000FB513A /* NSAttributedString+FontColor.swift in Sources */,
 				D9BEBD011DAAC31E002263E2 /* ListViewController.swift in Sources */,
 				D97F44321CAB5EA2000F4E12 /* AddViewController.swift in Sources */,

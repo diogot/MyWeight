@@ -1,5 +1,6 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
+// TODO: update swift to 5.7
 
 import PackageDescription
 

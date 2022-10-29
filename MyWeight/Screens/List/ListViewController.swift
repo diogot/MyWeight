@@ -6,17 +6,19 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
+import Combine
+import HealthService
 import UIKit
 
 public protocol ListViewControllerDelegate {
-    func didTapAddMeasure(last mass: Mass?)
+    func didTapAddMeasure(last mass: DataPoint<UnitMass>?)
     func failedToDeleteMass()
 }
 
 public class ListViewController: UIViewController {
 
-    let massRepository: MassRepository
-    var masses: [Mass] = [Mass]() {
+    private let healthService: HealthRepository
+    private var masses = [DataPoint<UnitMass>]() {
         didSet {
             updateView()
         }
@@ -24,14 +26,14 @@ public class ListViewController: UIViewController {
 
     public var delegate: ListViewControllerDelegate?
 
-    var theView: ListView {
-        // I don't like this `!` but it's a framework limitation
-        return self.view as! ListView
-    }
+    private lazy var customView = ListView()
 
-    public required init(with massRepository: MassRepository)
+    private var cancellables = Set<AnyCancellable>()
+    private var loadMassCancellable: AnyCancellable?
+
+    public required init(with healthService: HealthRepository)
     {
-        self.massRepository = massRepository
+        self.healthService = healthService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -42,11 +44,7 @@ public class ListViewController: UIViewController {
 
     override public func loadView()
     {
-        // To avoid warnings of autolayout while the view
-        // is not resized by the system
-        let frame = UIScreen.main.bounds
-        let view = ListView(frame: frame)
-        self.view = view
+        self.view = customView
     }
 
     public override func viewDidLoad()
@@ -62,37 +60,26 @@ public class ListViewController: UIViewController {
                           didTap: { [weak self] in self?.tapAddMass() },
                           deleteMass: { [weak self] in self?.delete($0) })
 
-        theView.viewModel = viewModel
+        customView.viewModel = viewModel
     }
 
     var massObserver: NSObjectProtocol? = nil
     func observeMassesUpdate()
     {
-        let center = NotificationCenter.default
-        if let massObserver = massObserver {
-            center.removeObserver(massObserver)
-            self.massObserver = nil
-        }
-
-        center.addObserver(forName: .MassServiceDidUpdate,
-                           object: massRepository,
-                           queue: .main) { [weak self] _ in
-                            self?.loadMasses()
-        }
+        healthService.observeChanges(in: .mass)
+            .sink(weak: self, receiveValue: { me, _ in
+                me.loadMasses()
+            }).store(in: &cancellables)
     }
 
     func loadMasses()
     {
+        loadMassCancellable?.cancel()
         masses.removeAll()
-
-        self.massRepository.fetch { [weak self] (samples) in
-
-            if samples.isEmpty {
-                Log.debug("No samples")
-            }
-
-            self?.masses.append(contentsOf: samples)
-        }
+        loadMassCancellable = healthService.fetchMass()
+            .sink(weak: self, receiveValue: { me, masses in
+                me.masses.append(contentsOf: masses)
+            })
     }
 
     func tapAddMass()
@@ -101,13 +88,14 @@ public class ListViewController: UIViewController {
         delegate?.didTapAddMeasure(last: mass)
     }
 
-    func delete(_ mass: Mass)
+    func delete(_ mass: DataPoint<UnitMass>)
     {
-        self.massRepository.delete(mass) { [weak self] (error) in
-            if let error = error {
-                self?.failToDelete(error)
-            }
-        }
+        healthService.delete(mass)
+            .sink(weak: self, receiveCompletion: { me, completion in
+                if let error = completion.error {
+                    me.failToDelete(error)
+                }
+            }).store(in: &cancellables)
     }
 
     func failToDelete(_ error: Error)

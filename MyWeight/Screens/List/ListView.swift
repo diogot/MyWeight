@@ -24,6 +24,12 @@ public class ListView: UIView {
         }
     }
 
+    convenience init() {
+        // To avoid warnings of autolayout while the view
+        // is not resized by the system
+        let frame = UIScreen.main.bounds
+        self.init(frame: frame)
+    }
     override public init(frame: CGRect)
     {
         tableView = UITableView(frame: frame, style: .grouped)

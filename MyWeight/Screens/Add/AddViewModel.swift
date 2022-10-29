@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthService
 
 public protocol AddViewModelProtocol {
 
@@ -14,11 +15,11 @@ public protocol AddViewModelProtocol {
     var saveButtonText: String { get }
     var cancelButtonText: NSAttributedString { get }
 
-    var initialMass: Mass { get }
+    var initialMass: DataPoint<UnitMass> { get }
     var now: Date { get }
 
     var didTapCancel: () -> Void { get }
-    var didTapSave: (Mass) -> Void { get }
+    var didTapSave: (DataPoint<UnitMass>) -> Void { get }
 
 }
 
@@ -28,20 +29,20 @@ public struct AddViewModel: AddViewModelProtocol {
     public let saveButtonText: String
     public let cancelButtonText: NSAttributedString
 
-    public let initialMass: Mass
+    public let initialMass: DataPoint<UnitMass>
     public let now: Date
 
     public let didTapCancel: () -> Void
-    public let didTapSave: (Mass) -> Void
+    public let didTapSave: (DataPoint<UnitMass>) -> Void
 
 }
 
 extension AddViewModel {
 
-    public init(initialMass: Mass,
+    public init(initialMass: DataPoint<UnitMass>,
                 now: Date,
                 didTapCancel: @escaping () -> Void,
-                didTapSave: @escaping (Mass) -> Void)
+                didTapSave: @escaping (DataPoint<UnitMass>) -> Void)
     {
         let style = Style()
 

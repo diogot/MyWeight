@@ -6,6 +6,7 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
+import HealthService
 import UIKit
 
 public struct MassViewModel {
@@ -23,7 +24,7 @@ extension MassViewModel {
     }
 
 
-    public init(with mass: Mass, large: Bool) {
+    public init(with mass: DataPoint<UnitMass>, large: Bool) {
 
         let style: StyleProvider = Style()
         let me = type(of: self)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthService
 
 public protocol ListViewModelProtocol {
 
@@ -59,9 +60,9 @@ extension ListViewModel {
 
 extension ListViewModel {
 
-    public init(with masses: [Mass],
+    public init(with masses: [DataPoint<UnitMass>],
                 didTap: @escaping () -> Void,
-                deleteMass: @escaping (Mass) -> Void)
+                deleteMass: @escaping (DataPoint<UnitMass>) -> Void)
     {
         items = UInt(masses.count)
         data = { MassViewModel(with: masses[Int($0)], large: $0 == 0) }

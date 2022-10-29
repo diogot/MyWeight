@@ -6,6 +6,8 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
+import Combine
+import HealthService
 import UIKit
 
 public protocol AddViewControllerDelegate {
@@ -14,13 +16,15 @@ public protocol AddViewControllerDelegate {
 
 public class AddViewController: UIViewController {
 
-    let massService: MassRepository
-    let startMass: Mass
-    let now: Date
+    private let healthService: HealthRepository
+    private let startMass: DataPoint<UnitMass>
+    private let now: Date
 
-    public required init(with massService: MassRepository, startMass: Mass, now: Date = Date())
+    private var cancellables = Set<AnyCancellable>()
+
+    public required init(with healthService: HealthRepository, startMass: DataPoint<UnitMass>, now: Date = Date())
     {
-        self.massService = massService
+        self.healthService = healthService
         self.startMass = startMass
         self.now = now
         super.init(nibName: nil, bundle: nil)
@@ -50,13 +54,13 @@ public class AddViewController: UIViewController {
         self.view = view
     }
 
-    func saveMass(_ mass: Mass)
+    func saveMass(_ mass: DataPoint<UnitMass>)
     {
-        massService.save(mass) { (error) in
-            Log.debug("Error = \(error.debugDescription)")
-        }
-
-        didEnd()
+        healthService.save(mass)
+            .sink(weak: self, receiveCompletion:  { me, completion in
+                Log.error(completion.error)
+                me.didEnd()
+            }).store(in: &cancellables)
     }
 
     func didEnd() {

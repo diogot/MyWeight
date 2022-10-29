@@ -6,6 +6,8 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
+import Combine
+import HealthService
 import UIKit
 
 public protocol AuthorizationRequestViewControllerDelegate {
@@ -15,18 +17,16 @@ public protocol AuthorizationRequestViewControllerDelegate {
 
 public class AuthorizationRequestViewController: UIViewController {
 
-    let massService: MassRepository
-
+    private let healthService: HealthRepository
     public var delegate: AuthorizationRequestViewControllerDelegate?
 
-    var theView: AuthorizationRequestView {
-        // I don't like this `!` but it's a framework limitation
-        return self.view as! AuthorizationRequestView
-    }
+    private var cancellables = Set<AnyCancellable>()
 
-    public required init(with massService: MassRepository)
+    private lazy var customView = AuthorizationRequestView()
+
+    public required init(healthService: HealthRepository)
     {
-        self.massService = massService
+        self.healthService = healthService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -37,8 +37,7 @@ public class AuthorizationRequestViewController: UIViewController {
 
     override public func loadView()
     {
-        let view = AuthorizationRequestView()
-        self.view = view
+        self.view = customView
     }
 
     override public func viewDidLoad()
@@ -50,20 +49,21 @@ public class AuthorizationRequestViewController: UIViewController {
                 self?.tapCancel()
         })
 
-        theView.viewModel = viewModel
+        customView.viewModel = viewModel
     }
 
     func tapOk()
     {
-        massService.requestAuthorization { [weak self] error in
-            if let error = error {
-                Log.debug(error)
-            }
-            print("start")
-            let authorized = self?.massService.authorizationStatus == .authorized
-            print("finish")
-            self?.didFinish(with: authorized)
-        }
+        healthService.requestAuthorization(for: .mass)
+            .sink(weak: self, receiveCompletion: { me, completion in
+                switch completion {
+                    case .failure(let error):
+                        Log.debug(error)
+                    case .finished:
+                        let authrorized = me.healthService.authorizationStatus(for: .mass) == .authorized
+                        me.didFinish(with: authrorized)
+                }
+            }).store(in: &cancellables)
     }
 
     func tapCancel()

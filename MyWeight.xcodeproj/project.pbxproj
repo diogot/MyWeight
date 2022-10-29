@@ -24,6 +24,7 @@
 		B2EF68C11D1879E40010C2E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2EF68C31D1879E40010C2E7 /* Localizable.strings */; };
 		B2EF68C81D187A5B0010C2E7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EF68C71D187A5B0010C2E7 /* Localization.swift */; };
 		C21F833668F8012AA1F61341 /* Pods_MyWeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72180B03CC695EECB0BE7068 /* Pods_MyWeightUITests.framework */; };
+		D900914C28FB63BD00A76857 /* HealthService in Frameworks */ = {isa = PBXBuildFile; productRef = D900914B28FB63BD00A76857 /* HealthService */; };
 		D904D9DB1DB68BD700D0F6A6 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DA1DB68BD700D0F6A6 /* TitleDescriptionView.swift */; };
 		D904D9DD1DB68EDD00D0F6A6 /* EmptyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DC1DB68EDD00D0F6A6 /* EmptyListViewModel.swift */; };
 		D904D9E01DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904D9DF1DB6ED3500D0F6A6 /* AuthorizationRequestViewController.swift */; };
@@ -142,7 +143,6 @@
 		D9BEBD051DAB0610002263E2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD041DAB0610002263E2 /* ListViewModel.swift */; };
 		D9BEBD071DAB097A002263E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD061DAB097A002263E2 /* AppCoordinator.swift */; };
 		D9BEBD0A1DAB24B7002263E2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BEBD091DAB24B7002263E2 /* Style.swift */; };
-		D9BEDBEB290432460089DD6D /* HealthService in Frameworks */ = {isa = PBXBuildFile; productRef = D9BEDBEA290432460089DD6D /* HealthService */; };
 		D9C3155B1E63A43700579208 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3155A1E63A43700579208 /* AlertViewModel.swift */; };
 		D9C3155D1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3155C1E63A4EB00579208 /* UIAlertView+AlertViewModel.swift */; };
 		D9CD00F61FC917C500D3B50E /* MassRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD00F51FC917C500D3B50E /* MassRepositoryMock.swift */; };
@@ -151,7 +151,7 @@
 		D9D69A6D1EA2E11F0032B048 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9D69A6F1EA2E11F0032B048 /* Localizable.strings */; };
 		D9D69A741EA3D9B00032B048 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D69A731EA3D9B00032B048 /* L10n.swift */; };
 		D9D69A751EA3D9B00032B048 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D69A731EA3D9B00032B048 /* L10n.swift */; };
-		D9F37DAA290DD4B100E62C80 /* HealthService in Frameworks */ = {isa = PBXBuildFile; productRef = D9F37DA9290DD4B100E62C80 /* HealthService */; };
+		D9F37DAC290DDF4500E62C80 /* HealthService in Frameworks */ = {isa = PBXBuildFile; productRef = D9F37DAB290DDF4500E62C80 /* HealthService */; };
 		D9F73FE21DAED5F700AD578F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE11DAED5F700AD578F /* TableViewCell.swift */; };
 		D9F73FE41DAED7C600AD578F /* MassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE31DAED7C600AD578F /* MassView.swift */; };
 		D9F73FE71DAEDE7700AD578F /* Mass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F73FE61DAEDE7700AD578F /* Mass.swift */; };
@@ -392,7 +392,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F37DAA290DD4B100E62C80 /* HealthService in Frameworks */,
+				D9F37DAC290DDF4500E62C80 /* HealthService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D97F44341CAB5EEA000F4E12 /* HealthKit.framework in Frameworks */,
-				D9BEDBEB290432460089DD6D /* HealthService in Frameworks */,
+				D900914C28FB63BD00A76857 /* HealthService in Frameworks */,
 				6BCB4334BCA311A1AD0F7192 /* Pods_MyWeight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,7 +888,7 @@
 			);
 			name = "Watch Extension";
 			packageProductDependencies = (
-				D9F37DA9290DD4B100E62C80 /* HealthService */,
+				D9F37DAB290DDF4500E62C80 /* HealthService */,
 			);
 			productName = "watch Extension";
 			productReference = D95051041E7DE30B00519138 /* Watch Extension.appex */;
@@ -911,7 +911,6 @@
 			);
 			name = MyWeight;
 			packageProductDependencies = (
-				D9BEDBEA290432460089DD6D /* HealthService */,
 			);
 			productName = MyWeight;
 			productReference = D97F44001CAB5E50000F4E12 /* MyWeight.app */;
@@ -2027,11 +2026,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D9BEDBEA290432460089DD6D /* HealthService */ = {
+		D900914B28FB63BD00A76857 /* HealthService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HealthService;
 		};
-		D9F37DA9290DD4B100E62C80 /* HealthService */ = {
 		D92E2A6A28FB5D5700C15DBB /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D92E2A6928FB5D5700C15DBB /* XCRemoteSwiftPackageReference "Quick" */;
@@ -2042,6 +2040,7 @@
 			package = D92E2A6C28FB5D7600C15DBB /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */;
 			productName = "Nimble-Snapshots";
 		};
+		D9F37DAB290DDF4500E62C80 /* HealthService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = HealthService;
 		};

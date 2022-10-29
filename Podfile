@@ -1,4 +1,4 @@
-platform :ios, '14.0'
+platform :ios, '15.0'
 
 target 'MyWeight' do
   use_frameworks!
@@ -8,9 +8,6 @@ target 'MyWeight' do
     inhibit_all_warnings!
 
     pod 'SwiftGen', '~>6.0'
-    pod 'Nimble'
-    pod 'Quick'
-    pod 'Nimble-Snapshots'
   end
 
   target 'MyWeightUITests' do

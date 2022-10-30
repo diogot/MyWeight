@@ -24,13 +24,13 @@ danger:
     post_test: 'danger/PostTestDangerfile'
 
 xcode:
-  version: 13.2.1
+  version: 14.0.1
   build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
   reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
   tests:
     scheme: MyWeight
     destinations:
-      - 'platform=iOS Simulator,OS=15.2,name=iPhone 11 Pro'
+      - 'platform=iOS Simulator,OS=16.0,name=iPhone 11 Pro'
   release:
     prod:
       scheme: MyWeight

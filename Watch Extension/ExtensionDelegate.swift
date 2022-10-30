@@ -8,7 +8,8 @@
 
 import WatchKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+@main
+class ExtensionDelegate: NSObject, WKApplicationDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.

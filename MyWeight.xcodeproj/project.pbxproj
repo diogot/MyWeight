@@ -756,6 +756,7 @@
 		};
 		D9D69A771EA3F6250032B048 /* Generate Strings */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);

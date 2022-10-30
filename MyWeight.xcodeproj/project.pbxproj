@@ -656,15 +656,11 @@
 				TargetAttributes = {
 					D95050F71E7DE30B00519138 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
 					};
 					D97F43FF1CAB5E50000F4E12 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = MQRRG9G4R7;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -960,6 +956,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Resources/Watch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				INFOPLIST_FILE = Watch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
@@ -967,7 +966,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "My Weight Watch Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1159,6 +1158,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyWeight/Resources/MyWeight.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MQRRG9G4R7;
 				INFOPLIST_FILE = MyWeight/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1166,7 +1168,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diogot.health.My-Weight";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "My Weight Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};

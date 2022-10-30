@@ -6,6 +6,7 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
+import HealthService
 import UIKit
 
 public class AddView: UIView {
@@ -151,8 +152,10 @@ public class AddView: UIView {
 
     @objc func saveTap()
     {
-        let mass = Mass(value: massPicker.mass,
-                        date: datePicker.date)
+        let mass = DataPoint(kind: .mass,
+                             value: massPicker.mass,
+                             date: datePicker.date,
+                             metadata: nil)
         viewModel.didTapSave(mass)
     }
 

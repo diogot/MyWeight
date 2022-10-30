@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthService
 
 enum ListInterfaceControllerViewModel {
     case main(String, String)
@@ -58,7 +59,7 @@ enum ListInterfaceControllerViewModel {
         return .main(L10n.List.NoEntry.text, "")
     }()
 
-    static func mass(_ mass: Mass) -> ListInterfaceControllerViewModel {
+    static func mass(_ mass: DataPoint<UnitMass>) -> ListInterfaceControllerViewModel {
         let massText = massFormatter.string(from: mass.value)
         let dateText = dateFormatter.string(from: mass.date)
         return .main(massText, dateText)

@@ -6,6 +6,8 @@
 //  Copyright © 2017 Diogo Tridapalli. All rights reserved.
 //
 
+import Combine
+import HealthService
 import WatchKit
 
 class ListInterfaceController: WKInterfaceController {
@@ -20,7 +22,9 @@ class ListInterfaceController: WKInterfaceController {
     @IBOutlet var goToiPhoneInterfaceLabel: WKInterfaceLabel!
     @IBOutlet var doneInterfaceButton: WKInterfaceButton!
 
-    let massRepository: MassService = MassService()
+    private let healthService: HealthRepository = HealthService()
+
+    private var cancellables = Set<AnyCancellable>()
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -38,16 +42,14 @@ class ListInterfaceController: WKInterfaceController {
     }
     
     func loadCurrentMass() {
-        massRepository.fetch(entries: 1) { [weak self] samples in
-            guard let me = self else {
-                return
-            }
-            if let mass = samples.first {
-                me.set(state: .show(mass))
-            } else {
-                me.set(state: .noEntry)
-            }
-        }
+        healthService.fetchMass(entries: 1).first()
+            .sink(weak: self, receiveValue: { me, masses in
+                if let mass = masses.first {
+                    me.set(state: .show(mass))
+                } else {
+                    me.set(state: .noEntry)
+                }
+            }).store(in: &cancellables)
     }
 
     // MARK: - State
@@ -57,25 +59,26 @@ class ListInterfaceController: WKInterfaceController {
         case accessDenied
         case accessNotDetermined
         case noEntry
-        case show(Mass)
+        case show(DataPoint<UnitMass>)
     }
 
     func set(state: State) {
         updateUserActivity(with: state)
         switch state {
-        case .start:
-            updateView(with: .loading)
-        case .accessDenied:
-            updateView(with: .denied)
-        case .accessNotDetermined:
-            updateView(with: .notDetermined)
-            massRepository.requestAuthorization() { error in
-                Log.error(error)
-            }
-        case .noEntry:
-            updateView(with: .noEntry)
-        case .show(let mass):
-            updateView(with: .mass(mass))
+            case .start:
+                updateView(with: .loading)
+            case .accessDenied:
+                updateView(with: .denied)
+            case .accessNotDetermined:
+                updateView(with: .notDetermined)
+                healthService.requestAuthorization(for: .mass)
+                    .sink(weak: self, receiveCompletion: { _, completion in
+                        Log.error(completion.error)
+                    }).store(in: &cancellables)
+            case .noEntry:
+                updateView(with: .noEntry)
+            case .show(let mass):
+                updateView(with: .mass(mass))
         }
     }
 
@@ -101,14 +104,15 @@ class ListInterfaceController: WKInterfaceController {
     // MARK: - Actions
 
     @IBAction func verifyAuthorization() {
-        Log.debug(massRepository.authorizationStatus)
-        switch massRepository.authorizationStatus {
-        case .authorized:
-            loadCurrentMass()
-        case .notDetermined:
-            set(state: .accessNotDetermined)
-        case .denied:
-            set(state: .accessDenied)
+        let status = healthService.authorizationStatus(for: .mass)
+        Log.debug(status)
+        switch status {
+            case .authorized:
+                loadCurrentMass()
+            case .notDetermined:
+                set(state: .accessNotDetermined)
+            case .denied:
+                set(state: .accessDenied)
         }
     }
 

@@ -6,6 +6,8 @@
 //  Copyright © 2017 Diogo Tridapalli. All rights reserved.
 //
 
+import Combine
+import HealthService
 import WatchKit
 
 class AddInterfaceController: WKInterfaceController {
@@ -13,26 +15,30 @@ class AddInterfaceController: WKInterfaceController {
     @IBOutlet var interfacePicker: WKInterfacePicker!
     @IBOutlet var saveInterfaceButton: WKInterfaceButton!
 
-    let massRepository: MassService = MassService()
+    private let healthService: HealthRepository = HealthService()
     let viewModel: AddInterfaceControllerViewModel = AddInterfaceControllerViewModel()
 
     var massOptions: [MassPickerItem] = []
 
-    var currentMass: Measurement<UnitMass> = Mass().value
+    var currentMass: Measurement<UnitMass> = DataPoint<UnitMass>().value
+
+    private var cancellables = Set<AnyCancellable>()
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         updateView(with: viewModel)
 
-        if let mass = context as? Mass {
+        if let mass = context as? DataPoint<UnitMass> {
             currentMass = mass.value
             populatePicker(with: currentMass)
         } else {
-            massRepository.fetch(entries: 1) { [weak self] in
-                let mass = $0.first ?? Mass()
-                self?.currentMass = mass.value
-                self?.populatePicker(with: mass.value)
-            }
+            healthService.fetchMass(entries: 1).first()
+                .sink(weak: self, receiveValue: { me, values in
+                    let mass = values.first ?? DataPoint<UnitMass>()
+                    me.currentMass = mass.value
+                    me.populatePicker(with: mass.value)
+                })
+                .store(in: &cancellables)
         }
     }
     
@@ -63,13 +69,12 @@ class AddInterfaceController: WKInterfaceController {
     }
 
     @IBAction func saveAction() {
-        let mass = Mass(value: currentMass, date: Date())
-        massRepository.save(mass) { [weak self] error in
-            if let error = error {
-                Log.debug(error)
-            }
-            self?.pop()
-        }
+        let mass = DataPoint<UnitMass>(kind: .mass, value: currentMass, date: Date(), metadata: nil)
+        healthService.save(mass)
+            .sink(weak: self, receiveCompletion: { me, completion in
+                Log.error(completion.error)
+                me.pop()
+            }).store(in: &cancellables)
     }
 
     @IBAction func selectedMass(_ index: Int) {

@@ -6,13 +6,16 @@
 //  Copyright © 2016 Diogo Tridapalli. All rights reserved.
 //
 
-import UIKit
+import Combine
+import HealthService
 import StoreKit
+import UIKit
 
 public class AppCoordinator {
 
     let navigationController: UINavigationController
-    let massService: MassRepository = MassService()
+    private let healthService: HealthRepository = HealthService()
+    private var cancellables = Set<AnyCancellable>()
 
     public init(with navigationController: UINavigationController)
     {
@@ -22,21 +25,24 @@ public class AppCoordinator {
 
     public func start()
     {
-        let controller = ListViewController(with: massService)
+        let controller = ListViewController(with: healthService)
         controller.delegate = self
         navigationController.pushViewController(controller, animated: true)
     }
 
     public func extensionRequestedAuthorization() {
-        massService.requestAuthorizationForExtension()
+        healthService.requestAuthorizationForExtension(for: .mass)
+            .sink(weak: self, receiveCompletion: { _, completion in
+                Log.error(completion.error)
+            }).store(in: &cancellables)
     }
 
     let modalTransitionController = ModalTransition()
 
-    func startAdd(last mass: Mass?)
+    func startAdd(last mass: DataPoint<UnitMass>?)
     {
-        let addViewController = AddViewController(with: massService,
-                                                  startMass: mass ?? Mass())
+        let addViewController = AddViewController(with: healthService,
+                                                  startMass: mass ?? DataPoint<UnitMass>())
         addViewController.delegate = self
 
         addViewController.modalPresentationStyle = .custom
@@ -48,7 +54,7 @@ public class AppCoordinator {
 
     func startAuthorizationRequest()
     {
-        let viewController = AuthorizationRequestViewController(with: massService)
+        let viewController = AuthorizationRequestViewController(healthService: healthService)
         viewController.delegate = self
         self.navigationController.present(viewController,
                                           animated: true)
@@ -77,9 +83,9 @@ public class AppCoordinator {
 
 extension AppCoordinator: ListViewControllerDelegate {
 
-    public func didTapAddMeasure(last mass: Mass?)
+    public func didTapAddMeasure(last mass: DataPoint<UnitMass>?)
     {
-        switch massService.authorizationStatus {
+        switch healthService.authorizationStatus(for: .mass) {
         case .authorized:
             startAdd(last: mass)
         case .notDetermined:

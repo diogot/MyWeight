@@ -24,7 +24,7 @@ class AccessDeniedViewControllerTests: XCTestCase {
         viewController.view.frame = UIScreen.main.bounds
     }
 
-    func snapshotTest() {
+    func testSnapshot() {
         expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
     }
 }

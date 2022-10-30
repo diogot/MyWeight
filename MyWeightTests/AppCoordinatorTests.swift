@@ -1,52 +1,43 @@
-import Quick
 import Nimble
 import Nimble_Snapshots
 import UIKit
+import XCTest
 
 @testable import MyWeight
 
-class AppCoordinatorTests: QuickSpec {
+class AppCoordinatorTests: XCTestCase {
     
     var appCoordinator: AppCoordinator!
     var navigationController: NotAnimationNavigationController!
     var window: UIWindow!
     
+    override func setUp() {
+        super.setUp()
+        navigationController = NotAnimationNavigationController()
+        appCoordinator = AppCoordinator(with: navigationController)
 
-    override func spec() {
-        describe("appCoordinator") {
-            beforeEach {
-                self.navigationController = NotAnimationNavigationController()
-                self.appCoordinator = AppCoordinator(with: self.navigationController)
-                
-                let windowSize = CGRect(x: 0, y: 0, width: 320, height: 640)
-                let window = UIWindow(frame: windowSize)
-                window.rootViewController = self.navigationController
-                window.makeKeyAndVisible()
-                self.window = window
-            }
-            
-            context("behavior") {
-                it("should present a AddViewController on startAdd call") {
-                    self.appCoordinator.startAdd(last: nil)
-                    
-                    expect(self.navigationController.presentedViewController).to(beAnInstanceOf(AddViewController.self))
-                }
-                
-                
-                it("should present a AuthorizationRequestViewController on startAuthorizationRequest call") {
-                    self.appCoordinator.startAuthorizationRequest()
-                    
-                    expect(self.navigationController.presentedViewController).to(beAnInstanceOf(AuthorizationRequestViewController.self))
-                }
-                
-                it("should present a AccessDeniedViewController on startAuthorizationDenied call") {
-                    self.appCoordinator.startAuthorizationDenied()
-                    
-                    expect(self.navigationController.presentedViewController).to(beAnInstanceOf(AccessDeniedViewController.self))
-                }
-                
-            }
-        }
+        let windowSize = CGRect(x: 0, y: 0, width: 320, height: 640)
+        let window = UIWindow(frame: windowSize)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        self.window = window
+    }
+
+    func testShouldPresetAddViewControllerOnStartAdd() {
+        appCoordinator.startAdd(last: nil)
+        expect(self.navigationController.presentedViewController).to(beAnInstanceOf(AddViewController.self))
+    }
+
+    func testShouldPresentAuthorizationRequestViewControllerOnStartAuthorizationRequest() {
+        appCoordinator.startAuthorizationRequest()
+        expect(self.navigationController.presentedViewController).to(beAnInstanceOf(AuthorizationRequestViewController.self))
+
+    }
+
+    func testShouldPresentAccessDeniedViewControllerOnStartAuthorizationDenied() {
+        appCoordinator.startAuthorizationDenied()
+        expect(self.navigationController.presentedViewController).to(beAnInstanceOf(AccessDeniedViewController.self))
+
     }
 }
 

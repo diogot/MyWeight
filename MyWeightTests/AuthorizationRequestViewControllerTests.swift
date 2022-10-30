@@ -8,26 +8,23 @@
 
 import Nimble
 import Nimble_Snapshots
-import Quick
 import UIKit
+import XCTest
 
 @testable import MyWeight
 
-class AuthorizationRequestViewControllerTests: QuickSpec {
+class AuthorizationRequestViewControllerTests: XCTestCase {
 
     var viewController: AuthorizationRequestViewController!
     let snapshotService = SnapshotService()
 
-    override func spec() {
-        describe("AuthorizationRequestViewController") {
-            beforeEach {
-                self.viewController = AuthorizationRequestViewController(healthService: FakeHealthRepository())
-                self.viewController.view.frame = UIScreen.main.bounds
-            }
+    override func setUp() {
+        super.setUp()
+        viewController = AuthorizationRequestViewController(healthService: FakeHealthRepository())
+        viewController.view.frame = UIScreen.main.bounds
+    }
 
-            it("should have the correct layout") {
-                expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
-            }
-        }
+    func testSnapshot() {
+        expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
     }
 }

@@ -49,11 +49,6 @@
                BlueprintName = "MyWeightTests"
                ReferencedContainer = "container:MyWeight.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "AddViewControllerTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

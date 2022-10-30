@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import Nimble_Snapshots
+import UIKit
 
 @testable import MyWeight
 
@@ -28,7 +29,5 @@ class AccessDeniedViewControllerTests: QuickSpec {
                 expect(self.viewController.view).to(self.snapshotService.haveSnapshot())
             }
         }
-        
-        
     }
 }

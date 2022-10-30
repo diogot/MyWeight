@@ -50,16 +50,6 @@
                ReferencedContainer = "container:MyWeight.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D97F441E1CAB5E51000F4E12"
-               BuildableName = "MyWeightUITests.xctest"
-               BlueprintName = "MyWeightUITests"
-               ReferencedContainer = "container:MyWeight.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

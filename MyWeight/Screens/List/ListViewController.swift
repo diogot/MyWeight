@@ -49,7 +49,6 @@ public class ListViewController: UIViewController {
 
     public override func viewDidLoad()
     {
-        loadMasses()
         observeMassesUpdate()
     }
 
@@ -63,7 +62,6 @@ public class ListViewController: UIViewController {
         customView.viewModel = viewModel
     }
 
-    var massObserver: NSObjectProtocol? = nil
     func observeMassesUpdate()
     {
         healthService.observeChanges(in: .mass)

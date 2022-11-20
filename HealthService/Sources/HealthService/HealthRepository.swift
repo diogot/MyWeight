@@ -17,6 +17,7 @@ public protocol HealthRepository {
     func requestAuthorization(for kind: DataKind) -> AnyPublisher<Void, HealthRepositoryError>
     func observeChanges(in kind: DataKind) -> AnyPublisher<Void, HealthRepositoryError>
 #if os(iOS)
+    func authorizationStatusPublisher(for kind: DataKind) -> AnyPublisher<HealthRepositoryAuthorizationStatus, Never>
     func requestAuthorizationForExtension(for kind: DataKind) -> AnyPublisher<Void, HealthRepositoryError>
 #endif
 }

@@ -71,6 +71,15 @@ final class FakeHealthRepository: HealthRepository {
         return observeChangesResponse.asAnyPublisher()
     }
 
+    var authorizationStatusPublisherResponse: Result<HealthRepositoryAuthorizationStatus, Never> = .success(.notDetermined)
+    private(set) var authorizationStatusPublisherCalls = 0
+    private(set) var authorizationStatusPublisherKindInput = [DataKind]()
+    func authorizationStatusPublisher(for kind: DataKind) -> AnyPublisher<HealthRepositoryAuthorizationStatus, Never> {
+        authorizationStatusPublisherKindInput.append(kind)
+        authorizationStatusPublisherCalls += 1
+        return authorizationStatusPublisherResponse.asAnyPublisher()
+    }
+
     var requestAuthorizationForExtensionResponse: Result<Void, HealthRepositoryError> = .success(())
     private(set) var requestAuthorizationForExtensionCalls = 0
     private(set) var requestAuthorizationForExtensionKindInput = [DataKind]()

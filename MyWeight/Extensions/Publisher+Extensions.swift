@@ -10,6 +10,22 @@ import Combine
 import Foundation
 
 extension Publisher {
+    func catchFailureAndLog(completeImmediately: Bool = true, functionName: String = #function, fileName: String = #file,
+                            lineNumber: Int = #line) -> AnyPublisher<Output, Never> {
+        self.catch { error -> Empty<Output, Never> in
+            Log.error(error, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+            return Empty(completeImmediately: completeImmediately)
+        }.eraseToAnyPublisher()
+    }
+
+    func catchFailureLogAndReplace(with element: Output, functionName: String = #function,
+                                   fileName: String = #file, lineNumber: Int = #line) -> AnyPublisher<Output, Never> {
+        self.catch { error -> Just<Output> in
+            Log.error(error, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+            return Just(element)
+        }.eraseToAnyPublisher()
+    }
+
     func sink<T: AnyObject>(weak object: T,
                             receiveCompletion: ((T, Subscribers.Completion<Self.Failure>) -> Void)? = nil,
                             receiveValue: ((T, Self.Output) -> Void)? = nil) -> AnyCancellable {

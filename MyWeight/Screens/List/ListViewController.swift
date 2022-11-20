@@ -28,6 +28,7 @@ public class ListViewController: UIViewController {
 
     private lazy var customView = ListView()
 
+    private var massObserverCancellable: AnyCancellable?
     private var cancellables = Set<AnyCancellable>()
     private var loadMassCancellable: AnyCancellable?
 
@@ -49,7 +50,9 @@ public class ListViewController: UIViewController {
 
     public override func viewDidLoad()
     {
-        observeMassesUpdate()
+        healthService.authorizationStatusPublisher(for: .mass).sink(weak: self, receiveValue: { me, _ in
+            me.observeMassesUpdate()
+        }).store(in: &cancellables)
     }
 
     func updateView()
@@ -64,20 +67,23 @@ public class ListViewController: UIViewController {
 
     func observeMassesUpdate()
     {
-        healthService.observeChanges(in: .mass)
-            .sink(weak: self, receiveValue: { me, _ in
-                me.loadMasses()
-            }).store(in: &cancellables)
-    }
-
-    func loadMasses()
-    {
-        loadMassCancellable?.cancel()
-        masses.removeAll()
-        loadMassCancellable = healthService.fetchMass()
-            .sink(weak: self, receiveValue: { me, masses in
-                me.masses.append(contentsOf: masses)
-            })
+        massObserverCancellable?.cancel()
+        massObserverCancellable = healthService.observeChanges(in: .mass)
+            .prepend(())
+            .flatMap { [healthService] _ in
+                healthService.fetchMass().catchFailureLogAndReplace(with: [])
+            }
+            .sink(
+                weak: self,
+                receiveCompletion: { _, completion in
+                    if let error = completion.error {
+                        Log.error(error)
+                    }
+                },
+                receiveValue: { me, masses in
+                    me.masses = masses
+                }
+            )
     }
 
     func tapAddMass()

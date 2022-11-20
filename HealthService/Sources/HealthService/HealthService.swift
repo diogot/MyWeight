@@ -139,8 +139,9 @@ public final class HealthService: HealthRepository {
         return status
     }
 
+    private let authorizationMightHadChangedSubject = PassthroughSubject<DataKind, Never>()
     public func requestAuthorization(for kind: DataKind) -> AnyPublisher<Void, HealthRepositoryError> {
-        Deferred { [healthStore] in
+        Deferred { [healthStore, authorizationMightHadChangedSubject] in
             Future { promise in
                 let set = Set<HKSampleType>(arrayLiteral: kind.type)
                 healthStore.requestAuthorization(toShare: set, read: set) { success, error in
@@ -149,6 +150,7 @@ public final class HealthService: HealthRepository {
                     } else {
                         promise(.success(()))
                     }
+                    authorizationMightHadChangedSubject.send(kind)
                 }
             }
         }
@@ -157,6 +159,17 @@ public final class HealthService: HealthRepository {
     }
 
 #if os(iOS)
+    public func authorizationStatusPublisher(for kind: DataKind) -> AnyPublisher<HealthRepositoryAuthorizationStatus, Never> {
+        let publisher = AuthorizationStatusPublisher(
+            dataKind: kind,
+            authorizationMightHadChangedPublisher: authorizationMightHadChangedSubject.eraseToAnyPublisher(),
+            healthRepository: self,
+            notificationCenter: .default
+        )
+
+        return publisher.eraseToAnyPublisher()
+    }
+
     public func requestAuthorizationForExtension(for kind: DataKind) -> AnyPublisher<Void, HealthRepositoryError> {
         Deferred { [healthStore] in
             Future { promise in

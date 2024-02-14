@@ -1,0 +1,38 @@
+name: 'Tests'
+
+on:
+  pull_request:
+    type: [opened, synchronize, reopened]
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: 'Run'
+    runs-on: macos-latest
+    concurrency:
+      group: ${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.2'
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: 'Setup'
+        run: rake setup
+        shell: bash
+
+      - name: 'Run Test'
+        run: bundle exec rake xcode:tests[true]
+        shell: bash
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ inputs.github-token }}

@@ -25,8 +25,8 @@ danger:
 
 xcode:
   version: 14.1
-  build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
-  reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
+  build_path: build # primarily taken from ENV['ARTIFACTS_PATH'] then here
+  reports_path: reports # primarily taken from ENV['TEST_REPORTS_PATH'] then here
   tests:
     scheme: MyWeight
     destinations:

@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   test:
-    name: 'Run'
+    name: 'Run Tests'
     runs-on: macos-latest
     concurrency:
       group: ${{ github.head_ref || github.run_id }}
@@ -20,19 +20,20 @@ jobs:
     steps:
       - name: 'Checkout code'
         uses: actions/checkout@v3
-
+        with:
+          submodules: 'true'
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2.2'
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: 'Setup'
+      - name: 'Setup environment'
         run: rake setup
         shell: bash
 
-      - name: 'Run Test'
+      - name: 'Test'
         run: bundle exec rake xcode:tests[true]
         shell: bash
         env:
-          DANGER_GITHUB_API_TOKEN: ${{ inputs.github-token }}
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}

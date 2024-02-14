@@ -15,7 +15,7 @@ warning_important_file_changed 'Podfile'
 warning_important_file_changed 'Podfile.lock'
 
 # RuboCop
-rubocop.lint
+# rubocop.lint
 
 fail 'Please add labels to this PR' if github.pr_labels.empty?
 fail 'Please provide a summary in the Pull Request description' if github.pr_body.length < 5

@@ -5,7 +5,7 @@ project_path: MyWeight.xcodeproj
 setup:
   bundler:
     enabled: true
-    path: # optional, primarly taken from ENV['BUNDLER_PATH'] then here
+    path: # optional, primarily taken from ENV['BUNDLER_PATH'] then here
   brew:
     enabled: false
     formulas:
@@ -24,13 +24,13 @@ danger:
     post_test: 'danger/PostTestDangerfile'
 
 xcode:
-  version: 14.1
-  build_path: build # primarly taken from ENV['ARTIFACTS_PATH'] then here
-  reports_path: reports # primarly taken from ENV['TEST_REPORTS_PATH'] then here
+  version: 15.2
+  build_path: build # primarily taken from ENV['ARTIFACTS_PATH'] then here
+  reports_path: reports # primarily taken from ENV['TEST_REPORTS_PATH'] then here
   tests:
     scheme: MyWeight
     destinations:
-      - 'platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro'
+      - 'platform=iOS Simulator,OS=17.2,name=iPhone 15 Pro'
   release:
     prod:
       scheme: MyWeight

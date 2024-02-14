@@ -12,7 +12,7 @@ permissions:
 jobs:
   test:
     name: 'Run Tests'
-    runs-on: macos-latest
+    runs-on: macos-14
     concurrency:
       group: ${{ github.head_ref || github.run_id }}
       cancel-in-progress: true

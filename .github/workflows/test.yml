@@ -19,9 +19,10 @@ jobs:
 
     steps:
       - name: 'Checkout code'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: 'true'
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -37,3 +38,17 @@ jobs:
         shell: bash
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+
+      - name: 'Archive logs'
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: "test-logs-${{ github.run_attempt }}"
+          path: ${{ vars.ARTIFACTS_DEFAULT_PATH }}/
+
+      - name: 'Archive results'
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: "test-results-${{ github.run_attempt }}"
+          path: ${{ vars.TEST_REPORTS_DEFAULT_PATH }}/

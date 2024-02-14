@@ -5,7 +5,7 @@ project_path: MyWeight.xcodeproj
 setup:
   bundler:
     enabled: true
-    path: # optional, primarly taken from ENV['BUNDLER_PATH'] then here
+    path: # optional, primarily taken from ENV['BUNDLER_PATH'] then here
   brew:
     enabled: false
     formulas:

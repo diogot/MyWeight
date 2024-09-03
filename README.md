@@ -56,7 +56,7 @@ fi
 git submodule update --init --recursive
 ```
 
-### Configuring the environment and dependencies 
+### Configuring the environment and dependencies
 
 ```sh
 rake setup
@@ -71,7 +71,6 @@ rake xcode:tests
 ## Authors
 
 - [Diogo Tridapalli](https://twitter.com/diogot) - main developer
-- [Marcel Müller](https://twitter.com/grigio) - designer
 
 ## License
 
@@ -79,6 +78,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
+- [Marcel Müller](https://twitter.com/grigio)
 - [Bruno Koga](https://github.com/brunokoga)
 - [Bruno Mazzo](https://github.com/BrunoMazzo)
 - [Igor Castañeda Ferreira](https://github.com/igorcferreira)
